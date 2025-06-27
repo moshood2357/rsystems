@@ -1,5 +1,5 @@
 
-import { Phone, Mail, MapPin, ArrowRight, Clock, Cloud, Settings, HardDrive, Monitor, Shield, Wifi, ChevronDown } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowRight, Cloud, Settings, HardDrive, Monitor, Shield, Wifi, ChevronDown } from "lucide-react";
 
 import {  useState } from "react";
 import { Button } from "../ui/Button";
