@@ -14,37 +14,43 @@ export default function Contact() {
         icon: <Monitor className="h-5 w-5" />,
         title: "Computer Repair",
         description: "Hardware & software diagnostics",
-        href: "#computer-repair"
+        href: "/services/computer-repair"
+
       },
       {
         icon: <Wifi className="h-5 w-5" />,
         title: "Network Solutions",
         description: "Setup & maintenance",
-        href: "#network-solutions"
+        href: "/services/computer-repair"
+
       },
       {
         icon: <Shield className="h-5 w-5" />,
         title: "Cybersecurity",
         description: "Protection & monitoring",
-        href: "#cybersecurity"
+       href: "/services/computer-repair"
+
       },
       {
         icon: <HardDrive className="h-5 w-5" />,
         title: "Data Recovery",
         description: "File restoration services",
-        href: "#data-recovery"
+        href: "/services/computer-repair"
+
       },
       {
         icon: <Cloud className="h-5 w-5" />,
         title: "Cloud Services",
         description: "Migration & management",
-        href: "#cloud-services"
+       href: "/services/computer-repair"
+
       },
       {
         icon: <Settings className="h-5 w-5" />,
         title: "IT Support",
         description: "24/7 technical assistance",
-        href: "#it-support"
+        href: "/services/computer-repair"
+
       }
     ];
   return (
@@ -90,7 +96,7 @@ export default function Contact() {
                                    <div className="p-4">
                                      <div className="grid grid-cols-2 gap-3">
                                        {services.map((service, index) => (
-                                         <a
+                                         <Link
                                            key={index}
                                            href={service.href}
                                            className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item"
@@ -106,17 +112,17 @@ export default function Contact() {
                                                {service.description}
                                              </p>
                                            </div>
-                                         </a>
+                                         </Link>
                                        ))}
                                      </div>
                                      <div className="mt-4 pt-4 border-t border-gray-100">
-                                       <a
-                                         href="#all-services"
+                                       <Link
+                                         to ="/services"
                                          className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
                                        >
                                          View All Services
                                          <ArrowRight className="ml-2 h-4 w-4" />
-                                       </a>
+                                       </Link>
                                      </div>
                                    </div>
                                  </div>

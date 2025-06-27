@@ -24,6 +24,8 @@ import { Badge } from "../ui/Badge";
 
 import { Link } from 'react-router-dom';
 import { useState } from "react";
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+
 
 
 export default function HomePage() {
@@ -34,37 +36,43 @@ export default function HomePage() {
       icon: <Monitor className="h-5 w-5" />,
       title: "Computer Repair",
       description: "Hardware & software diagnostics",
-      href: "#computer-repair"
+      href: "/services/computer-repair"
+
     },
     {
       icon: <Wifi className="h-5 w-5" />,
       title: "Network Solutions",
       description: "Setup & maintenance",
-      href: "#network-solutions"
+      href: "/services/computer-repair"
+
     },
     {
       icon: <Shield className="h-5 w-5" />,
       title: "Cybersecurity",
       description: "Protection & monitoring",
-      href: "#cybersecurity"
+      href: "/services/computer-repair"
+
     },
     {
       icon: <HardDrive className="h-5 w-5" />,
       title: "Data Recovery",
       description: "File restoration services",
-      href: "#data-recovery"
+      href: "/services/computer-repair"
+
     },
     {
       icon: <Cloud className="h-5 w-5" />,
       title: "Cloud Services",
       description: "Migration & management",
-      href: "#cloud-services"
+      href: "/services/computer-repair"
+
     },
     {
       icon: <Settings className="h-5 w-5" />,
       title: "IT Support",
       description: "24/7 technical assistance",
-      href: "#it-support"
+      href: "/services/computer-repair"
+
     }
   ];
   return (
@@ -126,27 +134,27 @@ export default function HomePage() {
                       ))}
                     </div>
                     <div className="mt-4 pt-4 border-t border-gray-100">
-                      <a
-                        href="#all-services"
+                      <Link
+                        to ="/services"
                         className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
                       >
                         View All Services
                         <ArrowRight className="ml-2 h-4 w-4" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">
+              <Link to ="/about" className="text-gray-700 hover:text-blue-600 transition-colors">
                 About
-              </a>
-              <a href ="#testimonials" className="text-gray-700 hover:text-blue-600 transition-colors">
+              </Link>
+              <AnchorLink href = "#testimonials"  className="text-gray-700 hover:text-blue-600 transition-colors">
                 Reviews
-              </a>
-              <a href="/contact" className="text-gray-700 hover:text-blue-600 transition-colors">
+              </AnchorLink>
+              <Link to ="/contact" className="text-gray-700 hover:text-blue-600 transition-colors">
                 Contact
-              </a>
+              </Link>
               <Link to = "/contact">
                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
                 Get Quote
@@ -509,24 +517,24 @@ export default function HomePage() {
               <h3 className="font-semibold mb-4">Services</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <a href="#repair" className="hover:text-white transition-colors">
+                  <Link to ="/services" className="hover:text-white transition-colors">
                     Computer Repair
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#solutions" className="hover:text-white transition-colors">
+                  <Link to ="/solutions" className="hover:text-white transition-colors">
                     Network Solutions
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#support" className="hover:text-white transition-colors">
+                  <Link to ="/support" className="hover:text-white transition-colors">
                     IT Support
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#recovery" className="hover:text-white transition-colors">
+                  <Link to ="/recovery" className="hover:text-white transition-colors">
                     Data Recovery
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -535,24 +543,24 @@ export default function HomePage() {
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <a href="#about" className="hover:text-white transition-colors">
+                  <Link to ="/about" className="hover:text-white transition-colors">
                     About Us
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#tea" className="hover:text-white transition-colors">
+                  <Link to ="/team" className="hover:text-white transition-colors">
                     Our Team
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#careers" className="hover:text-white transition-colors">
+                  <Link to ="/careers" className="hover:text-white transition-colors">
                     Careers
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#contact" className="hover:text-white transition-colors">
+                  <Link to ="/contact" className="hover:text-white transition-colors">
                     Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
