@@ -184,7 +184,7 @@ export default function HomePage() {
             <div>
               <Badge variant = "outline" className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-100">Professional IT Solutions</Badge>
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Reliable and  local IT Support for Cheltenham
+                Reliable and  local IT Support for Cheltenham and beyond
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 Expert computer repairs, network solutions, and IT support services. We keep your technology running
