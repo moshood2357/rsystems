@@ -313,7 +313,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <img
-                src="/placeholder.svg?height=500&width=600"
+                src="/support.png"
                 alt="R2 System Solution team"
                 width={600}
                 height={500}
