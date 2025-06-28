@@ -168,10 +168,25 @@ export default function Contact() {
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto p-6">
         {/* Form */}
         <form className="bg-white p-6 rounded-xl shadow-lg space-y-4">
+          <label className="block mb-1 font-medium text-gray-700">
+           Name <span className="text-red-500">*</span>
+          </label>
           <input className="w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all" placeholder="Full Name" required />
+          <label className="block mb-1 font-medium text-gray-700">
+          Email<span className="text-red-500">*</span>
+          </label>
           <input className="w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all " placeholder="Email" type="email" required />
+          <label className="block mb-1 font-medium text-gray-700">
+          Phone Number <span className="text-red-500">*</span>
+          </label>
           <input className="w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all" required placeholder="Phone Number" type="tel" />
+          <label className="block mb-1 font-medium text-gray-700">
+          Subject <span className="text-red-500">*</span>
+          </label>
           <input className="w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all" placeholder="Subject" required />
+          <label className="block mb-1 font-medium text-gray-700">
+          Message <span className="text-red-500">*</span>
+          </label>
           <textarea className="w-full border border-gray-300 p-3 rounded-md h-32 focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all " placeholder="Your Message" required />
           <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition">
             Send Message
