@@ -452,15 +452,15 @@ export default function HomePage() {
                     <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all"
-                      placeholder="John"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all" required
+                      placeholder="John" 
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
                     <input
                       type="text"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all" required
                       placeholder="Doe"
                     />
                   </div>
@@ -469,7 +469,7 @@ export default function HomePage() {
                   <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
                   <input
                     type="email"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all" required
                     placeholder="john@example.com"
                   />
                 </div>
@@ -486,7 +486,7 @@ export default function HomePage() {
                   <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
                   <textarea
                     rows={4}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all" required
                     placeholder="Tell us about your IT needs..."
                   ></textarea>
                 </div>
