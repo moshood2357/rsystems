@@ -193,7 +193,7 @@ export default function HomePage() {
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link to = "/contact">
-                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                  <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
                     Get Free Consultation
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
