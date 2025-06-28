@@ -32,46 +32,45 @@ import {  useState } from "react";
 export default function About() {
      const [isServicesOpen, setIsServicesOpen] = useState(false);
 
+
   const services = [
     {
       icon: <Monitor className="h-5 w-5" />,
-      title: "Computer Repair",
-      description: "Hardware & software diagnostics",
-      href: "/services/computer-repair"
+      title: "Managed IT support",
+      description: "We manage your IT. You grow. 24/7 UK support."
 
     },
     {
       icon: <Wifi className="h-5 w-5" />,
-      title: "Network Solutions",
-      description: "Setup & maintenance",
+      title: "Cybersecurity services",
+      description: "Block threats with next-gen security.",
       href: "/services/computer-repair"
 
     },
     {
       icon: <Shield className="h-5 w-5" />,
-      title: "Cybersecurity",
-      description: "Protection & monitoring",
+      title: "Cloud & Infrastructure Management",
+      description: "Secure, streamline, and scale with cloud.",
       href: "/services/computer-repair"
 
     },
     {
       icon: <HardDrive className="h-5 w-5" />,
-      title: "Data Recovery",
-      description: "File restoration services",
-      href: "/services/computer-repair"
+      title: "IT consultancy",
+      description: "Align tech with goals."
 
     },
     {
       icon: <Cloud className="h-5 w-5" />,
-      title: "Cloud Services",
-      description: "Migration & management",
-     href: "/services/computer-repair"
+      title: "Compliance & Governace",
+      description: "Stay secure and compliant.",
+      href: "/services/computer-repair"
 
     },
     {
       icon: <Settings className="h-5 w-5" />,
-      title: "IT Support",
-      description: "24/7 technical assistance",
+      title: "Device & Endpoint Management",
+      description: "Secure and manage devices.",
       href: "/services/computer-repair"
 
     }
@@ -97,7 +96,7 @@ export default function About() {
                 <Link to ="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
                 Home
               </Link>
-              {/* Services Dropdown */}
+          {/* Services Dropdown */}
               <div 
                 className="relative group"
                 onMouseEnter={() => setIsServicesOpen(true)}
@@ -201,11 +200,14 @@ export default function About() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg">
+                <Link to = "/services">
+                   <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg">
                   Our Services
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button
+                </Link >
+                <Link to = "/contact">
+                   <Button
                   size="lg"
                   variant="outline"
                   className="border-white text-white hover:bg-white hover:text-blue-600"
@@ -213,6 +215,7 @@ export default function About() {
                   Contact Us
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
+                </Link>
               </div>
 
               <div className="flex items-center space-x-6 text-sm text-blue-100">
@@ -432,8 +435,8 @@ export default function About() {
                   },
                   {
                     icon: <Zap className="h-6 w-6 text-green-600" />,
-                    title: "Comprehensive service offerings from help desk to strategic consulting",
-                    description: "From basic support to complex infrastructure planning, we cover all your IT needs",
+                    title: " Transparent pricing, no long-term lock-ins",
+                    description: "Simple pricing with the freedom to leave anytime.",
                   },
                   {
                     icon: <Shield className="h-6 w-6 text-purple-600" />,
@@ -449,6 +452,11 @@ export default function About() {
                     icon: <Target className="h-6 w-6 text-red-600" />,
                     title: "Customized solutions for businesses of all sizes",
                     description: "Tailored IT solutions that grow with your business needs",
+                  },
+                   {
+                    icon: <Target className="h-6 w-6 text-red-600" />,
+                    title: " Trusted by local professionals in legal, finance, and healthcare",
+                    description: "Preferred IT partner for law firms, finance teams, and clinics.",
                   },
                 ].map((item, index) => (
                   <div key={index} className="flex items-start space-x-4">
@@ -489,10 +497,12 @@ export default function About() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg">
+            <Link to = "/contact">
+               <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg">
               <Calendar className="mr-2 h-5 w-5" />
               Schedule a Consultation
             </Button>
+            </Link>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
               <Phone className="mr-2 h-5 w-5" />
               Call Now

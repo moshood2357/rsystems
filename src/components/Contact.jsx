@@ -9,50 +9,48 @@ import { Link } from 'react-router-dom';
 export default function Contact() {
    const [isServicesOpen, setIsServicesOpen] = useState(false);
   
-    const services = [
-      {
-        icon: <Monitor className="h-5 w-5" />,
-        title: "Computer Repair",
-        description: "Hardware & software diagnostics",
-        href: "/services/computer-repair"
+  const services = [
+    {
+      icon: <Monitor className="h-5 w-5" />,
+      title: "Managed IT support",
+      description: "We manage your IT. You grow. 24/7 UK support."
 
-      },
-      {
-        icon: <Wifi className="h-5 w-5" />,
-        title: "Network Solutions",
-        description: "Setup & maintenance",
-        href: "/services/computer-repair"
+    },
+    {
+      icon: <Wifi className="h-5 w-5" />,
+      title: "Cybersecurity services",
+      description: "Block threats with next-gen security.",
+      href: "/services/computer-repair"
 
-      },
-      {
-        icon: <Shield className="h-5 w-5" />,
-        title: "Cybersecurity",
-        description: "Protection & monitoring",
-       href: "/services/computer-repair"
+    },
+    {
+      icon: <Shield className="h-5 w-5" />,
+      title: "Cloud & Infrastructure Management",
+      description: "Secure, streamline, and scale with cloud.",
+      href: "/services/computer-repair"
 
-      },
-      {
-        icon: <HardDrive className="h-5 w-5" />,
-        title: "Data Recovery",
-        description: "File restoration services",
-        href: "/services/computer-repair"
+    },
+    {
+      icon: <HardDrive className="h-5 w-5" />,
+      title: "IT consultancy",
+      description: "Align tech with goals."
 
-      },
-      {
-        icon: <Cloud className="h-5 w-5" />,
-        title: "Cloud Services",
-        description: "Migration & management",
-       href: "/services/computer-repair"
+    },
+    {
+      icon: <Cloud className="h-5 w-5" />,
+      title: "Compliance & Governace",
+      description: "Stay secure and compliant.",
+      href: "/services/computer-repair"
 
-      },
-      {
-        icon: <Settings className="h-5 w-5" />,
-        title: "IT Support",
-        description: "24/7 technical assistance",
-        href: "/services/computer-repair"
+    },
+    {
+      icon: <Settings className="h-5 w-5" />,
+      title: "Device & Endpoint Management",
+      description: "Secure and manage devices.",
+      href: "/services/computer-repair"
 
-      }
-    ];
+    }
+  ];
   return (
     
     <div className="bg-gray-50 text-gray-800">
@@ -79,42 +77,42 @@ export default function Contact() {
                 Home
               </Link>
                                {/* Services Dropdown */}
-                               <div 
-                                 className="relative group"
-                                 onMouseEnter={() => setIsServicesOpen(true)}
-                                 onMouseLeave={() => setIsServicesOpen(false)}
-                               >
-                                 <button className="flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium">
-                                   Services
-                                   <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
-                                 </button>
-                                 
-                                 {/* Dropdown Menu */}
-                                 <div className={`absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 ${
-                                   isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
-                                 }`}>
-                                   <div className="p-4">
-                                     <div className="grid grid-cols-2 gap-3">
-                                       {services.map((service, index) => (
-                                         <Link
-                                           key={index}
-                                           href={service.href}
-                                           className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item"
-                                         >
-                                           <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors">
-                                             {service.icon}
-                                           </div>
-                                           <div className="min-w-0">
-                                             <p className="font-medium text-gray-900 text-sm group-hover/item:text-blue-600 transition-colors">
-                                               {service.title}
-                                             </p>
-                                             <p className="text-xs text-gray-500 mt-1">
-                                               {service.description}
-                                             </p>
-                                           </div>
-                                         </Link>
-                                       ))}
-                                     </div>
+              <div 
+                className="relative group"
+                onMouseEnter={() => setIsServicesOpen(true)}
+                onMouseLeave={() => setIsServicesOpen(false)}
+              >
+                <button className="flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                  Services
+                  <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {/* Dropdown Menu */}
+                <div className={`absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 ${
+                  isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
+                }`}>
+                  <div className="p-4">
+                    <div className="grid grid-cols-2 gap-3">
+                      {services.map((service, index) => (
+                        <a
+                          key={index}
+                          href={service.href}
+                          className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item"
+                        >
+                          <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors">
+                            {service.icon}
+                          </div>
+                          <div className="min-w-0">
+                            <p className="font-medium text-gray-900 text-sm group-hover/item:text-blue-600 transition-colors">
+                              {service.title}
+                            </p>
+                            <p className="text-xs text-gray-500 mt-1">
+                              {service.description}
+                            </p>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
                                      <div className="mt-4 pt-4 border-t border-gray-100">
                                        <Link
                                          to ="/services"

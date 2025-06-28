@@ -31,46 +31,47 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 export default function HomePage() {
    const [isServicesOpen, setIsServicesOpen] = useState(false);
 
+   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+
   const services = [
     {
       icon: <Monitor className="h-5 w-5" />,
-      title: "Computer Repair",
-      description: "Hardware & software diagnostics",
-      href: "/services/computer-repair"
+      title: "Managed IT support",
+      description: "We manage your IT. You grow. 24/7 UK support."
 
     },
     {
       icon: <Wifi className="h-5 w-5" />,
-      title: "Network Solutions",
-      description: "Setup & maintenance",
+      title: "Cybersecurity services",
+      description: "Block threats with next-gen security.",
       href: "/services/computer-repair"
 
     },
     {
       icon: <Shield className="h-5 w-5" />,
-      title: "Cybersecurity",
-      description: "Protection & monitoring",
+      title: "Cloud & Infrastructure Management",
+      description: "Secure, streamline, and scale with cloud.",
       href: "/services/computer-repair"
 
     },
     {
       icon: <HardDrive className="h-5 w-5" />,
-      title: "Data Recovery",
-      description: "File restoration services",
-      href: "/services/computer-repair"
+      title: "IT consultancy",
+      description: "Align tech with goals."
 
     },
     {
       icon: <Cloud className="h-5 w-5" />,
-      title: "Cloud Services",
-      description: "Migration & management",
+      title: "Compliance & Governace",
+      description: "Stay secure and compliant.",
       href: "/services/computer-repair"
 
     },
     {
       icon: <Settings className="h-5 w-5" />,
-      title: "IT Support",
-      description: "24/7 technical assistance",
+      title: "Device & Endpoint Management",
+      description: "Secure and manage devices.",
       href: "/services/computer-repair"
 
     }
@@ -147,7 +148,7 @@ export default function HomePage() {
               </div>
 
               <Link to ="/about" className="text-gray-700 hover:text-blue-600 transition-colors">
-                About
+                About 
               </Link>
               <AnchorLink href = "#testimonials"  className="text-gray-700 hover:text-blue-600 transition-colors">
                 Reviews
@@ -166,7 +167,8 @@ export default function HomePage() {
 
              
             {/* Mobile menu button */}
-            <Button variant="ghost" className="md:hidden">
+            <Button variant="ghost" className="md:hidden"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               <div className="w-6 h-6 flex flex-col justify-center space-y-1">
                 <div className="w-full h-0.5 bg-gray-600"></div>
                 <div className="w-full h-0.5 bg-gray-600"></div>
@@ -176,6 +178,86 @@ export default function HomePage() {
           </div>
         </div>
       </header>
+
+      {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+  <div className="md:hidden fixed inset-0 z-40 bg-white p-6 flex flex-col space-y-4 overflow-y-auto">
+    <button
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="self-end text-gray-700 hover:text-blue-600 font-medium"
+    >
+      Close ✕
+    </button>
+
+    {/* Services Dropdown */}
+    <div className="flex flex-col space-y-2">
+      <button
+        onClick={() => setIsServicesOpen(!isServicesOpen)}
+        className="flex justify-between items-center text-gray-700 hover:text-blue-600 text-lg font-medium"
+      >
+        Services
+        <ChevronDown
+          className={`h-5 w-5 transform transition-transform ${
+            isServicesOpen ? 'rotate-180' : ''
+          }`}
+        />
+      </button>
+      {isServicesOpen && (
+        <div className="flex flex-col space-y-2 pl-4 border-l border-gray-200">
+          {services.map((service, idx) => (
+            <Link
+              key={idx}
+              to={service.href || "/services"}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-gray-600 hover:text-blue-600 text-base"
+            >
+              {service.title}
+            </Link>
+          ))}
+          <Link
+            to="/services"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-blue-600 hover:underline text-base font-medium mt-2"
+          >
+            View All Services
+          </Link>
+        </div>
+      )}
+    </div>
+
+    <Link
+      to="/about"
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="text-gray-700 hover:text-blue-600 text-lg font-medium"
+    >
+      About
+    </Link>
+
+    <AnchorLink
+      href="#testimonials"
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="text-gray-700 hover:text-blue-600 text-lg font-medium"
+    >
+      Reviews
+    </AnchorLink>
+
+    <Link
+      to="/contact"
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="text-gray-700 hover:text-blue-600 text-lg font-medium"
+    >
+      Contact
+    </Link>
+
+    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+      <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full mt-4">
+        Get Quote
+        <ArrowRight className="ml-2 h-4 w-4" />
+      </Button>
+    </Link>
+  </div>
+)}
+
 
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -199,10 +281,13 @@ export default function HomePage() {
                   </Button>
                 </Link>
                 
-                <Button size="lg" variant="outline" className="border-gray-300 hover:bg-gray-50">
-                  <Phone className="mr-2 h-5 w-5" />
-                  Call Now
-                </Button>
+                <AnchorLink href = "#contact"  className="text-gray-700 hover:text-blue-600 transition-colors">
+                  <Button size="lg" variant="outline" className="border-gray-300 hover:bg-gray-50">
+                    <Phone className="mr-2 h-5 w-5" />
+                    Call Now
+                  </Button>
+                </AnchorLink>
+                
               </div>
 
               <div className="flex items-center space-x-6 text-sm text-gray-600">
@@ -266,23 +351,23 @@ export default function HomePage() {
             {[
               {
                 icon: <Zap className="h-8 w-8" />,
-                title: "Computer Repair",
+                title: "Managed IT support",
                 description:
-                  "Fast and reliable computer repair services for all makes and models. Hardware and software issues resolved quickly.",
-                features: ["Hardware Diagnostics", "Software Troubleshooting", "Data Recovery", "Virus Removal"],
+                  "We monitor, maintain, and manage your entire IT environment so you can focus on growing your business. Whether you’re a 5-person law firm or a 50-seat finance office, our UK-based support team is just a call away — 24/7.",
+                features: ["24/7 helpdesk", "Remote support", "On-site support", "Proactive monitoring", "Patch management"],
               },
               {
                 icon: <Users className="h-8 w-8" />,
-                title: "Network Solutions",
+                title: "Cyber security services",
                 description:
-                  "Professional network setup, maintenance, and security solutions for businesses of all sizes.",
-                features: ["Network Setup", "WiFi Installation", "Security Configuration", "Performance Optimization"],
+                  "Defend against malware, phishing, ransomware, and zero-day threats with next-gen security tools.",
+                features: ["Endpoint protection (antivirus, EDR)", "Managed firewalls", "Security awareness training ", "Email security (anti-phishing, spam filters)", "Security audits and compliance (GDPR, ISO 27001)", "Data loss prevention (DLP) solutions", "Incident response and remediation services"],
               },
               {
                 icon: <Award className="h-8 w-8" />,
-                title: "IT Support",
-                description: "Comprehensive IT support services to keep your systems running smoothly and securely.",
-                features: ["24/7 Monitoring", "Remote Support", "On-site Service", "Preventive Maintenance"],
+                title: "Cloud & Infrastructure management",
+                description: "Optimize, secure, and scale your IT operations with reliable cloud and infrastructure services.",
+                features: ["Microsoft 365 & Google Workspace Support", "Secure Cloud Storage & File Sharing", "Seamless setup, licensing, and administration for cloud productivity tools" , "Server Management & Virtualisation", "Full lifecycle management of on-prem and cloud servers, including Hyper-V and VMware.e", "Backup and disaster recovery solutions"],
               },
             ].map((service, index) => (
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -302,7 +387,7 @@ export default function HomePage() {
                       </li>
                     ))}
                   </ul>
-                  <Button className="w-full mt-6 bg-blue-600 hover:bg-blue-700">Learn More</Button>
+                  <Button className="w-full mt-6 bg-blue-600 text-white hover:bg-blue-700">Learn More</Button>
                 </CardContent>
               </Card>
             ))}
@@ -351,7 +436,7 @@ export default function HomePage() {
               </div>
 
               <Link to = "/about"> 
-                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                 <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
                     Learn More About Us
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -490,7 +575,7 @@ export default function HomePage() {
                     placeholder="Tell us about your IT needs..."
                   ></textarea>
                 </div>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                <Button className="w-full bg-blue-600 text-white hover:bg-blue-700">
                   Send Message
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
