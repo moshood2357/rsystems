@@ -63,13 +63,14 @@ export default function Contact() {
                <div className="flex items-center justify-between">
                 <Link to = "/">
                   <div className="flex items-center space-x-2">
-                    <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                    {/* <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                       <span className="text-white font-bold text-lg">R2</span>
                     </div>
                     <div>
                       <h1 className="font-bold text-xl text-gray-900">R2 System Solution</h1>
                       <p className="text-sm text-gray-600">IT Solutions & Support</p>
-                    </div>
+                    </div> */}
+                     <img src = "/CompanyLogo.jpeg" alt = "logo" style={{height: "50px"}}/>
                   </div>
                 </Link>
                  
