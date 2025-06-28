@@ -170,7 +170,7 @@ export default function HomePage() {
             <Button variant="ghost" className="md:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               <div className="w-6 h-6 flex flex-col justify-center space-y-1">
-                <div className="w-full h-0.5 bg-gray-600"></div>
+                 <div className="w-full h-0.5 bg-gray-600"></div>
                 <div className="w-full h-0.5 bg-gray-600"></div>
                 <div className="w-full h-0.5 bg-gray-600"></div>
               </div>
@@ -181,13 +181,8 @@ export default function HomePage() {
 
       {/* Mobile Menu */}
         {isMobileMenuOpen && (
-  <div className="md:hidden fixed inset-0 z-40 bg-white p-6 flex flex-col space-y-4 overflow-y-auto">
-    <button
-      onClick={() => setIsMobileMenuOpen(false)}
-      className="self-end text-gray-700 hover:text-blue-600 font-medium"
-    >
-      Close ✕
-    </button>
+  <div className="md:hidden fixed inset-0 z-40 bg-white p-6 pt-40 flex flex-col space-y-4 overflow-y-auto">
+    
 
     {/* Services Dropdown */}
     <div className="flex flex-col space-y-2">

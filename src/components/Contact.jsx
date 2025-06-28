@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 
 export default function Contact() {
    const [isServicesOpen, setIsServicesOpen] = useState(false);
+
+   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const services = [
     {
@@ -144,16 +146,84 @@ export default function Contact() {
                              </nav>
                  
                  {/* Mobile menu button */}
-                 <Button variant="ghost" className="lg:hidden">
-                   <div className="w-6 h-6 flex flex-col justify-center space-y-1">
-                     <div className="w-full h-0.5 bg-gray-600"></div>
-                     <div className="w-full h-0.5 bg-gray-600"></div>
-                     <div className="w-full h-0.5 bg-gray-600"></div>
-                   </div>
-                 </Button>
+                    <Button variant="ghost" className="md:hidden"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                        <div className="w-6 h-6 flex flex-col justify-center space-y-1">
+                          <div className="w-full h-0.5 bg-gray-600"></div>
+                          <div className="w-full h-0.5 bg-gray-600"></div>
+                          <div className="w-full h-0.5 bg-gray-600"></div>
+                        </div>
+                    </Button>
                </div>
              </div>
            </header>
+
+           {isMobileMenuOpen && (
+  <div className="md:hidden fixed inset-0 z-40 bg-white p-6 pt-40 flex flex-col space-y-4 overflow-y-auto">
+             <Link to ="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                Home
+              </Link>
+    {/* Services Dropdown */}
+    <div className="flex flex-col space-y-2">
+      <button
+        onClick={() => setIsServicesOpen(!isServicesOpen)}
+        className="flex justify-between items-center text-gray-700 hover:text-blue-600 text-lg font-medium"
+      >
+        Services
+        <ChevronDown
+          className={`h-5 w-5 transform transition-transform ${
+            isServicesOpen ? 'rotate-180' : ''
+          }`}
+        />
+      </button>
+      {isServicesOpen && (
+        <div className="flex flex-col space-y-2 pl-4 border-l border-gray-200">
+          {services.map((service, idx) => (
+            <Link
+              key={idx}
+              to={service.href || "/services"}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-gray-600 hover:text-blue-600 text-base"
+            >
+              {service.title}
+            </Link>
+          ))}
+          <Link
+            to="/services"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-blue-600 hover:underline text-base font-medium mt-2"
+          >
+            View All Services
+          </Link>
+        </div>
+      )}
+    </div>
+
+    <Link
+      to="/about"
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="text-gray-700 hover:text-blue-600 text-lg font-medium"
+    >
+      About
+    </Link>
+
+    <Link
+      to="/contact"
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="text-gray-700 hover:text-blue-600 text-lg font-medium"
+    >
+      Contact
+    </Link>
+
+    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+      <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full mt-4">
+        Get Quote
+        <ArrowRight className="ml-2 h-4 w-4" />
+      </Button>
+    </Link>
+  </div>
+)}
+
       {/* Hero Section */}
       <section className="text-center py-16 px-4 bg-gradient-to-br from-white to-blue-50">
         <h1 className="text-4xl sm:text-5xl font-bold text-blue-900 mb-4">Need Help With IT? Let’s Chat.</h1>

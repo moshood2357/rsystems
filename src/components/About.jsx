@@ -31,6 +31,7 @@ import {  useState } from "react";
 
 export default function About() {
      const [isServicesOpen, setIsServicesOpen] = useState(false);
+     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 
   const services = [
@@ -93,88 +94,155 @@ export default function About() {
               </div>
             </Link>
              <nav className="hidden md:flex items-center space-x-8">
-                <Link to ="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
-                Home
-              </Link>
-          {/* Services Dropdown */}
-              <div 
-                className="relative group"
-                onMouseEnter={() => setIsServicesOpen(true)}
-                onMouseLeave={() => setIsServicesOpen(false)}
-              >
-                <button className="flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium">
-                  Services
-                  <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
-                </button>
-                
-                {/* Dropdown Menu */}
-                <div className={`absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 ${
-                  isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
-                }`}>
-                  <div className="p-4">
-                    <div className="grid grid-cols-2 gap-3">
-                      {services.map((service, index) => (
-                        <a
-                          key={index}
-                          href={service.href}
-                          className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item"
-                        >
-                          <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors">
-                            {service.icon}
-                          </div>
-                          <div className="min-w-0">
-                            <p className="font-medium text-gray-900 text-sm group-hover/item:text-blue-600 transition-colors">
-                              {service.title}
-                            </p>
-                            <p className="text-xs text-gray-500 mt-1">
-                              {service.description}
-                            </p>
-                          </div>
-                        </a>
-                      ))}
-                    </div>
-                    <div className="mt-4 pt-4 border-t border-gray-100">
-                      <Link
-                        to ="/services"
-                        className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
-                      >
-                        View All Services
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
+                 <Link to ="/" className="text-gray-700 hover:text-blue-600 transition-colors     font-medium">
+                   Home
+                 </Link>
+                 {/* Services Dropdown */}
+                  <div 
+                    className="relative group"
+                    onMouseEnter={() => setIsServicesOpen(true)}
+                    onMouseLeave={() => setIsServicesOpen(false)}
+                  >
+                    <button className="flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                      Services
+                      <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    
+                    {/* Dropdown Menu */}
+                    <div className={`absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 ${
+                      isServicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
+                    }`}>
+                      <div className="p-4">
+                        <div className="grid grid-cols-2 gap-3">
+                          {services.map((service, index) => (
+                            <a
+                              key={index}
+                              href={service.href}
+                              className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item"
+                            >
+                              <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors">
+                                {service.icon}
+                              </div>
+                              <div className="min-w-0">
+                                <p className="font-medium text-gray-900 text-sm group-hover/item:text-blue-600 transition-colors">
+                                  {service.title}
+                                </p>
+                                <p className="text-xs text-gray-500 mt-1">
+                                  {service.description}
+                                </p>
+                              </div>
+                            </a>
+                          ))}
+                        </div>
+                        <div className="mt-4 pt-4 border-t border-gray-100">
+                          <Link
+                            to ="/services"
+                            className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
+                          >
+                            View All Services
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </Link>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
 
-              <Link to ="/about" className="text-gray-700 hover:text-blue-600 transition-colors">
-                About
-              </Link>
-              {/* <a href ="#testimonials" className="text-gray-700 hover:text-blue-600 transition-colors">
-                Reviews
-              </a> */}
-              <a href="/contact" className="text-gray-700 hover:text-blue-600 transition-colors">
-                Contact
-              </a>
-               <Link to = "/contact">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                Get Quote
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-               </Link>
+                  <Link to ="/about" className="text-gray-700 hover:text-blue-600 transition-colors">
+                    About
+                  </Link>
+                  {/* <a href ="#testimonials" className="text-gray-700 hover:text-blue-600 transition-colors">
+                    Reviews
+                  </a> */}
+                  <a href="/contact" className="text-gray-700 hover:text-blue-600 transition-colors">
+                    Contact
+                  </a>
+                  <Link to = "/contact">
+                      <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                    Get Quote
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                  </Link>
             </nav>
 
 
             {/* Mobile menu button */}
-            <Button variant="ghost" className="lg:hidden">
-              <div className="w-6 h-6 flex flex-col justify-center space-y-1">
-                <div className="w-full h-0.5 bg-gray-600"></div>
-                <div className="w-full h-0.5 bg-gray-600"></div>
-                <div className="w-full h-0.5 bg-gray-600"></div>
-              </div>
-            </Button>
+                    <Button variant="ghost" className="md:hidden"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                        <div className="w-6 h-6 flex flex-col justify-center space-y-1">
+                          <div className="w-full h-0.5 bg-gray-600"></div>
+                          <div className="w-full h-0.5 bg-gray-600"></div>
+                          <div className="w-full h-0.5 bg-gray-600"></div>
+                        </div>
+                    </Button>
           </div>
         </div>
       </header>
+
+       {isMobileMenuOpen && (
+  <div className="md:hidden fixed inset-0 z-40 bg-white p-6 pt-40 flex flex-col space-y-4 overflow-y-auto">
+             <Link to ="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                Home
+              </Link>
+    {/* Services Dropdown */}
+    <div className="flex flex-col space-y-2">
+      <button
+        onClick={() => setIsServicesOpen(!isServicesOpen)}
+        className="flex justify-between items-center text-gray-700 hover:text-blue-600 text-lg font-medium"
+      >
+        Services
+        <ChevronDown
+          className={`h-5 w-5 transform transition-transform ${
+            isServicesOpen ? 'rotate-180' : ''
+          }`}
+        />
+      </button>
+      {isServicesOpen && (
+        <div className="flex flex-col space-y-2 pl-4 border-l border-gray-200">
+          {services.map((service, idx) => (
+            <Link
+              key={idx}
+              to={service.href || "/services"}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-gray-600 hover:text-blue-600 text-base"
+            >
+              {service.title}
+            </Link>
+          ))}
+          <Link
+            to="/services"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-blue-600 hover:underline text-base font-medium mt-2"
+          >
+            View All Services
+          </Link>
+        </div>
+      )}
+    </div>
+
+    <Link
+      to="/about"
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="text-gray-700 hover:text-blue-600 text-lg font-medium"
+    >
+      About
+    </Link>
+
+    <Link
+      to="/contact"
+      onClick={() => setIsMobileMenuOpen(false)}
+      className="text-gray-700 hover:text-blue-600 text-lg font-medium"
+    >
+      Contact
+    </Link>
+
+    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+      <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full mt-4">
+        Get Quote
+        <ArrowRight className="ml-2 h-4 w-4" />
+      </Button>
+    </Link>
+  </div>
+)}
 
       {/* Hero Section */}
       <section
