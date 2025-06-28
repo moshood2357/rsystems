@@ -170,7 +170,7 @@ export default function Contact() {
         <form className="bg-white p-6 rounded-xl shadow-lg space-y-4">
           <input className="w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all" placeholder="Full Name" required />
           <input className="w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all " placeholder="Email" type="email" required />
-          <input className="w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all" placeholder="Phone Number" type="tel" />
+          <input className="w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all" required placeholder="Phone Number" type="tel" />
           <input className="w-full border border-gray-300 p-3 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all" placeholder="Subject" required />
           <textarea className="w-full border border-gray-300 p-3 rounded-md h-32 focus:ring-2 focus:ring-blue-500 focus:border-transparent  outline-none transition-all " placeholder="Your Message" required />
           <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition">
