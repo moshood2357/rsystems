@@ -23,12 +23,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui
 import { Badge } from "../ui/Badge";
 
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 
 
 export default function HomePage() {
+    const navigate = useNavigate();
    const [isServicesOpen, setIsServicesOpen] = useState(false);
 
    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -351,6 +353,7 @@ export default function HomePage() {
                 description:
                   "We monitor, maintain, and manage your entire IT environment so you can focus on growing your business. Whether you’re a 5-person law firm or a 50-seat finance office, our UK-based support team is just a call away — 24/7.",
                 features: ["24/7 helpdesk", "Remote support", "On-site support", "Proactive monitoring", "Patch management"],
+                link: "/support",
               },
               {
                 icon: <Users className="h-8 w-8" />,
@@ -383,7 +386,7 @@ export default function HomePage() {
                       </li>
                     ))}
                   </ul>
-                  <Button className="w-full mt-6 bg-blue-600 text-white hover:bg-blue-700">Learn More</Button>
+                  <Button className="w-full mt-6 bg-blue-600 text-white hover:bg-blue-700" onClick={() => navigate(service.link)}>Learn More</Button>
                 </CardContent>
               </Card>
             ))}
