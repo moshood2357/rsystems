@@ -226,12 +226,27 @@ export default function Contact() {
 )}
 
       {/* Hero Section */}
-      <section className="text-center py-16 px-4 bg-gradient-to-br from-white to-blue-50">
-        <h1 className="text-4xl sm:text-5xl font-bold text-blue-900 mb-4">Need Help With IT? Let’s Chat.</h1>
+      <section
+         className="relative text-center py-40 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-blue-50"
+         style={{
+         backgroundImage: "url('/Harley House Exterior.jpg')",
+         backgroundSize: "cover",
+        backgroundPosition: "center",
+         backgroundRepeat: "no-repeat",
+        }}
+    >
+       <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>  
+
+      <div className="relative z-20">
+        <h1 className="text-4xl sm:text-5xl font-bold text-blue-900 mb-4">
+          Need Help With IT? Let’s Chat.
+        </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Get a free 30-minute consultation — no pressure, just solutions.
         </p>
-      </section>
+      </div>
+</section>
+
 
       {/* Contact Form & Info */}
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto p-6">
@@ -353,8 +368,10 @@ export default function Contact() {
             <p>Harley House, 29 Cambray Place, Cheltenham</p>
           </div>
           <div>
-            <h4 className="font-semibold mb-2">Follow Us</h4>
-            <p>LinkedIn • Facebook • Instagram</p>
+            <h4 className="flex font-semibold mb-2">Follow Us</h4>
+            <a className=" mr-4" href = "https://www.instagram.com/r2systemsolution/">Instagram</a>
+            <a className=" mr-4" href = "https://www.instagram.com/r2systemsolution/">Facebook</a>
+            <a className=" mr-4" href = "https://www.instagram.com/r2systemsolution/">Linkedin</a>
           </div>
           <div>
             <h4 className="font-semibold mb-2">About Us</h4>
