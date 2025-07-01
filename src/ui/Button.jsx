@@ -8,7 +8,7 @@ function cn(...classes) {
 const variantStyles = {
   default: "bg-blue text-blue hover:bg-blue-700",
   destructive: "bg-red-600 text-white hover:bg-red-700",
-  outline: "border border-gray-300 bg-none text-gray-700 hover:bg-gray-50",
+  outline: "border border-blue-300 bg-none text-blu-700 hover:bg-gray-50",
   secondary: "bg-gray-100 text-gray-800 hover:bg-gray-200",
   ghost: "bg-transparent text-gray-700 hover:bg-gray-100",
   link: "text-blue-600 underline-offset-4 hover:underline",

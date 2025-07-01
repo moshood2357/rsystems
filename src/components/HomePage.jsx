@@ -353,7 +353,7 @@ export default function HomePage() {
                 description:
                   "We monitor, maintain, and manage your entire IT environment so you can focus on growing your business. Whether you’re a 5-person law firm or a 50-seat finance office, our UK-based support team is just a call away — 24/7.",
                 features: ["24/7 helpdesk", "Remote support", "On-site support", "Proactive monitoring", "Patch management"],
-                link: "/support",
+                link: "/support", 
               },
               {
                 icon: <Users className="h-8 w-8" />,
@@ -361,6 +361,7 @@ export default function HomePage() {
                 description:
                   "Defend against malware, phishing, ransomware, and zero-day threats with next-gen security tools.",
                 features: ["Endpoint protection (antivirus, EDR)", "Managed firewalls", "Security awareness training ", "Email security (anti-phishing, spam filters)", "Security audits and compliance (GDPR, ISO 27001)", "Data loss prevention (DLP) solutions", "Incident response and remediation services"],
+                link: "/cybersecurity", 
               },
               {
                 icon: <Award className="h-8 w-8" />,
