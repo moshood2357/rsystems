@@ -1,25 +1,22 @@
 "use client"
 import { useState } from "react"
 import {
-  Shield,
+  Cloud,
   CheckCircle,
   Star,
   Phone,
   Calendar,
-  AlertTriangle,
-  Eye,
-  FileText,
+  TrendingUp,
   ArrowRight,
-  Zap,
-  Target,
+  Settings,
   ChevronLeft,
   ChevronRight,
-  ChevronDown,
-  Monitor,
+  BarChart3,
+  Shield,
   Wifi,
+  Monitor,
   HardDrive,
-  Settings,
-  Cloud,
+  ChevronDown,
 } from "lucide-react"
 
 import { Link } from 'react-router-dom';
@@ -30,55 +27,7 @@ import { Badge } from "../ui/Badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/Accordion"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/Tabs"
 
-export default function CybersecurityService() {
-  const [activeTestimonial, setActiveTestimonial] = useState(0)
-
-  const testimonials = [
-    {
-      name: "Jennifer Walsh",
-      company: "Regional Medical Center",
-      role: "CISO",
-      rating: 5,
-      comment:
-        "Their cybersecurity team prevented a ransomware attack that could have cost us millions. The 24/7 monitoring and rapid response saved our hospital operations.",
-      employees: "500-1000",
-      industry: "Healthcare",
-      threat: "Ransomware Prevention",
-    },
-    {
-      name: "Michael Torres",
-      company: "First National Bank",
-      role: "IT Security Director",
-      rating: 5,
-      comment:
-        "The compliance expertise helped us achieve PCI-DSS certification seamlessly. Their penetration testing revealed vulnerabilities we never knew existed.",
-      employees: "200-500",
-      industry: "Financial Services",
-      threat: "Compliance & Testing",
-    },
-    {
-      name: "Sarah Kim",
-      company: "TechStart Solutions",
-      role: "CEO",
-      rating: 5,
-      comment:
-        "As a growing startup, we couldn't afford a full security team. Their managed security services give us enterprise-level protection at a fraction of the cost.",
-      employees: "25-50",
-      industry: "Technology",
-      threat: "Comprehensive Protection",
-    },
-    {
-      name: "David Rodriguez",
-      company: "Manufacturing Plus",
-      role: "Operations Manager",
-      rating: 5,
-      comment:
-        "The security awareness training transformed our company culture. Employees now actively report suspicious emails instead of clicking on them.",
-      employees: "100-250",
-      industry: "Manufacturing",
-      threat: "Phishing Prevention",
-    },
-  ]
+export default function CloudInfrastructureServices() {
 
   const services = [
     {
@@ -122,113 +71,168 @@ export default function CybersecurityService() {
 
     }
   ];
+  const [activeTestimonial, setActiveTestimonial] = useState(0)
 
+  const testimonials = [
+    {
+      name: "Alex Thompson",
+      company: "RetailMax Corporation",
+      role: "CTO",
+      rating: 5,
+      comment:
+        "The cloud migration reduced our infrastructure costs by 40% while improving performance. Their team handled the entire transition seamlessly with zero downtime.",
+      employees: "200-500",
+      industry: "E-commerce",
+      achievement: "40% Cost Reduction",
+    },
+    {
+      name: "Maria Santos",
+      company: "HealthTech Solutions",
+      role: "IT Director",
+      rating: 5,
+      comment:
+        "Auto-scaling during our product launch handled 10x traffic increase flawlessly. The cloud infrastructure adapted in real-time without any manual intervention.",
+      employees: "100-250",
+      industry: "Healthcare Technology",
+      achievement: "10x Scale Handling",
+    },
+    {
+      name: "James Wilson",
+      company: "Financial Dynamics",
+      role: "Infrastructure Manager",
+      rating: 5,
+      comment:
+        "Multi-cloud strategy eliminated vendor lock-in concerns while optimizing costs across AWS, Azure, and GCP. Best decision we made for our infrastructure.",
+      employees: "500-1000",
+      industry: "Financial Services",
+      achievement: "Multi-Cloud Success",
+    },
+    {
+      name: "Sophie Chen",
+      company: "StartupFlow",
+      role: "Founder & CEO",
+      rating: 5,
+      comment:
+        "From startup to scale-up, their cloud infrastructure grew with us. We went from 5 to 500 users without any infrastructure headaches or major investments.",
+      employees: "10-50",
+      industry: "SaaS Startup",
+      achievement: "100x User Growth",
+    },
+  ]
+  
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
   const coreServices = [
     {
-      icon: <Eye className="h-8 w-8" />,
-      title: "24/7 Threat Monitoring",
+      icon: <Cloud className="h-8 w-8" />,
+      title: "Cloud Migration & Modernization",
       description:
-        "Advanced threat detection and response with AI-powered security operations center monitoring your systems around the clock.",
-      features: ["Real-time threat detection", "Automated response", "Incident investigation", "Threat intelligence"],
+        "Seamless migration from on-premises to cloud with application modernization and infrastructure optimization.",
+      features: [
+        "Migration planning",
+        "Zero-downtime transitions",
+        "Application refactoring",
+        "Performance optimization",
+      ],
     },
     {
-      icon: <Target className="h-8 w-8" />,
-      title: "Vulnerability Assessment",
+      icon: <BarChart3 className="h-8 w-8" />,
+      title: "Multi-Cloud Management",
       description:
-        "Comprehensive security testing to identify and remediate vulnerabilities before attackers exploit them.",
-      features: ["Penetration testing", "Vulnerability scanning", "Risk assessment", "Remediation planning"],
+        "Unified management across AWS, Azure, Google Cloud, and hybrid environments with cost optimization.",
+      features: ["Multi-cloud strategy", "Vendor neutrality", "Cost optimization", "Unified monitoring"],
     },
     {
-      icon: <FileText className="h-8 w-8" />,
-      title: "Compliance Management",
-      description:
-        "Expert guidance and implementation for regulatory compliance including HIPAA, PCI-DSS, SOX, and GDPR requirements.",
-      features: ["Compliance audits", "Policy development", "Documentation", "Ongoing monitoring"],
+      icon: <Settings className="h-8 w-8" />,
+      title: "Infrastructure Automation",
+      description: "DevOps practices with Infrastructure as Code, CI/CD pipelines, and automated deployment workflows.",
+      features: ["Infrastructure as Code", "CI/CD pipelines", "Automated scaling", "Configuration management"],
     },
     {
-      icon: <Zap className="h-8 w-8" />,
-      title: "Incident Response",
+      icon: <Shield className="h-8 w-8" />,
+      title: "Cloud Security & Compliance",
       description:
-        "Rapid response team ready to contain, investigate, and recover from security incidents and breaches.",
-      features: ["24/7 response team", "Forensic analysis", "Containment strategies", "Recovery planning"],
+        "Comprehensive cloud security with compliance management for regulated industries and data protection.",
+      features: ["Security monitoring", "Compliance frameworks", "Data encryption", "Access management"],
     },
   ]
 
   const comparisonData = [
     {
-      feature: "Average Cost of Data Breach",
-      withSecurity: "$1.76M (with security)",
-      withoutSecurity: "$4.45M (without security)",
+      feature: "Infrastructure Costs",
+      cloud: "30-50% reduction typical",
+      onpremise: "High upfront & maintenance",
     },
     {
-      feature: "Detection Time",
-      withSecurity: "Minutes with monitoring",
-      withoutSecurity: "287 days average",
+      feature: "Scalability",
+      cloud: "Instant auto-scaling",
+      onpremise: "Manual, time-consuming",
     },
     {
-      feature: "Compliance Readiness",
-      withSecurity: "Continuous compliance",
-      withoutSecurity: "Reactive, costly audits",
+      feature: "Disaster Recovery",
+      cloud: "Built-in redundancy",
+      onpremise: "Expensive separate setup",
     },
     {
-      feature: "Staff Training",
-      withSecurity: "Regular security awareness",
-      withoutSecurity: "Ad-hoc or none",
+      feature: "Maintenance",
+      cloud: "Managed by cloud provider",
+      onpremise: "Full internal responsibility",
     },
     {
-      feature: "Threat Intelligence",
-      withSecurity: "Real-time updates",
-      withoutSecurity: "Limited visibility",
+      feature: "Global Reach",
+      cloud: "Worldwide in minutes",
+      onpremise: "Requires physical presence",
     },
     {
-      feature: "Recovery Time",
-      withSecurity: "Hours with planning",
-      withoutSecurity: "Weeks or months",
+      feature: "Innovation Speed",
+      cloud: "Rapid deployment",
+      onpremise: "Slow procurement cycles",
     },
   ]
 
   const pricingTiers = [
     {
-      name: "Essential Security",
-      price: "$199",
-      period: "per user/month",
-      description: "Core cybersecurity protection for small businesses",
+      name: "Cloud Essentials",
+      price: "$299",
+      period: "per month",
+      description: "Perfect for small businesses moving to the cloud",
       features: [
-        "24/7 threat monitoring",
-        "Email security",
-        "Basic vulnerability scans",
-        "Security awareness training",
-        "Incident response support",
+        "Cloud migration planning",
+        "Basic monitoring & alerts",
+        "Cost optimization reports",
+        "Email support",
+        "Monthly health checks",
       ],
       popular: false,
     },
     {
-      name: "Advanced Protection",
-      price: "$299",
-      period: "per user/month",
-      description: "Comprehensive security for growing organizations",
+      name: "Cloud Professional",
+      price: "$599",
+      period: "per month",
+      description: "Comprehensive cloud management for growing companies",
       features: [
-        "Everything in Essential",
-        "Advanced threat detection",
-        "Penetration testing",
-        "Compliance assistance",
-        "Security policy development",
-        "Priority incident response",
+        "Everything in Essentials",
+        "Multi-cloud management",
+        "24/7 monitoring & support",
+        "Infrastructure automation",
+        "DevOps consulting",
+        "Priority support",
       ],
       popular: true,
     },
     {
-      name: "Enterprise Security",
+      name: "Cloud Enterprise",
       price: "Custom",
       period: "pricing",
-      description: "Full-scale security operations for large enterprises",
+      description: "Full-scale cloud operations for large organizations",
       features: [
-        "Everything in Advanced",
-        "Dedicated security team",
-        "Custom threat intelligence",
-        "Advanced forensics",
+        "Everything in Professional",
+        "Dedicated cloud architect",
+        "Custom automation workflows",
+        "Advanced security & compliance",
         "Executive reporting",
-        "On-site security consulting",
+        "On-site consulting",
       ],
       popular: false,
     },
@@ -241,12 +245,8 @@ export default function CybersecurityService() {
   const prevTestimonial = () => {
     setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
   }
-  
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  return (
 
-    
+  return (
     <div className="min-h-screen bg-background">
 
       {/* Header */}
@@ -417,63 +417,64 @@ export default function CybersecurityService() {
   </div>
 )}
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-50 to-blue-50 py-16 lg:py-24">
+      <section className="relative bg-gradient-to-br from-blue-50 to-cyan-50 py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="flex items-center space-x-2">
-                <div className="bg-red-600 p-3 rounded-lg">
-                  <Shield className="h-8 w-8 text-white" />
+                <div className="bg-blue-600 p-3 rounded-lg">
+                  <Cloud className="h-8 w-8 text-white" />
                 </div>
-                <Badge variant="secondary" className="text-sm bg-red-100 text-red-800">
-                  Critical Protection
+                <Badge variant="secondary" className="text-sm bg-blue-100 text-blue-800">
+                  Cloud-Native Solutions
                 </Badge>
               </div>
 
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                Cybersecurity Services & Solutions
+                Cloud & Infrastructure Management
               </h1>
 
               <p className="text-xl text-gray-600 leading-relaxed">
-                Protect your business from cyber threats with comprehensive security solutions. Advanced threat
-                detection, compliance management, and incident response from certified security experts.
+                Transform your business with modern cloud infrastructure. Scalable, secure, and cost-effective cloud
+                solutions that grow with your business needs and accelerate innovation.
               </p>
 
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                 <div className="flex items-start space-x-3">
-                  <AlertTriangle className="h-5 w-5 text-yellow-600 mt-0.5 flex-shrink-0" />
-                  <div className="text-sm text-yellow-800">
-                    <strong>Security Alert:</strong> Cyber attacks increase by 67% annually. Is your business protected?
+                  <TrendingUp className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <div className="text-sm text-green-800">
+                    <strong>Cost Savings:</strong> Our clients typically reduce infrastructure costs by 30-50% while
+                    improving performance and scalability.
                   </div>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
                   <Calendar className="h-4 w-4 mr-2" />
-                  Free Security Assessment
+                  Free Cloud Assessment
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
                   className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
                 >
-                  Emergency Response: (555) 911-HELP
+                  Migration Consultation
                 </Button>
               </div>
 
               <div className="grid grid-cols-3 gap-4 pt-4">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-red-600">99.9%</div>
-                  <div className="text-sm text-gray-600">Threat Detection</div>
+                  <div className="text-2xl font-bold text-blue-600">99.99%</div>
+                  <div className="text-sm text-gray-600">Uptime SLA</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-red-600">{"<5"}</div>
-                  <div className="text-sm text-gray-600">Min Response</div>
+                  <div className="text-2xl font-bold text-blue-600">40%</div>
+                  <div className="text-sm text-gray-600">Avg Cost Savings</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-red-600">Zero</div>
-                  <div className="text-sm text-gray-600">Breaches</div>
+                  <div className="text-2xl font-bold text-blue-600">24/7</div>
+                  <div className="text-sm text-gray-600">Monitoring</div>
                 </div>
               </div>
             </div>
@@ -481,34 +482,34 @@ export default function CybersecurityService() {
             <div className="relative">
               <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-white p-8">
                 <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="bg-green-50 p-4 rounded-lg text-center">
-                    <Shield className="h-8 w-8 text-green-600 mx-auto mb-2" />
-                    <div className="text-sm font-semibold text-green-800">Security Status</div>
-                    <div className="text-xs text-green-600">Protected</div>
+                  <div className="bg-blue-50 p-4 rounded-lg text-center">
+                    <Cloud className="h-8 w-8 text-blue-600 mx-auto mb-2" />
+                    <div className="text-sm font-semibold text-blue-800">Cloud Status</div>
+                    <div className="text-xs text-blue-600">Optimized</div>
                   </div>
-                  <div className="bg-red-50 p-4 rounded-lg text-center">
-                    <AlertTriangle className="h-8 w-8 text-red-600 mx-auto mb-2" />
-                    <div className="text-sm font-semibold text-red-800">Threats Blocked</div>
-                    <div className="text-xs text-red-600">1,247 Today</div>
+                  <div className="bg-green-50 p-4 rounded-lg text-center">
+                    <TrendingUp className="h-8 w-8 text-green-600 mx-auto mb-2" />
+                    <div className="text-sm font-semibold text-green-800">Performance</div>
+                    <div className="text-xs text-green-600">Excellent</div>
                   </div>
                 </div>
                 <div className="space-y-3">
                   <div className="bg-gray-50 p-3 rounded-lg">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-medium">Firewall Protection</span>
-                      <span className="text-sm text-green-600">Active</span>
+                      <span className="text-sm font-medium">Resource Utilization</span>
+                      <span className="text-sm text-green-600">Optimized</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-green-500 h-2 rounded-full" style={{ width: "100%" }}></div>
+                      <div className="bg-green-500 h-2 rounded-full" style={{ width: "85%" }}></div>
                     </div>
                   </div>
                   <div className="bg-gray-50 p-3 rounded-lg">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-medium">Threat Detection</span>
-                      <span className="text-sm text-green-600">Monitoring</span>
+                      <span className="text-sm font-medium">Cost Efficiency</span>
+                      <span className="text-sm text-blue-600">Excellent</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-blue-500 h-2 rounded-full" style={{ width: "95%" }}></div>
+                      <div className="bg-blue-500 h-2 rounded-full" style={{ width: "92%" }}></div>
                     </div>
                   </div>
                 </div>
@@ -518,25 +519,25 @@ export default function CybersecurityService() {
         </div>
       </section>
 
-      {/* Threat Landscape Stats */}
+      {/* Cloud Benefits Stats */}
       <section className="py-12 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-red-400 mb-2">$4.45M</div>
-              <div className="text-sm text-gray-300">Average cost of a data breach</div>
+              <div className="text-3xl font-bold text-blue-400 mb-2">94%</div>
+              <div className="text-sm text-gray-300">Of enterprises use cloud services</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-red-400 mb-2">287</div>
-              <div className="text-sm text-gray-300">Days to identify a breach</div>
+              <div className="text-3xl font-bold text-blue-400 mb-2">23%</div>
+              <div className="text-sm text-gray-300">Average cost reduction</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-red-400 mb-2">43%</div>
-              <div className="text-sm text-gray-300">Of attacks target small businesses</div>
+              <div className="text-3xl font-bold text-blue-400 mb-2">3.2x</div>
+              <div className="text-sm text-gray-300">Faster time to market</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-red-400 mb-2">60%</div>
-              <div className="text-sm text-gray-300">Of small companies close within 6 months</div>
+              <div className="text-3xl font-bold text-blue-400 mb-2">99.9%</div>
+              <div className="text-sm text-gray-300">Cloud reliability average</div>
             </div>
           </div>
         </div>
@@ -546,10 +547,10 @@ export default function CybersecurityService() {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Comprehensive Security Solutions</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Complete Cloud Solutions</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Multi-layered cybersecurity approach designed to protect your business from evolving threats while
-              ensuring regulatory compliance and business continuity.
+              End-to-end cloud infrastructure management from migration planning to ongoing optimization, security, and
+              support across all major cloud platforms.
             </p>
           </div>
 
@@ -558,7 +559,7 @@ export default function CybersecurityService() {
               <Card key={index} className="hover:shadow-lg transition-all duration-300 group">
                 <CardHeader>
                   <div className="flex items-start space-x-4">
-                    <div className="bg-red-100 p-3 rounded-lg group-hover:bg-red-600 group-hover:text-white transition-colors">
+                    <div className="bg-blue-100 p-3 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-colors">
                       {service.icon}
                     </div>
                     <div className="flex-1">
@@ -583,23 +584,22 @@ export default function CybersecurityService() {
         </div>
       </section>
 
-      {/* Security ROI Comparison */}
+      {/* Cloud vs On-Premise Comparison */}
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">The Cost of Security vs. Breaches</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Cloud vs. On-Premise Infrastructure</h2>
               <p className="text-lg text-gray-600">
-                Investing in cybersecurity is significantly more cost-effective than dealing with the aftermath of a
-                breach
+                See how cloud infrastructure compares to traditional on-premise solutions across key business factors
               </p>
             </div>
 
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               <div className="grid grid-cols-3 bg-gray-50 p-4 font-semibold text-gray-900">
-                <div>Security Factor</div>
-                <div className="text-center text-green-600">With Cybersecurity</div>
-                <div className="text-center blue-red-600">Without Protection</div>
+                <div>Business Factor</div>
+                <div className="text-center text-blue-600">Cloud Infrastructure</div>
+                <div className="text-center text-gray-600">On-Premise</div>
               </div>
 
               {comparisonData.map((row, index) => (
@@ -608,15 +608,15 @@ export default function CybersecurityService() {
                   className={`grid grid-cols-3 p-4 border-b border-gray-100 ${index % 2 === 0 ? "bg-gray-25" : "bg-white"}`}
                 >
                   <div className="font-medium text-gray-900">{row.feature}</div>
-                  <div className="text-center text-green-600 font-medium">{row.withSecurity}</div>
-                  <div className="text-center text-blue-600 font-medium">{row.withoutSecurity}</div>
+                  <div className="text-center text-blue-600 font-medium">{row.cloud}</div>
+                  <div className="text-center text-gray-600">{row.onpremise}</div>
                 </div>
               ))}
             </div>
 
             <div className="text-center mt-8">
-              <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
-                Calculate Your Security ROI
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                Calculate Your Cloud Savings
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
             </div>
@@ -629,185 +629,185 @@ export default function CybersecurityService() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Advanced Security Services</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Comprehensive Cloud Services</h2>
               <p className="text-lg text-gray-600">
-                Explore our comprehensive cybersecurity solutions designed to protect against modern threats
+                Explore our detailed cloud infrastructure management services designed for modern businesses
               </p>
             </div>
 
-            <Tabs defaultValue="monitoring" className="w-full">
+            <Tabs defaultValue="migration" className="w-full">
               <TabsList className="grid w-full grid-cols-4 mb-8">
-                <TabsTrigger value="monitoring">Monitoring</TabsTrigger>
-                <TabsTrigger value="testing">Testing</TabsTrigger>
-                <TabsTrigger value="compliance">Compliance</TabsTrigger>
-                <TabsTrigger value="response">Response</TabsTrigger>
+                <TabsTrigger value="migration">Migration</TabsTrigger>
+                <TabsTrigger value="management">Management</TabsTrigger>
+                <TabsTrigger value="automation">Automation</TabsTrigger>
+                <TabsTrigger value="security">Security</TabsTrigger>
               </TabsList>
 
-              <TabsContent value="monitoring" className="mt-8">
+              <TabsContent value="migration" className="mt-8">
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">24/7 Security Monitoring</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Cloud Migration & Modernization</h3>
                     <p className="text-gray-600 mb-6">
-                      Our Security Operations Center (SOC) provides round-the-clock monitoring using advanced AI and
-                      machine learning to detect and respond to threats in real-time.
+                      Strategic cloud migration with minimal disruption to your business operations. We assess, plan,
+                      and execute migrations while modernizing applications for optimal cloud performance.
                     </p>
                     <div className="space-y-4">
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">AI-Powered Threat Detection</div>
-                          <div className="text-sm text-gray-600">Machine learning algorithms identify anomalies</div>
+                          <div className="font-semibold text-gray-900">Migration Assessment</div>
+                          <div className="text-sm text-gray-600">Comprehensive analysis of current infrastructure</div>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">Real-Time Alerts</div>
-                          <div className="text-sm text-gray-600">Instant notifications for security events</div>
+                          <div className="font-semibold text-gray-900">Zero-Downtime Migration</div>
+                          <div className="text-sm text-gray-600">Seamless transition with business continuity</div>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">Automated Response</div>
-                          <div className="text-sm text-gray-600">Immediate containment of identified threats</div>
+                          <div className="font-semibold text-gray-900">Application Modernization</div>
+                          <div className="text-sm text-gray-600">Optimize applications for cloud-native benefits</div>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-2xl">
                     <div className="text-center">
-                      <Eye className="h-16 w-16 text-blue-600 mx-auto mb-4" />
-                      <div className="text-3xl font-bold text-blue-600 mb-2">24/7</div>
-                      <div className="text-gray-700 font-semibold">Continuous Monitoring</div>
-                      <div className="text-sm text-gray-600 mt-2">Never-sleeping security operations center</div>
+                      <Cloud className="h-16 w-16 text-blue-600 mx-auto mb-4" />
+                      <div className="text-3xl font-bold text-blue-600 mb-2">Zero</div>
+                      <div className="text-gray-700 font-semibold">Downtime Migrations</div>
+                      <div className="text-sm text-gray-600 mt-2">Seamless transition to the cloud</div>
                     </div>
                   </div>
                 </div>
               </TabsContent>
 
-              <TabsContent value="testing" className="mt-8">
+              <TabsContent value="management" className="mt-8">
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
-                  <div className="bg-gradient-to-br from-purple-50 to-violet-100 p-8 rounded-2xl">
-                    <div className="text-center">
-                      <Target className="h-16 w-16 text-purple-600 mx-auto mb-4" />
-                      <div className="text-3xl font-bold text-purple-600 mb-2">95%</div>
-                      <div className="text-gray-700 font-semibold">Vulnerabilities Found</div>
-                      <div className="text-sm text-gray-600 mt-2">Before attackers can exploit them</div>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Penetration Testing & Assessment</h3>
-                    <p className="text-gray-600 mb-6">
-                      Comprehensive security testing that simulates real-world attacks to identify vulnerabilities and
-                      weaknesses in your systems before malicious actors can exploit them.
-                    </p>
-                    <div className="space-y-4">
-                      <div className="flex items-start space-x-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
-                        <div>
-                          <div className="font-semibold text-gray-900">Ethical Hacking</div>
-                          <div className="text-sm text-gray-600">Certified professionals simulate attacks</div>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
-                        <div>
-                          <div className="font-semibold text-gray-900">Vulnerability Scanning</div>
-                          <div className="text-sm text-gray-600">Automated tools identify security gaps</div>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
-                        <div>
-                          <div className="font-semibold text-gray-900">Detailed Reporting</div>
-                          <div className="text-sm text-gray-600">Actionable recommendations for remediation</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </TabsContent>
-
-              <TabsContent value="compliance" className="mt-8">
-                <div className="grid lg:grid-cols-2 gap-8 items-center">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Regulatory Compliance</h3>
-                    <p className="text-gray-600 mb-6">
-                      Expert guidance and implementation for meeting regulatory requirements including HIPAA, PCI-DSS,
-                      SOX, GDPR, and industry-specific compliance standards.
-                    </p>
-                    <div className="space-y-4">
-                      <div className="flex items-start space-x-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
-                        <div>
-                          <div className="font-semibold text-gray-900">Compliance Audits</div>
-                          <div className="text-sm text-gray-600">Regular assessments and gap analysis</div>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
-                        <div>
-                          <div className="font-semibold text-gray-900">Policy Development</div>
-                          <div className="text-sm text-gray-600">Custom security policies and procedures</div>
-                        </div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
-                        <div>
-                          <div className="font-semibold text-gray-900">Documentation Support</div>
-                          <div className="text-sm text-gray-600">Audit-ready documentation and reporting</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <div className="bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-2xl">
                     <div className="text-center">
-                      <FileText className="h-16 w-16 text-green-600 mx-auto mb-4" />
-                      <div className="text-3xl font-bold text-green-600 mb-2">100%</div>
-                      <div className="text-gray-700 font-semibold">Compliance Success</div>
-                      <div className="text-sm text-gray-600 mt-2">All clients pass regulatory audits</div>
+                      <BarChart3 className="h-16 w-16 text-green-600 mx-auto mb-4" />
+                      <div className="text-3xl font-bold text-green-600 mb-2">Multi</div>
+                      <div className="text-gray-700 font-semibold">Cloud Management</div>
+                      <div className="text-sm text-gray-600 mt-2">AWS, Azure, GCP unified control</div>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Multi-Cloud Management</h3>
+                    <p className="text-gray-600 mb-6">
+                      Unified management across multiple cloud providers with cost optimization, performance monitoring,
+                      and strategic resource allocation to avoid vendor lock-in.
+                    </p>
+                    <div className="space-y-4">
+                      <div className="flex items-start space-x-3">
+                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-gray-900">Unified Dashboard</div>
+                          <div className="text-sm text-gray-600">Single pane of glass for all cloud resources</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-gray-900">Cost Optimization</div>
+                          <div className="text-sm text-gray-600">Automated cost analysis and recommendations</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-gray-900">Vendor Neutrality</div>
+                          <div className="text-sm text-gray-600">Avoid lock-in with multi-cloud strategy</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </TabsContent>
 
-              <TabsContent value="response" className="mt-8">
+              <TabsContent value="automation" className="mt-8">
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Infrastructure Automation</h3>
+                    <p className="text-gray-600 mb-6">
+                      Modern DevOps practices with Infrastructure as Code, automated CI/CD pipelines, and intelligent
+                      scaling that adapts to your business needs automatically.
+                    </p>
+                    <div className="space-y-4">
+                      <div className="flex items-start space-x-3">
+                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-gray-900">Infrastructure as Code</div>
+                          <div className="text-sm text-gray-600">Version-controlled, repeatable deployments</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-gray-900">CI/CD Pipelines</div>
+                          <div className="text-sm text-gray-600">Automated testing and deployment workflows</div>
+                        </div>
+                      </div>
+                      <div className="flex items-start space-x-3">
+                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                        <div>
+                          <div className="font-semibold text-gray-900">Auto-Scaling</div>
+                          <div className="text-sm text-gray-600">Dynamic resource allocation based on demand</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-br from-purple-50 to-violet-100 p-8 rounded-2xl">
+                    <div className="text-center">
+                      <Settings className="h-16 w-16 text-purple-600 mx-auto mb-4" />
+                      <div className="text-3xl font-bold text-purple-600 mb-2">100%</div>
+                      <div className="text-gray-700 font-semibold">Automated Deployments</div>
+                      <div className="text-sm text-gray-600 mt-2">Zero manual intervention required</div>
+                    </div>
+                  </div>
+                </div>
+              </TabsContent>
+
+              <TabsContent value="security" className="mt-8">
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
                   <div className="bg-gradient-to-br from-red-50 to-orange-100 p-8 rounded-2xl">
                     <div className="text-center">
-                      <Zap className="h-16 w-16 text-red-600 mx-auto mb-4" />
-                      <div className="text-3xl font-bold text-red-600 mb-2">{"<5"}</div>
-                      <div className="text-gray-700 font-semibold">Minutes Response</div>
-                      <div className="text-sm text-gray-600 mt-2">Emergency incident response time</div>
+                      <Shield className="h-16 w-16 text-red-600 mx-auto mb-4" />
+                      <div className="text-3xl font-bold text-red-600 mb-2">24/7</div>
+                      <div className="text-gray-700 font-semibold">Security Monitoring</div>
+                      <div className="text-sm text-gray-600 mt-2">Continuous cloud security oversight</div>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Incident Response & Recovery</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Cloud Security & Compliance</h3>
                     <p className="text-gray-600 mb-6">
-                      Rapid response team ready to contain, investigate, and recover from security incidents. Our proven
-                      methodology minimizes damage and ensures quick recovery.
+                      Comprehensive cloud security with continuous monitoring, compliance management, and advanced
+                      threat protection designed specifically for cloud environments.
                     </p>
                     <div className="space-y-4">
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">Emergency Response</div>
-                          <div className="text-sm text-gray-600">24/7 incident response hotline</div>
+                          <div className="font-semibold text-gray-900">Cloud Security Posture</div>
+                          <div className="text-sm text-gray-600">Continuous security configuration monitoring</div>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">Forensic Analysis</div>
-                          <div className="text-sm text-gray-600">Digital forensics and evidence collection</div>
+                          <div className="font-semibold text-gray-900">Compliance Frameworks</div>
+                          <div className="text-sm text-gray-600">SOC 2, HIPAA, PCI-DSS, and more</div>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">Recovery Planning</div>
-                          <div className="text-sm text-gray-600">Business continuity and disaster recovery</div>
+                          <div className="font-semibold text-gray-900">Identity & Access Management</div>
+                          <div className="text-sm text-gray-600">Zero-trust security model implementation</div>
                         </div>
                       </div>
                     </div>
@@ -823,9 +823,9 @@ export default function CybersecurityService() {
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Security Success Stories</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Cloud Transformation Success Stories</h2>
             <p className="text-lg text-gray-600">
-              See how our cybersecurity solutions have protected businesses from real threats
+              See how businesses have transformed their operations with our cloud infrastructure solutions
             </p>
           </div>
 
@@ -855,7 +855,7 @@ export default function CybersecurityService() {
                     <Badge variant="outline">{testimonials[activeTestimonial].employees} employees</Badge>
                     <Badge variant="outline">{testimonials[activeTestimonial].industry}</Badge>
                     <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
-                      {testimonials[activeTestimonial].threat}
+                      {testimonials[activeTestimonial].achievement}
                     </Badge>
                   </div>
                 </CardContent>
@@ -899,9 +899,9 @@ export default function CybersecurityService() {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Security Investment Plans</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Cloud Management Plans</h2>
             <p className="text-lg text-gray-600">
-              Comprehensive cybersecurity protection that costs less than a single data breach
+              Flexible cloud infrastructure management plans that scale with your business growth
             </p>
           </div>
 
@@ -935,10 +935,10 @@ export default function CybersecurityService() {
 
                   <Button
                     className={`w-full mt-6 ${
-                      tier.popular ? "bg-blue-600 text-white hover:bg-blue-700" : "bg-gray-900 text-white hover:bg-gray-800"
+                      tier.popular ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-900 hover:bg-gray-800"
                     }`}
                   >
-                    {tier.name === "Enterprise Security" ? "Contact Security Team" : "Start Protection"}
+                    {tier.name === "Cloud Enterprise" ? "Contact Cloud Team" : "Start Cloud Journey"}
                   </Button>
                 </CardContent>
               </Card>
@@ -947,10 +947,10 @@ export default function CybersecurityService() {
 
           <div className="text-center mt-12">
             <p className="text-gray-600 mb-4">
-              Need a custom security solution? We can design protection specific to your industry and threats.
+              Need a custom cloud architecture? We design solutions tailored to your specific requirements and scale.
             </p>
             <Button variant="outline" size="lg">
-              Schedule Security Consultation
+              Schedule Architecture Review
             </Button>
           </div>
         </div>
@@ -961,64 +961,65 @@ export default function CybersecurityService() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Security Questions Answered</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Cloud Infrastructure Questions</h2>
               <p className="text-lg text-gray-600">
-                Get answers to common questions about cybersecurity and our protection services
+                Get answers to common questions about cloud migration and infrastructure management
               </p>
             </div>
 
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
-                <AccordionTrigger>How quickly can you detect and respond to threats?</AccordionTrigger>
+                <AccordionTrigger>How long does a typical cloud migration take?</AccordionTrigger>
                 <AccordionContent>
-                  Our AI-powered monitoring systems detect threats in real-time, with automated responses triggered
-                  within seconds. For incidents requiring human intervention, our security team responds within 5
-                  minutes for critical threats and 15 minutes for high-priority issues.
+                  Migration timelines vary based on complexity, but most small to medium businesses complete migration
+                  within 4-8 weeks. Large enterprise migrations typically take 3-6 months. We provide detailed timelines
+                  during the assessment phase and ensure minimal disruption to your operations.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-2">
-                <AccordionTrigger>What types of cyber threats do you protect against?</AccordionTrigger>
+                <AccordionTrigger>What cloud platforms do you support?</AccordionTrigger>
                 <AccordionContent>
-                  We protect against all major cyber threats including ransomware, phishing attacks, malware, advanced
-                  persistent threats (APTs), insider threats, DDoS attacks, and zero-day exploits. Our multi-layered
-                  approach provides comprehensive protection across all attack vectors.
+                  We support all major cloud platforms including Amazon Web Services (AWS), Microsoft Azure, Google
+                  Cloud Platform (GCP), and hybrid cloud environments. We also specialize in multi-cloud strategies that
+                  leverage the best features of each platform while avoiding vendor lock-in.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-3">
-                <AccordionTrigger>Do you help with regulatory compliance?</AccordionTrigger>
+                <AccordionTrigger>How much can I save by moving to the cloud?</AccordionTrigger>
                 <AccordionContent>
-                  Yes, we specialize in helping businesses achieve and maintain compliance with regulations including
-                  HIPAA, PCI-DSS, SOX, GDPR, CCPA, and industry-specific standards. We provide compliance audits, policy
-                  development, documentation, and ongoing monitoring to ensure continuous compliance.
+                  Most businesses see 30-50% reduction in infrastructure costs, though savings vary based on current
+                  setup and usage patterns. Beyond direct cost savings, you'll benefit from improved scalability,
+                  reduced maintenance overhead, and faster deployment times. We provide detailed ROI analysis during
+                  consultation.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-4">
-                <AccordionTrigger>What happens if we experience a security breach?</AccordionTrigger>
+                <AccordionTrigger>Is my data secure in the cloud?</AccordionTrigger>
                 <AccordionContent>
-                  Our incident response team immediately contains the threat, conducts forensic analysis, and begins
-                  recovery procedures. We handle communication with stakeholders, regulatory reporting if required, and
-                  provide detailed post-incident reports with recommendations to prevent future breaches.
+                  Yes, cloud security often exceeds on-premise security. Major cloud providers invest billions in
+                  security infrastructure. We implement additional security layers including encryption, access
+                  controls, monitoring, and compliance frameworks. All data is encrypted in transit and at rest.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-5">
-                <AccordionTrigger>How do you train our employees on security awareness?</AccordionTrigger>
+                <AccordionTrigger>What happens if there's a cloud outage?</AccordionTrigger>
                 <AccordionContent>
-                  We provide comprehensive security awareness training including interactive modules, simulated phishing
-                  campaigns, regular security updates, and role-specific training. Our programs are designed to create a
-                  security-conscious culture and significantly reduce human error risks.
+                  We design resilient architectures with redundancy across multiple availability zones and regions. Most
+                  cloud providers offer 99.9%+ uptime SLAs. We implement disaster recovery and backup strategies to
+                  ensure business continuity even in rare outage scenarios.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-6">
-                <AccordionTrigger>Can you work with our existing security tools?</AccordionTrigger>
+                <AccordionTrigger>Can you help optimize our existing cloud costs?</AccordionTrigger>
                 <AccordionContent>
-                  Absolutely. We integrate with most existing security infrastructure and can enhance your current tools
-                  rather than replace them. Our team will assess your current setup and recommend the best approach to
-                  maximize your security investment while filling any gaps.
+                  We provide cloud cost optimization services for existing cloud deployments. This includes rightsizing
+                  resources, implementing auto-scaling, optimizing storage tiers, and leveraging reserved instances.
+                  Most clients see 20-40% cost reduction through optimization alone.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
@@ -1026,43 +1027,43 @@ export default function CybersecurityService() {
         </div>
       </section>
 
-      {/* Emergency CTA Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-red-600 to-red-800">
+      {/* CTA Section */}
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-blue-600 to-blue-800">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto text-white">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Don't Wait for a Cyber Attack</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Ready to Transform Your Infrastructure?</h2>
             <p className="text-xl mb-8 opacity-90">
-              Every day without proper cybersecurity protection puts your business at risk. Get comprehensive security
-              solutions from certified experts who understand the evolving threat landscape.
+              Join thousands of businesses that have modernized their operations with cloud infrastructure. Get started
+              with a free assessment and see how much you can save while improving performance.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button size="lg" variant="secondary" className="bg-white text-red-600 hover:bg-gray-100">
+              <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100">
                 <Calendar className="h-4 w-4 mr-2" />
-                Free Security Assessment
+                Free Cloud Assessment
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-red-600 bg-transparent"
+                className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
               >
                 <Phone className="h-4 w-4 mr-2" />
-                Emergency: (555) 911-HELP
+                Call: (555) 123-CLOUD
               </Button>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm opacity-90">
               <div className="flex items-center">
                 <CheckCircle className="h-4 w-4 mr-2" />
-                24/7 emergency response
+                Free migration planning
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-4 w-4 mr-2" />
-                No long-term contracts
+                No upfront costs
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-4 w-4 mr-2" />
-                Certified security experts
+                24/7 support included
               </div>
             </div>
           </div>

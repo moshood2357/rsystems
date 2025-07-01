@@ -368,6 +368,7 @@ export default function HomePage() {
                 title: "Cloud & Infrastructure management",
                 description: "Optimize, secure, and scale your IT operations with reliable cloud and infrastructure services.",
                 features: ["Microsoft 365 & Google Workspace Support", "Secure Cloud Storage & File Sharing", "Seamless setup, licensing, and administration for cloud productivity tools" , "Server Management & Virtualisation", "Full lifecycle management of on-prem and cloud servers, including Hyper-V and VMware.e", "Backup and disaster recovery solutions"],
+                link: "/cloud", 
               },
             ].map((service, index) => (
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -392,6 +393,10 @@ export default function HomePage() {
               </Card>
             ))}
           </div>
+          
+            <div className="mt-8 text-center text-blue" size="lg">
+                See All Services
+            </div>
         </div>
       </section>
 
