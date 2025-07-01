@@ -14,31 +14,32 @@ export default function Contact() {
   const [error, setError] = useState(false);
 
   const sendEmail = (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(false);
-    setSuccess(false);
+  e.preventDefault();
+  setLoading(true);
+  setError(false);
+  setSuccess(false);
 
-    emailjs
-      .sendForm(
-        'service_r5hgx6a',   // replace with your EmailJS service ID
-        'template_xhz2mqp',  // replace with your EmailJS template ID
-        form.current,
-        'usjHoNFTTChknODfx'    // replace with your EmailJS public key
-      )
-      .then(
-        () => {
-          setLoading(false);
-          setSuccess(true);
-          form.current.reset();
-        },
-        (error) => {
-          console.error(error);
-          setLoading(false);
-          setError(true);
-        }
-      );
-  };
+  emailjs
+    .sendForm(
+      'service_r5hgx6a',    // Your EmailJS service ID
+      'template_xhz2mqp',   // Your EmailJS template ID
+      form.current,         // Your form reference
+      'usjHoNFTTChknODfx'   // Your EmailJS public key
+    )
+    .then(
+      () => {
+        setLoading(false);
+        setSuccess(true);
+        form.current.reset();
+      },
+      (error) => {
+        console.error(error);
+        setLoading(false);
+        setError(true);
+      }
+    );
+};
+
    const [isServicesOpen, setIsServicesOpen] = useState(false);
 
    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
