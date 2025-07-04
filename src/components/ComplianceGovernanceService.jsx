@@ -1,23 +1,6 @@
 "use client"
 import { useState } from "react"
-import {
-  Cloud,
-  CheckCircle,
-  Star,
-  Phone,
-  Calendar,
-  TrendingUp,
-  ArrowRight,
-  Settings,
-  ChevronLeft,
-  ChevronRight,
-  BarChart3,
-  Shield,
-  Wifi,
-  Monitor,
-  HardDrive,
-  ChevronDown,
-} from "lucide-react"
+import { Shield, CheckCircle, Star, Phone, Calendar, FileCheck, ArrowRight, AlertTriangle,HardDrive, Wifi, Settings, ChevronDown, Cloud, Monitor,  ChevronLeft, ChevronRight, Scale, Lock, BookOpen } from 'lucide-react'
 
 import { Link } from 'react-router-dom';
 
@@ -27,8 +10,10 @@ import { Badge } from "../ui/Badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/Accordion"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/Tabs"
 
-export default function CloudInfrastructureServices() {
+export default function ComplianceGovernanceService() {
 
+   const [isServicesOpen, setIsServicesOpen] = useState(false);
+   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const services = [
     {
       icon: <Monitor className="h-5 w-5" />,
@@ -41,14 +26,14 @@ export default function CloudInfrastructureServices() {
       icon: <Wifi className="h-5 w-5" />,
       title: "Cybersecurity services",
       description: "Block threats with next-gen security.",
-        href: "/cybersecurity"
+       href: "/cybersecurity"
 
     },
     {
       icon: <Shield className="h-5 w-5" />,
       title: "Cloud & Infrastructure Management",
       description: "Secure, streamline, and scale with cloud.",
-     href: "/cloud"
+      href: "/cloud"
 
     },
     {
@@ -69,7 +54,7 @@ export default function CloudInfrastructureServices() {
       icon: <Settings className="h-5 w-5" />,
       title: "Device & Endpoint Management",
       description: "Secure and manage devices.",
-    href: "/end+point"
+      href: "/end+point"
 
     }
   ];
@@ -77,164 +62,157 @@ export default function CloudInfrastructureServices() {
 
   const testimonials = [
     {
-      name: "Alex Thompson",
-      company: "RetailMax Corporation",
-      role: "CTO",
+      name: "Dr. Patricia Williams",
+      company: "Metro Healthcare System",
+      role: "Chief Compliance Officer",
       rating: 5,
       comment:
-        "The cloud migration reduced our infrastructure costs by 40% while improving performance. Their team handled the entire transition seamlessly with zero downtime.",
-      employees: "200-500",
-      industry: "E-commerce",
-      achievement: "40% Cost Reduction",
+        "Their HIPAA compliance framework helped us achieve 100% audit success rate for three consecutive years. The risk management program prevented potential $2M in fines.",
+      employees: "2000+",
+      industry: "Healthcare",
+      achievement: "100% Audit Success",
     },
     {
-      name: "Maria Santos",
-      company: "HealthTech Solutions",
-      role: "IT Director",
+      name: "Robert Chen",
+      company: "First National Bank",
+      role: "Risk Management Director",
       rating: 5,
       comment:
-        "Auto-scaling during our product launch handled 10x traffic increase flawlessly. The cloud infrastructure adapted in real-time without any manual intervention.",
-      employees: "100-250",
-      industry: "Healthcare Technology",
-      achievement: "10x Scale Handling",
-    },
-    {
-      name: "James Wilson",
-      company: "Financial Dynamics",
-      role: "Infrastructure Manager",
-      rating: 5,
-      comment:
-        "Multi-cloud strategy eliminated vendor lock-in concerns while optimizing costs across AWS, Azure, and GCP. Best decision we made for our infrastructure.",
+        "The SOX compliance program streamlined our financial reporting processes while ensuring full regulatory adherence. Reduced compliance costs by 35% while improving controls.",
       employees: "500-1000",
       industry: "Financial Services",
-      achievement: "Multi-Cloud Success",
+      achievement: "35% Cost Reduction",
     },
     {
-      name: "Sophie Chen",
-      company: "StartupFlow",
-      role: "Founder & CEO",
+      name: "Maria Rodriguez",
+      company: "Global Retail Corp",
+      role: "Data Protection Officer",
       rating: 5,
       comment:
-        "From startup to scale-up, their cloud infrastructure grew with us. We went from 5 to 500 users without any infrastructure headaches or major investments.",
-      employees: "10-50",
-      industry: "SaaS Startup",
-      achievement: "100x User Growth",
+        "GDPR compliance implementation was seamless. Their privacy framework protected us from potential €20M fines while improving customer trust and data handling processes.",
+      employees: "5000+",
+      industry: "Retail",
+      achievement: "€20M Risk Mitigation",
+    },
+    {
+      name: "James Thompson",
+      company: "TechStart Solutions",
+      role: "CEO",
+      rating: 5,
+      comment:
+        "SOC 2 Type II certification opened doors to enterprise clients. Their governance framework scaled with our growth from startup to 200 employees without compliance gaps.",
+      employees: "100-250",
+      industry: "Technology",
+      achievement: "SOC 2 Certification",
     },
   ]
-  
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+
   const coreServices = [
     {
-      icon: <Cloud className="h-8 w-8" />,
-      title: "Cloud Migration & Modernization",
+      icon: <Scale className="h-8 w-8" />,
+      title: "Regulatory Compliance",
       description:
-        "Seamless migration from on-premises to cloud with application modernization and infrastructure optimization.",
-      features: [
-        "Migration planning",
-        "Zero-downtime transitions",
-        "Application refactoring",
-        "Performance optimization",
-      ],
+        "Comprehensive compliance programs for HIPAA, SOX, PCI-DSS, GDPR, and industry-specific regulations with ongoing monitoring and reporting.",
+      features: ["HIPAA compliance", "SOX controls", "PCI-DSS certification", "GDPR privacy"],
     },
     {
-      icon: <BarChart3 className="h-8 w-8" />,
-      title: "Multi-Cloud Management",
+      icon: <FileCheck className="h-8 w-8" />,
+      title: "IT Governance Frameworks",
       description:
-        "Unified management across AWS, Azure, Google Cloud, and hybrid environments with cost optimization.",
-      features: ["Multi-cloud strategy", "Vendor neutrality", "Cost optimization", "Unified monitoring"],
+        "Implementation of proven governance frameworks including COBIT, ITIL, and ISO 27001 to optimize IT operations and risk management.",
+      features: ["COBIT implementation", "ITIL processes", "ISO 27001 certification", "Custom frameworks"],
     },
     {
-      icon: <Settings className="h-8 w-8" />,
-      title: "Infrastructure Automation",
-      description: "DevOps practices with Infrastructure as Code, CI/CD pipelines, and automated deployment workflows.",
-      features: ["Infrastructure as Code", "CI/CD pipelines", "Automated scaling", "Configuration management"],
+      icon: <AlertTriangle className="h-8 w-8" />,
+      title: "Risk Management",
+      description:
+        "Comprehensive risk assessment, mitigation strategies, and continuous monitoring to protect your organization from compliance and operational risks.",
+      features: ["Risk assessments", "Mitigation strategies", "Continuous monitoring", "Incident response"],
     },
     {
-      icon: <Shield className="h-8 w-8" />,
-      title: "Cloud Security & Compliance",
+      icon: <BookOpen className="h-8 w-8" />,
+      title: "Policy & Documentation",
       description:
-        "Comprehensive cloud security with compliance management for regulated industries and data protection.",
-      features: ["Security monitoring", "Compliance frameworks", "Data encryption", "Access management"],
+        "Development of comprehensive policies, procedures, and documentation to support compliance requirements and governance objectives.",
+      features: ["Policy development", "Procedure documentation", "Training materials", "Audit preparation"],
     },
   ]
 
   const comparisonData = [
     {
-      feature: "Infrastructure Costs",
-      cloud: "30-50% reduction typical",
-      onpremise: "High upfront & maintenance",
+      feature: "Compliance Costs",
+      withGovernance: "30-50% reduction typical",
+      withoutGovernance: "Reactive, expensive fixes",
     },
     {
-      feature: "Scalability",
-      cloud: "Instant auto-scaling",
-      onpremise: "Manual, time-consuming",
+      feature: "Audit Success Rate",
+      withGovernance: "95%+ pass rate",
+      withoutGovernance: "60% typical pass rate",
     },
     {
-      feature: "Disaster Recovery",
-      cloud: "Built-in redundancy",
-      onpremise: "Expensive separate setup",
+      feature: "Risk Exposure",
+      withGovernance: "Proactive risk mitigation",
+      withoutGovernance: "High penalty exposure",
     },
     {
-      feature: "Maintenance",
-      cloud: "Managed by cloud provider",
-      onpremise: "Full internal responsibility",
+      feature: "Documentation",
+      withGovernance: "Comprehensive, audit-ready",
+      withoutGovernance: "Incomplete, scattered",
     },
     {
-      feature: "Global Reach",
-      cloud: "Worldwide in minutes",
-      onpremise: "Requires physical presence",
+      feature: "Training & Awareness",
+      withGovernance: "Regular, structured programs",
+      withoutGovernance: "Ad-hoc or minimal",
     },
     {
-      feature: "Innovation Speed",
-      cloud: "Rapid deployment",
-      onpremise: "Slow procurement cycles",
+      feature: "Incident Response",
+      withGovernance: "Structured, documented process",
+      withoutGovernance: "Reactive, uncoordinated",
     },
   ]
 
   const pricingTiers = [
     {
-      name: "Cloud Essentials",
-      price: "$299",
+      name: "Compliance Essentials",
+      price: "$1,500",
       period: "per month",
-      description: "Perfect for small businesses moving to the cloud",
+      description: "Core compliance support for small to medium businesses",
       features: [
-        "Cloud migration planning",
-        "Basic monitoring & alerts",
-        "Cost optimization reports",
+        "Single regulation focus",
+        "Policy templates",
+        "Quarterly assessments",
+        "Basic training materials",
         "Email support",
-        "Monthly health checks",
       ],
       popular: false,
     },
     {
-      name: "Cloud Professional",
-      price: "$599",
+      name: "Governance Professional",
+      price: "$3,500",
       period: "per month",
-      description: "Comprehensive cloud management for growing companies",
+      description: "Comprehensive compliance and governance program",
       features: [
-        "Everything in Essentials",
-        "Multi-cloud management",
-        "24/7 monitoring & support",
-        "Infrastructure automation",
-        "DevOps consulting",
+        "Multi-regulation support",
+        "Custom policy development",
+        "Monthly risk assessments",
+        "Staff training programs",
+        "Audit preparation",
         "Priority support",
       ],
       popular: true,
     },
     {
-      name: "Cloud Enterprise",
+      name: "Enterprise Governance",
       price: "Custom",
       period: "pricing",
-      description: "Full-scale cloud operations for large organizations",
+      description: "Full-scale governance for large organizations",
       features: [
         "Everything in Professional",
-        "Dedicated cloud architect",
-        "Custom automation workflows",
-        "Advanced security & compliance",
-        "Executive reporting",
-        "On-site consulting",
+        "Dedicated compliance team",
+        "Board-level reporting",
+        "Custom frameworks",
+        "24/7 incident response",
+        "Multi-site support",
       ],
       popular: false,
     },
@@ -250,7 +228,7 @@ export default function CloudInfrastructureServices() {
 
   return (
     <div className="min-h-screen bg-background">
-
+        
       {/* Header */}
            <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b shadow-sm">
              <div className="container mx-auto px-4 py-4">
@@ -419,63 +397,63 @@ export default function CloudInfrastructureServices() {
   </div>
 )}
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-cyan-50 py-16 lg:py-24">
+      <section className="relative bg-gradient-to-br from-green-50 to-emerald-50 py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="flex items-center space-x-2">
-                <div className="bg-blue-600 p-3 rounded-lg">
-                  <Cloud className="h-8 w-8 text-white" />
+                <div className="bg-green-600 p-3 rounded-lg">
+                  <Shield className="h-8 w-8 text-white" />
                 </div>
-                <Badge variant="secondary" className="text-sm bg-blue-100 text-blue-800">
-                  Cloud-Native Solutions
+                <Badge variant="secondary" className="text-sm bg-green-100 text-green-800">
+                  Regulatory Excellence
                 </Badge>
               </div>
 
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                Cloud & Infrastructure Management
+                Compliance & Governance Solutions
               </h1>
 
               <p className="text-xl text-gray-600 leading-relaxed">
-                Transform your business with modern cloud infrastructure. Scalable, secure, and cost-effective cloud
-                solutions that grow with your business needs and accelerate innovation.
+                Navigate complex regulatory requirements with confidence. Our comprehensive compliance and governance
+                solutions ensure regulatory adherence, reduce risk, and optimize operational efficiency.
               </p>
 
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4">
                 <div className="flex items-start space-x-3">
-                  <TrendingUp className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <div className="text-sm text-green-800">
-                    <strong>Cost Savings:</strong> Our clients typically reduce infrastructure costs by 30-50% while
-                    improving performance and scalability.
+                  <AlertTriangle className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
+                  <div className="text-sm text-red-800">
+                    <strong>Compliance Alert:</strong> Non-compliance penalties average $14.8M per incident. Are you
+                    adequately protected?
                   </div>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                <Button size="lg" className="bg-green-600 hover:bg-green-700">
                   <Calendar className="h-4 w-4 mr-2" />
-                  Free Cloud Assessment
+                  Free Compliance Assessment
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
+                  className="border-green-600 text-green-600 hover:bg-green-50 bg-transparent"
                 >
-                  Migration Consultation
+                  Regulatory Consultation
                 </Button>
               </div>
 
               <div className="grid grid-cols-3 gap-4 pt-4">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600">99.99%</div>
-                  <div className="text-sm text-gray-600">Uptime SLA</div>
+                  <div className="text-2xl font-bold text-green-600">100%</div>
+                  <div className="text-sm text-gray-600">Audit Success</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600">40%</div>
-                  <div className="text-sm text-gray-600">Avg Cost Savings</div>
+                  <div className="text-2xl font-bold text-green-600">$50M+</div>
+                  <div className="text-sm text-gray-600">Fines Prevented</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600">24/7</div>
+                  <div className="text-2xl font-bold text-green-600">24/7</div>
                   <div className="text-sm text-gray-600">Monitoring</div>
                 </div>
               </div>
@@ -484,34 +462,34 @@ export default function CloudInfrastructureServices() {
             <div className="relative">
               <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-white p-8">
                 <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="bg-blue-50 p-4 rounded-lg text-center">
-                    <Cloud className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-                    <div className="text-sm font-semibold text-blue-800">Cloud Status</div>
-                    <div className="text-xs text-blue-600">Optimized</div>
-                  </div>
                   <div className="bg-green-50 p-4 rounded-lg text-center">
-                    <TrendingUp className="h-8 w-8 text-green-600 mx-auto mb-2" />
-                    <div className="text-sm font-semibold text-green-800">Performance</div>
-                    <div className="text-xs text-green-600">Excellent</div>
+                    <Scale className="h-8 w-8 text-green-600 mx-auto mb-2" />
+                    <div className="text-sm font-semibold text-green-800">Compliance Status</div>
+                    <div className="text-xs text-green-600">Compliant</div>
+                  </div>
+                  <div className="bg-blue-50 p-4 rounded-lg text-center">
+                    <FileCheck className="h-8 w-8 text-blue-600 mx-auto mb-2" />
+                    <div className="text-sm font-semibold text-blue-800">Audit Readiness</div>
+                    <div className="text-xs text-blue-600">Ready</div>
                   </div>
                 </div>
                 <div className="space-y-3">
                   <div className="bg-gray-50 p-3 rounded-lg">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-medium">Resource Utilization</span>
-                      <span className="text-sm text-green-600">Optimized</span>
+                      <span className="text-sm font-medium">Risk Score</span>
+                      <span className="text-sm text-green-600">Low</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-green-500 h-2 rounded-full" style={{ width: "85%" }}></div>
+                      <div className="bg-green-500 h-2 rounded-full" style={{ width: "15%" }}></div>
                     </div>
                   </div>
                   <div className="bg-gray-50 p-3 rounded-lg">
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-medium">Cost Efficiency</span>
-                      <span className="text-sm text-blue-600">Excellent</span>
+                      <span className="text-sm font-medium">Policy Coverage</span>
+                      <span className="text-sm text-green-600">Complete</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-blue-500 h-2 rounded-full" style={{ width: "92%" }}></div>
+                      <div className="bg-green-500 h-2 rounded-full" style={{ width: "100%" }}></div>
                     </div>
                   </div>
                 </div>
@@ -521,25 +499,25 @@ export default function CloudInfrastructureServices() {
         </div>
       </section>
 
-      {/* Cloud Benefits Stats */}
+      {/* Compliance Risk Stats */}
       <section className="py-12 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-blue-400 mb-2">94%</div>
-              <div className="text-sm text-gray-300">Of enterprises use cloud services</div>
+              <div className="text-3xl font-bold text-red-400 mb-2">$14.8M</div>
+              <div className="text-sm text-gray-300">Average non-compliance penalty</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-400 mb-2">23%</div>
-              <div className="text-sm text-gray-300">Average cost reduction</div>
+              <div className="text-3xl font-bold text-red-400 mb-2">83%</div>
+              <div className="text-sm text-gray-300">Of companies experienced data breach</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-400 mb-2">3.2x</div>
-              <div className="text-sm text-gray-300">Faster time to market</div>
+              <div className="text-3xl font-bold text-red-400 mb-2">277</div>
+              <div className="text-sm text-gray-300">Days average breach detection</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-400 mb-2">99.9%</div>
-              <div className="text-sm text-gray-300">Cloud reliability average</div>
+              <div className="text-3xl font-bold text-red-400 mb-2">60%</div>
+              <div className="text-sm text-gray-300">Of small companies close after breach</div>
             </div>
           </div>
         </div>
@@ -549,10 +527,12 @@ export default function CloudInfrastructureServices() {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Complete Cloud Solutions</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Comprehensive Compliance & Governance
+            </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              End-to-end cloud infrastructure management from migration planning to ongoing optimization, security, and
-              support across all major cloud platforms.
+              End-to-end compliance and governance solutions designed to meet regulatory requirements, reduce risk, and
+              optimize operational efficiency across all business functions.
             </p>
           </div>
 
@@ -561,7 +541,7 @@ export default function CloudInfrastructureServices() {
               <Card key={index} className="hover:shadow-lg transition-all duration-300 group">
                 <CardHeader>
                   <div className="flex items-start space-x-4">
-                    <div className="bg-blue-100 p-3 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <div className="bg-green-100 p-3 rounded-lg group-hover:bg-green-600 group-hover:text-white transition-colors">
                       {service.icon}
                     </div>
                     <div className="flex-1">
@@ -586,22 +566,24 @@ export default function CloudInfrastructureServices() {
         </div>
       </section>
 
-      {/* Cloud vs On-Premise Comparison */}
+      {/* Governance Value Comparison */}
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Cloud vs. On-Premise Infrastructure</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                The Value of Professional Governance
+              </h2>
               <p className="text-lg text-gray-600">
-                See how cloud infrastructure compares to traditional on-premise solutions across key business factors
+                See how structured compliance and governance programs compare to ad-hoc approaches
               </p>
             </div>
 
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               <div className="grid grid-cols-3 bg-gray-50 p-4 font-semibold text-gray-900">
-                <div>Business Factor</div>
-                <div className="text-center text-blue-600">Cloud Infrastructure</div>
-                <div className="text-center text-gray-600">On-Premise</div>
+                <div>Compliance Factor</div>
+                <div className="text-center text-green-600">With Governance Program</div>
+                <div className="text-center text-red-600">Without Structure</div>
               </div>
 
               {comparisonData.map((row, index) => (
@@ -610,15 +592,15 @@ export default function CloudInfrastructureServices() {
                   className={`grid grid-cols-3 p-4 border-b border-gray-100 ${index % 2 === 0 ? "bg-gray-25" : "bg-white"}`}
                 >
                   <div className="font-medium text-gray-900">{row.feature}</div>
-                  <div className="text-center text-blue-600 font-medium">{row.cloud}</div>
-                  <div className="text-center text-gray-600">{row.onpremise}</div>
+                  <div className="text-center text-green-600 font-medium">{row.withGovernance}</div>
+                  <div className="text-center text-red-600 font-medium">{row.withoutGovernance}</div>
                 </div>
               ))}
             </div>
 
             <div className="text-center mt-8">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                Calculate Your Cloud Savings
+              <Button size="lg" className="bg-green-600 hover:bg-green-700">
+                Calculate Your Compliance ROI
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
             </div>
@@ -631,99 +613,99 @@ export default function CloudInfrastructureServices() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Comprehensive Cloud Services</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Specialized Compliance Services</h2>
               <p className="text-lg text-gray-600">
-                Explore our detailed cloud infrastructure management services designed for modern businesses
+                Explore our detailed compliance and governance solutions designed for regulatory excellence
               </p>
             </div>
 
-            <Tabs defaultValue="migration" className="w-full">
+            <Tabs defaultValue="regulatory" className="w-full">
               <TabsList className="grid w-full grid-cols-4 mb-8">
-                <TabsTrigger value="migration">Migration</TabsTrigger>
-                <TabsTrigger value="management">Management</TabsTrigger>
-                <TabsTrigger value="automation">Automation</TabsTrigger>
-                <TabsTrigger value="security">Security</TabsTrigger>
+                <TabsTrigger value="regulatory">Regulatory</TabsTrigger>
+                <TabsTrigger value="frameworks">Frameworks</TabsTrigger>
+                <TabsTrigger value="risk">Risk</TabsTrigger>
+                <TabsTrigger value="documentation">Documentation</TabsTrigger>
               </TabsList>
 
-              <TabsContent value="migration" className="mt-8">
+              <TabsContent value="regulatory" className="mt-8">
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Cloud Migration & Modernization</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Regulatory Compliance</h3>
                     <p className="text-gray-600 mb-6">
-                      Strategic cloud migration with minimal disruption to your business operations. We assess, plan,
-                      and execute migrations while modernizing applications for optimal cloud performance.
+                      Comprehensive compliance programs for major regulations including HIPAA, SOX, PCI-DSS, GDPR, and
+                      industry-specific requirements with continuous monitoring and reporting.
                     </p>
                     <div className="space-y-4">
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">Migration Assessment</div>
-                          <div className="text-sm text-gray-600">Comprehensive analysis of current infrastructure</div>
+                          <div className="font-semibold text-gray-900">HIPAA Compliance</div>
+                          <div className="text-sm text-gray-600">Healthcare data protection and privacy</div>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">Zero-Downtime Migration</div>
-                          <div className="text-sm text-gray-600">Seamless transition with business continuity</div>
+                          <div className="font-semibold text-gray-900">SOX Controls</div>
+                          <div className="text-sm text-gray-600">Financial reporting and internal controls</div>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">Application Modernization</div>
-                          <div className="text-sm text-gray-600">Optimize applications for cloud-native benefits</div>
+                          <div className="font-semibold text-gray-900">GDPR Privacy</div>
+                          <div className="text-sm text-gray-600">European data protection compliance</div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-2xl">
-                    <div className="text-center">
-                      <Cloud className="h-16 w-16 text-blue-600 mx-auto mb-4" />
-                      <div className="text-3xl font-bold text-blue-600 mb-2">Zero</div>
-                      <div className="text-gray-700 font-semibold">Downtime Migrations</div>
-                      <div className="text-sm text-gray-600 mt-2">Seamless transition to the cloud</div>
-                    </div>
-                  </div>
-                </div>
-              </TabsContent>
-
-              <TabsContent value="management" className="mt-8">
-                <div className="grid lg:grid-cols-2 gap-8 items-center">
                   <div className="bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-2xl">
                     <div className="text-center">
-                      <BarChart3 className="h-16 w-16 text-green-600 mx-auto mb-4" />
-                      <div className="text-3xl font-bold text-green-600 mb-2">Multi</div>
-                      <div className="text-gray-700 font-semibold">Cloud Management</div>
-                      <div className="text-sm text-gray-600 mt-2">AWS, Azure, GCP unified control</div>
+                      <Scale className="h-16 w-16 text-green-600 mx-auto mb-4" />
+                      <div className="text-3xl font-bold text-green-600 mb-2">100%</div>
+                      <div className="text-gray-700 font-semibold">Compliance Success</div>
+                      <div className="text-sm text-gray-600 mt-2">Perfect audit track record</div>
+                    </div>
+                  </div>
+                </div>
+              </TabsContent>
+
+              <TabsContent value="frameworks" className="mt-8">
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
+                  <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-2xl">
+                    <div className="text-center">
+                      <FileCheck className="h-16 w-16 text-blue-600 mx-auto mb-4" />
+                      <div className="text-3xl font-bold text-blue-600 mb-2">ISO</div>
+                      <div className="text-gray-700 font-semibold">27001 Certified</div>
+                      <div className="text-sm text-gray-600 mt-2">Information security management</div>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Multi-Cloud Management</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">IT Governance Frameworks</h3>
                     <p className="text-gray-600 mb-6">
-                      Unified management across multiple cloud providers with cost optimization, performance monitoring,
-                      and strategic resource allocation to avoid vendor lock-in.
+                      Implementation of proven governance frameworks including COBIT, ITIL, and ISO 27001 to optimize IT
+                      operations, ensure compliance, and manage risk effectively.
                     </p>
                     <div className="space-y-4">
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">Unified Dashboard</div>
-                          <div className="text-sm text-gray-600">Single pane of glass for all cloud resources</div>
+                          <div className="font-semibold text-gray-900">COBIT Implementation</div>
+                          <div className="text-sm text-gray-600">IT governance and management framework</div>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">Cost Optimization</div>
-                          <div className="text-sm text-gray-600">Automated cost analysis and recommendations</div>
+                          <div className="font-semibold text-gray-900">ITIL Processes</div>
+                          <div className="text-sm text-gray-600">IT service management best practices</div>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">Vendor Neutrality</div>
-                          <div className="text-sm text-gray-600">Avoid lock-in with multi-cloud strategy</div>
+                          <div className="font-semibold text-gray-900">ISO 27001</div>
+                          <div className="text-sm text-gray-600">Information security management systems</div>
                         </div>
                       </div>
                     </div>
@@ -731,85 +713,85 @@ export default function CloudInfrastructureServices() {
                 </div>
               </TabsContent>
 
-              <TabsContent value="automation" className="mt-8">
+              <TabsContent value="risk" className="mt-8">
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Infrastructure Automation</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Risk Management</h3>
                     <p className="text-gray-600 mb-6">
-                      Modern DevOps practices with Infrastructure as Code, automated CI/CD pipelines, and intelligent
-                      scaling that adapts to your business needs automatically.
+                      Comprehensive risk assessment, mitigation strategies, and continuous monitoring to protect your
+                      organization from compliance violations, operational risks, and security threats.
                     </p>
                     <div className="space-y-4">
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">Infrastructure as Code</div>
-                          <div className="text-sm text-gray-600">Version-controlled, repeatable deployments</div>
+                          <div className="font-semibold text-gray-900">Risk Assessments</div>
+                          <div className="text-sm text-gray-600">Comprehensive risk identification and analysis</div>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">CI/CD Pipelines</div>
-                          <div className="text-sm text-gray-600">Automated testing and deployment workflows</div>
+                          <div className="font-semibold text-gray-900">Mitigation Strategies</div>
+                          <div className="text-sm text-gray-600">Tailored risk reduction plans</div>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">Auto-Scaling</div>
-                          <div className="text-sm text-gray-600">Dynamic resource allocation based on demand</div>
+                          <div className="font-semibold text-gray-900">Continuous Monitoring</div>
+                          <div className="text-sm text-gray-600">Ongoing risk surveillance and reporting</div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <div className="bg-gradient-to-br from-orange-50 to-red-100 p-8 rounded-2xl">
+                    <div className="text-center">
+                      <AlertTriangle className="h-16 w-16 text-orange-600 mx-auto mb-4" />
+                      <div className="text-3xl font-bold text-orange-600 mb-2">85%</div>
+                      <div className="text-gray-700 font-semibold">Risk Reduction</div>
+                      <div className="text-sm text-gray-600 mt-2">Average risk score improvement</div>
+                    </div>
+                  </div>
+                </div>
+              </TabsContent>
+
+              <TabsContent value="documentation" className="mt-8">
+                <div className="grid lg:grid-cols-2 gap-8 items-center">
                   <div className="bg-gradient-to-br from-purple-50 to-violet-100 p-8 rounded-2xl">
                     <div className="text-center">
-                      <Settings className="h-16 w-16 text-purple-600 mx-auto mb-4" />
-                      <div className="text-3xl font-bold text-purple-600 mb-2">100%</div>
-                      <div className="text-gray-700 font-semibold">Automated Deployments</div>
-                      <div className="text-sm text-gray-600 mt-2">Zero manual intervention required</div>
-                    </div>
-                  </div>
-                </div>
-              </TabsContent>
-
-              <TabsContent value="security" className="mt-8">
-                <div className="grid lg:grid-cols-2 gap-8 items-center">
-                  <div className="bg-gradient-to-br from-red-50 to-orange-100 p-8 rounded-2xl">
-                    <div className="text-center">
-                      <Shield className="h-16 w-16 text-red-600 mx-auto mb-4" />
-                      <div className="text-3xl font-bold text-red-600 mb-2">24/7</div>
-                      <div className="text-gray-700 font-semibold">Security Monitoring</div>
-                      <div className="text-sm text-gray-600 mt-2">Continuous cloud security oversight</div>
+                      <BookOpen className="h-16 w-16 text-purple-600 mx-auto mb-4" />
+                      <div className="text-3xl font-bold text-purple-600 mb-2">500+</div>
+                      <div className="text-gray-700 font-semibold">Policy Templates</div>
+                      <div className="text-sm text-gray-600 mt-2">Comprehensive documentation library</div>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Cloud Security & Compliance</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Policy & Documentation</h3>
                     <p className="text-gray-600 mb-6">
-                      Comprehensive cloud security with continuous monitoring, compliance management, and advanced
-                      threat protection designed specifically for cloud environments.
+                      Development of comprehensive policies, procedures, and documentation to support compliance
+                      requirements, governance objectives, and audit readiness.
                     </p>
                     <div className="space-y-4">
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">Cloud Security Posture</div>
-                          <div className="text-sm text-gray-600">Continuous security configuration monitoring</div>
+                          <div className="font-semibold text-gray-900">Policy Development</div>
+                          <div className="text-sm text-gray-600">Custom policies aligned with regulations</div>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">Compliance Frameworks</div>
-                          <div className="text-sm text-gray-600">SOC 2, HIPAA, PCI-DSS, and more</div>
+                          <div className="font-semibold text-gray-900">Procedure Documentation</div>
+                          <div className="text-sm text-gray-600">Step-by-step operational procedures</div>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">Identity & Access Management</div>
-                          <div className="text-sm text-gray-600">Zero-trust security model implementation</div>
+                          <div className="font-semibold text-gray-900">Audit Preparation</div>
+                          <div className="text-sm text-gray-600">Audit-ready documentation and evidence</div>
                         </div>
                       </div>
                     </div>
@@ -825,9 +807,9 @@ export default function CloudInfrastructureServices() {
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Cloud Transformation Success Stories</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Compliance Success Stories</h2>
             <p className="text-lg text-gray-600">
-              See how businesses have transformed their operations with our cloud infrastructure solutions
+              See how our compliance and governance solutions have protected businesses from regulatory risks
             </p>
           </div>
 
@@ -849,14 +831,14 @@ export default function CloudInfrastructureServices() {
                     <div className="text-center">
                       <div className="font-semibold text-gray-900">{testimonials[activeTestimonial].name}</div>
                       <div className="text-sm text-gray-600">{testimonials[activeTestimonial].role}</div>
-                      <div className="text-sm font-medium text-blue-600">{testimonials[activeTestimonial].company}</div>
+                      <div className="text-sm font-medium text-green-600">{testimonials[activeTestimonial].company}</div>
                     </div>
                   </div>
 
                   <div className="flex justify-center space-x-4 mt-4 text-xs text-gray-500">
                     <Badge variant="outline">{testimonials[activeTestimonial].employees} employees</Badge>
                     <Badge variant="outline">{testimonials[activeTestimonial].industry}</Badge>
-                    <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
+                    <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
                       {testimonials[activeTestimonial].achievement}
                     </Badge>
                   </div>
@@ -888,7 +870,7 @@ export default function CloudInfrastructureServices() {
                   key={index}
                   onClick={() => setActiveTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-colors ${
-                    activeTestimonial === index ? "bg-blue-600" : "bg-gray-300"
+                    activeTestimonial === index ? "bg-green-600" : "bg-gray-300"
                   }`}
                 />
               ))}
@@ -901,18 +883,18 @@ export default function CloudInfrastructureServices() {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Cloud Management Plans</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Compliance Investment Plans</h2>
             <p className="text-lg text-gray-600">
-              Flexible cloud infrastructure management plans that scale with your business growth
+              Comprehensive compliance and governance programs that cost less than a single regulatory fine
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {pricingTiers.map((tier, index) => (
-              <Card key={index} className={`relative ${tier.popular ? "ring-2 ring-blue-600 shadow-lg" : ""}`}>
+              <Card key={index} className={`relative ${tier.popular ? "ring-2 ring-green-600 shadow-lg" : ""}`}>
                 {tier.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-blue-600 text-white px-4 py-1">Most Popular</Badge>
+                    <Badge className="bg-green-600 text-white px-4 py-1">Most Popular</Badge>
                   </div>
                 )}
 
@@ -925,7 +907,7 @@ export default function CloudInfrastructureServices() {
                   <CardDescription className="mt-2">{tier.description}</CardDescription>
                 </CardHeader>
 
-                <CardContent className="space-y-4">
+                 <CardContent className="space-y-4">
                   <ul className="space-y-3">
                     {tier.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center text-sm">

@@ -84,41 +84,43 @@ export default function CybersecurityService() {
     {
       icon: <Monitor className="h-5 w-5" />,
       title: "Managed IT support",
-      description: "We manage your IT. You grow. 24/7 UK support."
+      description: "We manage your IT. You grow. 24/7 UK support.",
+      href: "/support"
 
     },
     {
       icon: <Wifi className="h-5 w-5" />,
       title: "Cybersecurity services",
       description: "Block threats with next-gen security.",
-      href: "/services/computer-repair"
-
+      href: "/cybersecurity"
     },
     {
       icon: <Shield className="h-5 w-5" />,
       title: "Cloud & Infrastructure Management",
       description: "Secure, streamline, and scale with cloud.",
-      href: "/services/computer-repair"
+      href: "/cloud"
 
     },
     {
       icon: <HardDrive className="h-5 w-5" />,
       title: "IT consultancy",
-      description: "Align tech with goals."
-
+      description: "Align tech with goals.",
+       href: "/consultancy"
+ 
     },
     {
       icon: <Cloud className="h-5 w-5" />,
       title: "Compliance & Governace",
       description: "Stay secure and compliant.",
-      href: "/services/computer-repair"
+      href: "/services/computer-repair",
+        href: "/compliance"
 
     },
     {
       icon: <Settings className="h-5 w-5" />,
       title: "Device & Endpoint Management",
       description: "Secure and manage devices.",
-      href: "/services/computer-repair"
+      href: "/end+point"
 
     }
   ];
