@@ -112,8 +112,7 @@ export default function CybersecurityService() {
       icon: <Cloud className="h-5 w-5" />,
       title: "Compliance & Governace",
       description: "Stay secure and compliant.",
-      href: "/services/computer-repair",
-        href: "/compliance"
+      href: "/compliance"
 
     },
     {

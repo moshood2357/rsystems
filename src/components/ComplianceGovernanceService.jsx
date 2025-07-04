@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-import { Shield, CheckCircle, Star, Phone, Calendar, FileCheck, ArrowRight, AlertTriangle,HardDrive, Wifi, Settings, ChevronDown, Cloud, Monitor,  ChevronLeft, ChevronRight, Scale, Lock, BookOpen } from 'lucide-react'
+import { Shield, CheckCircle, Star, Phone, Calendar, FileCheck, ArrowRight, AlertTriangle,HardDrive, Wifi, Settings, ChevronDown, Cloud, Monitor,  ChevronLeft, ChevronRight, Scale, BookOpen } from 'lucide-react'
 
 import { Link } from 'react-router-dom';
 
