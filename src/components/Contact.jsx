@@ -84,7 +84,7 @@ export default function Contact() {
       icon: <Settings className="h-5 w-5" />,
       title: "Device & Endpoint Management",
       description: "Secure and manage devices.",
-      href: "/end+point"
+      href: "/protection"
 
     }
   ];

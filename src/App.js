@@ -8,6 +8,7 @@ import CybersecurityService from './components/CybersecurityService';
 import CloudInfrastructureServices from './components/CloudInfrastructureServices';
 import ITConsultancyService from './components/ITConsultancyServices.';
 import ComplianceGovernanceService from './components/ComplianceGovernanceService';
+import DeviceEndpointProtectionService from './components/DeviceEndpointProtectionService';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
          <Route path="/cloud" element={<CloudInfrastructureServices />} />
          <Route path="/consultancy" element={<ITConsultancyService />} />
          <Route path="/compliance" element={<ComplianceGovernanceService />} />
+         <Route path="/protection" element={<DeviceEndpointProtectionService />} />
       </Routes>
     </Router>
     
