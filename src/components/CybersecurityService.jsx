@@ -158,8 +158,8 @@ export default function CybersecurityService() {
   const comparisonData = [
     {
       feature: "Average Cost of Data Breach",
-      withSecurity: "$1.76M (with security)",
-      withoutSecurity: "$4.45M (without security)",
+      withSecurity: "$pound;1.76M (with security)",
+      withoutSecurity: "4.45M (without security)",
     },
     {
       feature: "Detection Time",
@@ -331,6 +331,10 @@ export default function CybersecurityService() {
                                <a href="/contact" className="text-gray-700 hover:text-blue-600 transition-colors">
                                  Contact
                                </a>
+                              <a href="tel:01452905204" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
+                                <Phone className="mr-2 h-6 w-6" />
+                                01452905204
+                              </a>
                                <Link to = "/contact">
                                   <Button className="bg-blue-600 hover:bg-blue-700 text-white">
                                  Get Quote
@@ -408,6 +412,10 @@ export default function CybersecurityService() {
     >
       Contact
     </Link>
+     <a href="tel:01452905204" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
+        <Phone className="mr-2 h-6 w-6" />
+        01452905204
+      </a>
 
     <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
       <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full mt-4">
@@ -524,7 +532,7 @@ export default function CybersecurityService() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-red-400 mb-2">$4.45M</div>
+              <div className="text-3xl font-bold text-red-400 mb-2">&pound;4.45M</div>
               <div className="text-sm text-gray-300">Average cost of a data breach</div>
             </div>
             <div>
