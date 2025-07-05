@@ -1,0 +1,366 @@
+"use client"
+import {
+  Monitor,
+  Shield,
+  Cloud,
+  Smartphone,
+  Lightbulb,
+  Scale,
+  Server,
+  Headphones,
+  ArrowRight,
+  CheckCircle,
+} from "lucide-react"
+
+import { Button } from "../ui/Button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/Card"
+import { Badge } from "../ui/Badge"
+
+export default function ServicesOverview() {
+  const services = [
+    {
+      icon: <Monitor className="h-8 w-8" />,
+      iconBg: "bg-blue-100",
+      iconColor: "text-blue-600",
+      title: "Computer Repair Services",
+      description:
+        "Fast and reliable computer repair services for all makes and models. Hardware and software issues resolved quickly by certified technicians.",
+      features: [
+        "Hardware diagnostics and repair",
+        "Software troubleshooting and optimization",
+        "Data recovery services",
+        "Virus removal and security",
+        "Same-day service available",
+        "90-day warranty on all repairs",
+        "On-site and remote support",
+      ],
+      badge: "Popular",
+      badgeColor: "bg-green-100 text-green-800",
+    },
+    {
+      icon: <Shield className="h-8 w-8" />,
+      iconBg: "bg-red-100",
+      iconColor: "text-red-600",
+      title: "Cyber security services",
+      description: "Defend against malware, phishing, ransomware, and zero-day threats with next-gen security tools.",
+      features: [
+        "Endpoint protection (antivirus, EDR)",
+        "Managed firewalls",
+        "Security awareness training",
+        "Email security (anti-phishing, spam filters)",
+        "Security audits and compliance (GDPR, ISO 27001)",
+        "Data loss prevention (DLP) solutions",
+        "Incident response and remediation services",
+      ],
+      badge: "Critical",
+      badgeColor: "bg-red-100 text-red-800",
+    },
+    {
+      icon: <Server className="h-8 w-8" />,
+      iconBg: "bg-blue-100",
+      iconColor: "text-blue-600",
+      title: "Managed IT Support",
+      description:
+        "Comprehensive IT management and support services that keep your business running smoothly with enterprise-level infrastructure.",
+      features: [
+        "24/7 network monitoring and alerts",
+        "Help desk support and ticketing",
+        "Proactive maintenance and updates",
+        "Backup and disaster recovery",
+        "Cloud services management",
+        "Vendor management and procurement",
+        "Strategic IT planning and consulting",
+      ],
+      badge: "Enterprise",
+      badgeColor: "bg-blue-100 text-blue-800",
+    },
+    {
+      icon: <Cloud className="h-8 w-8" />,
+      iconBg: "bg-cyan-100",
+      iconColor: "text-cyan-600",
+      title: "Cloud & Infrastructure Management",
+      description:
+        "Transform your business with modern cloud infrastructure. Scalable, secure, and cost-effective solutions that grow with your needs.",
+      features: [
+        "Cloud migration and modernization",
+        "Multi-cloud management (AWS, Azure, GCP)",
+        "Infrastructure automation and DevOps",
+        "Cloud security and compliance",
+        "Cost optimization and monitoring",
+        "Disaster recovery planning",
+        "Hybrid cloud solutions",
+      ],
+      badge: "Scalable",
+      badgeColor: "bg-cyan-100 text-cyan-800",
+    },
+    {
+      icon: <Smartphone className="h-8 w-8" />,
+      iconBg: "bg-orange-100",
+      iconColor: "text-orange-600",
+      title: "Device & Endpoint Protection",
+      description:
+        "Secure every device in your organization with comprehensive endpoint protection and zero-trust security for the modern workforce.",
+      features: [
+        "Endpoint detection and response (EDR)",
+        "Mobile device management (MDM)",
+        "Unified endpoint management (UEM)",
+        "Zero-trust endpoint security",
+        "BYOD policy enforcement",
+        "Remote device management",
+        "Device compliance monitoring",
+      ],
+      badge: "Advanced",
+      badgeColor: "bg-orange-100 text-orange-800",
+    },
+    {
+      icon: <Lightbulb className="h-8 w-8" />,
+      iconBg: "bg-purple-100",
+      iconColor: "text-purple-600",
+      title: "IT Consultancy & Strategic Advisory",
+      description:
+        "Transform your business with expert IT strategy and guidance. Make informed technology decisions and accelerate digital transformation.",
+      features: [
+        "IT strategy and roadmap development",
+        "Digital transformation consulting",
+        "Technology assessment and planning",
+        "CIO/CTO advisory services",
+        "Vendor selection and management",
+        "Project management and oversight",
+        "ROI analysis and business cases",
+      ],
+      badge: "Strategic",
+      badgeColor: "bg-purple-100 text-purple-800",
+    },
+    {
+      icon: <Scale className="h-8 w-8" />,
+      iconBg: "bg-green-100",
+      iconColor: "text-green-600",
+      title: "Compliance & Governance",
+      description:
+        "Navigate complex regulatory requirements with confidence. Comprehensive compliance solutions that reduce risk and optimize operations.",
+      features: [
+        "Regulatory compliance (HIPAA, SOX, PCI-DSS)",
+        "IT governance frameworks (COBIT, ITIL)",
+        "Risk management and assessment",
+        "Policy development and documentation",
+        "Audit preparation and support",
+        "Compliance monitoring and reporting",
+        "Training and awareness programs",
+      ],
+      badge: "Certified",
+      badgeColor: "bg-green-100 text-green-800",
+    },
+    {
+      icon: <Headphones className="h-8 w-8" />,
+      iconBg: "bg-indigo-100",
+      iconColor: "text-indigo-600",
+      title: "24/7 Technical Support",
+      description:
+        "Round-the-clock technical support and help desk services to keep your business operations running without interruption.",
+      features: [
+        "24/7 help desk and phone support",
+        "Remote troubleshooting and assistance",
+        "Ticket management and tracking",
+        "Multi-channel support (phone, email, chat)",
+        "Escalation procedures and SLAs",
+        "Knowledge base and self-service",
+        "User training and documentation",
+      ],
+      badge: "24/7",
+      badgeColor: "bg-indigo-100 text-indigo-800",
+    },
+  ]
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-16 lg:py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Comprehensive IT Services & Solutions</h1>
+            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              From cybersecurity and cloud infrastructure to device management and strategic consulting, we provide
+              end-to-end IT solutions that drive business success and operational excellence.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                Get Started Today
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
+              >
+                Schedule Consultation
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our IT Services</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Discover our comprehensive range of IT services designed to meet your business needs, from basic support
+              to enterprise-level solutions.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {services.map((service, index) => (
+              <Card key={index} className="h-full hover:shadow-lg transition-all duration-300 group">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className={`p-3 rounded-lg ${service.iconBg}`}>
+                      <div className={service.iconColor}>{service.icon}</div>
+                    </div>
+                    <Badge variant="secondary" className={`text-xs ${service.badgeColor}`}>
+                      {service.badge}
+                    </Badge>
+                  </div>
+                  <CardTitle className="text-lg leading-tight">{service.title}</CardTitle>
+                  <CardDescription className="text-sm text-gray-600 leading-relaxed">
+                    {service.description}
+                  </CardDescription>
+                </CardHeader>
+
+                <CardContent className="pt-0 flex flex-col h-full">
+                  <div className="flex-1">
+                    <ul className="space-y-2 mb-6">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start text-sm text-gray-600">
+                          <CheckCircle className="h-4 w-4 mr-2 text-green-500 flex-shrink-0 mt-0.5" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 group-hover:bg-blue-700 transition-colors">
+                    Learn More
+                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-16 lg:py-24 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Why Choose Our IT Services?</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              We deliver exceptional IT solutions with proven expertise, cutting-edge technology, and unwavering
+              commitment to your success.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="bg-blue-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <Shield className="h-8 w-8 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Proven Security</h3>
+              <p className="text-gray-600">
+                Industry-leading security measures with 99.9% threat detection rate and zero breaches.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-green-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <Headphones className="h-8 w-8 text-green-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">24/7 Support</h3>
+              <p className="text-gray-600">
+                Round-the-clock technical support with average response time under 15 minutes.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-purple-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <Lightbulb className="h-8 w-8 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Expert Guidance</h3>
+              <p className="text-gray-600">
+                Certified professionals with 25+ years of combined experience in IT solutions.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-orange-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <Cloud className="h-8 w-8 text-orange-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Scalable Solutions</h3>
+              <p className="text-gray-600">
+                Flexible IT solutions that grow with your business from startup to enterprise.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 lg:py-24 bg-gray-900 text-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Trusted by Businesses Worldwide</h2>
+            <p className="text-xl text-gray-300">
+              Our track record speaks for itself with measurable results and satisfied clients.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-4xl font-bold text-blue-400 mb-2">500+</div>
+              <div className="text-gray-300">Clients Served</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-green-400 mb-2">99.9%</div>
+              <div className="text-gray-300">Uptime SLA</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-purple-400 mb-2">24/7</div>
+              <div className="text-gray-300">Support Available</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-orange-400 mb-2">15min</div>
+              <div className="text-gray-300">Avg Response Time</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 lg:py-24 bg-blue-600">
+        <div className="container mx-auto px-4 text-center">
+          <div className="max-w-3xl mx-auto text-white">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Ready to Transform Your IT Infrastructure?</h2>
+            <p className="text-xl mb-8 opacity-90">
+              Get started with a free consultation and discover how our comprehensive IT services can drive your
+              business forward.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100">
+                Get Free Consultation
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
+              >
+                Call: (555) 123-4567
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}

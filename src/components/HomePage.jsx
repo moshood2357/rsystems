@@ -285,9 +285,9 @@ export default function HomePage() {
                   </Button>
                 </Link>
 
-                 <a href="tel:+441234567890" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
+                 <a href="tel:01452905204" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
                 <Phone className="mr-2 h-6 w-6" />
-                01234 567 890
+                01452905204
               </a>
                 
                 {/* <AnchorLink href = "#contact"  className="text-gray-700 hover:text-blue-600 transition-colors">
@@ -404,10 +404,12 @@ export default function HomePage() {
               </Card>
             ))}
           </div>
-          
-            <div className="mt-8 text-center text-blue" size="lg">
+          <Link to = "/services">
+             <div className="mt-8 text-center text-blue" size="lg">
                 See All Services
             </div>
+          </Link>
+            
         </div>
       </section>
 
