@@ -322,8 +322,8 @@ export default function HomePage() {
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-2xl p-8">
                 <img
-                  src="/tech-support.jpg"
-                  alt="IT Professional working on computer"
+                  src="/support-min.png"
+                  alt="IT support"
                   width={500}
                   height={400}
                   className="rounded-lg"
@@ -423,8 +423,8 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <img
-                src="/support.png"
-                alt="R2 System Solution team"
+                src="/tech-support.jpg"
+                alt="IT professional working on a computer"
                 width={600}
                 height={500}
                 className="rounded-2xl shadow-lg"
