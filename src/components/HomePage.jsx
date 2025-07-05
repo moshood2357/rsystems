@@ -161,6 +161,10 @@ export default function HomePage() {
               <Link to ="/contact" className="text-gray-700 hover:text-blue-600 transition-colors">
                 Contact
               </Link>
+               <a href="tel:+441234567890" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
+                <Phone className="mr-2 h-6 w-6" />
+                01234 567 890
+              </a>
               <Link to = "/contact">
                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
                 Get Quote
@@ -264,44 +268,49 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <Badge variant = "outline" className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-100">Professional IT Solutions</Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Reliable IT Support for Cheltenham & beyond
+              <Badge variant = "outline" className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-100">Trusted IT partner</Badge>
+              <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+               Are You Ready To Put An End To Expensive, Frustrating IT Problems in Cheltenham & beyond Finally?
+
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Expert computer repairs, network solutions, and IT support services. We keep your technology running
-                smoothly so you can focus on what matters most.
+                Stop losing time and money to IT problems. Get 24/7 support, 15-minute response time, and fixed monthly pricing. Serving accountants, law firms, and healthcare providers.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link to = "/contact">
                   <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
-                    Get Free Consultation
+                    Get Free IT assessment
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
+
+                 <a href="tel:+441234567890" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
+                <Phone className="mr-2 h-6 w-6" />
+                01234 567 890
+              </a>
                 
-                <AnchorLink href = "#contact"  className="text-gray-700 hover:text-blue-600 transition-colors">
+                {/* <AnchorLink href = "#contact"  className="text-gray-700 hover:text-blue-600 transition-colors">
                   <Button size="lg" variant="outline" className="border-gray-300 hover:bg-gray-50">
                     <Phone className="mr-2 h-5 w-5" />
                     Call Now
                   </Button>
-                </AnchorLink>
+                </AnchorLink> */}
                 
               </div>
 
               <div className="flex items-center space-x-6 text-sm text-gray-600">
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                  24/7 Support
+                  15-Min Response Time
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                  Local Experts
+                  Fixed Monthly Price
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                  Fast Response
+                    99.9% Uptime
                 </div>
               </div>
             </div>
