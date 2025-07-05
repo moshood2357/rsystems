@@ -279,7 +279,7 @@ export default function Contact() {
          backgroundRepeat: "no-repeat",
         }}
     >
-       {/* <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>   */}
+        <div className="absolute inset-0 bg-white/10 "></div>   
 
       <div className="relative z-20">
         <h1 className="text-4xl sm:text-5xl font-bold text-blue-900 mb-4">
