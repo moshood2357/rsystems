@@ -161,9 +161,9 @@ export default function HomePage() {
               <Link to ="/contact" className="text-gray-700 hover:text-blue-600 transition-colors">
                 Contact
               </Link>
-               <a href="tel:+441234567890" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
-                <Phone className="mr-2 h-6 w-6" />
-                01234 567 890
+               <a href="tel:01452905204" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
+                 <Phone className="mr-2 h-6 w-6" />
+                01452905204
               </a>
               <Link to = "/contact">
                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
@@ -252,6 +252,10 @@ export default function HomePage() {
     >
       Contact
     </Link>
+    <a href="tel:01452905204" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
+       <Phone className="mr-2 h-6 w-6" />
+       01452905204
+    </a>
 
     <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
       <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full mt-4">
@@ -286,9 +290,9 @@ export default function HomePage() {
                 </Link>
 
                  <a href="tel:01452905204" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
-                <Phone className="mr-2 h-6 w-6" />
-                01452905204
-              </a>
+                   <Phone className="mr-2 h-6 w-6" />
+                   01452905204
+                 </a>
                 
                 {/* <AnchorLink href = "#contact"  className="text-gray-700 hover:text-blue-600 transition-colors">
                   <Button size="lg" variant="outline" className="border-gray-300 hover:bg-gray-50">
