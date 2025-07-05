@@ -271,10 +271,11 @@ export default function Contact() {
 
       {/* Hero Section */}
       <section
-         className="relative text-center py-40 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-blue-50"
+         className="relative text-center py-40 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-blue-50 z--100"
          style={{
          backgroundImage: "url('/harley.png')",
          backgroundSize: "cover",
+         position: 'relative',
         backgroundPosition: "center",
          backgroundRepeat: "no-repeat",
         }}
