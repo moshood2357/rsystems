@@ -252,9 +252,9 @@ export default function HomePage() {
     >
       Contact
     </Link>
-    <a href="tel:+4401452905204" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
+    <a href="tel:01452905204" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
        <Phone className="mr-2 h-6 w-6" />
-       +4401452905204
+       01452905204
     </a>
 
     <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
@@ -289,9 +289,9 @@ export default function HomePage() {
                   </Button>
                 </Link>
 
-                 <a href="tel:+4401452905204" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
+                 <a href="tel:01452905204" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
                    <Phone className="mr-2 h-6 w-6" />
-                   +4401452905204
+                   01452905204
                  </a>
                 
                 {/* <AnchorLink href = "#contact"  className="text-gray-700 hover:text-blue-600 transition-colors">

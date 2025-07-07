@@ -488,58 +488,58 @@ export default function ServicesOverview() {
               },
               {
                 icon: <Zap className="h-8 w-8" />,
-                title: "Managed IT support",
+                title: "Backup and Data Recovery",
                 description:
-                  "We monitor, maintain, and manage your entire IT environment so you can focus on growing your business. Whether you’re a 5-person law firm or a 50-seat finance office, our UK-based support team is just a call away — 24/7.",
-                features: ["24/7 helpdesk", "Remote support", "On-site support", "Proactive monitoring", "Patch management"],
+                  "Ensure business continuity and rapid recovery from accidental deletion, hardware failure, or cyber incidents with reliable backup and recovery solutions.",
+                features: ["Cloud and on-premises backup solutions", "Automated scheduled backups", "Disaster recovery planning", "Rapid data restoration servicesRapid data restoration servicesRapid data restoration servicesRapid data restoration services", "Ransomware-resistant backup strategies", "Backup monitoring and reporting", "Compliance-aligned data retention policies"],
                 link: "/backup", 
               },
               {
                 icon: <Zap className="h-8 w-8" />,
-                title: "Managed IT support",
+                title: "Network Management",
                 description:
-                  "We monitor, maintain, and manage your entire IT environment so you can focus on growing your business. Whether you’re a 5-person law firm or a 50-seat finance office, our UK-based support team is just a call away — 24/7.",
-                features: ["24/7 helpdesk", "Remote support", "On-site support", "Proactive monitoring", "Patch management"],
+                  "Keep your business connected with secure, reliable, and high-performance networks tailored to your needs.",
+                features: ["Network design and implementation", "Proactive network monitoring", "Wi-Fi and LAN management", "Managed switches and routing", "Network performance optimization", "VPN setup and management", "Network security and access control"],
                 link: "/support", 
               },
               {
                 icon: <Zap className="h-8 w-8" />,
-                title: "Managed IT support",
+                title: "Vendor Management",
                 description:
-                  "We monitor, maintain, and manage your entire IT environment so you can focus on growing your business. Whether you’re a 5-person law firm or a 50-seat finance office, our UK-based support team is just a call away — 24/7.",
-                features: ["24/7 helpdesk", "Remote support", "On-site support", "Proactive monitoring", "Patch management"],
+                  "Simplify your technology relationships with streamlined vendor management, ensuring you get the best value and support for your IT investments.",
+                features: ["Single point of contact for all IT vendors", "Internet and telecom provider management", "Contract and renewal tracking", "Hardware and software licensing management", "Vendor performance monitoring", "Escalation and issue resolution", "Cost optimization and vendor negotiations"],
                 link: "/support", 
               },
               {
                 icon: <Zap className="h-8 w-8" />,
-                title: "Managed IT support",
+                title: "VoIP and Unified Communication",
                 description:
-                  "We monitor, maintain, and manage your entire IT environment so you can focus on growing your business. Whether you’re a 5-person law firm or a 50-seat finance office, our UK-based support team is just a call away — 24/7.",
-                features: ["24/7 helpdesk", "Remote support", "On-site support", "Proactive monitoring", "Patch management"],
+                  "Enhance team collaboration and customer communication with flexible, scalable VoIP and unified communication solutions.",
+                features: ["Cloud-based VoIP phone systems", "Video conferencing setup and management", "Instant messaging and team collaboration tools", "Call routing and auto-attendant configuration", "Mobile device integration", "Voicemail-to-email and call recording", "Reliable support and monitoring"],
                 link: "/support", 
               },
               {
                 icon: <Zap className="h-8 w-8" />,
-                title: "Managed IT support",
+                title: "IT consultancy",
                 description:
-                  "We monitor, maintain, and manage your entire IT environment so you can focus on growing your business. Whether you’re a 5-person law firm or a 50-seat finance office, our UK-based support team is just a call away — 24/7.",
-                features: ["24/7 helpdesk", "Remote support", "On-site support", "Proactive monitoring", "Patch management"],
+                  "Align your technology with your business goals through expert guidance, planning, and strategic IT consultancy services.",
+                features: ["IT strategy and roadmap development", "Technology audits and assessments", "Cloud readiness and migration planning", "Cybersecurity consulting", "Compliance and risk management", "Infrastructure and system optimization", "Budget planning and cost reduction strategies"],
                 link: "/support", 
               },
               {
                 icon: <Zap className="h-8 w-8" />,
-                title: "Managed IT support",
+                title: "Compliance & Governace",
                 description:
-                  "We monitor, maintain, and manage your entire IT environment so you can focus on growing your business. Whether you’re a 5-person law firm or a 50-seat finance office, our UK-based support team is just a call away — 24/7.",
-                features: ["24/7 helpdesk", "Remote support", "On-site support", "Proactive monitoring", "Patch management"],
+                  "Protect your business and build trust with structured compliance and governance solutions aligned with industry standards.",
+                features: ["Compliance gap assessments", "GDPR, ISO 27001, and HIPAA compliance support", "Policy development and documentation", "Data protection and privacy management", "Risk assessments and mitigation planning", "Regular compliance audits", "Governance frameworks and best practices"],
                 link: "/support", 
               },
               {
                 icon: <Zap className="h-8 w-8" />,
-                title: "Managed IT support",
+                title: "Device & Endpoint Management",
                 description:
-                  "We monitor, maintain, and manage your entire IT environment so you can focus on growing your business. Whether you’re a 5-person law firm or a 50-seat finance office, our UK-based support team is just a call away — 24/7.",
-                features: ["24/7 helpdesk", "Remote support", "On-site support", "Proactive monitoring", "Patch management"],
+                  "Keep your devices secure, updated, and performing efficiently with proactive endpoint management services.",
+                features: ["Endpoint security (antivirus, EDR)", "Patch management and updates", "Asset tracking and inventory management", "Mobile device management (MDM)", "Remote monitoring and support", "Device configuration and policy enforcement", "Lifecycle management and device replacement planning"],
                 link: "/support", 
               },
             ].map((service, index) => (
