@@ -14,6 +14,8 @@ import DeviceEndpointProtectionService from './components/DeviceEndpointProtecti
 import BackupDisasterRecovery from './components/BackupDisasterRecoveryService';
 import ServicesOverview from './components/ServicesOverview';
 import NetworkManagement from './components/NetworkManagement';
+import VendorManagement from './components/VendorManagement';
+import VoIPUnifiedCommunications from './components/VoIPUnifiedCommunications';
 
 
 function App() {
@@ -33,6 +35,9 @@ function App() {
          <Route path="/backup" element={<BackupDisasterRecovery/>} />
          <Route path="/services" element={<ServicesOverview />} />
          <Route path="/network" element={<NetworkManagement />} />
+         <Route path="/vendor" element={<VendorManagement />} />
+         <Route path="/VoIP" element={<VoIPUnifiedCommunications />} />
+
       </Routes>
     </Router>
     

@@ -435,7 +435,9 @@ export default function HomePage() {
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Your Trusted IT Partner Since 2010</h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 R2 System Solution has been providing reliable IT services to businesses and individuals across the UK.
-                Our team of certified professionals is dedicated to delivering exceptional service and support.
+                Our team of certified professionals is dedicated to delivering exceptional service and support.<br></br><br></br>We specialize in supporting accountants, law firms, healthcare providers, and other professional services with reliable, cost-effective IT solutions that help you focus on what you do best.
+
+
               </p>
 
               <div className="grid grid-cols-2 gap-6 mb-8">

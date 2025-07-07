@@ -286,7 +286,7 @@ export default function Contact() {
         <h1 className="text-4xl sm:text-5xl font-bold text-blue-900 mb-4">
           Need Help With IT? Let’s Chat.
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg text-gray-900 max-w-2xl mx-auto">
           Get a free 30-minute consultation — no pressure, just solutions.
         </p>
       </div>

@@ -473,7 +473,7 @@ export default function ServicesOverview() {
               },
               {
                 icon: <Users className="h-8 w-8" />,
-                title: "Cyber security services",
+                title: "Cybersecurity services",
                 description:
                   "Defend against malware, phishing, ransomware, and zero-day threats with next-gen security tools.",
                 features: ["Endpoint protection (antivirus, EDR)", "Managed firewalls", "Security awareness training ", "Email security (anti-phishing, spam filters)", "Security audits and compliance (GDPR, ISO 27001)", "Data loss prevention (DLP) solutions", "Incident response and remediation services"],
@@ -508,7 +508,7 @@ export default function ServicesOverview() {
                 description:
                   "Simplify your technology relationships with streamlined vendor management, ensuring you get the best value and support for your IT investments.",
                 features: ["Single point of contact for all IT vendors", "Internet and telecom provider management", "Contract and renewal tracking", "Hardware and software licensing management", "Vendor performance monitoring", "Escalation and issue resolution", "Cost optimization and vendor negotiations"],
-                link: "/support", 
+                link: "/vendor", 
               },
               {
                 icon: <Zap className="h-8 w-8" />,
@@ -516,7 +516,7 @@ export default function ServicesOverview() {
                 description:
                   "Enhance team collaboration and customer communication with flexible, scalable VoIP and unified communication solutions.",
                 features: ["Cloud-based VoIP phone systems", "Video conferencing setup and management", "Instant messaging and team collaboration tools", "Call routing and auto-attendant configuration", "Mobile device integration", "Voicemail-to-email and call recording", "Reliable support and monitoring"],
-                link: "/support", 
+                link: "/VoIP", 
               },
               {
                 icon: <Zap className="h-8 w-8" />,
@@ -524,23 +524,23 @@ export default function ServicesOverview() {
                 description:
                   "Align your technology with your business goals through expert guidance, planning, and strategic IT consultancy services.",
                 features: ["IT strategy and roadmap development", "Technology audits and assessments", "Cloud readiness and migration planning", "Cybersecurity consulting", "Compliance and risk management", "Infrastructure and system optimization", "Budget planning and cost reduction strategies"],
-                link: "/support", 
+                link: "/consultancy", 
               },
               {
                 icon: <Zap className="h-8 w-8" />,
-                title: "Compliance & Governace",
+                title: "Compliance & Governance",
                 description:
                   "Protect your business and build trust with structured compliance and governance solutions aligned with industry standards.",
                 features: ["Compliance gap assessments", "GDPR, ISO 27001, and HIPAA compliance support", "Policy development and documentation", "Data protection and privacy management", "Risk assessments and mitigation planning", "Regular compliance audits", "Governance frameworks and best practices"],
-                link: "/support", 
+                link: "/compliance", 
               },
               {
                 icon: <Zap className="h-8 w-8" />,
-                title: "Device & Endpoint Management",
+                title: "Device & Endpoint Protection",
                 description:
                   "Keep your devices secure, updated, and performing efficiently with proactive endpoint management services.",
                 features: ["Endpoint security (antivirus, EDR)", "Patch management and updates", "Asset tracking and inventory management", "Mobile device management (MDM)", "Remote monitoring and support", "Device configuration and policy enforcement", "Lifecycle management and device replacement planning"],
-                link: "/support", 
+                link: "/protection", 
               },
             ].map((service, index) => (
               <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300">
