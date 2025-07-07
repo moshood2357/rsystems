@@ -500,7 +500,7 @@ export default function ServicesOverview() {
                 description:
                   "Keep your business connected with secure, reliable, and high-performance networks tailored to your needs.",
                 features: ["Network design and implementation", "Proactive network monitoring", "Wi-Fi and LAN management", "Managed switches and routing", "Network performance optimization", "VPN setup and management", "Network security and access control"],
-                link: "/support", 
+                link: "/network", 
               },
               {
                 icon: <Zap className="h-8 w-8" />,

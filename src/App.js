@@ -12,6 +12,7 @@ import DeviceEndpointProtectionService from './components/DeviceEndpointProtecti
 
 import BackupDisasterRecovery from './components/BackupDisasterRecoveryService';
 import ServicesOverview from './components/ServicesOverview';
+import NetworkManagement from './components/NetworkManagement';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
          <Route path="/protection" element={<DeviceEndpointProtectionService />} />
          <Route path="/backup" element={<BackupDisasterRecovery/>} />
          <Route path="/services" element={<ServicesOverview />} />
+         <Route path="/network" element={<NetworkManagement />} />
       </Routes>
     </Router>
     
