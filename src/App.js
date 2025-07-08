@@ -2,16 +2,14 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from "./components/ScrollToTop";
-import Loader from "./components/Loader"; // ✅ import loader
+import Loader from "./components/Loader";
 
 // Direct import for homepage
 import HomePage from "./components/HomePage";
-
+import Contact from "./components/Contact";
 
 // Lazy imports
-
 const About = lazy(() => import(/* webpackPrefetch: true */ "./components/About"));
-const Contact = lazy(() => import(/* webpackPrefetch: true */ "./components/Contact"));
 const ManagedITSupport = lazy(() => import("./components/ManagedITSupport"));
 const CybersecurityService = lazy(() => import("./components/CybersecurityService"));
 const CloudInfrastructureServices = lazy(() => import("./components/CloudInfrastructureServices"));
@@ -28,24 +26,110 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <Suspense fallback={<Loader />}> {/* ✅ Replaces "Loading..." with branded loader */}
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/support" element={<ManagedITSupport />} />
-          <Route path="/cybersecurity" element={<CybersecurityService />} />
-          <Route path="/cloud" element={<CloudInfrastructureServices />} />
-          <Route path="/consultancy" element={<ITConsultancyService />} />
-          <Route path="/compliance" element={<ComplianceGovernanceService />} />
-          <Route path="/protection" element={<DeviceEndpointProtectionService />} />
-          <Route path="/backup" element={<BackupDisasterRecovery />} />
-          <Route path="/services" element={<ServicesOverview />} />
-          <Route path="/network" element={<NetworkManagement />} />
-          <Route path="/vendor" element={<VendorManagement />} />
-          <Route path="/VoIP" element={<VoIPUnifiedCommunications />} />
-        </Routes>
-      </Suspense>
+      <Routes>
+        {/* ✅ Directly loaded homepage without suspense, avoiding spinner flash */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/contact" element={<Contact />} />
+
+        {/* ✅ Lazy-loaded routes wrapped individually with Suspense */}
+        <Route
+          path="/about"
+          element={
+            <Suspense fallback={<Loader />}>
+              <About />
+            </Suspense>
+          }
+        />
+        
+        <Route
+          path="/support"
+          element={
+            <Suspense fallback={<Loader />}>
+              <ManagedITSupport />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/cybersecurity"
+          element={
+            <Suspense fallback={<Loader />}>
+              <CybersecurityService />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/cloud"
+          element={
+            <Suspense fallback={<Loader />}>
+              <CloudInfrastructureServices />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/consultancy"
+          element={
+            <Suspense fallback={<Loader />}>
+              <ITConsultancyService />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/compliance"
+          element={
+            <Suspense fallback={<Loader />}>
+              <ComplianceGovernanceService />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/protection"
+          element={
+            <Suspense fallback={<Loader />}>
+              <DeviceEndpointProtectionService />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/backup"
+          element={
+            <Suspense fallback={<Loader />}>
+              <BackupDisasterRecovery />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/services"
+          element={
+            <Suspense fallback={<Loader />}>
+              <ServicesOverview />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/network"
+          element={
+            <Suspense fallback={<Loader />}>
+              <NetworkManagement />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/vendor"
+          element={
+            <Suspense fallback={<Loader />}>
+              <VendorManagement />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/VoIP"
+          element={
+            <Suspense fallback={<Loader />}>
+              <VoIPUnifiedCommunications />
+            </Suspense>
+          }
+        />
+      </Routes>
     </Router>
   );
 }
