@@ -191,7 +191,7 @@ export default function CybersecurityService() {
   const pricingTiers = [
     {
       name: "Essential Security",
-      price: "$199",
+      price: "\u00A3199",
       period: "per user/month",
       description: "Core cybersecurity protection for small businesses",
       features: [
@@ -205,7 +205,7 @@ export default function CybersecurityService() {
     },
     {
       name: "Advanced Protection",
-      price: "$299",
+      price: "\u00A3299",
       period: "per user/month",
       description: "Comprehensive security for growing organizations",
       features: [

@@ -199,7 +199,7 @@ export default function DeviceEndpointProtectionService() {
   const pricingTiers = [
     {
       name: "Essential Protection",
-      price: "$8",
+      price: "\u00A38",
       period: "per device/month",
       description: "Core endpoint security for small businesses",
       features: [
@@ -213,7 +213,7 @@ export default function DeviceEndpointProtectionService() {
     },
     {
       name: "Advanced Security",
-      price: "$15",
+      price: "\u00A315",
       period: "per device/month",
       description: "Comprehensive endpoint protection for growing companies",
       features: [
@@ -464,7 +464,7 @@ export default function DeviceEndpointProtectionService() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
+                <Button size="lg" className="bg-orange-600 text-white hover:bg-orange-700">
                   <Calendar className="h-4 w-4 mr-2" />
                   Free Security Assessment
                 </Button>
@@ -550,7 +550,7 @@ export default function DeviceEndpointProtectionService() {
               <div className="text-sm text-gray-300">Days average dwell time</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-orange-400 mb-2">$4.35M</div>
+              <div className="text-3xl font-bold text-orange-400 mb-2">&pound;4.35M</div>
               <div className="text-sm text-gray-300">Average breach cost</div>
             </div>
           </div>
@@ -629,7 +629,7 @@ export default function DeviceEndpointProtectionService() {
             </div>
 
             <div className="text-center mt-8">
-              <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
+              <Button size="lg" className="bg-orange-600 text-white hover:bg-orange-700">
                 Calculate Your Protection ROI
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
@@ -951,7 +951,7 @@ export default function DeviceEndpointProtectionService() {
 
                   <Button
                     className={`w-full mt-6 ${
-                      tier.popular ? "bg-orange-600 hover:bg-orange-700" : "bg-gray-900 hover:bg-gray-800"
+                      tier.popular ? "bg-orange-600 text-white hover:bg-orange-700" : "bg-gray-900 text-white hover:bg-gray-800"
                     }`}
                   >
                     {tier.name === "Enterprise Shield" ? "Contact Security Team" : "Protect Devices"}

@@ -196,7 +196,7 @@ export default function ITConsultancyService() {
   const pricingTiers = [
     {
       name: "Strategic Advisory",
-      price: "$2,500",
+      price: "\u00A32,500",
       period: "per month",
       description: "Essential IT strategy guidance for growing businesses",
       features: [
@@ -210,7 +210,7 @@ export default function ITConsultancyService() {
     },
     {
       name: "Transformation Partner",
-      price: "$5,000",
+      price: "\u00A35,000",
       period: "per month",
       description: "Comprehensive consulting for digital transformation",
       features: [
@@ -460,14 +460,14 @@ export default function ITConsultancyService() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+                <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700">
                   <Calendar className="h-4 w-4 mr-2" />
                   Schedule Strategy Session
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-purple-600 text-purple-600 hover:bg-purple-50 bg-transparent"
+                  className="border-purple-600 text-purple-600  hover:bg-purple-50 bg-transparent"
                 >
                   Free IT Assessment
                 </Button>
@@ -546,7 +546,7 @@ export default function ITConsultancyService() {
               <div className="text-sm text-gray-300">Reduction in failed projects</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-purple-400 mb-2">$2M</div>
+              <div className="text-3xl font-bold text-purple-400 mb-2">&pound;2M</div>
               <div className="text-sm text-gray-300">Average cost savings per client</div>
             </div>
           </div>
@@ -627,7 +627,7 @@ export default function ITConsultancyService() {
             </div>
 
             <div className="text-center mt-8">
-              <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
+              <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700">
                 Calculate Your Consulting ROI
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
@@ -949,7 +949,7 @@ export default function ITConsultancyService() {
 
                   <Button
                     className={`w-full mt-6 ${
-                      tier.popular ? "bg-purple-600 hover:bg-purple-700" : "bg-gray-900 hover:bg-gray-800"
+                      tier.popular ? "bg-purple-600 text-white hover:bg-purple-700" : "bg-gray-900 text-white hover:bg-gray-800"
                     }`}
                   >
                     {tier.name === "Enterprise Advisory" ? "Contact Consulting Team" : "Start Consulting"}

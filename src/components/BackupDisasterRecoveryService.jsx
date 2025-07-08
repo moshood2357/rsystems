@@ -189,7 +189,7 @@ export default function BackupDisasterRecovery() {
   const pricingTiers = [
     {
       name: "Backup Essentials",
-      price: "$199",
+      price: "\u00A3199",
       period: "per month",
       description: "Essential backup protection for small businesses",
       features: [
@@ -203,7 +203,7 @@ export default function BackupDisasterRecovery() {
     },
     {
       name: "Business Continuity",
-      price: "$449",
+      price: "\u00A3449",
       period: "per month",
       description: "Complete backup and disaster recovery solution",
       features: [
@@ -440,7 +440,7 @@ export default function BackupDisasterRecovery() {
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-red-600 hover:bg-red-700">
+                <Button size="lg" className="bg-red-600 text-white hover:bg-red-700">
                   <Calendar className="h-4 w-4 mr-2" />
                   Free Backup Assessment
                 </Button>
@@ -601,7 +601,7 @@ export default function BackupDisasterRecovery() {
               ))}
             </div>
             <div className="text-center mt-8">
-              <Button size="lg" className="bg-red-600 hover:bg-red-700">
+              <Button size="lg" className="bg-red-600 text-white hover:bg-red-700">
                 Assess Your Current Backup
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
@@ -905,7 +905,7 @@ export default function BackupDisasterRecovery() {
                   </ul>
                   <Button
                     className={`w-full mt-6 ${
-                      tier.popular ? "bg-red-600 hover:bg-red-700" : "bg-gray-900 hover:bg-gray-800"
+                      tier.popular ? "bg-red-600 text-white hover:bg-red-700 text-white" : "bg-gray-900 text-white hover:bg-gray-800"
                     }`}
                   >
                     {tier.name === "Enterprise Protection" ? "Contact Recovery Team" : "Start Protection"}

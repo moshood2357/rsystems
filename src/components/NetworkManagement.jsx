@@ -184,7 +184,7 @@ export default function NetworkManagement() {
   const pricingTiers = [
     {
       name: "Network Essentials",
-      price: "$349",
+      price: "\u00A3349",
       period: "per month",
       description: "Basic network management for small businesses",
       features: [
@@ -198,7 +198,7 @@ export default function NetworkManagement() {
     },
     {
       name: "Network Professional",
-      price: "$699",
+      price: "\u00A3699",
       period: "per month",
       description: "Comprehensive network management solution",
       features: [
@@ -435,7 +435,7 @@ export default function NetworkManagement() {
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-green-600 hover:bg-green-700">
+                <Button size="lg" className="bg-green-600 text-white hover:bg-green-700">
                   <Calendar className="h-4 w-4 mr-2" />
                   Free Network Assessment
                 </Button>
@@ -511,7 +511,7 @@ export default function NetworkManagement() {
               <div className="text-sm text-gray-300">Of businesses experience network downtime monthly</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-green-400 mb-2">$5,600</div>
+              <div className="text-3xl font-bold text-green-400 mb-2">&pound;5,600</div>
               <div className="text-sm text-gray-300">Average cost per minute of downtime</div>
             </div>
             <div>
@@ -596,7 +596,7 @@ export default function NetworkManagement() {
               ))}
             </div>
             <div className="text-center mt-8">
-              <Button size="lg" className="bg-green-600 hover:bg-green-700">
+              <Button size="lg" className="bg-green-600 text-white hover:bg-green-700">
                 Analyze Your Network Performance
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
@@ -902,7 +902,7 @@ export default function NetworkManagement() {
                   </ul>
                   <Button
                     className={`w-full mt-6 ${
-                      tier.popular ? "bg-green-600 hover:bg-green-700" : "bg-gray-900 hover:bg-gray-800"
+                      tier.popular ? "bg-green-600 text-white hover:bg-green-700" : "bg-gray-900 text-white hover:bg-gray-800"
                     }`}
                   >
                     {tier.name === "Network Enterprise" ? "Contact Network Team" : "Start Network Management"}

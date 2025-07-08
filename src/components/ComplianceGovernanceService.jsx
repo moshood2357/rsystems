@@ -174,7 +174,7 @@ export default function ComplianceGovernanceService() {
   const pricingTiers = [
     {
       name: "Compliance Essentials",
-      price: "$1,500",
+      price: "\u00A31,500",
       period: "per month",
       description: "Core compliance support for small to medium businesses",
       features: [
@@ -188,7 +188,7 @@ export default function ComplianceGovernanceService() {
     },
     {
       name: "Governance Professional",
-      price: "$3,500",
+      price: "\u00A33,500",
       period: "per month",
       description: "Comprehensive compliance and governance program",
       features: [
@@ -438,7 +438,7 @@ export default function ComplianceGovernanceService() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-green-600 hover:bg-green-700">
+                <Button size="lg" className="bg-green-600 text-white hover:bg-green-700">
                   <Calendar className="h-4 w-4 mr-2" />
                   Free Compliance Assessment
                 </Button>
@@ -457,7 +457,7 @@ export default function ComplianceGovernanceService() {
                   <div className="text-sm text-gray-600">Audit Success</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600">$50M+</div>
+                  <div className="text-2xl font-bold text-green-600">&pound;50M+</div>
                   <div className="text-sm text-gray-600">Fines Prevented</div>
                 </div>
                 <div className="text-center">
@@ -512,7 +512,7 @@ export default function ComplianceGovernanceService() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-red-400 mb-2">$14.8M</div>
+              <div className="text-3xl font-bold text-red-400 mb-2">&pound;14.8M</div>
               <div className="text-sm text-gray-300">Average non-compliance penalty</div>
             </div>
             <div>
@@ -607,7 +607,7 @@ export default function ComplianceGovernanceService() {
             </div>
 
             <div className="text-center mt-8">
-              <Button size="lg" className="bg-green-600 hover:bg-green-700">
+              <Button size="lg" className="bg-green-600 text-white hover:bg-green-700">
                 Calculate Your Compliance ROI
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
@@ -927,7 +927,7 @@ export default function ComplianceGovernanceService() {
 
                   <Button
                     className={`w-full mt-6 ${
-                      tier.popular ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-900 hover:bg-gray-800"
+                      tier.popular ? "bg-blue-600 text-white hover:bg-blue-700" : "bg-gray-900 text-white hover:bg-gray-800"
                     }`}
                   >
                     {tier.name === "Cloud Enterprise" ? "Contact Cloud Team" : "Start Cloud Journey"}

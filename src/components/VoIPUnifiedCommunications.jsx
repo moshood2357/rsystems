@@ -184,7 +184,7 @@ export default function VoIPUnifiedCommunications() {
   const pricingTiers = [
     {
       name: "VoIP Essentials",
-      price: "$25",
+      price: "\u00A325",
       period: "per user/month",
       description: "Basic VoIP calling for small businesses",
       features: [
@@ -198,7 +198,7 @@ export default function VoIPUnifiedCommunications() {
     },
     {
       name: "Unified Professional",
-      price: "$45",
+      price: "\u00A345",
       period: "per user/month",
       description: "Complete unified communications solution",
       features: [

@@ -196,7 +196,7 @@ export default function CloudInfrastructureServices() {
   const pricingTiers = [
     {
       name: "Cloud Essentials",
-      price: "$299",
+      price: "\u00A3299",
       period: "per month",
       description: "Perfect for small businesses moving to the cloud",
       features: [
@@ -210,7 +210,7 @@ export default function CloudInfrastructureServices() {
     },
     {
       name: "Cloud Professional",
-      price: "$599",
+      price: "\u00A3599",
       period: "per month",
       description: "Comprehensive cloud management for growing companies",
       features: [
@@ -459,7 +459,7 @@ export default function CloudInfrastructureServices() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
                   <Calendar className="h-4 w-4 mr-2" />
                   Free Cloud Assessment
                 </Button>
@@ -624,7 +624,7 @@ export default function CloudInfrastructureServices() {
             </div>
 
             <div className="text-center mt-8">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+              <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
                 Calculate Your Cloud Savings
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
@@ -944,7 +944,7 @@ export default function CloudInfrastructureServices() {
 
                   <Button
                     className={`w-full mt-6 ${
-                      tier.popular ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-900 hover:bg-gray-800"
+                      tier.popular ? "bg-blue-600 text-white hover:bg-blue-700" : "bg-gray-900 text-white hover:bg-gray-800"
                     }`}
                   >
                     {tier.name === "Cloud Enterprise" ? "Contact Cloud Team" : "Start Cloud Journey"}

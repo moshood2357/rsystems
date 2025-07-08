@@ -184,7 +184,7 @@ export default function VendorManagement() {
   const pricingTiers = [
     {
       name: "Vendor Essentials",
-      price: "$449",
+      price: "\u00A3449",
       period: "per month",
       description: "Basic vendor management for small businesses",
       features: [
@@ -198,7 +198,7 @@ export default function VendorManagement() {
     },
     {
       name: "Vendor Professional",
-      price: "$899",
+      price: "\u00A3899",
       period: "per month",
       description: "Comprehensive vendor management solution",
       features: [

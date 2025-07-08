@@ -191,7 +191,7 @@ export default function ManagedITSupport() {
   const pricingTiers = [
     {
       name: "Essential",
-      price: "$99",
+      price: "\u00A399",
       period: "per user/month",
       description: "Perfect for small businesses getting started",
       features: ["24/7 monitoring", "Help desk support", "Basic security", "Monthly reports", "Email support"],
@@ -199,7 +199,7 @@ export default function ManagedITSupport() {
     },
     {
       name: "Professional",
-      price: "$149",
+      price: "\u00A3149",
       period: "per user/month",
       description: "Comprehensive IT management for growing businesses",
       features: [
@@ -570,7 +570,7 @@ export default function ManagedITSupport() {
             </div>
 
             <div className="text-center mt-8">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+              <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
                 See How Much You Can Save
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
