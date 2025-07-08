@@ -4,8 +4,12 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from "./components/ScrollToTop";
 import Loader from "./components/Loader"; // ✅ import loader
 
+// Direct import for homepage
+import HomePage from "./components/HomePage";
+
+
 // Lazy imports
-const HomePage = lazy(() => import("./components/HomePage"));
+
 const About = lazy(() => import(/* webpackPrefetch: true */ "./components/About"));
 const Contact = lazy(() => import(/* webpackPrefetch: true */ "./components/Contact"));
 const ManagedITSupport = lazy(() => import("./components/ManagedITSupport"));
