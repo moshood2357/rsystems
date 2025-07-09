@@ -19,7 +19,6 @@ import {
 } from "lucide-react"
 
 import { useNavigate } from 'react-router-dom';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { Link } from 'react-router-dom';
 import { useState } from "react";
 
@@ -235,6 +234,13 @@ export default function ServicesOverview() {
   //   },
   // ]
 
+  const [isProductsOpen, setIsProductsOpen] = useState(false)
+  const products = [
+  { title: "CRM", href: "/products/product-a" },
+  { title: "Loan App", href: "/products/product-b" },
+];
+
+
   return (
     <div className="min-h-screen bg-background">
        {/* Header */}
@@ -309,6 +315,36 @@ export default function ServicesOverview() {
                   </div>
                 </div>
               </div>
+               {/* Products Dropdown */}
+              <div className="relative group">
+                <button className="flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                  Products
+                  <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
+                </button>
+
+                {/* Products Dropdown Menu */}
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+                  <div className="p-2">
+                    <a
+                      href="https://example.com/cr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 rounded-lg transition-colors"
+                    >
+                      CRM
+                    </a>
+                    <a
+                      href="https://example.com/loan-app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 rounded-lg transition-colors"
+                    >
+                      Loan App
+                    </a>
+                  </div>
+                  </div>
+                  </div>
+                  
 
               <Link to ="/about" className="text-gray-700 hover:text-blue-600 transition-colors">
                 About 
@@ -347,12 +383,14 @@ export default function ServicesOverview() {
       </header>
 
       {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-  <div className="md:hidden fixed inset-0 z-40 bg-white p-6 pt-40 flex flex-col space-y-4 overflow-y-auto">
-    
+      {isMobileMenuOpen && (
+    <div className="md:hidden fixed inset-0 z-40 bg-white p-6 pt-40 flex flex-col space-y-4 overflow-y-auto">
+      <Link to ="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+      Home
+      </Link>
 
-    {/* Services Dropdown */}
-    <div className="flex flex-col space-y-2">
+      {/* Services Dropdown */}
+     <div className="flex flex-col space-y-2">
       <button
         onClick={() => setIsServicesOpen(!isServicesOpen)}
         className="flex justify-between items-center text-gray-700 hover:text-blue-600 text-lg font-medium"
@@ -386,6 +424,30 @@ export default function ServicesOverview() {
         </div>
       )}
     </div>
+    {/* Products Dropdown */}
+    <div className="flex flex-col space-y-2">
+      <button
+        onClick={() => setIsProductsOpen(!isProductsOpen)}
+        className="flex justify-between items-center text-gray-700 hover:text-blue-600 text-lg font-medium"
+      >
+        Products
+        <ChevronDown className={`h-5 w-5 transform transition-transform ${isProductsOpen ? "rotate-180" : ""}`} />
+      </button>
+      {isProductsOpen && (
+        <div className="flex flex-col space-y-2 pl-4 border-l border-gray-200">
+          {products.map((product, idx) => (
+            <a
+              key={idx}
+              href={product.href || "/products"}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-gray-600 hover:text-blue-600 text-base"
+            >
+              {product.title}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
 
     <Link
       to="/about"
@@ -394,14 +456,6 @@ export default function ServicesOverview() {
     >
       About
     </Link>
-
-    <AnchorLink
-      href="#testimonials"
-      onClick={() => setIsMobileMenuOpen(false)}
-      className="text-gray-700 hover:text-blue-600 text-lg font-medium"
-    >
-      Reviews
-    </AnchorLink>
 
     <Link
       to="/contact"
@@ -535,7 +589,7 @@ export default function ServicesOverview() {
                 link: "/compliance", 
               },
               {
-                icon: <Zap className="h-8 w-8" />,
+                icon: <Zap className="h-8 w-8 " />,
                 title: "Device & Endpoint Protection",
                 description:
                   "Keep your devices secure, updated, and performing efficiently with proactive endpoint management services.",
