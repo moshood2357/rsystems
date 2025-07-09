@@ -220,7 +220,7 @@ export default function ComplianceGovernanceService() {
 
   const [isProductsOpen, setIsProductsOpen] = useState(false)
   const products = [
-  { title: "CRM", href: "/products/product-a" },
+  { title: "CRM", href: "https://crm.r2systemsolution.co.uk/login" },
   { title: "Loan App", href: "/products/product-b" },
 ];
 

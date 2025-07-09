@@ -248,7 +248,7 @@ export default function CybersecurityService() {
 
   const [isProductsOpen, setIsProductsOpen] = useState(false)
   const products = [
-  { title: "CRM", href: "/products/product-a" },
+  { title: "CRM", href: "https://crm.r2systemsolution.co.uk/login" },
   { title: "Loan App", href: "/products/product-b" },
 ];
   return (
@@ -339,9 +339,9 @@ export default function CybersecurityService() {
                 <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
                   <div className="p-2">
                     <a
-                      href="https://example.com/cr"
+                      href="https://crm.r2systemsolution.co.uk/login"
                       target="_blank"
-                      rel="noopener noreferrer"
+                       rel="noopener noreferrer"
                       className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 rounded-lg transition-colors"
                     >
                       CRM
