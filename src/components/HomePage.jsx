@@ -282,7 +282,7 @@ export default function HomePage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link to = "/contact">
+                <Link to = "/assessment">
                   <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
                     Get Free IT assessment
                     <ArrowRight className="ml-2 h-5 w-5" />

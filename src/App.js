@@ -20,6 +20,7 @@ const BackupDisasterRecovery = lazy(() => import("./components/BackupDisasterRec
 const ServicesOverview = lazy(() => import("./components/ServicesOverview"));
 const NetworkManagement = lazy(() => import("./components/NetworkManagement"));
 const VendorManagement = lazy(() => import("./components/VendorManagement"));
+const ITAssessment = lazy(() => import("./components/ITAssessment"));
 const VoIPUnifiedCommunications = lazy(() => import("./components/VoIPUnifiedCommunications"));
 
 function App() {
@@ -126,6 +127,14 @@ function App() {
           element={
             <Suspense fallback={<Loader />}>
               <VoIPUnifiedCommunications />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/assessment"
+          element={
+            <Suspense fallback={<Loader />}>
+              <ITAssessment />
             </Suspense>
           }
         />
