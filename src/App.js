@@ -22,6 +22,8 @@ const NetworkManagement = lazy(() => import("./components/NetworkManagement"));
 const VendorManagement = lazy(() => import("./components/VendorManagement"));
 const ITAssessment = lazy(() => import("./components/ITAssessment"));
 const VoIPUnifiedCommunications = lazy(() => import("./components/VoIPUnifiedCommunications"));
+const CyberSecurityLanding = lazy(() => import("./components/CyberSecurityLanding"));
+
 
 function App() {
   return (
@@ -135,6 +137,14 @@ function App() {
           element={
             <Suspense fallback={<Loader />}>
               <ITAssessment />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/cyber"
+          element={
+            <Suspense fallback={<Loader />}>
+              <CyberSecurityLanding />
             </Suspense>
           }
         />

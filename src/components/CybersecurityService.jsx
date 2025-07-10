@@ -523,10 +523,12 @@ export default function CybersecurityService() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
+                <Link to = "/cyber">
+                  <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
                   <Calendar className="h-4 w-4 mr-2" />
                   Free Security Assessment
                 </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"
