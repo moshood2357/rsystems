@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Cloud, CheckCircle, AlertTriangle, Users, Award, Server, Zap, Shield, DollarSign, Phone, Mail, Building, User, X, Database, Globe } from 'lucide-react';
 
+import emailjs from '@emailjs/browser';
+
 interface FormData {
   fullName: string;
   companyName: string;
@@ -200,7 +202,7 @@ const CloudInfrastructureLanding: React.FC = () => {
                   Exclusive, Limited-Time Offer: Complimentary Cloud Infrastructure Assessment
                 </h2>
                 <p className="text-lg text-blue-100 mb-6">
-                  <span className="text-yellow-400 font-semibold">Worth $4,000 - Yours Free</span> As An R2 System Solution Ltd Client
+                  <span className="text-yellow-400 font-semibold">Worth &pound;4,000 - Yours Free</span> As An R2 System Solution Ltd Client
                 </p>
                 <div className="bg-blue-900/50 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-white mb-3">
@@ -370,13 +372,13 @@ const CloudInfrastructureLanding: React.FC = () => {
                         className="w-16 h-16 rounded-full object-cover"
                       />
                       <div>
-                        <h4 className="font-semibold text-gray-900">David Rodriguez, AWS SA</h4>
+                        <h4 className="font-semibold text-gray-900">Ridwan Akorede, AWS SA</h4>
                         <p className="text-sm text-gray-600">Senior Cloud Architect</p>
                         <button
                           onClick={() => setShowBio(true)}
                           className="text-blue-600 hover:text-blue-800 text-sm font-medium"
                         >
-                          Who Is David Rodriguez? →
+                          Who Is Ridwan Akorede? →
                         </button>
                       </div>
                     </div>
@@ -445,7 +447,7 @@ const CloudInfrastructureLanding: React.FC = () => {
           <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-8">
               <div className="flex justify-between items-start mb-6">
-                <h3 className="text-2xl font-bold text-gray-900">About David Rodriguez, AWS SA</h3>
+                <h3 className="text-2xl font-bold text-gray-900">About Ridwan Akorede, AWS SA</h3>
                 <button
                   onClick={() => setShowBio(false)}
                   className="text-gray-400 hover:text-gray-600"
