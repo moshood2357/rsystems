@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Monitor, CheckCircle, AlertTriangle, Users, Award, Server, Database, Shield, Zap, Phone, Mail, Building, User, X, Cloud, HardDrive } from 'lucide-react';
 
+import emailjs from '@emailjs/browser';
+
+
 interface FormData {
   fullName: string;
   companyName: string;
@@ -28,15 +31,37 @@ const ITAssessmentLanding: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    const result = await emailjs.send(
+     "service_98wbl6a",
+     "template_iykrcrf",
+      {
+        fullName: formData.fullName,
+        companyName: formData.companyName,
+        businessEmail: formData.businessEmail,
+        phoneNumber: formData.phoneNumber,
+      },
+      "usjHoNFTTChknODfx"
+    );
+
+    console.log('Email successfully sent:', result.text);
+    setSubmitted(true); 
+    setFormData({
+      fullName: '',
+      companyName: '',
+      businessEmail: '',
+      phoneNumber: ''
+    });
+  } catch (error: any) {
+    console.error('EmailJS Error:', error?.status, error?.text, error);
+    alert(`An error occurred while sending your request. ${error?.text ?? ''}`);
+  } finally {
     setIsSubmitting(false);
-    setSubmitted(true);
-  };
+  }
+};
 
   const assessmentFeatures = [
     {

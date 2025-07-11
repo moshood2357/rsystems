@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Shield, CheckCircle, AlertTriangle, Users, Award, Lock, Eye, FileText, Phone, Mail, Building, User, X } from 'lucide-react';
 
+import emailjs from '@emailjs/browser';
+
 interface FormData {
   fullName: string;
   companyName: string;
@@ -28,15 +30,38 @@ const CyberSecurityLanding: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    const result = await emailjs.send(
+       "service_98wbl6a",
+      "template_iykrcrf",
+      {
+        fullName: formData.fullName,
+        companyName: formData.companyName,
+        businessEmail: formData.businessEmail,
+        phoneNumber: formData.phoneNumber,
+      },
+      "usjHoNFTTChknODfx"
+    );
+
+    console.log('Email successfully sent:', result.text);
     setSubmitted(true);
-  };
+    setFormData({
+      fullName: '',
+      companyName: '',
+      businessEmail: '',
+      phoneNumber: ''
+    });
+  } catch (error) {
+    console.error('EmailJS Error:', error);
+    alert("An error occurred while sending your request. Please try again later.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   const assessmentFeatures = [
     {
