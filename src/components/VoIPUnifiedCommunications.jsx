@@ -512,10 +512,12 @@ export default function VoIPUnifiedCommunications() {
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-teal-600 hover:bg-teal-700">
-                  <Calendar className="h-4 w-4 mr-2" />
-                  Free Communications Assessment
-                </Button>
+                <Link to = "/VoIPcommunication">
+                  <Button size="lg" className="bg-teal-600 hover:bg-teal-700">
+                    <Calendar className="h-4 w-4 mr-2" />
+                    Free Communications Assessment
+                  </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"

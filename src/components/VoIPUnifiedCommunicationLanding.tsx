@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Monitor, CheckCircle, AlertTriangle, Users, Award, Server, Database, Shield, Zap, Phone, Mail, Building, User, X, Cloud, HardDrive } from 'lucide-react';
+import { Phone, CheckCircle, AlertTriangle, Users, Award, MessageSquare, Video, Headphones, Mail, Building, User, X, Wifi, Globe } from 'lucide-react';
 
 import emailjs from '@emailjs/browser';
-
 
 interface FormData {
   fullName: string;
@@ -11,7 +10,7 @@ interface FormData {
   phoneNumber: string;
 }
 
-const ITAssessmentLanding: React.FC = () => {
+const VoIPUnifiedCommunicationLanding: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
     companyName: '',
@@ -30,14 +29,14 @@ const ITAssessmentLanding: React.FC = () => {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+ const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setIsSubmitting(true);
 
   try {
     const result = await emailjs.send(
-     "service_98wbl6a",
-     "template_iykrcrf",
+       "service_98wbl6a",
+      "template_iykrcrf",
       {
         fullName: formData.fullName,
         companyName: formData.companyName,
@@ -48,16 +47,16 @@ const ITAssessmentLanding: React.FC = () => {
     );
 
     console.log('Email successfully sent:', result.text);
-    setSubmitted(true); 
+    setSubmitted(true);
     setFormData({
       fullName: '',
       companyName: '',
       businessEmail: '',
       phoneNumber: ''
     });
-  } catch (error: any) {
-    console.error('EmailJS Error:', error?.status, error?.text, error);
-    alert(`An error occurred while sending your request. ${error?.text ?? ''}`);
+  } catch (error) {
+    console.error('EmailJS Error:', error);
+    alert("An error occurred while sending your request. Please try again later.");
   } finally {
     setIsSubmitting(false);
   }
@@ -65,112 +64,112 @@ const ITAssessmentLanding: React.FC = () => {
 
   const assessmentFeatures = [
     {
-      icon: <Server className="h-6 w-6" />,
-      title: "Infrastructure Health Check",
-      description: "Complete evaluation of your servers, network, and hardware systems"
+      icon: <Phone className="h-6 w-6" />,
+      title: "Current Phone System Analysis",
+      description: "Comprehensive evaluation of your existing telephony infrastructure and costs"
     },
     {
-      icon: <Cloud className="h-6 w-6" />,
-      title: "Cloud Readiness Assessment",
-      description: "Determine your organization's readiness for cloud migration"
+      icon: <Video className="h-6 w-6" />,
+      title: "Unified Communications Review",
+      description: "Assessment of video conferencing, messaging, and collaboration tools"
     },
     {
-      icon: <Database className="h-6 w-6" />,
-      title: "Data Management Review",
-      description: "Analyze backup systems, data governance, and recovery procedures"
+      icon: <Wifi className="h-6 w-6" />,
+      title: "Network Readiness Evaluation",
+      description: "Analyze bandwidth, quality of service, and network infrastructure"
     },
     {
-      icon: <Shield className="h-6 w-6" />,
-      title: "Security Posture Analysis",
-      description: "Evaluate current security measures and identify vulnerabilities"
+      icon: <MessageSquare className="h-6 w-6" />,
+      title: "Collaboration Platform Assessment",
+      description: "Review current communication tools and integration capabilities"
     },
     {
-      icon: <Zap className="h-6 w-6" />,
-      title: "Performance Optimization",
-      description: "Identify bottlenecks and opportunities for improved efficiency"
+      icon: <Headphones className="h-6 w-6" />,
+      title: "Call Quality & Performance Testing",
+      description: "Evaluate audio quality, latency, and system reliability"
     },
     {
-      icon: <HardDrive className="h-6 w-6" />,
-      title: "Technology Lifecycle Review",
-      description: "Assess hardware age, software licensing, and upgrade requirements"
+      icon: <Globe className="h-6 w-6" />,
+      title: "Scalability & Future Planning",
+      description: "Design communication solutions that grow with your business"
     }
   ];
 
   const benefits = [
     "Completely confidential evaluation",
-    "No disruption to daily operations",
-    "Comprehensive Technology Report",
-    "Strategic IT roadmap recommendations",
-    "Zero obligation to implement suggestions",
-    "Senior IT consultant-led assessment"
+    "No disruption to current phone systems",
+    "Comprehensive Communications Strategy Report",
+    "Custom implementation roadmap and timeline",
+    "Zero obligation to implement recommendations",
+    "Senior communications specialist-led assessment"
   ];
 
   const trustIndicators = [
-    { icon: <Award className="h-8 w-8" />, text: "Microsoft Certified" },
-    { icon: <Monitor className="h-8 w-8" />, text: "VMware Partners" },
-    { icon: <Users className="h-8 w-8" />, text: "300+ Assessments" },
-    { icon: <CheckCircle className="h-8 w-8" />, text: "98% Client Satisfaction" }
+    { icon: <Award className="h-8 w-8" />, text: "Cisco Gold Partner" },
+    { icon: <Phone className="h-8 w-8" />, text: "Microsoft Teams Certified" },
+    { icon: <Users className="h-8 w-8" />, text: "400+ Deployments" },
+    { icon: <CheckCircle className="h-8 w-8" />, text: "99.9% Uptime SLA" }
   ];
 
-    if (submitted) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 flex items-center justify-center px-4">
-        <div className="max-w-2xl mx-auto text-center relative">
-          <div className="bg-white rounded-2xl shadow-2xl p-12 relative">
-            {/* Top-right “×” button */}
-            <button
-              onClick={() => setSubmitted(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 p-2 rounded-full hover:bg-gray-100 transition"
-              aria-label="Close"
-            >
-              <X className="h-6 w-6" />
-            </button>
-  
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="h-10 w-10 text-green-600" />
-            </div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">
-              Assessment Request Submitted!
-            </h1>
-            <p className="text-lg text-gray-600 mb-6">
-              Thank you for your interest in our FREE Cyber Security Risk Assessment.
-              Our senior security consultant will contact you within 24 hours to schedule your evaluation.
-            </p>
-            <div className="bg-blue-50 rounded-lg p-6 mb-6">
-              <h3 className="font-semibold text-blue-900 mb-2">What happens next?</h3>
-              <ul className="text-blue-800 space-y-2 text-left">
-                <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
-                  Initial consultation call (15 minutes)
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
-                  Schedule your 2-hour assessment
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
-                  Receive comprehensive security report
-                </li>
-              </ul>
-            </div>
-            <p className="text-sm text-gray-500">
-              Questions? Call us directly at <span className="font-semibold">(555) 123-4567</span>
-            </p>
+  if (submitted) {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 flex items-center justify-center px-4">
+      <div className="max-w-2xl mx-auto text-center relative">
+        <div className="bg-white rounded-2xl shadow-2xl p-12 relative">
+          {/* Top-right “×” button */}
+          <button
+            onClick={() => setSubmitted(false)}
+            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 p-2 rounded-full hover:bg-gray-100 transition"
+            aria-label="Close"
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle className="h-10 w-10 text-green-600" />
           </div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">
+            Assessment Request Submitted!
+          </h1>
+          <p className="text-lg text-gray-600 mb-6">
+            Thank you for your interest in our FREE Cyber Security Risk Assessment.
+            Our senior security consultant will contact you within 24 hours to schedule your evaluation.
+          </p>
+          <div className="bg-blue-50 rounded-lg p-6 mb-6">
+            <h3 className="font-semibold text-blue-900 mb-2">What happens next?</h3>
+            <ul className="text-blue-800 space-y-2 text-left">
+              <li className="flex items-center">
+                <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
+                Initial consultation call (15 minutes)
+              </li>
+              <li className="flex items-center">
+                <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
+                Schedule your 2-hour assessment
+              </li>
+              <li className="flex items-center">
+                <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
+                Receive comprehensive security report
+              </li>
+            </ul>
+          </div>
+          <p className="text-sm text-gray-500">
+            Questions? Call us directly at <span className="font-semibold">(555) 123-4567</span>
+          </p>
         </div>
       </div>
-    );
-  }
-  
+    </div>
+  );
+}
+
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-900">
+    <div className="min-h-screen bg-gradient-to-br from-green-900 via-teal-800 to-blue-900">
       {/* Header */}
       <header className="bg-white/10 backdrop-blur-sm border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <Monitor className="h-8 w-8 text-white" />
+              <Phone className="h-8 w-8 text-white" />
               <span className="text-xl font-bold text-white">R2 System Solutions</span>
             </div>
             <div className="hidden md:flex items-center space-x-6 text-white/90">
@@ -180,7 +179,7 @@ const ITAssessmentLanding: React.FC = () => {
               </span>
               <span className="flex items-center">
                 <Mail className="h-4 w-4 mr-2" />
-                it@r2systems.com
+                voip@r2systems.com
               </span>
             </div>
           </div>
@@ -199,23 +198,23 @@ const ITAssessmentLanding: React.FC = () => {
                   Limited Time Offer - R2 System Solution Ltd Clients Only
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                  FREE IT Infrastructure
-                  <span className="text-yellow-400"> Assessment</span>
+                  FREE VoIP & Unified
+                  <span className="text-yellow-400"> Communications Assessment</span>
                 </h1>
-                <p className="text-xl md:text-2xl text-indigo-100 mb-8 leading-relaxed">
-                  Optimize Your Technology Stack & Unlock Hidden Efficiency Gains - No Obligation
+                <p className="text-xl md:text-2xl text-green-100 mb-8 leading-relaxed">
+                  Optimize Your Business Communications & Reduce Phone Costs by 40-60% - No Obligation
                 </p>
               </div>
 
               {/* Value Proposition */}
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-12 border border-white/20">
                 <h2 className="text-2xl font-bold text-white mb-4">
-                  Exclusive, Limited-Time Offer: Complimentary IT Infrastructure Assessment
+                  Exclusive, Limited-Time Offer: Complimentary VoIP & Unified Communications Assessment
                 </h2>
-                <p className="text-lg text-indigo-100 mb-6">
-                  <span className="text-yellow-400 font-semibold">Worth $3,500 - Yours Free</span> As An R2 System Solution Ltd Client
+                <p className="text-lg text-green-100 mb-6">
+                  <span className="text-yellow-400 font-semibold">Worth &pound;3,000 - Yours Free</span> As An R2 System Solution Ltd Client
                 </p>
-                <div className="bg-indigo-900/50 rounded-lg p-6">
+                <div className="bg-green-900/50 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-white mb-3">
                     What You'll Get (Total Time Investment: Just 3 Hours):
                   </h3>
@@ -227,7 +226,7 @@ const ITAssessmentLanding: React.FC = () => {
                         </div>
                         <div>
                           <h4 className="font-medium text-white">{feature.title}</h4>
-                          <p className="text-sm text-indigo-200">{feature.description}</p>
+                          <p className="text-sm text-green-200">{feature.description}</p>
                         </div>
                       </div>
                     ))}
@@ -242,11 +241,11 @@ const ITAssessmentLanding: React.FC = () => {
                 </h2>
                 <div className="space-y-4">
                   {[
-                    "If your current IT infrastructure is holding back business growth",
-                    "Whether your systems can handle increased workload and scaling",
-                    "If your technology investments are delivering optimal ROI",
-                    "How vulnerable your operations are to system failures",
-                    "Your readiness for digital transformation initiatives"
+                    "If VoIP can reduce your phone costs by 40-60% annually",
+                    "Whether your network can support high-quality voice and video calls",
+                    "How unified communications can improve team productivity",
+                    "If your current phone system is limiting business growth",
+                    "Your readiness for remote work and hybrid communication needs"
                   ].map((item, index) => (
                     <div key={index} className="flex items-start space-x-3">
                       <CheckCircle className="h-6 w-6 text-green-600 mt-0.5 flex-shrink-0" />
@@ -257,12 +256,12 @@ const ITAssessmentLanding: React.FC = () => {
               </div>
 
               {/* Key Benefits */}
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 mb-12">
+              <div className="bg-gradient-to-r from-green-50 to-teal-50 rounded-2xl p-8 mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Key Benefits:</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {benefits.map((benefit, index) => (
                     <div key={index} className="flex items-center space-x-3">
-                      <div className="w-2 h-2 bg-indigo-600 rounded-full"></div>
+                      <div className="w-2 h-2 bg-green-600 rounded-full"></div>
                       <span className="text-gray-700">{benefit}</span>
                     </div>
                   ))}
@@ -276,7 +275,7 @@ const ITAssessmentLanding: React.FC = () => {
                 <div className="bg-white rounded-2xl shadow-2xl p-8 border-4 border-yellow-400">
                   <div className="text-center mb-6">
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                      Claim Your Free IT Infrastructure Assessment
+                      Claim Your Free VoIP & Communications Assessment
                     </h3>
                     <p className="text-gray-600">Complete the form below to get started</p>
                   </div>
@@ -295,7 +294,7 @@ const ITAssessmentLanding: React.FC = () => {
                           required
                           value={formData.fullName}
                           onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                           placeholder="Enter your full name"
                         />
                       </div>
@@ -314,7 +313,7 @@ const ITAssessmentLanding: React.FC = () => {
                           required
                           value={formData.companyName}
                           onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                           placeholder="Enter your company name"
                         />
                       </div>
@@ -333,7 +332,7 @@ const ITAssessmentLanding: React.FC = () => {
                           required
                           value={formData.businessEmail}
                           onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                           placeholder="Enter your business email"
                         />
                       </div>
@@ -352,7 +351,7 @@ const ITAssessmentLanding: React.FC = () => {
                           required
                           value={formData.phoneNumber}
                           onChange={handleInputChange}
-                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                           placeholder="Enter your phone number"
                         />
                       </div>
@@ -361,7 +360,7 @@ const ITAssessmentLanding: React.FC = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-indigo-600 to-purple-700 text-white font-bold py-4 px-6 rounded-lg hover:from-indigo-700 hover:to-purple-800 transform hover:scale-105 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-gradient-to-r from-green-600 to-teal-700 text-white font-bold py-4 px-6 rounded-lg hover:from-green-700 hover:to-teal-800 transform hover:scale-105 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
                         <div className="flex items-center justify-center">
@@ -379,17 +378,17 @@ const ITAssessmentLanding: React.FC = () => {
                     <div className="flex items-center space-x-4">
                       <img
                         src="/akorede.jpg"
-                        alt="IT Expert"
+                        alt="Communications Expert"
                         className="w-16 h-16 rounded-full object-cover"
                       />
                       <div>
-                        <h4 className="font-semibold text-gray-900">Ridwan Akorede, CEO</h4>
-                        <p className="text-sm text-gray-600">Senior IT Infrastructure Consultant</p>
+                        <h4 className="font-semibold text-gray-900">Ridwan Akorede, CCNA</h4>
+                        <p className="text-sm text-gray-600">Senior Communications Specialist</p>
                         <button
                           onClick={() => setShowBio(true)}
-                          className="text-indigo-600 hover:text-indigo-800 text-sm font-medium"
+                          className="text-green-600 hover:text-green-800 text-sm font-medium"
                         >
-                          Who Is Sarah Johnson? →
+                          Who Is Ridwan Akorede? →
                         </button>
                       </div>
                     </div>
@@ -398,7 +397,7 @@ const ITAssessmentLanding: React.FC = () => {
 
                 {/* Trust Indicators */}
                 <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                  <h4 className="text-white font-semibold mb-4 text-center">Trusted Technology Partners</h4>
+                  <h4 className="text-white font-semibold mb-4 text-center">Certified Communications Partners</h4>
                   <div className="grid grid-cols-2 gap-4">
                     {trustIndicators.map((indicator, index) => (
                       <div key={index} className="text-center">
@@ -420,14 +419,14 @@ const ITAssessmentLanding: React.FC = () => {
       <section className="bg-white py-16">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            Don't Let Outdated Technology Hold You Back
+            Stop Overpaying for Outdated Phone Systems
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            75% of businesses are operating with inefficient IT infrastructure. Discover your optimization opportunities today.
+            Businesses typically save 40-60% on communication costs with modern VoIP solutions. Discover your savings potential today.
           </p>
           <button
             onClick={() => document.getElementById('fullName')?.focus()}
-            className="bg-gradient-to-r from-indigo-600 to-purple-700 text-white font-bold py-4 px-8 rounded-lg hover:from-indigo-700 hover:to-purple-800 transform hover:scale-105 transition-all duration-200 shadow-lg text-lg"
+            className="bg-gradient-to-r from-green-600 to-teal-700 text-white font-bold py-4 px-8 rounded-lg hover:from-green-700 hover:to-teal-800 transform hover:scale-105 transition-all duration-200 shadow-lg text-lg"
           >
             Schedule My Free Assessment Now
           </button>
@@ -439,7 +438,7 @@ const ITAssessmentLanding: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-3 mb-6">
-              <Monitor className="h-8 w-8" />
+              <Phone className="h-8 w-8" />
               <span className="text-xl font-bold">R2 System Solutions</span>
             </div>
             <p className="text-gray-400 mb-4">
@@ -458,7 +457,7 @@ const ITAssessmentLanding: React.FC = () => {
           <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-8">
               <div className="flex justify-between items-start mb-6">
-                <h3 className="text-2xl font-bold text-gray-900">About Ridwan Akorede, MCSE</h3>
+                <h3 className="text-2xl font-bold text-gray-900">About Ridwan Akorede, CCNA</h3>
                 <button
                   onClick={() => setShowBio(false)}
                   className="text-gray-400 hover:text-gray-600"
@@ -474,22 +473,22 @@ const ITAssessmentLanding: React.FC = () => {
                   className="w-32 h-32 rounded-lg object-cover"
                 />
                 <div>
-                  <h4 className="text-xl font-semibold text-gray-900 mb-2">Senior IT Infrastructure Consultant</h4>
+                  <h4 className="text-xl font-semibold text-gray-900 mb-2">Senior Communications Specialist</h4>
                   <p className="text-gray-600 mb-4">
-                    13+ years of enterprise IT infrastructure optimization experience
+                    12+ years of unified communications and VoIP implementation experience
                   </p>
                   <div className="space-y-2">
                     <div className="flex items-center text-sm text-gray-600">
-                      <Award className="h-4 w-4 mr-2 text-indigo-600" />
-                      Microsoft Certified Systems Engineer (MCSE)
+                      <Award className="h-4 w-4 mr-2 text-green-600" />
+                      Cisco Certified Network Associate (CCNA)
                     </div>
                     <div className="flex items-center text-sm text-gray-600">
-                      <Server className="h-4 w-4 mr-2 text-indigo-600" />
-                      VMware Certified Professional (VCP)
+                      <Phone className="h-4 w-4 mr-2 text-green-600" />
+                      Microsoft Teams Voice Engineer Expert
                     </div>
                     <div className="flex items-center text-sm text-gray-600">
-                      <Cloud className="h-4 w-4 mr-2 text-indigo-600" />
-                      AWS Solutions Architect
+                      <Video className="h-4 w-4 mr-2 text-green-600" />
+                      Avaya Certified Implementation Specialist
                     </div>
                   </div>
                 </div>
@@ -497,29 +496,30 @@ const ITAssessmentLanding: React.FC = () => {
               
               <div className="space-y-4 text-gray-700">
                 <p>
-                  Ridwan Akorede is a highly experienced IT infrastructure consultant with over 12 years of 
-                  expertise in optimizing enterprise technology environments. As a Microsoft Certified Systems 
-                  Engineer (MCSE) and VMware Certified Professional, she brings comprehensive knowledge of both 
-                  traditional and modern IT architectures.
+                  Ridwan Akorede is a seasoned communications specialist with over 12 years of experience 
+                  in designing and implementing VoIP and unified communications solutions. As a Cisco 
+                  Certified Network Associate (CCNA) and Microsoft Teams Voice Engineer Expert, she brings 
+                  comprehensive knowledge of modern communication technologies and business integration.
                 </p>
                 <p>
-                  Throughout her career, Ridwan has conducted infrastructure assessments for over 300 organizations, 
-                  helping them reduce costs, improve performance, and prepare for future growth. Her expertise 
-                  spans server virtualization, cloud migration, network optimization, and strategic IT planning.
+                  Throughout his career, Ridwan has led communication system deployments for over 400 organizations, 
+                  helping them reduce costs, improve collaboration, and enhance productivity. Her expertise 
+                  spans VoIP implementation, network optimization, unified communications, and strategic 
+                  communication planning.
                 </p>
                 <p>
-                  Ridwan's methodology focuses on understanding business objectives first, then aligning technology 
-                  solutions to support those goals while maximizing efficiency and minimizing operational overhead.
+                  Ridwan's approach focuses on understanding business communication needs first, then designing 
+                  solutions that improve efficiency while reducing operational costs and complexity.
                 </p>
               </div>
               
-              <div className="mt-8 bg-indigo-50 rounded-lg p-6">
-                <h5 className="font-semibold text-indigo-900 mb-2">Recent Achievements:</h5>
-                <ul className="text-indigo-800 space-y-1">
-                  <li>• Reduced IT operational costs by 40% for manufacturing client</li>
-                  <li>• Successfully migrated 150+ companies to cloud infrastructure</li>
-                  <li>• Improved system performance by 60% through optimization strategies</li>
-                  <li>• Featured speaker at Microsoft Ignite and VMworld conferences</li>
+              <div className="mt-8 bg-green-50 rounded-lg p-6">
+                <h5 className="font-semibold text-green-900 mb-2">Recent Achievements:</h5>
+                <ul className="text-green-800 space-y-1">
+                  <li>• Reduced communication costs by 55% for healthcare client</li>
+                  <li>• Successfully deployed VoIP systems for 400+ companies</li>
+                  <li>• Improved team productivity by 35% through unified communications</li>
+                  <li>• Featured speaker at Cisco Live and Microsoft Ignite events</li>
                 </ul>
               </div>
             </div>
@@ -530,4 +530,4 @@ const ITAssessmentLanding: React.FC = () => {
   );
 };
 
-export default ITAssessmentLanding;
+export default VoIPUnifiedCommunicationLanding;

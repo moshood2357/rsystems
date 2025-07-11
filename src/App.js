@@ -20,8 +20,9 @@ const BackupDisasterRecovery = lazy(() => import("./components/BackupDisasterRec
 const ServicesOverview = lazy(() => import("./components/ServicesOverview"));
 const NetworkManagement = lazy(() => import("./components/NetworkManagement"));
 const VendorManagement = lazy(() => import("./components/VendorManagement"));
-const ITAssessmentLanding = lazy(() => import("./components/ITAssessment"));
+const ITAssessmentLanding = lazy(() => import("./components/ITAssessmentLanding"));
 const VoIPUnifiedCommunications = lazy(() => import("./components/VoIPUnifiedCommunications"));
+const VoIPUnifiedCommunicationLanding = lazy(() => import("./components/VoIPUnifiedCommunicationLanding"));
 const CyberSecurityLanding = lazy(() => import("./components/CyberSecurityLanding"));
 const CloudInfrastructureLanding = lazy(() => import("./components/CloudInfrastructureLanding"));
 
@@ -155,6 +156,14 @@ function App() {
           element={
             <Suspense fallback={<Loader />}>
               <CloudInfrastructureLanding />
+            </Suspense>
+          }
+        />
+         <Route
+          path="/VoIPcommunication"
+          element={
+            <Suspense fallback={<Loader />}>
+              <VoIPUnifiedCommunicationLanding />
             </Suspense>
           }
         />
