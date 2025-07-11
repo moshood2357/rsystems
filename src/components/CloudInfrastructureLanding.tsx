@@ -113,18 +113,27 @@ const CloudInfrastructureLanding: React.FC = () => {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-800 to-purple-900 flex items-center justify-center px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="bg-white rounded-2xl shadow-2xl p-12">
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 flex items-center justify-center px-4">
+        <div className="max-w-2xl mx-auto text-center relative">
+          <div className="bg-white rounded-2xl shadow-2xl p-12 relative">
+            {/* Top-right “×” button */}
+            <button
+              onClick={() => setSubmitted(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 p-2 rounded-full hover:bg-gray-100 transition"
+              aria-label="Close"
+            >
+              <X className="h-6 w-6" />
+            </button>
+  
             <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <CheckCircle className="h-10 w-10 text-green-600" />
             </div>
             <h1 className="text-3xl font-bold text-gray-900 mb-4">
-              Cloud Assessment Request Submitted!
+              Assessment Request Submitted!
             </h1>
             <p className="text-lg text-gray-600 mb-6">
-              Thank you for your interest in our FREE Cloud Infrastructure Assessment. 
-              Our senior cloud architect will contact you within 24 hours to schedule your comprehensive evaluation.
+              Thank you for your interest in our FREE Cyber Security Risk Assessment.
+              Our senior security consultant will contact you within 24 hours to schedule your evaluation.
             </p>
             <div className="bg-blue-50 rounded-lg p-6 mb-6">
               <h3 className="font-semibold text-blue-900 mb-2">What happens next?</h3>
@@ -135,11 +144,11 @@ const CloudInfrastructureLanding: React.FC = () => {
                 </li>
                 <li className="flex items-center">
                   <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
-                  Schedule your 4-hour comprehensive assessment
+                  Schedule your 2-hour assessment
                 </li>
                 <li className="flex items-center">
                   <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
-                  Receive detailed cloud migration strategy
+                  Receive comprehensive security report
                 </li>
               </ul>
             </div>
@@ -151,7 +160,7 @@ const CloudInfrastructureLanding: React.FC = () => {
       </div>
     );
   }
-
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-indigo-800 to-purple-900">
       {/* Header */}
