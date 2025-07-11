@@ -526,10 +526,12 @@ export default function CloudInfrastructureServices() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
-                  <Calendar className="h-4 w-4 mr-2" />
-                  Free Cloud Assessment
-                </Button>
+                <Link to = "/infrastructure">
+                  <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
+                    <Calendar className="h-4 w-4 mr-2" />
+                    Free Cloud Assessment
+                  </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"
