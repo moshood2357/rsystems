@@ -88,45 +88,55 @@ const CyberSecurityLanding: React.FC = () => {
   ];
 
   if (submitted) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 flex items-center justify-center px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="bg-white rounded-2xl shadow-2xl p-12">
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="h-10 w-10 text-green-600" />
-            </div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">
-              Assessment Request Submitted!
-            </h1>
-            <p className="text-lg text-gray-600 mb-6">
-              Thank you for your interest in our FREE Cyber Security Risk Assessment. 
-              Our senior security consultant will contact you within 24 hours to schedule your evaluation.
-            </p>
-            <div className="bg-blue-50 rounded-lg p-6 mb-6">
-              <h3 className="font-semibold text-blue-900 mb-2">What happens next?</h3>
-              <ul className="text-blue-800 space-y-2 text-left">
-                <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
-                  Initial consultation call (15 minutes)
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
-                  Schedule your 2-hour assessment
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
-                  Receive comprehensive security report
-                </li>
-              </ul>
-            </div>
-            <p className="text-sm text-gray-500">
-              Questions? Call us directly at <span className="font-semibold">(555) 123-4567</span>
-            </p>
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 flex items-center justify-center px-4">
+      <div className="max-w-2xl mx-auto text-center relative">
+        <div className="bg-white rounded-2xl shadow-2xl p-12 relative">
+          {/* Top-right “×” button */}
+          <button
+            onClick={() => setSubmitted(false)}
+            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 p-2 rounded-full hover:bg-gray-100 transition"
+            aria-label="Close"
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle className="h-10 w-10 text-green-600" />
           </div>
+          <h1 className="text-3xl font-bold text-gray-900 mb-4">
+            Assessment Request Submitted!
+          </h1>
+          <p className="text-lg text-gray-600 mb-6">
+            Thank you for your interest in our FREE Cyber Security Risk Assessment.
+            Our senior security consultant will contact you within 24 hours to schedule your evaluation.
+          </p>
+          <div className="bg-blue-50 rounded-lg p-6 mb-6">
+            <h3 className="font-semibold text-blue-900 mb-2">What happens next?</h3>
+            <ul className="text-blue-800 space-y-2 text-left">
+              <li className="flex items-center">
+                <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
+                Initial consultation call (15 minutes)
+              </li>
+              <li className="flex items-center">
+                <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
+                Schedule your 2-hour assessment
+              </li>
+              <li className="flex items-center">
+                <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
+                Receive comprehensive security report
+              </li>
+            </ul>
+          </div>
+          <p className="text-sm text-gray-500">
+            Questions? Call us directly at <span className="font-semibold">(555) 123-4567</span>
+          </p>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900">
@@ -346,12 +356,12 @@ const CyberSecurityLanding: React.FC = () => {
                   <div className="mt-8 pt-6 border-t border-gray-200">
                     <div className="flex items-center space-x-4">
                       <img
-                        src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop"
+                        src="/akorede.jpg"
                         alt="Security Expert"
                         className="w-16 h-16 rounded-full object-cover"
                       />
                       <div>
-                        <h4 className="font-semibold text-gray-900">Ridwan Akorede, CISSP</h4>
+                        <h4 className="font-semibold text-gray-900">Ridwan Akorede, CEO</h4>
                         <p className="text-sm text-gray-600">Senior Security Consultant</p>
                         <button
                           onClick={() => setShowBio(true)}
@@ -426,7 +436,7 @@ const CyberSecurityLanding: React.FC = () => {
           <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-8">
               <div className="flex justify-between items-start mb-6">
-                <h3 className="text-2xl font-bold text-gray-900">About Michael Chen, CISSP</h3>
+                <h3 className="text-2xl font-bold text-gray-900">About Ridwan Akorede, CISSP</h3>
                 <button
                   onClick={() => setShowBio(false)}
                   className="text-gray-400 hover:text-gray-600"
@@ -437,8 +447,8 @@ const CyberSecurityLanding: React.FC = () => {
               
               <div className="flex items-start space-x-6 mb-6">
                 <img
-                  src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop"
-                  alt="Michael Chen"
+                  src="/akorede.jpg"
+                  alt="Ridwan Akorede"
                   className="w-32 h-32 rounded-lg object-cover"
                 />
                 <div>
@@ -465,18 +475,18 @@ const CyberSecurityLanding: React.FC = () => {
               
               <div className="space-y-4 text-gray-700">
                 <p>
-                  Michael Chen is a seasoned cybersecurity professional with over 15 years of experience 
+                  Ridwan Akorede is a seasoned cybersecurity professional with over 15 years of experience 
                   protecting organizations from cyber threats. As a Certified Information Systems Security 
                   Professional (CISSP) and Certified Ethical Hacker (CEH), he brings deep technical expertise 
                   and real-world experience to every assessment.
                 </p>
                 <p>
-                  Throughout his career, Michael has conducted security assessments for over 500 organizations, 
+                  Throughout his career, Ridwan has conducted security assessments for over 500 organizations, 
                   ranging from small businesses to Fortune 500 companies. His expertise spans network security, 
                   penetration testing, compliance auditing, and incident response.
                 </p>
                 <p>
-                  Michael's approach combines technical rigor with business understanding, ensuring that 
+                  Ridwan's approach combines technical rigor with business understanding, ensuring that 
                   security recommendations are both effective and practical for your organization's needs.
                 </p>
               </div>

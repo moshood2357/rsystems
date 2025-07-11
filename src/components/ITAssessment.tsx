@@ -1,811 +1,508 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Monitor, CheckCircle, AlertTriangle, Users, Award, Server, Database, Shield, Zap, Phone, Mail, Building, User, X, Cloud, HardDrive } from 'lucide-react';
 
-interface Question {
-  id: string;
-  text: string;
-  type: 'radio' | 'select' | 'number';
-  options?: string[];
-  tooltip?: string;
-  required: boolean;
+interface FormData {
+  fullName: string;
+  companyName: string;
+  businessEmail: string;
+  phoneNumber: string;
 }
 
-interface Section {
-  id: string;
-  title: string;
-  description: string;
-  questions: Question[];
-}
+const ITAssessmentLanding: React.FC = () => {
+  const [formData, setFormData] = useState<FormData>({
+    fullName: '',
+    companyName: '',
+    businessEmail: '',
+    phoneNumber: ''
+  });
+  const [showBio, setShowBio] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-interface AssessmentData {
-  [sectionId: string]: {
-    [questionId: string]: string | number;
-  };
-}
-
-interface SectionScore {
-  score: number;
-  maxScore: number;
-  percentage: number;
-  level: 'Critical' | 'Poor' | 'Fair' | 'Good';
-  recommendations: string[];
-}
-
-interface AssessmentResults {
-  sections: { [key: string]: SectionScore };
-  overallScore: number;
-  overallLevel: string;
-  completedAt: string;
-}
-
-const sections: Section[] = [
-  {
-    id: 'infrastructure',
-    title: 'Infrastructure & Hardware',
-    description: 'Evaluate your physical and virtual infrastructure components',
-    questions: [
-      {
-        id: 'server_age',
-        text: 'What is the average age of your servers?',
-        type: 'radio',
-        options: ['Less than 2 years', '2-4 years', '4-6 years', 'More than 6 years'],
-        tooltip: 'Older servers may have security vulnerabilities and performance issues',
-        required: true
-      },
-      {
-        id: 'network_speed',
-        text: 'What is your internet connection speed?',
-        type: 'select',
-        options: ['Less than 50 Mbps', '50-100 Mbps', '100-500 Mbps', '500+ Mbps'],
-        tooltip: 'Network speed affects productivity and cloud service performance',
-        required: true
-      },
-      {
-        id: 'backup_systems',
-        text: 'Do you have redundant backup systems?',
-        type: 'radio',
-        options: ['Yes, fully redundant', 'Partial redundancy', 'Single backup', 'No backup systems'],
-        tooltip: 'Redundant systems prevent single points of failure',
-        required: true
-      },
-      {
-        id: 'virtualization',
-        text: 'What percentage of your infrastructure is virtualized?',
-        type: 'select',
-        options: ['0-25%', '26-50%', '51-75%', '76-100%'],
-        tooltip: 'Virtualization improves resource utilization and flexibility',
-        required: true
-      }
-    ]
-  },
-  {
-    id: 'software',
-    title: 'Software & Applications',
-    description: 'Assess your software licensing, updates, and application portfolio',
-    questions: [
-      {
-        id: 'software_licensing',
-        text: 'How do you manage software licensing?',
-        type: 'radio',
-        options: ['Centralized license management', 'Department-level tracking', 'Ad-hoc tracking', 'No formal tracking'],
-        tooltip: 'Proper license management prevents compliance issues and overspending',
-        required: true
-      },
-      {
-        id: 'cloud_adoption',
-        text: 'What is your cloud adoption level?',
-        type: 'select',
-        options: ['Fully cloud-based', 'Hybrid cloud', 'Limited cloud usage', 'On-premises only'],
-        tooltip: 'Cloud adoption can improve scalability and reduce infrastructure costs',
-        required: true
-      },
-      {
-        id: 'legacy_systems',
-        text: 'How many critical legacy systems do you maintain?',
-        type: 'number',
-        tooltip: 'Legacy systems may pose security risks and integration challenges',
-        required: true
-      },
-      {
-        id: 'update_frequency',
-        text: 'How frequently do you update software?',
-        type: 'radio',
-        options: ['Monthly', 'Quarterly', 'Bi-annually', 'Annually or less'],
-        tooltip: 'Regular updates are crucial for security and performance',
-        required: true
-      }
-    ]
-  },
-  {
-    id: 'security',
-    title: 'Security & Compliance',
-    description: 'Review your security posture and compliance measures',
-    questions: [
-      {
-        id: 'security_training',
-        text: 'How often do employees receive security training?',
-        type: 'radio',
-        options: ['Monthly', 'Quarterly', 'Annually', 'Never'],
-        tooltip: 'Regular training helps prevent security incidents',
-        required: true
-      },
-      {
-        id: 'incident_response',
-        text: 'Do you have a documented incident response plan?',
-        type: 'radio',
-        options: ['Yes, regularly tested', 'Yes, but not tested', 'In development', 'No plan exists'],
-        tooltip: 'Incident response plans minimize damage during security events',
-        required: true
-      },
-      {
-        id: 'compliance_standards',
-        text: 'Which compliance standards do you follow?',
-        type: 'select',
-        options: ['Multiple standards (SOX, HIPAA, etc.)', 'Single standard', 'Industry guidelines only', 'No formal compliance'],
-        tooltip: 'Compliance standards help maintain security and legal requirements',
-        required: true
-      },
-      {
-        id: 'access_control',
-        text: 'How do you manage user access controls?',
-        type: 'radio',
-        options: ['Role-based with MFA', 'Role-based access', 'Basic user accounts', 'Shared accounts'],
-        tooltip: 'Proper access control prevents unauthorized system access',
-        required: true
-      }
-    ]
-  },
-  {
-    id: 'data',
-    title: 'Data Management',
-    description: 'Evaluate your data backup, recovery, and governance practices',
-    questions: [
-      {
-        id: 'backup_frequency',
-        text: 'How frequently do you backup critical data?',
-        type: 'radio',
-        options: ['Real-time/Continuous', 'Daily', 'Weekly', 'Monthly or less'],
-        tooltip: 'Frequent backups minimize data loss in case of incidents',
-        required: true
-      },
-      {
-        id: 'backup_testing',
-        text: 'How often do you test backup restoration?',
-        type: 'radio',
-        options: ['Monthly', 'Quarterly', 'Annually', 'Never tested'],
-        tooltip: 'Regular testing ensures backups are actually recoverable',
-        required: true
-      },
-      {
-        id: 'data_classification',
-        text: 'Do you have a data classification system?',
-        type: 'radio',
-        options: ['Comprehensive classification', 'Basic classification', 'Informal classification', 'No classification'],
-        tooltip: 'Data classification helps apply appropriate security measures',
-        required: true
-      },
-      {
-        id: 'data_retention',
-        text: 'Do you have documented data retention policies?',
-        type: 'radio',
-        options: ['Comprehensive policies', 'Basic policies', 'Informal guidelines', 'No policies'],
-        tooltip: 'Retention policies ensure compliance and efficient storage management',
-        required: true
-      }
-    ]
-  },
-  {
-    id: 'continuity',
-    title: 'Business Continuity',
-    description: 'Assess your disaster recovery and business continuity planning',
-    questions: [
-      {
-        id: 'disaster_recovery',
-        text: 'Do you have a tested disaster recovery plan?',
-        type: 'radio',
-        options: ['Comprehensive and tested', 'Plan exists, not tested', 'Basic plan only', 'No formal plan'],
-        tooltip: 'Disaster recovery plans ensure business operations can continue after incidents',
-        required: true
-      },
-      {
-        id: 'rto_target',
-        text: 'What is your Recovery Time Objective (RTO)?',
-        type: 'select',
-        options: ['Less than 1 hour', '1-4 hours', '4-24 hours', 'More than 24 hours'],
-        tooltip: 'RTO defines how quickly systems must be restored after an incident',
-        required: true
-      },
-      {
-        id: 'remote_capabilities',
-        text: 'What percentage of staff can work remotely?',
-        type: 'select',
-        options: ['76-100%', '51-75%', '26-50%', '0-25%'],
-        tooltip: 'Remote work capabilities ensure business continuity during disruptions',
-        required: true
-      },
-      {
-        id: 'continuity_testing',
-        text: 'How often do you test business continuity plans?',
-        type: 'radio',
-        options: ['Quarterly', 'Bi-annually', 'Annually', 'Never tested'],
-        tooltip: 'Regular testing identifies gaps in continuity planning',
-        required: true
-      }
-    ]
-  },
-  {
-    id: 'support',
-    title: 'IT Support & Operations',
-    description: 'Review your IT support structure and operational processes',
-    questions: [
-      {
-        id: 'support_model',
-        text: 'What IT support model do you use?',
-        type: 'radio',
-        options: ['24/7 dedicated team', 'Business hours support', 'Part-time support', 'Ad-hoc support'],
-        tooltip: 'Proper support models ensure timely resolution of IT issues',
-        required: true
-      },
-      {
-        id: 'response_time',
-        text: 'What is your average incident response time?',
-        type: 'select',
-        options: ['Less than 1 hour', '1-4 hours', '4-24 hours', 'More than 24 hours'],
-        tooltip: 'Fast response times minimize business impact of IT issues',
-        required: true
-      },
-      {
-        id: 'monitoring_tools',
-        text: 'Do you use automated monitoring tools?',
-        type: 'radio',
-        options: ['Comprehensive monitoring', 'Basic monitoring', 'Limited monitoring', 'No automated monitoring'],
-        tooltip: 'Monitoring tools help identify and prevent issues proactively',
-        required: true
-      },
-      {
-        id: 'documentation',
-        text: 'How comprehensive is your IT documentation?',
-        type: 'radio',
-        options: ['Comprehensive and current', 'Good but outdated', 'Basic documentation', 'Minimal documentation'],
-        tooltip: 'Good documentation improves troubleshooting and knowledge transfer',
-        required: true
-      }
-    ]
-  }
-];
-
-const ITAssessment: React.FC = () => {
-  const [currentSection, setCurrentSection] = useState(0);
-  const [assessmentData, setAssessmentData] = useState<AssessmentData>({});
-  const [showResults, setShowResults] = useState(false);
-  const [results, setResults] = useState<AssessmentResults | null>(null);
-  const [errors, setErrors] = useState<{ [key: string]: string }>({});
-  const [showTooltip, setShowTooltip] = useState<string | null>(null);
-
-  // Auto-save functionality
-  useEffect(() => {
-    const savedData = localStorage.getItem('itAssessmentData');
-    if (savedData) {
-      try {
-        setAssessmentData(JSON.parse(savedData));
-      } catch (error) {
-        console.error('Error loading saved data:', error);
-      }
-    }
-  }, []);
-
-  useEffect(() => {
-    const saveTimer = setInterval(() => {
-      localStorage.setItem('itAssessmentData', JSON.stringify(assessmentData));
-    }, 1000);
-
-    return () => clearInterval(saveTimer);
-  }, [assessmentData]);
-
-  // Calculate progress
-  const calculateProgress = () => {
-    const totalQuestions = sections.reduce((sum, section) => sum + section.questions.length, 0);
-    const answeredQuestions = Object.values(assessmentData).reduce(
-      (sum, sectionData) => sum + Object.keys(sectionData).length,
-      0
-    );
-    return (answeredQuestions / totalQuestions) * 100;
-  };
-
-  // Handle input changes
-  const handleInputChange = (sectionId: string, questionId: string, value: string | number) => {
-    setAssessmentData(prev => ({
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
       ...prev,
-      [sectionId]: {
-        ...prev[sectionId],
-        [questionId]: value
-      }
+      [name]: value
     }));
-
-    // Clear error for this field
-    const errorKey = `${sectionId}.${questionId}`;
-    if (errors[errorKey]) {
-      setErrors(prev => {
-        const newErrors = { ...prev };
-        delete newErrors[errorKey];
-        return newErrors;
-      });
-    }
   };
 
-  // Validate current section
-  const validateSection = (sectionIndex: number) => {
-    const section = sections[sectionIndex];
-    const sectionData = assessmentData[section.id] || {};
-    const newErrors: { [key: string]: string } = {};
-
-    section.questions.forEach(question => {
-      if (question.required && !sectionData[question.id]) {
-        newErrors[`${section.id}.${question.id}`] = 'This field is required';
-      }
-    });
-
-    setErrors(prev => ({ ...prev, ...newErrors }));
-    return Object.keys(newErrors).length === 0;
-  };
-
-  // Navigation functions
-  const nextSection = () => {
-    if (validateSection(currentSection)) {
-      if (currentSection < sections.length - 1) {
-        setCurrentSection(currentSection + 1);
-      } else {
-        generateResults();
-      }
-    }
-  };
-
-  const prevSection = () => {
-    if (currentSection > 0) {
-      setCurrentSection(currentSection - 1);
-    }
-  };
-
-  // Calculate section completion
-  const getSectionCompletion = (sectionIndex: number) => {
-    const section = sections[sectionIndex];
-    const sectionData = assessmentData[section.id] || {};
-    const answeredQuestions = Object.keys(sectionData).length;
-    return (answeredQuestions / section.questions.length) * 100;
-  };
-
-  // Generate assessment results
-  const generateResults = () => {
-    const sectionResults: { [key: string]: SectionScore } = {};
-    let totalScore = 0;
-    let totalMaxScore = 0;
-
-    sections.forEach(section => {
-      const sectionData = assessmentData[section.id] || {};
-      let sectionScore = 0;
-      const maxScore = section.questions.length * 4;
-
-      section.questions.forEach(question => {
-        const answer = sectionData[question.id];
-        if (answer !== undefined) {
-          if (question.type === 'radio' || question.type === 'select') {
-            const optionIndex = question.options?.indexOf(answer as string) || 0;
-            sectionScore += (question.options?.length || 1) - optionIndex;
-          } else if (question.type === 'number') {
-            const numValue = Number(answer);
-            sectionScore += Math.min(numValue / 2, 4);
-          }
-        }
-      });
-
-      const percentage = (sectionScore / maxScore) * 100;
-      let level: 'Critical' | 'Poor' | 'Fair' | 'Good';
-      let recommendations: string[] = [];
-
-      if (percentage >= 80) {
-        level = 'Good';
-        recommendations = ['Continue current practices', 'Consider advanced optimizations'];
-      } else if (percentage >= 60) {
-        level = 'Fair';
-        recommendations = ['Implement improvements in key areas', 'Regular monitoring recommended'];
-      } else if (percentage >= 40) {
-        level = 'Poor';
-        recommendations = ['Immediate attention required', 'Develop improvement plan'];
-      } else {
-        level = 'Critical';
-        recommendations = ['Urgent action needed', 'Consider professional consultation'];
-      }
-
-      sectionResults[section.id] = {
-        score: sectionScore,
-        maxScore,
-        percentage,
-        level,
-        recommendations
-      };
-
-      totalScore += sectionScore;
-      totalMaxScore += maxScore;
-    });
-
-    const overallPercentage = (totalScore / totalMaxScore) * 100;
-    let overallLevel = 'Critical';
-    if (overallPercentage >= 80) overallLevel = 'Excellent';
-    else if (overallPercentage >= 60) overallLevel = 'Good';
-    else if (overallPercentage >= 40) overallLevel = 'Fair';
-
-    const assessmentResults: AssessmentResults = {
-      sections: sectionResults,
-      overallScore: overallPercentage,
-      overallLevel,
-      completedAt: new Date().toISOString()
-    };
-
-    setResults(assessmentResults);
-    setShowResults(true);
-  };
-
-  // Download results
-  const downloadResults = () => {
-    if (!results) return;
-
-    const dataStr = JSON.stringify(results, null, 2);
-    const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
     
-    const exportFileDefaultName = `IT_Assessment_Results_${new Date().toISOString().split('T')[0]}.json`;
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 1500));
     
-    const linkElement = document.createElement('a');
-    linkElement.setAttribute('href', dataUri);
-    linkElement.setAttribute('download', exportFileDefaultName);
-    linkElement.click();
+    setIsSubmitting(false);
+    setSubmitted(true);
   };
 
-  // Reset assessment
-  const resetAssessment = () => {
-    setAssessmentData({});
-    setCurrentSection(0);
-    setShowResults(false);
-    setResults(null);
-    setErrors({});
-    localStorage.removeItem('itAssessmentData');
-  };
-
-  // Get level color
-  const getLevelColor = (level: string) => {
-    switch (level) {
-      case 'Good': return 'bg-green-100 text-green-800';
-      case 'Fair': return 'bg-yellow-100 text-yellow-800';
-      case 'Poor': return 'bg-orange-100 text-orange-800';
-      case 'Critical': return 'bg-red-100 text-red-800';
-      default: return 'bg-gray-100 text-gray-800';
+  const assessmentFeatures = [
+    {
+      icon: <Server className="h-6 w-6" />,
+      title: "Infrastructure Health Check",
+      description: "Complete evaluation of your servers, network, and hardware systems"
+    },
+    {
+      icon: <Cloud className="h-6 w-6" />,
+      title: "Cloud Readiness Assessment",
+      description: "Determine your organization's readiness for cloud migration"
+    },
+    {
+      icon: <Database className="h-6 w-6" />,
+      title: "Data Management Review",
+      description: "Analyze backup systems, data governance, and recovery procedures"
+    },
+    {
+      icon: <Shield className="h-6 w-6" />,
+      title: "Security Posture Analysis",
+      description: "Evaluate current security measures and identify vulnerabilities"
+    },
+    {
+      icon: <Zap className="h-6 w-6" />,
+      title: "Performance Optimization",
+      description: "Identify bottlenecks and opportunities for improved efficiency"
+    },
+    {
+      icon: <HardDrive className="h-6 w-6" />,
+      title: "Technology Lifecycle Review",
+      description: "Assess hardware age, software licensing, and upgrade requirements"
     }
-  };
+  ];
 
-  // Get progress color
-  const getProgressColor = (percentage: number) => {
-    if (percentage >= 80) return 'bg-green-500';
-    if (percentage >= 60) return 'bg-yellow-500';
-    if (percentage >= 40) return 'bg-orange-500';
-    return 'bg-red-500';
-  };
+  const benefits = [
+    "Completely confidential evaluation",
+    "No disruption to daily operations",
+    "Comprehensive Technology Report",
+    "Strategic IT roadmap recommendations",
+    "Zero obligation to implement suggestions",
+    "Senior IT consultant-led assessment"
+  ];
 
-  if (showResults && results) {
+  const trustIndicators = [
+    { icon: <Award className="h-8 w-8" />, text: "Microsoft Certified" },
+    { icon: <Monitor className="h-8 w-8" />, text: "VMware Partners" },
+    { icon: <Users className="h-8 w-8" />, text: "300+ Assessments" },
+    { icon: <CheckCircle className="h-8 w-8" />, text: "98% Client Satisfaction" }
+  ];
+
+    if (submitted) {
     return (
-      <div className="min-h-screen bg-gray-50 py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">IT Assessment Results</h1>
-            <p className="text-lg text-gray-600">
-              Completed on {new Date(results.completedAt).toLocaleDateString()}
+      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 flex items-center justify-center px-4">
+        <div className="max-w-2xl mx-auto text-center relative">
+          <div className="bg-white rounded-2xl shadow-2xl p-12 relative">
+            {/* Top-right “×” button */}
+            <button
+              onClick={() => setSubmitted(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 p-2 rounded-full hover:bg-gray-100 transition"
+              aria-label="Close"
+            >
+              <X className="h-6 w-6" />
+            </button>
+  
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle className="h-10 w-10 text-green-600" />
+            </div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">
+              Assessment Request Submitted!
+            </h1>
+            <p className="text-lg text-gray-600 mb-6">
+              Thank you for your interest in our FREE Cyber Security Risk Assessment.
+              Our senior security consultant will contact you within 24 hours to schedule your evaluation.
+            </p>
+            <div className="bg-blue-50 rounded-lg p-6 mb-6">
+              <h3 className="font-semibold text-blue-900 mb-2">What happens next?</h3>
+              <ul className="text-blue-800 space-y-2 text-left">
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
+                  Initial consultation call (15 minutes)
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
+                  Schedule your 2-hour assessment
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 mr-2 text-blue-600" />
+                  Receive comprehensive security report
+                </li>
+              </ul>
+            </div>
+            <p className="text-sm text-gray-500">
+              Questions? Call us directly at <span className="font-semibold">(555) 123-4567</span>
             </p>
           </div>
+        </div>
+      </div>
+    );
+  }
+  
 
-          {/* Overall Score */}
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-8 text-center">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Overall IT Maturity Score</h2>
-            <div className="flex justify-center mb-6">
-              <div className="relative w-32 h-32">
-                <svg className="w-32 h-32 transform -rotate-90" viewBox="0 0 120 120">
-                  <circle
-                    cx="60"
-                    cy="60"
-                    r="54"
-                    stroke="#e5e7eb"
-                    strokeWidth="12"
-                    fill="none"
-                  />
-                  <circle
-                    cx="60"
-                    cy="60"
-                    r="54"
-                    stroke={results.overallScore >= 80 ? '#10b981' : results.overallScore >= 60 ? '#f59e0b' : results.overallScore >= 40 ? '#f97316' : '#ef4444'}
-                    strokeWidth="12"
-                    fill="none"
-                    strokeDasharray={`${(results.overallScore / 100) * 339.292} 339.292`}
-                    strokeLinecap="round"
-                    className="transition-all duration-1000 ease-out"
-                  />
-                </svg>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-gray-900">{Math.round(results.overallScore)}%</span>
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-900">
+      {/* Header */}
+      <header className="bg-white/10 backdrop-blur-sm border-b border-white/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <Monitor className="h-8 w-8 text-white" />
+              <span className="text-xl font-bold text-white">R2 System Solutions</span>
+            </div>
+            <div className="hidden md:flex items-center space-x-6 text-white/90">
+              <span className="flex items-center">
+                <Phone className="h-4 w-4 mr-2" />
+                (555) 123-4567
+              </span>
+              <span className="flex items-center">
+                <Mail className="h-4 w-4 mr-2" />
+                it@r2systems.com
+              </span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+            {/* Main Content */}
+            <div className="lg:col-span-2">
+              <div className="mb-8">
+                <div className="inline-flex items-center bg-orange-500/20 text-orange-200 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                  <AlertTriangle className="h-4 w-4 mr-2" />
+                  Limited Time Offer - R2 System Solution Ltd Clients Only
+                </div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                  FREE IT Infrastructure
+                  <span className="text-yellow-400"> Assessment</span>
+                </h1>
+                <p className="text-xl md:text-2xl text-indigo-100 mb-8 leading-relaxed">
+                  Optimize Your Technology Stack & Unlock Hidden Efficiency Gains - No Obligation
+                </p>
+              </div>
+
+              {/* Value Proposition */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-12 border border-white/20">
+                <h2 className="text-2xl font-bold text-white mb-4">
+                  Exclusive, Limited-Time Offer: Complimentary IT Infrastructure Assessment
+                </h2>
+                <p className="text-lg text-indigo-100 mb-6">
+                  <span className="text-yellow-400 font-semibold">Worth $3,500 - Yours Free</span> As An R2 System Solution Ltd Client
+                </p>
+                <div className="bg-indigo-900/50 rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-white mb-3">
+                    What You'll Get (Total Time Investment: Just 3 Hours):
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {assessmentFeatures.map((feature, index) => (
+                      <div key={index} className="flex items-start space-x-3">
+                        <div className="text-yellow-400 mt-1">
+                          {feature.icon}
+                        </div>
+                        <div>
+                          <h4 className="font-medium text-white">{feature.title}</h4>
+                          <p className="text-sm text-indigo-200">{feature.description}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* What You'll Discover */}
+              <div className="bg-white rounded-2xl p-8 mb-12 shadow-2xl">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                  Your Comprehensive Assessment Will Reveal:
+                </h2>
+                <div className="space-y-4">
+                  {[
+                    "If your current IT infrastructure is holding back business growth",
+                    "Whether your systems can handle increased workload and scaling",
+                    "If your technology investments are delivering optimal ROI",
+                    "How vulnerable your operations are to system failures",
+                    "Your readiness for digital transformation initiatives"
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start space-x-3">
+                      <CheckCircle className="h-6 w-6 text-green-600 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700 text-lg">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Key Benefits */}
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 mb-12">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Key Benefits:</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {benefits.map((benefit, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <div className="w-2 h-2 bg-indigo-600 rounded-full"></div>
+                      <span className="text-gray-700">{benefit}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
-            <div className={`inline-flex items-center px-4 py-2 rounded-full text-lg font-medium ${getLevelColor(results.overallLevel)}`}>
-              {results.overallLevel}
-            </div>
-          </div>
 
-          {/* Section Results */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {sections.map((section) => {
-              const sectionResult = results.sections[section.id];
-              
-              return (
-                <div key={section.id} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">{section.title}</h3>
-                  
-                  <div className="mb-4">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm text-gray-600">Score</span>
-                      <span className="text-sm font-medium text-gray-900">
-                        {Math.round(sectionResult.percentage)}%
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div 
-                        className={`h-2 rounded-full transition-all duration-300 ease-out ${getProgressColor(sectionResult.percentage)}`}
-                        style={{ width: `${Math.min(sectionResult.percentage, 100)}%` }}
-                      ></div>
-                    </div>
+            {/* Form Section */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-8">
+                <div className="bg-white rounded-2xl shadow-2xl p-8 border-4 border-yellow-400">
+                  <div className="text-center mb-6">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      Claim Your Free IT Infrastructure Assessment
+                    </h3>
+                    <p className="text-gray-600">Complete the form below to get started</p>
                   </div>
 
-                  <div className="mb-4">
-                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getLevelColor(sectionResult.level)}`}>
-                      {sectionResult.level}
-                    </span>
-                  </div>
-
-                  <div>
-                    <h4 className="text-sm font-medium text-gray-900 mb-2">Recommendations:</h4>
-                    <ul className="text-sm text-gray-600 space-y-1">
-                      {sectionResult.recommendations.map((rec, index) => (
-                        <li key={index} className="flex items-start">
-                          <span className="w-1.5 h-1.5 bg-indigo-600 rounded-full mt-2 mr-2 flex-shrink-0"></span>
-                          {rec}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={downloadResults}
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
-            >
-              <svg className="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              Download Report
-            </button>
-            <button
-              onClick={resetAssessment}
-              className="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
-            >
-              Take New Assessment
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  const currentSectionData = sections[currentSection];
-  const progress = calculateProgress();
-
-  return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">IT Infrastructure Assessment</h1>
-          <p className="text-lg text-gray-600 mb-6">
-            Evaluate your organization's technology infrastructure and practices
-          </p>
-          <div className="max-w-md mx-auto">
-            <div className="flex justify-between text-sm text-gray-600 mb-2">
-              <span>Progress</span>
-              <span>{Math.round(progress)}% Complete</span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
-              <div 
-                className="bg-indigo-600 h-2 rounded-full transition-all duration-300 ease-out"
-                style={{ width: `${Math.min(progress, 100)}%` }}
-              ></div>
-            </div>
-          </div>
-          <p className="text-sm text-gray-500 mt-2">
-            Estimated time: 15-20 minutes • Auto-saved every second
-          </p>
-        </div>
-
-        {/* Section Navigation */}
-        <div className="mb-8">
-          <div className="flex flex-wrap justify-center gap-2 mb-6">
-            {sections.map((section, index) => {
-              const completion = getSectionCompletion(index);
-              const isCompleted = completion === 100;
-              const isCurrent = index === currentSection;
-              
-              return (
-                <button
-                  key={section.id}
-                  onClick={() => setCurrentSection(index)}
-                  className={`flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    isCurrent
-                      ? 'bg-indigo-600 text-white'
-                      : isCompleted
-                      ? 'bg-green-100 text-green-800 hover:bg-green-200'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300'
-                  }`}
-                >
-                  {isCompleted && (
-                    <svg className="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                  )}
-                  <span className="hidden sm:inline">{section.title}</span>
-                  <span className="sm:hidden">{index + 1}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Current Section */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-8">
-          <div className="mb-6">
-            <h2 className="text-2xl font-semibold text-gray-900">{currentSectionData.title}</h2>
-            <p className="text-gray-600 mt-1">{currentSectionData.description}</p>
-          </div>
-
-          <div className="space-y-8">
-            {currentSectionData.questions.map((question) => {
-              const sectionData = assessmentData[currentSectionData.id] || {};
-              const value = sectionData[question.id] || '';
-              const errorKey = `${currentSectionData.id}.${question.id}`;
-              const hasError = !!errors[errorKey];
-
-              return (
-                <div key={question.id} className="space-y-3">
-                  <div className="flex items-start">
-                    <label className="block text-sm font-medium text-gray-900 flex-1">
-                      {question.text}
-                      {question.required && <span className="text-red-500 ml-1">*</span>}
-                    </label>
-                    {question.tooltip && (
-                      <div className="relative ml-2">
-                        <button
-                          type="button"
-                          onMouseEnter={() => setShowTooltip(question.id)}
-                          onMouseLeave={() => setShowTooltip(null)}
-                          className="text-gray-400 hover:text-gray-600"
-                        >
-                          <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
-                          </svg>
-                        </button>
-                        {showTooltip === question.id && (
-                          <div className="absolute z-10 w-64 p-2 mt-1 text-sm text-white bg-gray-900 rounded-lg shadow-lg -top-2 left-6">
-                            {question.tooltip}
-                            <div className="absolute w-2 h-2 bg-gray-900 transform rotate-45 -left-1 top-3"></div>
-                          </div>
-                        )}
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+                        Full Name *
+                      </label>
+                      <div className="relative">
+                        <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                        <input
+                          type="text"
+                          id="fullName"
+                          name="fullName"
+                          required
+                          value={formData.fullName}
+                          onChange={handleInputChange}
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                          placeholder="Enter your full name"
+                        />
                       </div>
-                    )}
-                  </div>
-
-                  {question.type === 'radio' && (
-                    <div className="space-y-2">
-                      {question.options?.map((option) => (
-                        <label key={option} className="flex items-center">
-                          <input
-                            type="radio"
-                            name={question.id}
-                            value={option}
-                            checked={value === option}
-                            onChange={(e) => handleInputChange(currentSectionData.id, question.id, e.target.value)}
-                            className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300"
-                          />
-                          <span className="ml-3 text-sm text-gray-700">{option}</span>
-                        </label>
-                      ))}
                     </div>
-                  )}
 
-                  {question.type === 'select' && (
-                    <select
-                      value={value}
-                      onChange={(e) => handleInputChange(currentSectionData.id, question.id, e.target.value)}
-                      className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ${
-                        hasError ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : ''
-                      }`}
+                    <div>
+                      <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-2">
+                        Company Name *
+                      </label>
+                      <div className="relative">
+                        <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                        <input
+                          type="text"
+                          id="companyName"
+                          name="companyName"
+                          required
+                          value={formData.companyName}
+                          onChange={handleInputChange}
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                          placeholder="Enter your company name"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="businessEmail" className="block text-sm font-medium text-gray-700 mb-2">
+                        Business Email *
+                      </label>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                        <input
+                          type="email"
+                          id="businessEmail"
+                          name="businessEmail"
+                          required
+                          value={formData.businessEmail}
+                          onChange={handleInputChange}
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                          placeholder="Enter your business email"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-2">
+                        Phone Number *
+                      </label>
+                      <div className="relative">
+                        <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                        <input
+                          type="tel"
+                          id="phoneNumber"
+                          name="phoneNumber"
+                          required
+                          value={formData.phoneNumber}
+                          onChange={handleInputChange}
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                          placeholder="Enter your phone number"
+                        />
+                      </div>
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-to-r from-indigo-600 to-purple-700 text-white font-bold py-4 px-6 rounded-lg hover:from-indigo-700 hover:to-purple-800 transform hover:scale-105 transition-all duration-200 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <option value="">Select an option...</option>
-                      {question.options?.map((option) => (
-                        <option key={option} value={option}>{option}</option>
-                      ))}
-                    </select>
-                  )}
+                      {isSubmitting ? (
+                        <div className="flex items-center justify-center">
+                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                          Processing...
+                        </div>
+                      ) : (
+                        "Get My Free Assessment"
+                      )}
+                    </button>
+                  </form>
 
-                  {question.type === 'number' && (
-                    <input
-                      type="number"
-                      value={value}
-                      onChange={(e) => handleInputChange(currentSectionData.id, question.id, parseInt(e.target.value) || 0)}
-                      className={`mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ${
-                        hasError ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : ''
-                      }`}
-                      min="0"
-                    />
-                  )}
-
-                  {hasError && (
-                    <p className="text-sm text-red-600">{errors[errorKey]}</p>
-                  )}
+                  {/* Professional Bio */}
+                  <div className="mt-8 pt-6 border-t border-gray-200">
+                    <div className="flex items-center space-x-4">
+                      <img
+                        src="/akorede.jpg"
+                        alt="IT Expert"
+                        className="w-16 h-16 rounded-full object-cover"
+                      />
+                      <div>
+                        <h4 className="font-semibold text-gray-900">Ridwan Akorede, CEO</h4>
+                        <p className="text-sm text-gray-600">Senior IT Infrastructure Consultant</p>
+                        <button
+                          onClick={() => setShowBio(true)}
+                          className="text-indigo-600 hover:text-indigo-800 text-sm font-medium"
+                        >
+                          Who Is Sarah Johnson? →
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              );
-            })}
+
+                {/* Trust Indicators */}
+                <div className="mt-8 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+                  <h4 className="text-white font-semibold mb-4 text-center">Trusted Technology Partners</h4>
+                  <div className="grid grid-cols-2 gap-4">
+                    {trustIndicators.map((indicator, index) => (
+                      <div key={index} className="text-center">
+                        <div className="text-yellow-400 flex justify-center mb-2">
+                          {indicator.icon}
+                        </div>
+                        <p className="text-white text-sm">{indicator.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Navigation Buttons */}
-        <div className="flex justify-between">
+      {/* CTA Section */}
+      <section className="bg-white py-16">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            Don't Let Outdated Technology Hold You Back
+          </h2>
+          <p className="text-xl text-gray-600 mb-8">
+            75% of businesses are operating with inefficient IT infrastructure. Discover your optimization opportunities today.
+          </p>
           <button
-            onClick={prevSection}
-            disabled={currentSection === 0}
-            className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            onClick={() => document.getElementById('fullName')?.focus()}
+            className="bg-gradient-to-r from-indigo-600 to-purple-700 text-white font-bold py-4 px-8 rounded-lg hover:from-indigo-700 hover:to-purple-800 transform hover:scale-105 transition-all duration-200 shadow-lg text-lg"
           >
-            <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Previous
+            Schedule My Free Assessment Now
           </button>
+        </div>
+      </section>
 
-          <div className="flex items-center space-x-4">
-            <span className="text-sm text-gray-600">
-              Section {currentSection + 1} of {sections.length}
-            </span>
-            <button
-              onClick={nextSection}
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
-            >
-              {currentSection === sections.length - 1 ? (
-                <>
-                  <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
-                  View Results
-                </>
-              ) : (
-                <>
-                  Next
-                  <svg className="h-4 w-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </>
-              )}
-            </button>
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="flex items-center justify-center space-x-3 mb-6">
+              <Monitor className="h-8 w-8" />
+              <span className="text-xl font-bold">R2 System Solutions</span>
+            </div>
+            <p className="text-gray-400 mb-4">
+              Your information is completely confidential and will never be shared with third parties.
+            </p>
+            <p className="text-sm text-gray-500">
+              © 2024 R2 System Solutions. All rights reserved. | Privacy Policy | Terms of Service
+            </p>
           </div>
         </div>
-      </div>
+      </footer>
+
+      {/* Bio Modal */}
+      {showBio && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-8">
+              <div className="flex justify-between items-start mb-6">
+                <h3 className="text-2xl font-bold text-gray-900">About Ridwan Akorede, MCSE</h3>
+                <button
+                  onClick={() => setShowBio(false)}
+                  className="text-gray-400 hover:text-gray-600"
+                >
+                  <X className="h-6 w-6" />
+                </button>
+              </div>
+              
+              <div className="flex items-start space-x-6 mb-6">
+                <img
+                  src="/akorede.jpg"
+                  alt="Ridwan Akorede"
+                  className="w-32 h-32 rounded-lg object-cover"
+                />
+                <div>
+                  <h4 className="text-xl font-semibold text-gray-900 mb-2">Senior IT Infrastructure Consultant</h4>
+                  <p className="text-gray-600 mb-4">
+                    13+ years of enterprise IT infrastructure optimization experience
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Award className="h-4 w-4 mr-2 text-indigo-600" />
+                      Microsoft Certified Systems Engineer (MCSE)
+                    </div>
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Server className="h-4 w-4 mr-2 text-indigo-600" />
+                      VMware Certified Professional (VCP)
+                    </div>
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Cloud className="h-4 w-4 mr-2 text-indigo-600" />
+                      AWS Solutions Architect
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="space-y-4 text-gray-700">
+                <p>
+                  Ridwan Akorede is a highly experienced IT infrastructure consultant with over 12 years of 
+                  expertise in optimizing enterprise technology environments. As a Microsoft Certified Systems 
+                  Engineer (MCSE) and VMware Certified Professional, she brings comprehensive knowledge of both 
+                  traditional and modern IT architectures.
+                </p>
+                <p>
+                  Throughout her career, Ridwan has conducted infrastructure assessments for over 300 organizations, 
+                  helping them reduce costs, improve performance, and prepare for future growth. Her expertise 
+                  spans server virtualization, cloud migration, network optimization, and strategic IT planning.
+                </p>
+                <p>
+                  Ridwan's methodology focuses on understanding business objectives first, then aligning technology 
+                  solutions to support those goals while maximizing efficiency and minimizing operational overhead.
+                </p>
+              </div>
+              
+              <div className="mt-8 bg-indigo-50 rounded-lg p-6">
+                <h5 className="font-semibold text-indigo-900 mb-2">Recent Achievements:</h5>
+                <ul className="text-indigo-800 space-y-1">
+                  <li>• Reduced IT operational costs by 40% for manufacturing client</li>
+                  <li>• Successfully migrated 150+ companies to cloud infrastructure</li>
+                  <li>• Improved system performance by 60% through optimization strategies</li>
+                  <li>• Featured speaker at Microsoft Ignite and VMworld conferences</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default ITAssessment;
+export default ITAssessmentLanding;
