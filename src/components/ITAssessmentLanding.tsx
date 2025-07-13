@@ -217,7 +217,7 @@ const ITAssessmentLanding: React.FC = () => {
                   Exclusive, Limited-Time Offer: Complimentary IT Infrastructure Assessment
                 </h2>
                 <p className="text-lg text-indigo-100 mb-6">
-                  <span className="text-yellow-400 font-semibold">Worth $3,500 - Yours Free</span> As An R2 System Solution Ltd Client
+                  <span className="text-yellow-400 font-semibold">Worth &pound;3,500 - Yours Free</span> As An R2 System Solution Ltd Client
                 </p>
                 <div className="bg-indigo-900/50 rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-white mb-3">
