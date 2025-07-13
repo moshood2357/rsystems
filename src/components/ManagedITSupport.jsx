@@ -504,10 +504,10 @@ export default function ManagedITSupport() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to = "/contact">
+                <Link to = "/assessment">
                   <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
                     <Calendar className="h-4 w-4 mr-2" />
-                    Request Consultation
+                    Get free IT Assessment
                   </Button>
                 </Link>
                 <Button

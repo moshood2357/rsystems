@@ -8,6 +8,7 @@ interface FormData {
   companyName: string;
   businessEmail: string;
   phoneNumber: string;
+   serviceCategory: string;
 }
 
 const CyberSecurityLanding: React.FC = () => {
@@ -15,7 +16,8 @@ const CyberSecurityLanding: React.FC = () => {
     fullName: '',
     companyName: '',
     businessEmail: '',
-    phoneNumber: ''
+    phoneNumber: '',
+    serviceCategory: 'Cybersecurity',
   });
   const [showBio, setShowBio] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -42,6 +44,7 @@ const CyberSecurityLanding: React.FC = () => {
         companyName: formData.companyName,
         businessEmail: formData.businessEmail,
         phoneNumber: formData.phoneNumber,
+        serviceCategory: formData.serviceCategory,
       },
       "usjHoNFTTChknODfx"
     );
@@ -52,7 +55,8 @@ const CyberSecurityLanding: React.FC = () => {
       fullName: '',
       companyName: '',
       businessEmail: '',
-      phoneNumber: ''
+      phoneNumber: '',
+      serviceCategory: 'Cybersecurity',
     });
   } catch (error) {
     console.error('EmailJS Error:', error);
@@ -341,6 +345,23 @@ const CyberSecurityLanding: React.FC = () => {
                         />
                       </div>
                     </div>
+                     <div>
+                                          <label htmlFor="businessEmail" className="block text-sm font-medium text-gray-700 mb-2">
+                                            Assessment needed*
+                                          </label>
+                                          <div className="relative">
+                                            <Shield className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                                            <input
+                                              type="text"
+                                              id="serviceCategory"
+                                              name="serviceCategory"
+                                              value= "Cybersecurity"
+                                              readOnly
+                                              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                              placeholder="Cybersecurity"
+                                            />
+                                          </div>
+                                          </div>
 
                     <div>
                       <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-2">
