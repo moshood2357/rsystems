@@ -515,10 +515,12 @@ export default function BackupDisasterRecovery() {
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-red-600 text-white hover:bg-red-700">
-                  <Calendar className="h-4 w-4 mr-2" />
-                  Free Backup Assessment
-                </Button>
+                <Link to = "/recovery">
+                   <Button size="lg" className="bg-red-600 text-white hover:bg-red-700">
+                     <Calendar className="h-4 w-4 mr-2" />
+                     Free Backup Assessment
+                   </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"

@@ -496,17 +496,19 @@ export default function ComplianceGovernanceService() {
                 <div className="flex items-start space-x-3">
                   <AlertTriangle className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
                   <div className="text-sm text-red-800">
-                    <strong>Compliance Alert:</strong> Non-compliance penalties average $14.8M per incident. Are you
+                    <strong>Compliance Alert:</strong> Non-compliance penalties average &pound;14.8M per incident. Are you
                     adequately protected?
                   </div>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-green-600 text-white hover:bg-green-700">
+                <Link to = "/governance">
+                  <Button size="lg" className="bg-green-600 text-white hover:bg-green-700">
                   <Calendar className="h-4 w-4 mr-2" />
                   Free Compliance Assessment
                 </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"

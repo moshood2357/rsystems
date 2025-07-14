@@ -15,11 +15,15 @@ const CybersecurityService = lazy(() => import("./components/CybersecurityServic
 const CloudInfrastructureServices = lazy(() => import("./components/CloudInfrastructureServices"));
 const ITConsultancyService = lazy(() => import("./components/ITConsultancyServices"));
 const ComplianceGovernanceService = lazy(() => import("./components/ComplianceGovernanceService"));
+const ComplianceGovernanceLanding = lazy(() => import("./components/ComplianceGovernanceLanding"));
 const DeviceEndpointProtectionService = lazy(() => import("./components/DeviceEndpointProtectionService"));
+const DeviceProtectionLanding = lazy(() => import("./components/DeviceProtectionLanding"));
 const BackupDisasterRecovery = lazy(() => import("./components/BackupDisasterRecoveryService"));
+const BackupRecoveryLanding = lazy(() => import("./components/BackupRecoveryLanding"));
 const ServicesOverview = lazy(() => import("./components/ServicesOverview"));
 const NetworkManagement = lazy(() => import("./components/NetworkManagement"));
 const VendorManagement = lazy(() => import("./components/VendorManagement"));
+const VendorManagementLanding = lazy(() => import("./components/VendorManagementLanding"));
 const ITAssessmentLanding = lazy(() => import("./components/ITAssessmentLanding"));
 const VoIPUnifiedCommunications = lazy(() => import("./components/VoIPUnifiedCommunications"));
 const VoIPUnifiedCommunicationLanding = lazy(() => import("./components/VoIPUnifiedCommunicationLanding"));
@@ -167,6 +171,39 @@ function App() {
             </Suspense>
           }
         />
+        <Route
+          path="/deviceprotection"
+          element={
+            <Suspense fallback={<Loader />}>
+              <DeviceProtectionLanding />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/governance"
+          element={
+            <Suspense fallback={<Loader />}>
+              <ComplianceGovernanceLanding />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/vendormanagement"
+          element={
+            <Suspense fallback={<Loader />}>
+              <VendorManagementLanding        Landing />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/recovery"
+          element={
+            <Suspense fallback={<Loader />}>
+              <BackupRecoveryLanding />
+            </Suspense>
+          }
+        />
+        
       </Routes>
     </Router>
   );
