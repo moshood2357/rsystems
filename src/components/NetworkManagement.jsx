@@ -508,10 +508,12 @@ export default function NetworkManagement() {
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-green-600 text-white hover:bg-green-700">
+                <Link to = "/networkmanagement">
+                  <Button size="lg" className="bg-green-600 text-white hover:bg-green-700">
                   <Calendar className="h-4 w-4 mr-2" />
                   Free Network Assessment
                 </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"

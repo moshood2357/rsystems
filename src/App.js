@@ -14,6 +14,7 @@ const ManagedITSupport = lazy(() => import("./components/ManagedITSupport"));
 const CybersecurityService = lazy(() => import("./components/CybersecurityService"));
 const CloudInfrastructureServices = lazy(() => import("./components/CloudInfrastructureServices"));
 const ITConsultancyService = lazy(() => import("./components/ITConsultancyServices"));
+const ITConsultancyLanding = lazy(() => import("./components/ITConsultancyLanding"));
 const ComplianceGovernanceService = lazy(() => import("./components/ComplianceGovernanceService"));
 const ComplianceGovernanceLanding = lazy(() => import("./components/ComplianceGovernanceLanding"));
 const DeviceEndpointProtectionService = lazy(() => import("./components/DeviceEndpointProtectionService"));
@@ -22,6 +23,7 @@ const BackupDisasterRecovery = lazy(() => import("./components/BackupDisasterRec
 const BackupRecoveryLanding = lazy(() => import("./components/BackupRecoveryLanding"));
 const ServicesOverview = lazy(() => import("./components/ServicesOverview"));
 const NetworkManagement = lazy(() => import("./components/NetworkManagement"));
+const NetworkManagementLanding = lazy(() => import("./components/NetworkManagementLanding"));
 const VendorManagement = lazy(() => import("./components/VendorManagement"));
 const VendorManagementLanding = lazy(() => import("./components/VendorManagementLanding"));
 const ITAssessmentLanding = lazy(() => import("./components/ITAssessmentLanding"));
@@ -200,6 +202,22 @@ function App() {
           element={
             <Suspense fallback={<Loader />}>
               <BackupRecoveryLanding />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/networkmanagement"
+          element={
+            <Suspense fallback={<Loader />}>
+              <NetworkManagementLanding />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/ITConsultancy"
+          element={
+            <Suspense fallback={<Loader />}>
+              <ITConsultancyLanding />
             </Suspense>
           }
         />

@@ -523,10 +523,12 @@ export default function ITConsultancyService() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700">
+                <Link to = "/ITConsultancy">
+                  <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700">
                   <Calendar className="h-4 w-4 mr-2" />
                   Schedule Strategy Session
                 </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"
