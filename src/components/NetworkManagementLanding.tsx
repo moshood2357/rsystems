@@ -66,28 +66,28 @@ const NetworkManagementLanding: React.FC = () => {
     }
   };
 
-  const benefits = [
-    {
-      icon: Network,
-      title: "Network Infrastructure Analysis",
-      description: "Comprehensive evaluation of your network topology, performance, and scalability"
-    },
-    {
-      icon: Shield,
-      title: "Security & Access Control",
-      description: "Assessment of network security protocols, firewall configurations, and access management"
-    },
-    {
-      icon: Zap,
-      title: "Performance Optimization",
-      description: "Identify bottlenecks and optimize network speed, reliability, and efficiency"
-    },
-    {
-      icon: Users,
-      title: "Resource Management",
-      description: "Evaluate bandwidth allocation, user access patterns, and network resource utilization"
-    }
-  ];
+  // const benefits = [
+  //   {
+  //     icon: Network,
+  //     title: "Network Infrastructure Analysis",
+  //     description: "Comprehensive evaluation of your network topology, performance, and scalability"
+  //   },
+  //   {
+  //     icon: Shield,
+  //     title: "Security & Access Control",
+  //     description: "Assessment of network security protocols, firewall configurations, and access management"
+  //   },
+  //   {
+  //     icon: Zap,
+  //     title: "Performance Optimization",
+  //     description: "Identify bottlenecks and optimize network speed, reliability, and efficiency"
+  //   },
+  //   {
+  //     icon: Users,
+  //     title: "Resource Management",
+  //     description: "Evaluate bandwidth allocation, user access patterns, and network resource utilization"
+  //   }
+  // ];
 
   const assessmentFeatures = [
     {
@@ -122,14 +122,14 @@ const NetworkManagementLanding: React.FC = () => {
     }
   ];
 
-  const processSteps = [
-    "Initial network discovery and mapping",
-    "Performance monitoring and analysis",
-    "Security assessment and vulnerability testing",
-    "Bandwidth and traffic analysis",
-    "Network device evaluation",
-    "Comprehensive reporting with recommendations"
-  ];
+  // const processSteps = [
+  //   "Initial network discovery and mapping",
+  //   "Performance monitoring and analysis",
+  //   "Security assessment and vulnerability testing",
+  //   "Bandwidth and traffic analysis",
+  //   "Network device evaluation",
+  //   "Comprehensive reporting with recommendations"
+  // ];
 
   const trustIndicators = [
     { icon: <Award className="h-8 w-8" />, text: "Cisco Certified" },
