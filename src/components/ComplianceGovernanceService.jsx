@@ -112,8 +112,8 @@ export default function ComplianceGovernanceService() {
       icon: <Scale className="h-8 w-8" />,
       title: "Regulatory Compliance",
       description:
-        "Comprehensive compliance programs for HIPAA, SOX, PCI-DSS, GDPR, and industry-specific regulations with ongoing monitoring and reporting.",
-      features: ["HIPAA compliance", "SOX controls", "PCI-DSS certification", "GDPR privacy"],
+        "Comprehensive compliance programs for SOX, PCI-DSS, GDPR, and industry-specific regulations with ongoing monitoring and reporting.",
+      features: [ "SOX controls", "PCI-DSS certification", "GDPR privacy"],
     },
     {
       icon: <FileCheck className="h-8 w-8" />,
@@ -707,14 +707,14 @@ export default function ComplianceGovernanceService() {
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">Regulatory Compliance</h3>
                     <p className="text-gray-600 mb-6">
-                      Comprehensive compliance programs for major regulations including HIPAA, SOX, PCI-DSS, GDPR, and
+                      Comprehensive compliance programs for major regulations including SOX, PCI-DSS, GDPR, and
                       industry-specific requirements with continuous monitoring and reporting.
                     </p>
                     <div className="space-y-4">
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
-                          <div className="font-semibold text-gray-900">HIPAA Compliance</div>
+                          <div className="font-semibold text-gray-900">GDPR Compliance</div>
                           <div className="text-sm text-gray-600">Healthcare data protection and privacy</div>
                         </div>
                       </div>

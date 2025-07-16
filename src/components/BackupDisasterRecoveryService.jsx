@@ -593,7 +593,7 @@ export default function BackupDisasterRecovery() {
               <div className="text-sm text-gray-300">Of businesses close within 6 months of data loss</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-red-400 mb-2">$4.45M</div>
+              <div className="text-3xl font-bold text-red-400 mb-2">&pound;4.45M</div>
               <div className="text-sm text-gray-300">Average cost of a data breach</div>
             </div>
             <div>
@@ -844,7 +844,7 @@ export default function BackupDisasterRecovery() {
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">Compliance & Governance</h3>
                     <p className="text-gray-600 mb-6">
                       Comprehensive compliance management with automated reporting, audit trails, and adherence to
-                      industry regulations including GDPR, HIPAA, SOX, and more.
+                      industry regulations including GDPR, SOX, and more.
                     </p>
                     <div className="space-y-4">
                       <div className="flex items-start space-x-3">
@@ -865,7 +865,7 @@ export default function BackupDisasterRecovery() {
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
                           <div className="font-semibold text-gray-900">Regulatory Compliance</div>
-                          <div className="text-sm text-gray-600">GDPR, HIPAA, SOX, PCI-DSS compliance</div>
+                          <div className="text-sm text-gray-600">GDPR, SOX, PCI-DSS compliance</div>
                         </div>
                       </div>
                     </div>

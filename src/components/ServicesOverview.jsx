@@ -585,7 +585,7 @@ export default function ServicesOverview() {
                 title: "Compliance & Governance",
                 description:
                   "Protect your business and build trust with structured compliance and governance solutions aligned with industry standards.",
-                features: ["Compliance gap assessments", "GDPR, ISO 27001, and HIPAA compliance support", "Policy development and documentation", "Data protection and privacy management", "Risk assessments and mitigation planning", "Regular compliance audits", "Governance frameworks and best practices"],
+                features: ["Compliance gap assessments", "GDPR and ISO 27001 compliance support", "Policy development and documentation", "Data protection and privacy management", "Risk assessments and mitigation planning", "Regular compliance audits", "Governance frameworks and best practices"],
                 link: "/compliance", 
               },
               {

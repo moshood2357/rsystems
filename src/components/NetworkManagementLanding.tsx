@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Network, Shield, Zap, Users, CheckCircle, Star, Phone, Mail, Building, User, X, Cloud, Award, Server } from 'lucide-react';
+import { ArrowLeft, Network, Shield, Zap, Users, CheckCircle, Phone, Mail, Building, User, X, Cloud, Award, Server } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 interface FormData {

@@ -694,10 +694,12 @@ export default function CloudInfrastructureServices() {
             </div>
 
             <div className="text-center mt-8">
-              <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
-                Calculate Your Cloud Savings
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </Button>
+              <Link to = '/CloudROI'>
+                <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
+                  Calculate Your Cloud Savings
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
