@@ -203,7 +203,7 @@ export default function HomePage() {
               </a>
               <AnchorLink href = "#contact">
                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                Get Quote
+                 Get Quote
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               </AnchorLink>
@@ -317,12 +317,12 @@ export default function HomePage() {
        01452905204
     </a>
 
-    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+    <AnchorLink href ="#contact" onClick={() => setIsMobileMenuOpen(false)}>
       <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full mt-4">
         Get Quote
         <ArrowRight className="ml-2 h-4 w-4" />
       </Button>
-    </Link>
+    </AnchorLink>
   </div>
 )}
 
