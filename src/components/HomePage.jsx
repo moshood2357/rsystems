@@ -201,12 +201,12 @@ export default function HomePage() {
                  <Phone className="mr-2 h-6 w-6" />
                 01452905204
               </a>
-              <Link to = "/contact">
+              <AnchorLink href = "#contact">
                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
                 Get Quote
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              </Link>
+              </AnchorLink>
               
             </nav>
 
