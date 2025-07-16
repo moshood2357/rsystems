@@ -203,12 +203,12 @@ export default function About() {
                      <Phone className="mr-2 h-6 w-6" />
                     01452905204
                   </a>
-                  <Link to = "/contact">
+                  <a href = "/#contact">
                      <Button className="bg-blue-600 hover:bg-blue-700 text-white">
                     Get Quote
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
-                  </Link>
+                  </a>
                   
                 </nav>
     
@@ -313,7 +313,7 @@ export default function About() {
            01452905204
         </a>
     
-        <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+        <Link to="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
           <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full mt-4">
             Get Quote
             <ArrowRight className="ml-2 h-4 w-4" />
@@ -347,10 +347,10 @@ export default function About() {
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link to = "/services">
-                   <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg">
-                  Our Services
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                  <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg">
+                    Our Services
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
                 </Link >
                 <Link to = "/contact">
                    <Button

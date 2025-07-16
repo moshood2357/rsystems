@@ -97,13 +97,14 @@
 
 import { useState } from 'react';
 import { Card, CardContent } from '../../ui/Card';
-import  { Button } from '../../ui/Button';
+import { Button } from '../../ui/Button';
 
 const CloudROICalculator = () => {
   const [formData, setFormData] = useState({
     currentSpend: '',
     servers: '',
     storage: '',
+    utilization: '',
     timeline: '',
   });
 
@@ -126,9 +127,12 @@ const CloudROICalculator = () => {
     const currentSpend = parseFloat(formData.currentSpend) || 0;
     const servers = parseInt(formData.servers) || 0;
     const storage = parseInt(formData.storage) || 0;
+    const utilization = parseFloat(formData.utilization) || 100; // default 100% utilization
     const timeline = parseInt(formData.timeline) || 1;
 
-    const estimatedCloudCost = (currentSpend * 0.65) + (servers * 15) + (storage * 0.02);
+    const utilizationFactor = utilization > 0 ? utilization / 100 : 1;
+
+    const estimatedCloudCost = ((currentSpend * 0.65) + (servers * 15) + (storage * 0.02)) * utilizationFactor;
     const estimatedSavings = currentSpend - estimatedCloudCost;
     const roiPercentage = ((estimatedSavings * 12 * timeline) / (currentSpend * 12 * timeline)) * 100;
 
@@ -155,6 +159,7 @@ const CloudROICalculator = () => {
               { label: "Current Monthly Spend (£)", name: "currentSpend", placeholder: "e.g., 2500" },
               { label: "Number of Servers/VMs", name: "servers", placeholder: "e.g., 15" },
               { label: "Storage Needs (GB)", name: "storage", placeholder: "e.g., 1000" },
+              { label: "Average Utilization (%)", name: "utilization", placeholder: "e.g., 75" },
               { label: "Migration Timeline (Years)", name: "timeline", placeholder: "e.g., 2" },
             ].map((field, idx) => (
               <div key={idx} className="flex flex-col">
@@ -187,6 +192,7 @@ const CloudROICalculator = () => {
                 <li><strong>Estimated Monthly Cloud Cost:</strong> £{results.estimatedCloudCost}</li>
                 <li><strong>Estimated Monthly Savings:</strong> £{results.estimatedSavings}</li>
                 <li><strong>Estimated ROI:</strong> {results.roiPercentage}% over {formData.timeline} year(s)</li>
+                <li><strong>Utilization Applied:</strong> {formData.utilization || 100}%</li>
               </ul>
             </div>
           )}
