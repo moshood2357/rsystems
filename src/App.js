@@ -8,6 +8,7 @@ import Loader from "./components/Loader";
 import HomePage from "./components/HomePage";
 import Contact from "./components/Contact";
 
+
 // Lazy imports
 const About = lazy(() => import(/* webpackPrefetch: true */ "./components/About"));
 const ManagedITSupport = lazy(() => import("./components/ManagedITSupport"));
@@ -24,6 +25,7 @@ const BackupRecoveryLanding = lazy(() => import("./components/BackupRecoveryLand
 const ServicesOverview = lazy(() => import("./components/ServicesOverview"));
 const NetworkManagement = lazy(() => import("./components/NetworkManagement"));
 const NetworkManagementLanding = lazy(() => import("./components/NetworkManagementLanding"));
+const CalculateNetworkROIPage = lazy(() => import("./components/CalculateNetworkROIPage"));
 const VendorManagement = lazy(() => import("./components/VendorManagement"));
 const VendorManagementLanding = lazy(() => import("./components/VendorManagementLanding"));
 const ITAssessmentLanding = lazy(() => import("./components/ITAssessmentLanding"));
@@ -227,6 +229,14 @@ function App() {
           element={
             <Suspense fallback={<Loader />}>
               <CalculateROIPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/networkROI"
+          element={
+            <Suspense fallback={<Loader />}>
+              <CalculateNetworkROIPage />
             </Suspense>
           }
         />

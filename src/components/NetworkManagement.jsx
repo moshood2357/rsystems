@@ -107,7 +107,7 @@ export default function NetworkManagement() {
       role: "Network Administrator",
       rating: 5,
       comment:
-        "HIPAA compliance requirements were complex, but their network management ensures all data transmission meets regulatory standards with detailed audit trails.",
+        "GDPR compliance requirements were complex, but their network management ensures all data transmission meets regulatory standards with detailed audit trails.",
       employees: "300-750",
       industry: "Healthcare",
       achievement: "HIPAA Compliant",
@@ -671,10 +671,12 @@ export default function NetworkManagement() {
               ))}
             </div>
             <div className="text-center mt-8">
-              <Button size="lg" className="bg-green-600 text-white hover:bg-green-700">
-                Analyze Your Network Performance
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </Button>
+              <Link to = "/networkROI">
+                <Button size="lg" className="bg-green-600 text-white hover:bg-green-700">
+                  Analyze Your Network Performance
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
