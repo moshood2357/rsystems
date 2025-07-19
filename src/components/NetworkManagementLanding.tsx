@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, Network, Shield, Zap, Users, CheckCircle, Phone, Mail, Building, User, X, Cloud, Award, Server } from 'lucide-react';
+import {  Network, Shield, Zap, Users, CheckCircle, Phone, Mail, Building, User, X, Cloud, Award, Server } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 interface FormData {
@@ -189,33 +188,6 @@ const NetworkManagementLanding: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-      {/* Header */}
-      <header className="bg-white/10 backdrop-blur-sm border-b border-white/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <Link 
-                to="/" 
-                className="inline-flex items-center text-white hover:text-blue-200 transition-colors"
-              >
-                <ArrowLeft className="h-5 w-5 mr-2" />
-                Back to Assessments
-              </Link>
-            </div>
-            <div className="hidden md:flex items-center space-x-6 text-white/90">
-              <span className="flex items-center">
-                <Phone className="h-4 w-4 mr-2" />
-                (555) 123-4567
-              </span>
-              <span className="flex items-center">
-                <Mail className="h-4 w-4 mr-2" />
-                network@r2systems.com
-              </span>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">

@@ -169,30 +169,7 @@ const CyberSecurityLanding: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900">
-      {/* Header */}
-      <header className="bg-white/10 backdrop-blur-sm border-b border-white/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <Shield className="h-8 w-8 text-white" />
-              <span className="text-xl font-bold text-white">R2 System Solutions</span>
-            </div>
-            <div className="hidden md:flex items-center space-x-6 text-white/90">
-              <a href="tel:01452905204" className="text-2xl font-bold hover: flex items-center transition-colors duration-300">
-                <Phone className="mr-2 h-6 w-6" />
-                01452905204
-              </a>
-              <a
-                href="mailto:support@r2systemsolution.co.uk"
-                className="text-2xl font-bold hover: flex items-center transition-colors duration-300"
-              >
-                <Mail className="mr-2 h-6 w-6" />
-               support@r2systemsolution.co.uk
-              </a>
-            </div>
-          </div>
-        </div>
-      </header>
+      
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">

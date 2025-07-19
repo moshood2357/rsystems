@@ -1,8 +1,9 @@
 
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ScrollToTop from "./components/ScrollToTop";
 import Loader from "./components/Loader";
+import Layout from "./components/Layout";
+
 
 // Direct import for homepage
 import HomePage from "./components/HomePage";
@@ -40,8 +41,8 @@ const CalculateROIPage = lazy(() => import("./components/CalculateROIPage"));
 function App() {
   return (
     <Router>
-      <ScrollToTop />
-      <Routes>
+      <Layout>
+        <Routes>
         {/* ✅ Directly loaded homepage without suspense, avoiding spinner flash */}
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<Contact />} />
@@ -242,6 +243,8 @@ function App() {
         />
         
       </Routes>
+      </Layout>
+      
     </Router>
   );
 }
