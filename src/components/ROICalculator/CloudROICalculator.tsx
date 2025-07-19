@@ -224,7 +224,7 @@ const CloudROICalculator = () => {
                 label: "Average Utilization (%)",
                 name: "utilization",
                 placeholder: "e.g., 75",
-                tooltip: "Typical CPU/RAM utilization across your infrastructure (not peak).",
+                tooltip: "Average utilization across your servers, CPU, RAM. Network bandwith.",
               },
               {
                 label: "Migration Timeline (Years)",
