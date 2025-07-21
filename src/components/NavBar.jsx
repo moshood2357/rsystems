@@ -34,7 +34,7 @@ import { useState } from 'react';
       icon: <HardDrive className="h-5 w-5" />,
       title: "IT consultancy",
       description: "Align tech with goals.",
-      href: "/cloud"
+      href: "/consultancy"
 
     },
     {

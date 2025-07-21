@@ -56,10 +56,10 @@ export default function BackupDisasterRecovery() {
       role: "IT Manager",
       rating: 5,
       comment:
-        "HIPAA compliance was critical for us. Their backup solution not only protects patient data but ensures we meet all regulatory requirements with automated reporting.",
+        "GDPR compliance was critical for us. Their backup solution not only protects patient data but ensures we meet all regulatory requirements with automated reporting.",
       employees: "200-500",
       industry: "Healthcare",
-      achievement: "HIPAA Compliant",
+      achievement: "GDPR Compliant",
     },
     {
       name: "Michael Thompson",

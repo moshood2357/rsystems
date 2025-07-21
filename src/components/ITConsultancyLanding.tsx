@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Users, CheckCircle, AlertTriangle, Award, Monitor, Lightbulb, TrendingUp, Phone, Mail, Building, User, X, Zap, Target } from 'lucide-react';
 
 import emailjs from '@emailjs/browser';
+import Back from './Back';
 
 interface FormData {
   fullName: string;
@@ -170,6 +171,7 @@ const ITConsultancyLanding: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-900">
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+        <Back  className = 'mt-5'/>
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
             {/* Main Content */}

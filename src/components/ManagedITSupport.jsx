@@ -20,7 +20,7 @@ import {
 
 import { Link } from 'react-router-dom';
 
-import { Button } from "../ui/Button"
+import { Button } from "../ui/Button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/Card"
 import { Badge } from "../ui/Badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/Accordion"

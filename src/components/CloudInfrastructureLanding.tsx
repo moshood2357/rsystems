@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Cloud, CheckCircle, AlertTriangle, Users, Award, Server, Zap, Shield, DollarSign, Phone, Mail, Building, User, X, Database, Globe } from 'lucide-react';
+import Back from './Back';
 
 import emailjs from '@emailjs/browser';
 
@@ -172,6 +173,7 @@ const CloudInfrastructureLanding: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <Back className = 'mt-5'/>
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
             {/* Main Content */}

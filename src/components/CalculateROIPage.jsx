@@ -1,213 +1,136 @@
 
-import { useState, useRef } from 'react';
-import { Card, CardContent } from '../ui/Card';
+import CloudROICalculator from './ROICalculator/CloudROICalculator';
 import { Button } from '../ui/Button';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
-import { ArrowLeft } from 'lucide-react';
+import { Card, CardContent } from '../ui/Card';
+import { CheckCircle } from 'lucide-react';
+import Back from './Back';
 
-const CloudROICalculator = () => {
-  const [formData, setFormData] = useState({
-    currentSpend: '',
-    servers: '',
-    storage: '',
-    utilization: '',
-    timeline: '',
-  });
-
-  const [results, setResults] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [buttonDisabled, setButtonDisabled] = useState(false);
-  const resultRef = useRef(null);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    if (results) {
-      setResults(null);
-      setButtonDisabled(false);
-    }
-  };
-
-  const calculateROI = (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    const currentSpend = parseFloat(formData.currentSpend) || 0;
-    const servers = parseInt(formData.servers) || 0;
-    const storage = parseInt(formData.storage) || 0;
-    const utilization = parseFloat(formData.utilization) || 100;
-    const timeline = parseInt(formData.timeline) || 1;
-
-    const adjustedSpend = currentSpend * (utilization / 100);
-    const estimatedCloudCost = (adjustedSpend * 0.65) + (servers * 15) + (storage * 0.02);
-    const estimatedSavings = adjustedSpend - estimatedCloudCost;
-    const roiPercentage = ((estimatedSavings * 12 * timeline) / (adjustedSpend * 12 * timeline)) * 100;
-
-    setTimeout(() => {
-      setResults({
-        estimatedCloudCost: estimatedCloudCost.toFixed(2),
-        estimatedSavings: estimatedSavings.toFixed(2),
-        roiPercentage: roiPercentage.toFixed(1),
-        utilizationApplied: utilization.toFixed(0),
-        timelineApplied: timeline.toString(),
-      });
-      setLoading(false);
-      setButtonDisabled(true);
-      setFormData({
-        currentSpend: '',
-        servers: '',
-        storage: '',
-        utilization: '',
-        timeline: '',
-      });
-    }, 800);
-  };
-
-  const downloadPDF = async () => {
-    if (!resultRef.current) return;
-    const canvas = await html2canvas(resultRef.current);
-    const imgData = canvas.toDataURL('image/png');
-
-    const pdf = new jsPDF({
-      orientation: 'portrait',
-      unit: 'pt',
-      format: 'a4',
-    });
-
-    const pageWidth = pdf.internal.pageSize.getWidth();
-    const imgProps = pdf.getImageProperties(imgData);
-    const pdfHeight = (imgProps.height * pageWidth) / imgProps.width;
-
-    pdf.setFontSize(18);
-    pdf.text('Cloud ROI Estimate - R2 System Solution Ltd.', 40, 40);
-    pdf.addImage(imgData, 'PNG', 40, 60, pageWidth - 80, pdfHeight);
-    pdf.save('cloud-roi-estimate.pdf');
-  };
-
+const CalculateCloudROIPage = () => {
   return (
-    <section className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col items-center justify-center px-4 py-12 relative">
+    <div className="flex flex-col items-center w-full">
 
-      {/* Back Button */}
-      <button
-        onClick={() => window.history.back()}
-        className="absolute top-6 left-6 flex items-center text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors"
-      >
-        <ArrowLeft className="w-4 h-4 mr-1" />
-        Back
-      </button>
+      {/* Hero Section */}
+      <section className="w-full bg-gradient-to-b from-blue-50 to-white py-20 px-4 text-center">
+      <Back className = 'mt-20'/>
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-blue-900">
+          Instantly Calculate Your Cloud ROI
+        </h1>
+        <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-gray-700">
+          Discover your potential savings and operational improvements by moving to the cloud. Use our free calculator to get personalized insights in minutes.
+        </p>
+        <Button
+          size="lg"
+          className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg rounded-md shadow-md transition"
+          onClick={() =>
+            document.getElementById('roi-calculator')?.scrollIntoView({ behavior: 'smooth' })
+          }
+        >
+          Calculate Now
+        </Button>
+      </section>
 
-      <Card className="w-full max-w-lg rounded-2xl shadow-2xl border border-gray-200 bg-white">
-        <CardContent className="p-8">
-          <h2 className="text-3xl font-bold text-center text-blue-900 mb-6">Cloud ROI Calculator</h2>
-          <p className="text-center text-gray-600 mb-8 text-sm md:text-base">
-            Estimate your potential cloud savings quickly and download your personalized report.
-          </p>
-
-          <form onSubmit={calculateROI} className="space-y-5">
-            {[
-              {
-                label: "Current Monthly Spend (£)",
-                name: "currentSpend",
-                placeholder: "e.g., 2500",
-                tooltip: "Your current monthly infrastructure costs (servers, storage, network, etc.).",
-              },
-              {
-                label: "Number of Servers/VMs",
-                name: "servers",
-                placeholder: "e.g., 15",
-                tooltip: "Total servers or virtual machines you currently run on-premise.",
-              },
-              {
-                label: "Storage Needs (GB)",
-                name: "storage",
-                placeholder: "e.g., 1000",
-                tooltip: "Total storage used across your workloads in gigabytes.",
-              },
-              {
-                label: "Average Utilization (%)",
-                name: "utilization",
-                placeholder: "e.g., 75",
-                tooltip: "Average utilization across your servers, CPU, RAM, network bandwidth, etc.",
-              },
-              {
-                label: "Migration Timeline (Years)",
-                name: "timeline",
-                placeholder: "e.g., 2",
-                tooltip: "Expected timeline for fully migrating to the cloud for accurate ROI projection.",
-              },
-            ].map((field, idx) => (
-              <div key={idx} className="flex flex-col relative group">
-                <label className="text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
-                  {field.label}
-                  <span className="ml-1 text-blue-600 cursor-pointer relative group">
-                    ⓘ
-                    <span className="absolute bottom-full mb-1 hidden group-hover:block bg-black text-white text-xs rounded p-1 w-60 z-10 text-left">
-                      {field.tooltip}
-                    </span>
-                  </span>
-                </label>
-                <input
-                  type="number"
-                  name={field.name}
-                  value={formData[field.name]}
-                  onChange={handleChange}
-                  placeholder={field.placeholder}
-                  required
-                  className="px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
-                />
-              </div>
-            ))}
-
-            <Button
-              type="submit"
-              disabled={loading || buttonDisabled}
-              className={`w-full py-3 ${
-                loading || buttonDisabled
-                  ? 'bg-blue-300 cursor-not-allowed'
-                  : 'bg-blue-600 hover:bg-blue-700'
-              } text-white text-lg font-semibold rounded-lg transition-all shadow-md hover:shadow-lg`}
-            >
-              {loading ? 'Calculating...' : 'Calculate ROI'}
-            </Button>
-          </form>
-
-          {results && (
-            <div
-              ref={resultRef}
-              className="mt-8 p-6 rounded-xl bg-blue-50 text-blue-900 shadow-inner"
-            >
-              <h3 className="text-xl font-semibold mb-4 text-center">Your Estimated Results</h3>
-              <ul className="space-y-2 text-center">
-                <li>
-                  <strong>Estimated Monthly Cloud Cost:</strong> £{results.estimatedCloudCost}
-                </li>
-                <li>
-                  <strong>Estimated Monthly Savings:</strong> £{results.estimatedSavings}
-                </li>
-                <li>
-                  <strong>Estimated ROI:</strong> {results.roiPercentage}% over {results.timelineApplied} year(s)
-                </li>
-                <li>
-                  <strong>Utilization Applied:</strong> {results.utilizationApplied}%
-                </li>
-              </ul>
+      {/* Why Calculate ROI */}
+      <section className="max-w-4xl w-full py-20 px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-900">
+          Why Calculating Your Cloud ROI Matters
+        </h2>
+        <p className="text-base md:text-lg max-w-2xl mx-auto mb-10 text-gray-600">
+          Moving to the cloud isn’t just about technology—it's about making your investment work harder for your business. By calculating your ROI, you can:
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto text-left">
+          {[
+            'Identify cost savings over your current infrastructure',
+            'Improve scalability while reducing operational overhead',
+            'Align your cloud strategy with your business goals',
+            'Build a clear business case for stakeholders',
+          ].map((item, idx) => (
+            <div key={idx} className="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm">
+              <CheckCircle className="text-green-600 mt-1" size={20} />
+              <p className="text-gray-700">{item}</p>
             </div>
-          )}
-        </CardContent>
-      </Card>
+          ))}
+        </div>
+      </section>
 
-      {results && (
-        <div className="mt-4">
+      {/* ROI Calculator */}
+      <section id="roi-calculator" className="w-full py-20 px-4 bg-gray-50">
+        <CloudROICalculator />
+      </section>
+
+      {/* Example Scenarios */}
+      <section className="max-w-5xl w-full py-20 px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-blue-900">
+          Real Businesses, Real Savings
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            {
+              title: 'Small Business | 30% Savings',
+              description:
+                'A growing retail brand reduced server costs while improving site speed and customer experience after moving to the cloud.',
+            },
+            {
+              title: 'Mid-Size SaaS | 45% Savings',
+              description:
+                'A software company scaled globally, reduced downtime, and lowered operating expenses with a seamless cloud migration.',
+            },
+            {
+              title: 'Enterprise | 50% CapEx Reduction',
+              description:
+                'An enterprise reduced hardware investments and improved scalability, resulting in significant cost reductions across departments.',
+            },
+          ].map((item, idx) => (
+            <Card key={idx} className="shadow-lg hover:shadow-xl transition rounded-xl border border-gray-200">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-2 text-blue-800">{item.title}</h3>
+                <p className="text-gray-600">{item.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="max-w-3xl w-full py-20 px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-blue-900">
+          What Our Users Are Saying
+        </h2>
+        <blockquote className="italic max-w-xl mx-auto text-gray-700 text-lg">
+          “We cut infrastructure costs by 40% after using this tool to plan our migration. It gave us the confidence to scale globally while reducing risks.”
+          <br />
+          <span className="block mt-2 font-semibold text-blue-800">— Jane Doe, CTO, GrowthTech</span>
+        </blockquote>
+      </section>
+
+      {/* Final CTA */}
+      <section className="w-full bg-gradient-to-b from-blue-50 to-white py-20 px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-900">
+          Ready to Unlock Your Cloud Savings?
+        </h2>
+        <p className="max-w-xl mx-auto mb-8 text-gray-700">
+          Don’t let high infrastructure costs slow you down. Get your personalized cloud ROI estimate today and take the first step toward smarter, scalable growth.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
-            onClick={downloadPDF}
-            className="py-3 px-6 bg-green-600 hover:bg-green-700 text-white text-lg font-semibold rounded-lg transition-all shadow-md hover:shadow-lg"
+            size="lg"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg rounded-md shadow-md transition"
+            onClick={() =>
+              document.getElementById('roi-calculator')?.scrollIntoView({ behavior: 'smooth' })
+            }
           >
-            Download Results as PDF
+            Calculate My Cloud ROI
+          </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            className="border border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 text-lg rounded-md transition"
+          >
+            Book a Free Consultation
           </Button>
         </div>
-      )}
-    </section>
+      </section>
+    </div>
   );
 };
 
-export default CloudROICalculator;
+export default CalculateCloudROIPage;

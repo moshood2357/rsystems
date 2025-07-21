@@ -399,10 +399,12 @@ export default function DeviceEndpointProtectionService() {
             </div>
 
             <div className="text-center mt-8">
-              <Button size="lg" className="bg-orange-600 text-white hover:bg-orange-700">
-                Calculate Your Protection ROI
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </Button>
+              <Link to = "/ProtectionROI">
+                <Button size="lg" className="bg-orange-600 text-white hover:bg-orange-700">
+                  Calculate Your Protection ROI
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

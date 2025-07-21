@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {  Network, Shield, Zap, Users, CheckCircle, Phone, Mail, Building, User, X, Cloud, Award, Server } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import Back from './Back';
 
 interface FormData {
   fullName: string;
@@ -65,29 +66,6 @@ const NetworkManagementLanding: React.FC = () => {
     }
   };
 
-  // const benefits = [
-  //   {
-  //     icon: Network,
-  //     title: "Network Infrastructure Analysis",
-  //     description: "Comprehensive evaluation of your network topology, performance, and scalability"
-  //   },
-  //   {
-  //     icon: Shield,
-  //     title: "Security & Access Control",
-  //     description: "Assessment of network security protocols, firewall configurations, and access management"
-  //   },
-  //   {
-  //     icon: Zap,
-  //     title: "Performance Optimization",
-  //     description: "Identify bottlenecks and optimize network speed, reliability, and efficiency"
-  //   },
-  //   {
-  //     icon: Users,
-  //     title: "Resource Management",
-  //     description: "Evaluate bandwidth allocation, user access patterns, and network resource utilization"
-  //   }
-  // ];
-
   const assessmentFeatures = [
     {
       icon: <Network className="h-6 w-6" />,
@@ -120,15 +98,6 @@ const NetworkManagementLanding: React.FC = () => {
       description: "Assessment of cloud connectivity and hybrid network configurations"
     }
   ];
-
-  // const processSteps = [
-  //   "Initial network discovery and mapping",
-  //   "Performance monitoring and analysis",
-  //   "Security assessment and vulnerability testing",
-  //   "Bandwidth and traffic analysis",
-  //   "Network device evaluation",
-  //   "Comprehensive reporting with recommendations"
-  // ];
 
   const trustIndicators = [
     { icon: <Award className="h-8 w-8" />, text: "Cisco Certified" },
@@ -190,6 +159,7 @@ const NetworkManagementLanding: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <Back className = 'mt-5'/>
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
             {/* Main Content */}

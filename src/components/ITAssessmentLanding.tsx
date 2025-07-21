@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Monitor, CheckCircle, AlertTriangle, Users, Award, Server, Database, Shield, Zap, Phone, Mail, Building, User, X, Cloud, HardDrive } from 'lucide-react';
 
 import emailjs from '@emailjs/browser';
+import Back from './Back';
 
 
 interface FormData {
@@ -173,6 +174,7 @@ const ITAssessmentLanding: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+        <Back className = "mt-5"/>
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
             {/* Main Content */}
