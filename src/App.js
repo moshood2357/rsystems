@@ -35,7 +35,7 @@ const VoIPUnifiedCommunicationLanding = lazy(() => import("./components/VoIPUnif
 const CyberSecurityLanding = lazy(() => import("./components/CyberSecurityLanding"));
 const CloudInfrastructureLanding = lazy(() => import("./components/CloudInfrastructureLanding"));
 const CalculateROIPage = lazy(() => import("./components/CalculateROIPage"));
-const CalculateProtectionROIPage = lazy(() => import("./components/CalculateProtectionROIPage"));
+const CalculateProtectionROIPage = lazy(() => import("./components/CalculateProtectioROIPage"));
 
 
 
