@@ -27,7 +27,7 @@ const ComplianceROICalculator = () => {
 
           <div className="flex flex-col space-y-2">
             <label className="font-medium flex items-center gap-1">
-              Compliance Costs ($)
+              Current Compliance Costs (£)
               <span title="Total annual cost of compliance efforts including audits, training, tools, and external consultants.">
                 <Info size={16} className="text-blue-500 cursor-pointer" />
               </span>
@@ -43,7 +43,7 @@ const ComplianceROICalculator = () => {
 
           <div className="flex flex-col space-y-2">
             <label className="font-medium flex items-center gap-1">
-              Total Benefits from Compliance ($)
+              Total Benefits from Compliance (£)
               <span title="Estimated annual financial benefits including avoided fines, reduced downtime, increased contracts, and cost savings.">
                 <Info size={16} className="text-blue-500 cursor-pointer" />
               </span>

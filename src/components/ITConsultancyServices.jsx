@@ -397,10 +397,12 @@ export default function ITConsultancyService() {
             </div>
 
             <div className="text-center mt-8">
-              <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700">
-                Calculate Your Consulting Savings
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </Button>
+              <Link to = "/ITConsultancyROI">
+                 <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700">
+                   Calculate Your Consulting Savings
+                   <ArrowRight className="h-4 w-4 ml-2" />
+                  </Button>
+              </Link>
             </div>
           </div>
         </div>

@@ -46,7 +46,7 @@ export default function CalculateProtectionROIPage() {
         <CardContent className="space-y-4">
           <div>
             <Label>
-              Estimated Data Loss Cost ($)
+              Estimated Data Loss Cost (£)
               <span className="ml-1 text-gray-400 cursor-pointer group relative">
                 <Info size={16} />
                 <span className="absolute left-6 top-0 w-48 bg-gray-800 text-white text-xs p-2 rounded opacity-0 group-hover:opacity-100 transition">
@@ -82,7 +82,7 @@ export default function CalculateProtectionROIPage() {
 
           <div>
             <Label>
-              Downtime Cost per Hour ($)
+              Downtime Cost per Hour (£)
               <span className="ml-1 text-gray-400 cursor-pointer group relative">
                 <Info size={16} />
                 <span className="absolute left-6 top-0 w-48 bg-gray-800 text-white text-xs p-2 rounded opacity-0 group-hover:opacity-100 transition">
@@ -100,7 +100,7 @@ export default function CalculateProtectionROIPage() {
 
           <div>
             <Label>
-              Protection Investment Cost ($)
+              Protection Investment Cost (£)
               <span className="ml-1 text-gray-400 cursor-pointer group relative">
                 <Info size={16} />
                 <span className="absolute left-6 top-0 w-48 bg-gray-800 text-white text-xs p-2 rounded opacity-0 group-hover:opacity-100 transition">

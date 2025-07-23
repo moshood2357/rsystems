@@ -398,10 +398,12 @@ export default function CybersecurityService() {
             </div>
 
             <div className="text-center mt-8">
+              <Link to = "/CybersecurityROI">
               <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
                 Calculate Your Security ROI
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -517,7 +519,7 @@ export default function CybersecurityService() {
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">Regulatory Compliance</h3>
                     <p className="text-gray-600 mb-6">
-                      Expert guidance and implementation for meeting regulatory requirements including HIPAA, PCI-DSS,
+                      Expert guidance and implementation for meeting regulatory requirements including PCI-DSS,
                       SOX, GDPR, and industry-specific compliance standards.
                     </p>
                     <div className="space-y-4">
@@ -772,8 +774,7 @@ export default function CybersecurityService() {
               <AccordionItem value="item-3">
                 <AccordionTrigger>Do you help with regulatory compliance?</AccordionTrigger>
                 <AccordionContent>
-                  Yes, we specialize in helping businesses achieve and maintain compliance with regulations including
-                  HIPAA, PCI-DSS, SOX, GDPR, CCPA, and industry-specific standards. We provide compliance audits, policy
+                  Yes, we specialize in helping businesses achieve and maintain compliance with regulations including PCI-DSS, SOX, GDPR, CCPA, and industry-specific standards. We provide compliance audits, policy
                   development, documentation, and ongoing monitoring to ensure continuous compliance.
                 </AccordionContent>
               </AccordionItem>
