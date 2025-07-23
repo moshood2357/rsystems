@@ -41,7 +41,9 @@ const CalculateProtectionROIPage = lazy(() => import("./components/CalculateProt
 const CalculateComplianceROIPage = lazy(() => import("./components/CalculateComplianceROIPage"));
 const CalculateITConsultancyROIPage = lazy(() => import("./components/CalculateITConsultancyROIPage"));
 const CalculateManagedITROICalculatorPage = lazy(() => import("./components/CalculateManagedITROICalculatorPage"));
-const CalculateCybersecurityROICalculatorPage = lazy(() => import("./components/CalculateCybersecurityROICalculatorPage")); 
+const CalculateCybersecurityROICalculatorPage = lazy(() => import("./components/CalculateCybersecurityROICalculatorPage"));
+const CalculateVendorManagementROIPage = lazy(() => import("./components/CalculateVendorManagementROIPage")); 
+
 
 
 
@@ -285,6 +287,14 @@ function App() {
           element={
             <Suspense fallback={<Loader />}>
               <CalculateCybersecurityROICalculatorPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/vendormanagementROI"
+          element={
+            <Suspense fallback={<Loader />}>
+              <CalculateVendorManagementROIPage />
             </Suspense>
           }
         />

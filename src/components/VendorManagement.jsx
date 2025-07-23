@@ -310,7 +310,7 @@ export default function VendorManagement() {
               <div className="text-sm text-gray-300">Of businesses lack vendor performance visibility</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-purple-400 mb-2">$2.4M</div>
+              <div className="text-3xl font-bold text-purple-400 mb-2">£2.4M</div>
               <div className="text-sm text-gray-300">Average annual vendor overspend per company</div>
             </div>
             <div>
@@ -395,10 +395,12 @@ export default function VendorManagement() {
               ))}
             </div>
             <div className="text-center mt-8">
+              <Link to = "/vendormanagementROI">
               <Button size="lg" className="bg-purple-600 hover:bg-purple-700">
-                Analyze Your Vendor Portfolio
+                Calculate vendor management ROI
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
+              </Link>
             </div>
           </div>
         </div>

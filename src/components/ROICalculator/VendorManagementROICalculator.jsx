@@ -4,13 +4,11 @@ import { Button } from '../../ui/Button';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
-const ComplianceROICalculator = () => {
+const VendorManagementROICalculator = () => {
   const [formData, setFormData] = useState({
-    annualRevenue: '',
-    potentialNonComplianceCost: '',
-    nonComplianceProbability: '',
-    reductionPercentage: '',
-    annualComplianceSpend: '',
+    annualVendorSpend: '',
+    estimatedSavingsPercentage: '',
+    annualVendorManagementCost: '',
   });
 
   const [results, setResults] = useState(null);
@@ -30,33 +28,26 @@ const ComplianceROICalculator = () => {
     e.preventDefault();
     setLoading(true);
 
-    const potentialNonComplianceCost = parseFloat(formData.potentialNonComplianceCost) || 0;
-    const nonComplianceProbability = parseFloat(formData.nonComplianceProbability) / 100 || 0;
-    const reductionPercentage = parseFloat(formData.reductionPercentage) / 100 || 0;
-    const annualComplianceSpend = parseFloat(formData.annualComplianceSpend) || 0;
+    const annualVendorSpend = parseFloat(formData.annualVendorSpend) || 0;
+    const estimatedSavingsPercentage = parseFloat(formData.estimatedSavingsPercentage) / 100 || 0;
+    const annualVendorManagementCost = parseFloat(formData.annualVendorManagementCost) || 0;
 
-    const expectedLossWithoutCompliance = potentialNonComplianceCost * nonComplianceProbability;
-    const expectedLossWithCompliance = expectedLossWithoutCompliance * (1 - reductionPercentage);
-    const annualSavings = expectedLossWithoutCompliance - expectedLossWithCompliance;
-    const roiPercentage = ((annualSavings - annualComplianceSpend) / annualComplianceSpend) * 100;
-    const savingsAsPercentOfRevenue = formData.annualRevenue
-      ? (annualSavings / parseFloat(formData.annualRevenue)) * 100
-      : 0;
+    const estimatedSavings = annualVendorSpend * estimatedSavingsPercentage;
+    const roiPercentage = ((estimatedSavings - annualVendorManagementCost) / annualVendorManagementCost) * 100;
+    const savingsPercentOfSpend = annualVendorSpend ? (estimatedSavings / annualVendorSpend) * 100 : 0;
 
     setTimeout(() => {
       setResults({
-        annualSavings: annualSavings.toFixed(2),
+        estimatedSavings: estimatedSavings.toFixed(2),
         roiPercentage: roiPercentage.toFixed(1),
-        savingsPercentOfRevenue: savingsAsPercentOfRevenue.toFixed(1),
+        savingsPercentOfSpend: savingsPercentOfSpend.toFixed(1),
       });
       setLoading(false);
       setButtonDisabled(true);
       setFormData({
-        annualRevenue: '',
-        potentialNonComplianceCost: '',
-        nonComplianceProbability: '',
-        reductionPercentage: '',
-        annualComplianceSpend: '',
+        annualVendorSpend: '',
+        estimatedSavingsPercentage: '',
+        annualVendorManagementCost: '',
       });
     }, 800);
   };
@@ -75,9 +66,9 @@ const ComplianceROICalculator = () => {
     const pdfHeight = (imgProps.height * (pageWidth - 80)) / imgProps.width;
 
     pdf.setFontSize(18);
-    pdf.text('Compliance ROI Estimate - R2 System Solution Ltd.', 40, 40);
+    pdf.text('Vendor Management ROI Estimate - R2 System Solution Ltd.', 40, 40);
     pdf.addImage(imgData, 'PNG', 40, 60, pageWidth - 80, pdfHeight);
-    pdf.save('compliance-roi-estimate.pdf');
+    pdf.save('vendor-management-roi-estimate.pdf');
   };
 
   return (
@@ -85,43 +76,31 @@ const ComplianceROICalculator = () => {
       <Card className="w-full max-w-xl rounded-2xl shadow-lg border border-gray-200 bg-white">
         <CardContent className="p-8 space-y-6">
           <div className="space-y-2 text-center">
-            <h2 className="text-3xl font-bold text-purple-900">Compliance ROI Calculator</h2>
+            <h2 className="text-3xl font-bold text-purple-900">Vendor Management ROI Calculator</h2>
             <p className="text-gray-600 text-sm md:text-base max-w-md mx-auto">
-              Estimate the potential ROI from investing in compliance solutions to reduce fines, legal risks, and inefficiencies.
+              Estimate the potential ROI of improving your vendor management to reduce costs and improve performance.
             </p>
           </div>
 
           <form onSubmit={calculateROI} className="space-y-5">
             {[
               {
-                label: 'Annual Revenue (£)',
-                name: 'annualRevenue',
-                placeholder: 'e.g., 500000',
-                tooltip: 'Your business’s total annual revenue (optional).',
+                label: 'Annual Vendor Spend (£)',
+                name: 'annualVendorSpend',
+                placeholder: 'e.g., 250000',
+                tooltip: 'Your total annual spend on vendors and suppliers.',
               },
               {
-                label: 'Potential Non-Compliance Cost (£)',
-                name: 'potentialNonComplianceCost',
-                placeholder: 'e.g., 100000',
-                tooltip: 'Estimated cost if non-compliance occurs, including fines and legal fees.',
+                label: 'Estimated Savings from Vendor Management (%)',
+                name: 'estimatedSavingsPercentage',
+                placeholder: 'e.g., 15',
+                tooltip: 'Expected % savings through vendor negotiations and management.',
               },
               {
-                label: 'Non-Compliance Probability (%)',
-                name: 'nonComplianceProbability',
-                placeholder: 'e.g., 20',
-                tooltip: 'Estimated probability of facing non-compliance in a year.',
-              },
-              {
-                label: 'Expected Reduction in Risk (%)',
-                name: 'reductionPercentage',
-                placeholder: 'e.g., 70',
-                tooltip: 'Expected reduction in non-compliance risk with compliance investment.',
-              },
-              {
-                label: 'Annual Compliance Spend (£)',
-                name: 'annualComplianceSpend',
-                placeholder: 'e.g., 15000',
-                tooltip: 'Planned annual spend on compliance solutions and processes.',
+                label: 'Annual Vendor Management Cost (£)',
+                name: 'annualVendorManagementCost',
+                placeholder: 'e.g., 10000',
+                tooltip: 'Your planned annual spend on vendor management resources/tools.',
               },
             ].map((field, idx) => (
               <div key={idx} className="flex flex-col relative group">
@@ -140,7 +119,7 @@ const ComplianceROICalculator = () => {
                   value={formData[field.name]}
                   onChange={handleChange}
                   placeholder={field.placeholder}
-                  required={field.name !== 'annualRevenue'}
+                  required
                   className="px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all"
                 />
               </div>
@@ -158,25 +137,22 @@ const ComplianceROICalculator = () => {
           </form>
 
           {results && (
-            <div
-              ref={resultRef}
-              className="mt-6 p-6 rounded-xl bg-purple-50 text-purple-900 shadow-inner space-y-4"
-            >
+            <div ref={resultRef} className="mt-6 p-6 rounded-xl bg-purple-50 text-purple-900 shadow-inner space-y-4">
               <div className="space-y-1 text-center">
                 <h3 className="text-xl font-semibold">Your Estimated Results</h3>
                 <p className="text-sm text-gray-700">
-                  Review your estimated cost savings and ROI based on your compliance investment.
+                  Review your estimated cost savings and ROI from your vendor management investment.
                 </p>
               </div>
               <ul className="space-y-2 text-center">
                 <li>
-                  <strong>Estimated Annual Risk Savings:</strong> £{results.annualSavings}
+                  <strong>Estimated Annual Savings:</strong> £{results.estimatedSavings}
                 </li>
                 <li>
                   <strong>Estimated ROI:</strong> {results.roiPercentage}%
                 </li>
                 <li>
-                  <strong>Savings as % of Annual Revenue:</strong> {results.savingsPercentOfRevenue}%
+                  <strong>Savings as % of Annual Vendor Spend:</strong> {results.savingsPercentOfSpend}%
                 </li>
               </ul>
               <div className="flex justify-center">
@@ -195,4 +171,4 @@ const ComplianceROICalculator = () => {
   );
 };
 
-export default ComplianceROICalculator;
+export default VendorManagementROICalculator;
