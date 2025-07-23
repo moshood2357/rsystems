@@ -389,10 +389,12 @@ export default function ComplianceGovernanceService() {
             </div>
 
             <div className="text-center mt-8">
-              <Button size="lg" className="bg-green-600 text-white hover:bg-green-700">
-                Calculate Your Compliance ROI
-                <ArrowRight className="h-4 w-4 ml-2" />
-              </Button>
+              <Link to = "/ComplianceROI">
+                <Button size="lg" className="bg-green-600 text-white hover:bg-green-700">
+                  Find out the financial benefit of investing on Compliance
+                  <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

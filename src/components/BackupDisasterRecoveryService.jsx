@@ -701,7 +701,7 @@ export default function BackupDisasterRecovery() {
                   </ul>
                   <Button
                     className={`w-full mt-6 ${
-                      tier.popular ? "bg-red-600 text-white hover:bg-red-700 text-white" : "bg-gray-900 text-white hover:bg-gray-800"
+                      tier.popular ? "bg-red-600 text-white hover:bg-red-700" : "bg-gray-900 text-white hover:bg-gray-800"
                     }`}
                   >
                     {tier.name === "Enterprise Protection" ? "Contact Recovery Team" : "Start Protection"}
