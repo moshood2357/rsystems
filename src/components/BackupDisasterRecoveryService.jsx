@@ -397,10 +397,12 @@ export default function BackupDisasterRecovery() {
               ))}
             </div>
             <div className="text-center mt-8">
+              <Link to = "/backupROI">
               <Button size="lg" className="bg-red-600 text-white hover:bg-red-700">
                 Assess Your Current Backup
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
+              </Link>
             </div>
           </div>
         </div>
