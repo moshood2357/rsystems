@@ -133,6 +133,14 @@ export default function ServicesOverview() {
                 features: ["Compliance gap assessments", "GDPR and ISO 27001 compliance support", "Policy development and documentation", "Data protection and privacy management", "Risk assessments and mitigation planning", "Regular compliance audits", "Governance frameworks and best practices"],
                 link: "/compliance", 
               },
+               {
+                icon: <Zap className="h-8 w-8" />,
+                title: "Website design and development",
+                description:
+                  "Transform your digital landscape with web design and development services. We create responsive and user-friendly websites that reflect your brand and help you convert visitors into client.",
+                features: ["Fully responsive", "Conversion-focused", "Bespoke design", "Optimized for search engine", "CMS integration"],
+                link: "/webdesign&developmement", 
+              },
               {
                 icon: <Zap className="h-8 w-8 " />,
                 title: "Device & Endpoint Protection",

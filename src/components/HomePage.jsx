@@ -240,7 +240,7 @@ export default function HomePage() {
           className={`h-5 w-5 transform transition-transform ${
             isServicesOpen ? 'rotate-180' : ''
           }`}
-        />
+        /> 
       </button>
       {isServicesOpen && (
         <div className="flex flex-col space-y-2 pl-4 border-l border-gray-200">
@@ -645,10 +645,17 @@ export default function HomePage() {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Service Needed<span className="text-red-500">*</span></label>
                   <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <option>Computer Repair</option>
-                    <option>Network Setup</option>
-                    <option>IT Support</option>
-                    <option>Other</option>
+                    <option>Managed IT support</option>
+                    <option>Cybersecurity services</option>
+                    <option>Cloud & Infrastructure management</option>
+                    <option>Network Management</option>
+                    <option>Backup and Data Recovery</option>
+                    <option>Vendor Management</option>
+                    <option>VoIP and Unified Communication</option>
+                    <option>Website design and development</option>
+                    <option>Compliance & Governance</option>
+                    <option>Device & Endpoint Protection</option>
+                    <option>IT consultancy</option>
                   </select>
                 </div>
                 <div>

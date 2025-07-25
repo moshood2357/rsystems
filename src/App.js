@@ -34,6 +34,8 @@ const VoIPUnifiedCommunications = lazy(() => import("./components/VoIPUnifiedCom
 const VoIPUnifiedCommunicationLanding = lazy(() => import("./components/VoIPUnifiedCommunicationLanding"));
 const CyberSecurityLanding = lazy(() => import("./components/CyberSecurityLanding"));
 const CloudInfrastructureLanding = lazy(() => import("./components/CloudInfrastructureLanding"));
+const WebsiteDesignDevelopmentLandingPage = lazy(() => import("./components/WebsiteDesignDevelopmentLandingPage"));
+
 
 
 const CalculateROIPage = lazy(() => import("./components/CalculateROIPage"));
@@ -104,6 +106,14 @@ function App() {
           element={
             <Suspense fallback={<Loader />}>
               <ComplianceGovernanceService />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/webdesign&developmement"
+          element={
+            <Suspense fallback={<Loader />}>
+              <WebsiteDesignDevelopmentLandingPage />
             </Suspense>
           }
         />
