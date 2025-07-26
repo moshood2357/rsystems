@@ -683,12 +683,12 @@ export default function HomePage() {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">R2</span>
+                  <span className="text-white font-bold"><img src = "/CompanyLogo.jpeg" alt = "logo" style={{height: "30px"}}/></span>
                 </div>
-                <span className="font-bold text-lg">R2 System Solution</span>
+                <span className="font-bold text-lg">R2 System Solution Ltd</span>
               </div>
               <p className="text-gray-400 mb-4">
-                Professional IT solutions and support services for businesses and individuals.
+                Proudly supporting small businesses across Cheltenham, Gloucestershire, Tewkesbury, and the Cotswolds, ensuring smooth operations and peace of mind.
               </p>
             </div>
 
@@ -749,7 +749,7 @@ export default function HomePage() {
               <div className="space-y-2 text-gray-400">
                 <p>+44 (0) 123 456 7890</p>
                 <p>info@r2systemsolution.co.uk</p>
-                <p>United Kingdom</p>
+                <p>Harley House, 29 Cambray Place, Cheltenham</p>
               </div>
             </div>
           </div>
