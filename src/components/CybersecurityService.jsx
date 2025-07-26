@@ -734,9 +734,11 @@ export default function CybersecurityService() {
             <p className="text-gray-600 mb-4">
               Need a custom security solution? We can design protection specific to your industry and threats.
             </p>
+            <Link to = "/contact">
             <Button variant="outline" size="lg">
               Schedule Security Consultation
             </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -811,7 +813,7 @@ export default function CybersecurityService() {
       </section>
 
       {/* Emergency CTA Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-red-600 to-red-800">
+      <section className="py-16 lg:py-24 bg-blue-600">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto text-white">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">Don't Wait for a Cyber Attack</h2>
@@ -821,17 +823,17 @@ export default function CybersecurityService() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button size="lg" variant="secondary" className="bg-white text-red-600 hover:bg-gray-100">
+              {/* <Button size="lg" variant="secondary" className="bg-white text-red-600 hover:bg-gray-100">
                 <Calendar className="h-4 w-4 mr-2" />
                 Free Security Assessment
-              </Button>
+              </Button> */}
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-red-600 bg-transparent"
+                className="bg-white text-blue-600 hover:bg-gray-100"
               >
                 <Phone className="h-4 w-4 mr-2" />
-                Emergency: (555) 911-HELP
+                01452905204
               </Button>
             </div>
 

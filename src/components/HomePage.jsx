@@ -15,8 +15,10 @@ import {
   Settings,
   Cloud,
   Monitor,
-  ChevronDown
+  ChevronDown,
 } from "lucide-react";
+import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
+
 
 import { Button } from "../ui/Button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/Card";
@@ -410,7 +412,7 @@ export default function HomePage() {
       <section id="services" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-100">Our Services</Badge>
+            <Badge className="text-4xl mb-4 bg-blue-100 text-blue-800 hover:bg-blue-100">Our Services</Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Complete IT Solutions for Your Business
             </h2>
@@ -469,7 +471,7 @@ export default function HomePage() {
             ))}
           </div>
           <Link to = "/services">
-             <div className="mt-8 text-center text-blue" size="lg">
+             <div className=" text-2xl mt-8 text-center text-blue" size="lg">
                 See All Services
             </div>
           </Link>
@@ -491,7 +493,7 @@ export default function HomePage() {
               />
             </div>
             <div>
-              <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-100">About Us</Badge>
+              <Badge className="text-4xl mb-4 bg-blue-100 text-blue-800 hover:bg-blue-100">About Us</Badge>
               <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Your Trusted IT Partner Since 2010</h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 R2 System Solution has been providing reliable IT services to businesses and individuals across the UK.
@@ -536,7 +538,7 @@ export default function HomePage() {
       <section id="testimonials" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-100">Client Reviews</Badge>
+            <Badge className="text-4xl mb-4 bg-blue-100 text-blue-800 hover:bg-blue-100">Client Reviews</Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
           </div>
 
@@ -648,14 +650,16 @@ export default function HomePage() {
                     <option>Managed IT support</option>
                     <option>Cybersecurity services</option>
                     <option>Cloud & Infrastructure management</option>
+                    <option>IT consultancy</option>
+                    <option>Compliance & Governance</option>
                     <option>Network Management</option>
                     <option>Backup and Data Recovery</option>
                     <option>Vendor Management</option>
                     <option>VoIP and Unified Communication</option>
                     <option>Website design and development</option>
-                    <option>Compliance & Governance</option>
+                    
                     <option>Device & Endpoint Protection</option>
-                    <option>IT consultancy</option>
+                    
                   </select>
                 </div>
                 <div>
@@ -676,89 +680,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold"><img src = "/CompanyLogo.jpeg" alt = "logo" style={{height: "30px"}}/></span>
-                </div>
-                <span className="font-bold text-lg">R2 System Solution Ltd</span>
-              </div>
-              <p className="text-gray-400 mb-4">
-                Proudly supporting small businesses across Cheltenham, Gloucestershire, Tewkesbury, and the Cotswolds, ensuring smooth operations and peace of mind.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="font-semibold mb-4">Services</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link to ="/services" className="hover:text-white transition-colors">
-                    Computer Repair
-                  </Link>
-                </li>
-                <li>
-                  <Link to ="/solutions" className="hover:text-white transition-colors">
-                    Network Solutions
-                  </Link>
-                </li>
-                <li>
-                  <Link to ="/support" className="hover:text-white transition-colors">
-                    IT Support
-                  </Link>
-                </li>
-                <li>
-                  <Link to ="/recovery" className="hover:text-white transition-colors">
-                    Data Recovery
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-semibold mb-4">Company</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <Link to ="/about" className="hover:text-white transition-colors">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link to ="/team" className="hover:text-white transition-colors">
-                    Our Team
-                  </Link>
-                </li>
-                <li>
-                  <Link to ="/careers" className="hover:text-white transition-colors">
-                    Careers
-                  </Link>
-                </li>
-                <li>
-                  <Link to ="/contact" className="hover:text-white transition-colors">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-semibold mb-4">Contact Info</h3>
-              <div className="space-y-2 text-gray-400">
-                <p>+44 (0) 123 456 7890</p>
-                <p>info@r2systemsolution.co.uk</p>
-                <p>Harley House, 29 Cambray Place, Cheltenham</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 R2 System Solution. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+     
           </div>
   );
 }

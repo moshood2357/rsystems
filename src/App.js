@@ -3,6 +3,7 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Loader from "./components/Loader";
 import Layout from "./components/Layout";
+import Footer from "./components/Footer";
 
 
 // Direct import for homepage
@@ -328,6 +329,7 @@ function App() {
 
       </Routes>
       </Layout>
+      <Footer />
       
     </Router>
   );
