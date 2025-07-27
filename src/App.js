@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 // Direct import for homepage
 import HomePage from "./components/HomePage";
 import Contact from "./components/Contact";
-
+import ITAssessment from "./components/Assessment";
 
 // Lazy imports
 const About = lazy(() => import(/* webpackPrefetch: true */ "./components/About"));
@@ -53,12 +53,14 @@ const CalculateDataBackupRecoveryROIPage = lazy(() => import("./components/Calcu
 
 function App() {
   return (
+    
     <Router>
       <Layout>
         <Routes>
         {/* ✅ Directly loaded homepage without suspense, avoiding spinner flash */}
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/assess" element={<ITAssessment />} />
 
         {/* ✅ Lazy-loaded routes wrapped individually with Suspense */}
         <Route

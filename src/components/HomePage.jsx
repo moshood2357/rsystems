@@ -17,7 +17,6 @@ import {
   Monitor,
   ChevronDown,
 } from "lucide-react";
-import { FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa';
 
 
 import { Button } from "../ui/Button";
