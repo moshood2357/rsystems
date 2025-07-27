@@ -391,7 +391,7 @@ const ITAssessmentLanding: React.FC = () => {
                           onClick={() => setShowBio(true)}
                           className="text-indigo-600 hover:text-indigo-800 text-sm font-medium"
                         >
-                          Who Is Sarah Johnson? →
+                          Who Is Ridwan Akorede? →
                         </button>
                       </div>
                     </div>

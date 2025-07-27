@@ -517,7 +517,7 @@ const CyberSecurityLanding: React.FC = () => {
               <div className="mt-8 bg-blue-50 rounded-lg p-6">
                 <h5 className="font-semibold text-blue-900 mb-2">Recent Achievements:</h5>
                 <ul className="text-blue-800 space-y-1">
-                  <li>• Prevented $2.3M in potential ransomware damages for manufacturing client</li>
+                  <li>• Prevented &pound;2.3M in potential ransomware damages for manufacturing client</li>
                   <li>• Identified critical vulnerabilities in 98% of assessed networks</li>
                   <li>• Helped 200+ companies achieve compliance certification</li>
                   <li>• Speaker at RSA Conference and Black Hat security events</li>
