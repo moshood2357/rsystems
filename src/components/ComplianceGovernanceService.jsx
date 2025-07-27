@@ -814,17 +814,13 @@ export default function ComplianceGovernanceService() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100">
-                <Calendar className="h-4 w-4 mr-2" />
-                Free Cloud Assessment
-              </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
+                className="bg-white text-blue-600 hover:bg-gray-100"
               >
                 <Phone className="h-4 w-4 mr-2" />
-                Call: (555) 123-CLOUD
+                01452905204
               </Button>
             </div>
 

@@ -7,7 +7,8 @@ import {
   CheckCircle,
   Zap,
   Users,
-  Award
+  Award,
+  Phone
 } from "lucide-react"
 
 import { useNavigate } from 'react-router-dom';
@@ -272,16 +273,14 @@ export default function ServicesOverview() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="bg-white text-blue-600 hover:bg-gray-100">
-                Get Free Consultation
-              </Button>
               <Button
-                size="lg"
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
-              >
-                Call: (555) 123-4567
-              </Button>
+                              size="lg"
+                              variant="outline"
+                              className="bg-white text-blue-600 hover:bg-gray-100"
+                            >
+                              <Phone className="h-4 w-4 mr-2" />
+                              01452905204
+                            </Button>
             </div>
           </div>
         </div>

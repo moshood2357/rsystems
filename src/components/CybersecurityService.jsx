@@ -823,10 +823,7 @@ export default function CybersecurityService() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              {/* <Button size="lg" variant="secondary" className="bg-white text-red-600 hover:bg-gray-100">
-                <Calendar className="h-4 w-4 mr-2" />
-                Free Security Assessment
-              </Button> */}
+              
               <Button
                 size="lg"
                 variant="outline"

@@ -794,17 +794,13 @@ export default function VoIPUnifiedCommunications() {
               Get started with a free assessment and discover how much you can save.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button size="lg" variant="secondary" className="bg-white text-teal-600 hover:bg-gray-100">
-                <Calendar className="h-4 w-4 mr-2" />
-                Free Communications Assessment
-              </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-teal-600 bg-transparent"
+                className="bg-white text-blue-600 hover:bg-gray-100"
               >
                 <Phone className="h-4 w-4 mr-2" />
-                Call: 01452905204
+                01452905204
               </Button>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm opacity-90">
