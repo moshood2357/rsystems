@@ -3,8 +3,6 @@ import {
   ArrowRight,
   CheckCircle,
   Phone,
-  Mail,
-  MapPin,
   Users,
   Award,
   Zap,
@@ -12,7 +10,6 @@ import {
   Target,
   Lightbulb,
   MessageCircle,
-  Calendar,
   Clock,
   Globe,
 } from "lucide-react";
@@ -53,11 +50,11 @@ export default function About() {
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link to = "/services">
-                  <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg">
-                    Our Services
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link >
+                                  <Button size="lg" className="bg-white-600 text-blue hover:bg-blue-700">
+                                    Our services
+                                    <ArrowRight className="ml-2 h-5 w-5" />
+                                  </Button>
+                                </Link>
                 <Link to = "/contact">
                    <Button
                   size="lg"
@@ -326,7 +323,7 @@ export default function About() {
 
             <div className="relative">
               <img
-                src="/expert.jpeg"
+                src="/IT expert.jpeg"
                 alt="Expert IT team at work"
                 className="rounded-2xl shadow-xl w-full h-auto"
               />
@@ -350,130 +347,20 @@ export default function About() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to = "/contact">
-               <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg">
-              <Calendar className="mr-2 h-5 w-5" />
-              Schedule a Consultation
-            </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="bg-white text-blue-600 hover:bg-gray-100"
+              >
+                <Phone className="h-4 w-4 mr-2" />
+                01452905204
+              </Button>
             </Link>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
-              <Phone className="mr-2 h-5 w-5" />
-              Call Now
-            </Button>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {/* Quick Links */}
-            <div>
-              <h3 className="font-bold text-lg mb-6">Quick Links</h3>
-              <ul className="space-y-3">
-                <li>
-                  <Link to ="/" className="text-gray-400 hover:text-white transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link to ="/about" className="text-gray-400 hover:text-white transition-colors">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link to ="/services" className="text-gray-400 hover:text-white transition-colors">
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link to ="/contact" className="text-gray-400 hover:text-white transition-colors">
-                    Contact Us
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Contact Us */}
-            <div>
-              <h3 className="font-bold text-lg mb-6">Contact Us</h3>
-              <div className="space-y-3 text-gray-400">
-                <div className="flex items-center space-x-2">
-                  <Phone className="h-4 w-4" />
-                  <span>01452 960 004</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Mail className="h-4 w-4" />
-                  <span>support@r2systemsolution.co.uk</span>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <MapPin className="h-4 w-4 mt-1" />
-                  <div>
-                    <p>Hartley House, 39 Cambray Place,</p>
-                    <p>Cheltenham, Gloucestershire, England,</p>
-                    <p>GL50 1JP</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Follow Us */}
-            <div>
-              <h3 className="font-bold text-lg mb-6">Follow Us</h3>
-              <div className="flex space-x-4">
-                <Link
-                  to ="/contact"
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
-                >
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                  </svg>
-                </Link>
-                <Link
-                  to ="/contact"
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
-                >
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-
-            {/* About Us */}
-            <div>
-              <h3 className="font-bold text-lg mb-6">About Us</h3>
-              <p className="text-gray-400 leading-relaxed">
-                Proudly supporting small businesses across Cheltenham, Gloucestershire, Stroud, and the surrounding
-                areas with peace of mind.
-              </p>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <Link>
-                <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold">R2</span>
-                    </div>
-                    <span className="font-semibold">R2 System Solution Ltd</span>
-                </div>
-              </Link>
-
-              <div className="flex items-center space-x-6 text-sm text-gray-400">
-                <Link to ="/privacy" className="hover:text-white transition-colors">
-                  Privacy Notice
-                </Link>
-                <Link to ="/policy" className="hover:text-white transition-colors">
-                  Cookie Policy
-                </Link>
-                <span>© 2024 R2 System Solution Ltd. All rights reserved.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   );
 };

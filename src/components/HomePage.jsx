@@ -94,7 +94,7 @@ export default function HomePage() {
     <Helmet>
   <title>R2 System Solution | IT Support in Cheltenham</title>
   <meta name="description" content="Get 24/7 IT support, cybersecurity, and cloud services with 15-minute response time and fixed monthly pricing. Serving Cheltenham & beyond." />
-  <meta name="keywords" content="IT Support Cheltenham, Cybersecurity, Cloud Management, IT Services UK, R2 System Solution, Managed IT, Data Recovery, Network Support" />
+  <meta name="keywords" content="IT Support Cheltenham, Cybersecurity cheltenham, Cloud Management Cheltenham, IT Services UK, R2 System Solution, Managed IT Cheltenham, Data Recovery Cheltenham, Network Support Cheltenham" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="R2 System Solution" />
   <link rel="canonical" href="https://www.r2systemsolution.co.uk/" />
