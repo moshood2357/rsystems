@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 import {  useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
+import { Helmet } from 'react-helmet';
 
 
 
@@ -46,6 +47,17 @@ export default function Contact() {
   return (
     
     <div className="bg-gray-50 text-gray-800">
+      <Helmet>
+        <title>Contact Us | R2 System Solution</title>
+        <meta name="description" content="Get a free 30-minute consultation for your IT needs. Contact R2 System Solution in Cheltenham today." />
+        <meta name="keywords" content="IT support Cheltenham, IT consultancy, managed services, emergency IT help" />
+        <meta property="og:title" content="Contact Us | R2 System Solution" />
+        <meta property="og:description" content="Free 30-minute consultation. 24/7 IT support in Cheltenham. Call us or fill out the form to get started." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.r2systemsolution.co.uk/contact" />
+        <meta property="og:image" content="https://www.r2systemsolution.co.uk/harley-min.png" />
+        <link rel="canonical" href="https://www.r2systemsolution.co.uk/contact" />
+      </Helmet>
       {/* Hero Section */}
       <section
          className="relative text-center py-40 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-blue-50 z--100"
@@ -172,7 +184,7 @@ export default function Contact() {
       {/* CTA Section */}
       <section className="text-center bg-blue-50 py-12 px-4">
         <h3 className="text-2xl sm:text-3xl font-bold text-blue-900 mb-4">Ready to elevate your IT infrastructure?</h3>
-        <p className="text-gray-700 max-w-2xl mx-auto mb-6">
+              <p className="text-gray-700 max-w-2xl mx-auto mb-6">
           From strategic planning to daily support, we’re here to help your business thrive. Get in touch today.
         </p>
         <button className="bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition">
