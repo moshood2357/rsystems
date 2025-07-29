@@ -402,8 +402,8 @@ const DeviceProtectionLanding: React.FC = () => {
                         className="w-16 h-16 rounded-full object-cover"
                       />
                       <div>
-                        <h4 className="font-semibold text-gray-900">Ridwan Akorede, CISSP</h4>
-                        <p className="text-sm text-gray-600">Senior Cybersecurity Consultant</p>
+                        <h4 className="font-semibold text-gray-900">Ridwan Akorede, CEO</h4>
+                        <p className="text-sm text-gray-600">Senior IT Infrastructure Consultant</p>
                         <button
                           onClick={() => setShowBio(true)}
                           className="text-red-600 hover:text-red-800 text-sm font-medium"

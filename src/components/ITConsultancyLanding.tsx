@@ -383,7 +383,8 @@ const ITConsultancyLanding: React.FC = () => {
                       />
                       <div>
                         <h4 className="font-semibold text-gray-900">Ridwan Akorede, CEO</h4>
-                        <p className="text-sm text-gray-600">Senior IT Strategy Consultant</p>
+                        {/* <p className="text-sm text-gray-600">Senior IT Strategy Consultant</p> */}
+                        <p className="text-sm text-gray-600">Senior IT Infrastructure Consultant</p>
                         <button
                           onClick={() => setShowBio(true)}
                           className="text-indigo-600 hover:text-indigo-800 text-sm font-medium"

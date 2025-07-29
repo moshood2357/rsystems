@@ -385,7 +385,7 @@ const CyberSecurityLanding: React.FC = () => {
                       />
                       <div>
                         <h4 className="font-semibold text-gray-900">Ridwan Akorede, CEO</h4>
-                        <p className="text-sm text-gray-600">Senior Security Consultant</p>
+                        <p className="text-sm text-gray-600">Senior IT Infrastructure Consultant</p>
                         <button
                           onClick={() => setShowBio(true)}
                           className="text-blue-600 hover:text-blue-800 text-sm font-medium"

@@ -380,8 +380,8 @@ const ComplianceGovernanceLanding: React.FC = () => {
                         className="w-16 h-16 rounded-full object-cover"
                       />
                       <div>
-                        <h4 className="font-semibold text-gray-900">Ridwan Akorede, CISA</h4>
-                        <p className="text-sm text-gray-600">Senior Compliance & Governance Consultant</p>
+                        <h4 className="font-semibold text-gray-900">Ridwan Akorede, CEO</h4>
+                        <p className="text-sm text-gray-600">Senior IT Infrastructure Consultant</p>
                         <button
                           onClick={() => setShowBio(true)}
                           className="text-emerald-600 hover:text-emerald-800 text-sm font-medium"
