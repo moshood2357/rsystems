@@ -12,6 +12,7 @@ import {
 } from "lucide-react"
 
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 import { Button } from "../ui/Button";
@@ -35,16 +36,16 @@ export default function ServicesOverview() {
               end-to-end IT solutions that drive business success and operational excellence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
-                Get Started Today
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
-              >
-                Schedule Consultation
-              </Button>
+              <Link to = "/contact">
+                 
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
+                  >
+                    Schedule Consultation
+                  </Button>
+              </Link>
             </div>
           </div>
         </div>

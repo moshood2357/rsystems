@@ -380,7 +380,7 @@ const NetworkManagementLanding: React.FC = () => {
                       />
                       <div>
                         <h4 className="font-semibold text-gray-900">Ridwan Akorede, CEO</h4>
-                        <p className="text-sm text-gray-600">Senior Network Infrastructure Consultant</p>
+                        <p className="text-sm text-gray-600">Senior IT Infrastructure Consultant</p>
                         <button
                           onClick={() => setShowBio(true)}
                           className="text-green-600 hover:text-green-800 text-sm font-medium"
@@ -432,96 +432,95 @@ const NetworkManagementLanding: React.FC = () => {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="flex items-center justify-center space-x-3 mb-6">
-              <Network className="h-8 w-8" />
-              <span className="text-xl font-bold">R2 System Solutions</span>
-            </div>
-            <p className="text-gray-400 mb-4">
-              Your information is completely confidential and will never be shared with third parties.
-            </p>
-            <p className="text-sm text-gray-500">
-              © 2024 R2 System Solutions. All rights reserved. | Privacy Policy | Terms of Service
-            </p>
-          </div>
-        </div>
-      </footer>
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center">
+                  <div className="flex items-center justify-center space-x-3 mb-6">
+                    <Shield className="h-8 w-8" />
+                    <span className="text-xl font-bold">Your information is completely confidential and will never be shared with third parties.</span>
+                  </div>
+                  
+                </div>
+              </div>
+            </footer>
 
       {/* Bio Modal */}
       {showBio && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-8">
-              <div className="flex justify-between items-start mb-6">
-                <h3 className="text-2xl font-bold text-gray-900">About Ridwan Akorede, Network Specialist</h3>
-                <button
-                  onClick={() => setShowBio(false)}
-                  className="text-gray-400 hover:text-gray-600"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
-              
-              <div className="flex items-start space-x-6 mb-6">
-                <img
-                  src="/akorede.jpg"
-                  alt="Ridwan Akorede"
-                  className="w-32 h-32 rounded-lg object-cover"
-                />
-                <div>
-                  <h4 className="text-xl font-semibold text-gray-900 mb-2">Senior Network Infrastructure Consultant</h4>
-                  <p className="text-gray-600 mb-4">
-                    15+ years of network infrastructure optimization experience
-                  </p>
-                  <div className="space-y-2">
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Award className="h-4 w-4 mr-2 text-green-600" />
-                      Cisco Certified Network Professional (CCNP)
+                    <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+                      <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                        <div className="p-8">
+                          <div className="flex justify-between items-start mb-6">
+                            <h3 className="text-2xl font-bold text-gray-900">About Ridwan Akorede, CEO</h3>
+                            <button
+                              onClick={() => setShowBio(false)}
+                              className="text-gray-400 hover:text-gray-600"
+                            >
+                              <X className="h-6 w-6" />
+                            </button>
+                          </div>
+                          
+                          <div className="flex items-start space-x-6 mb-6">
+                            <img
+                              src="/akorede.jpg"
+                              alt="Ridwan Akorede"
+                              className="w-32 h-32 rounded-lg object-cover"
+                            />
+                            <div>
+                              <h4 className="text-xl font-semibold text-gray-900 mb-2">Ridwan Akorede – IT Infrastructure Consultant | Cloud & Virtualization Specialist
+            </h4>
+                              <p className="text-gray-600 mb-4">
+                                12+ years of enterprise IT infrastructure optimization experience
+                              </p>
+                              
+                            </div>
+                          </div>
+                          
+                          <div className="space-y-4 text-gray-700">
+                            <p>
+                              Ridwan Akorede is a seasoned IT infrastructure consultant with over 12 years of experience designing and optimizing enterprise technology environments. Holding industry-recognized certifications, including Microsoft Certified Systems Engineer (MCSE) and VMware Certified Professional, Ridwan combines deep technical knowledge with a strategic business mindset.
+                            </p>
+                            <p>
+                              He has successfully led infrastructure assessments and transformation projects for more than 300 organizations, delivering measurable results such as cost reduction, enhanced system performance, and improved scalability. His core competencies include:
+            
+                            </p>
+                            <div className="space-y-2">
+                                <div className="flex items-center text-sm text-gray-600">
+                                  <Award className="h-4 w-4 mr-2 text-indigo-600" />
+                                  Server virtualization and consolidation
+            
+                                </div>
+                                <div className="flex items-center text-sm text-gray-600">
+                                  <Server className="h-4 w-4 mr-2 text-indigo-600" />
+                                  Cloud migration strategies (Azure, VMware, hybrid environments)
+                                </div>
+                                <div className="flex items-center text-sm text-gray-600">
+                                  <Cloud className="h-4 w-4 mr-2 text-indigo-600" />
+                                  Network performance optimization
+                                </div>
+                                <div className="flex items-center text-sm text-gray-600">
+                                  <Cloud className="h-4 w-4 mr-2 text-indigo-600" />
+                                  Strategic IT planning aligned with business growth
+                                </div>
+                              </div>
+                            <p>
+                              
+                                Ridwan’s approach begins with understanding the unique goals of each client. He then builds tailored, future-proof solutions that streamline operations, reduce overhead, and support long-term success.<br></br><br></br>
+                                Whether advising C-level executives or guiding technical teams, Ridwan is known for bridging the gap between business and technology—ensuring IT investments drive real-world impact.
+                            </p>
+                          </div>
+                          
+                          <div className="mt-8 bg-indigo-50 rounded-lg p-6">
+                            <h5 className="font-semibold text-indigo-900 mb-2">Recent Achievements:</h5>
+                            <ul className="text-indigo-800 space-y-1">
+                              <li>• Reduced IT operational costs by 40% for manufacturing client</li>
+                              <li>• Successfully migrated 150+ companies to cloud infrastructure</li>
+                              <li>• Improved system performance by 60% through optimization strategies</li>
+                              <li>• Featured speaker at Microsoft Ignite and VMworld conferences</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Network className="h-4 w-4 mr-2 text-green-600" />
-                      CompTIA Network+ Certified
-                    </div>
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Shield className="h-4 w-4 mr-2 text-green-600" />
-                      Certified Information Security Manager (CISM)
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="space-y-4 text-gray-700">
-                <p>
-                  Ridwan Akorede is a highly experienced network infrastructure consultant with over 15 years of 
-                  expertise in designing, implementing, and optimizing enterprise network environments. As a Cisco 
-                  Certified Network Professional (CCNP) and CompTIA Network+ certified specialist, he brings 
-                  comprehensive knowledge of modern networking technologies and security protocols.
-                </p>
-                <p>
-                  Throughout his career, Ridwan has conducted network assessments for over 200 organizations, 
-                  helping them improve performance, enhance security, and reduce operational costs. His expertise 
-                  spans network design, security implementation, performance optimization, and strategic planning.
-                </p>
-                <p>
-                  Ridwan's approach focuses on understanding business requirements first, then designing network 
-                  solutions that support growth while maintaining security and reliability standards.
-                </p>
-              </div>
-              
-              <div className="mt-8 bg-green-50 rounded-lg p-6">
-                <h5 className="font-semibold text-green-900 mb-2">Recent Achievements:</h5>
-                <ul className="text-green-800 space-y-1">
-                  <li>• Improved network performance by 75% for financial services client</li>
-                  <li>• Successfully implemented zero-trust security for 100+ companies</li>
-                  <li>• Reduced network downtime by 90% through proactive monitoring</li>
-                  <li>• Featured speaker at Cisco Live and Network World conferences</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+                  )}
     </div>
   );
 };

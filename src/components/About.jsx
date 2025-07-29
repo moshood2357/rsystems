@@ -50,19 +50,19 @@ export default function About() {
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Link to = "/services">
-                                  <Button size="lg" className="bg-white-600 text-blue hover:bg-blue-700">
-                                    Our services
-                                    <ArrowRight className="ml-2 h-5 w-5" />
-                                  </Button>
-                                </Link>
+                  <Button size="lg" className="bg-white-600 text-blue hover:bg-blue-700">
+                    Our services
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
                 <Link to = "/contact">
-                   <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-blue-600"
+                <Button
+                size="lg"
+                variant="outline"
+                className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
                 >
-                  Contact Us
                   <ArrowRight className="ml-2 h-5 w-5" />
+                  Contact Us
                 </Button>
                 </Link>
               </div>

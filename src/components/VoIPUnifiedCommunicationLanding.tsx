@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, CheckCircle, AlertTriangle, Users, Award, MessageSquare, Video, Headphones, Mail, Building, User, X, Wifi, Globe } from 'lucide-react';
+import { Phone, CheckCircle, AlertTriangle, Users, Award, MessageSquare, Video, Headphones, Cloud, Server, Mail, Building, User, X, Wifi, Globe, Shield } from 'lucide-react';
 
 import emailjs from '@emailjs/browser';
 
@@ -362,7 +362,7 @@ const VoIPUnifiedCommunicationLanding: React.FC = () => {
                       />
                       <div>
                         <h4 className="font-semibold text-gray-900">Ridwan Akorede, CCNA</h4>
-                        <p className="text-sm text-gray-600">Senior Communications Specialist</p>
+                        <p className="text-sm text-gray-600">Senior IT Infrastructure Consultant</p>
                         <button
                           onClick={() => setShowBio(true)}
                           className="text-green-600 hover:text-green-800 text-sm font-medium"
@@ -417,94 +417,92 @@ const VoIPUnifiedCommunicationLanding: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-3 mb-6">
-              <Phone className="h-8 w-8" />
-              <span className="text-xl font-bold">R2 System Solutions</span>
+              <Shield className="h-8 w-8" />
+              <span className="text-xl font-bold">Your information is completely confidential and will never be shared with third parties.</span>
             </div>
-            <p className="text-gray-400 mb-4">
-              Your information is completely confidential and will never be shared with third parties.
-            </p>
-            <p className="text-sm text-gray-500">
-              © 2024 R2 System Solutions. All rights reserved. | Privacy Policy | Terms of Service
-            </p>
+            
           </div>
         </div>
       </footer>
 
       {/* Bio Modal */}
       {showBio && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-8">
-              <div className="flex justify-between items-start mb-6">
-                <h3 className="text-2xl font-bold text-gray-900">About Ridwan Akorede, CCNA</h3>
-                <button
-                  onClick={() => setShowBio(false)}
-                  className="text-gray-400 hover:text-gray-600"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
-              
-              <div className="flex items-start space-x-6 mb-6">
-                <img
-                  src="/akorede.jpg"
-                  alt="Ridwan Akorede"
-                  className="w-32 h-32 rounded-lg object-cover"
-                />
-                <div>
-                  <h4 className="text-xl font-semibold text-gray-900 mb-2">Senior Communications Specialist</h4>
-                  <p className="text-gray-600 mb-4">
-                    12+ years of unified communications and VoIP implementation experience
-                  </p>
-                  <div className="space-y-2">
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Award className="h-4 w-4 mr-2 text-green-600" />
-                      Cisco Certified Network Associate (CCNA)
+                    <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+                      <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                        <div className="p-8">
+                          <div className="flex justify-between items-start mb-6">
+                            <h3 className="text-2xl font-bold text-gray-900">About Ridwan Akorede, CEO</h3>
+                            <button
+                              onClick={() => setShowBio(false)}
+                              className="text-gray-400 hover:text-gray-600"
+                            >
+                              <X className="h-6 w-6" />
+                            </button>
+                          </div>
+                          
+                          <div className="flex items-start space-x-6 mb-6">
+                            <img
+                              src="/akorede.jpg"
+                              alt="Ridwan Akorede"
+                              className="w-32 h-32 rounded-lg object-cover"
+                            />
+                            <div>
+                              <h4 className="text-xl font-semibold text-gray-900 mb-2">Ridwan Akorede – IT Infrastructure Consultant | Cloud & Virtualization Specialist
+            </h4>
+                              <p className="text-gray-600 mb-4">
+                                12+ years of enterprise IT infrastructure optimization experience
+                              </p>
+                              
+                            </div>
+                          </div>
+                          
+                          <div className="space-y-4 text-gray-700">
+                            <p>
+                              Ridwan Akorede is a seasoned IT infrastructure consultant with over 12 years of experience designing and optimizing enterprise technology environments. Holding industry-recognized certifications, including Microsoft Certified Systems Engineer (MCSE) and VMware Certified Professional, Ridwan combines deep technical knowledge with a strategic business mindset.
+                            </p>
+                            <p>
+                              He has successfully led infrastructure assessments and transformation projects for more than 300 organizations, delivering measurable results such as cost reduction, enhanced system performance, and improved scalability. His core competencies include:
+            
+                            </p>
+                            <div className="space-y-2">
+                                <div className="flex items-center text-sm text-gray-600">
+                                  <Award className="h-4 w-4 mr-2 text-indigo-600" />
+                                  Server virtualization and consolidation
+            
+                                </div>
+                                <div className="flex items-center text-sm text-gray-600">
+                                  <Server className="h-4 w-4 mr-2 text-indigo-600" />
+                                  Cloud migration strategies (Azure, VMware, hybrid environments)
+                                </div>
+                                <div className="flex items-center text-sm text-gray-600">
+                                  <Cloud className="h-4 w-4 mr-2 text-indigo-600" />
+                                  Network performance optimization
+                                </div>
+                                <div className="flex items-center text-sm text-gray-600">
+                                  <Cloud className="h-4 w-4 mr-2 text-indigo-600" />
+                                  Strategic IT planning aligned with business growth
+                                </div>
+                              </div>
+                            <p>
+                              
+                                Ridwan’s approach begins with understanding the unique goals of each client. He then builds tailored, future-proof solutions that streamline operations, reduce overhead, and support long-term success.<br></br><br></br>
+                                Whether advising C-level executives or guiding technical teams, Ridwan is known for bridging the gap between business and technology—ensuring IT investments drive real-world impact.
+                            </p>
+                          </div>
+                          
+                          <div className="mt-8 bg-indigo-50 rounded-lg p-6">
+                            <h5 className="font-semibold text-indigo-900 mb-2">Recent Achievements:</h5>
+                            <ul className="text-indigo-800 space-y-1">
+                              <li>• Reduced IT operational costs by 40% for manufacturing client</li>
+                              <li>• Successfully migrated 150+ companies to cloud infrastructure</li>
+                              <li>• Improved system performance by 60% through optimization strategies</li>
+                              <li>• Featured speaker at Microsoft Ignite and VMworld conferences</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Phone className="h-4 w-4 mr-2 text-green-600" />
-                      Microsoft Teams Voice Engineer Expert
-                    </div>
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Video className="h-4 w-4 mr-2 text-green-600" />
-                      Avaya Certified Implementation Specialist
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="space-y-4 text-gray-700">
-                <p>
-                  Ridwan Akorede is a seasoned communications specialist with over 12 years of experience 
-                  in designing and implementing VoIP and unified communications solutions. As a Cisco 
-                  Certified Network Associate (CCNA) and Microsoft Teams Voice Engineer Expert, she brings 
-                  comprehensive knowledge of modern communication technologies and business integration.
-                </p>
-                <p>
-                  Throughout his career, Ridwan has led communication system deployments for over 400 organizations, 
-                  helping them reduce costs, improve collaboration, and enhance productivity. Her expertise 
-                  spans VoIP implementation, network optimization, unified communications, and strategic 
-                  communication planning.
-                </p>
-                <p>
-                  Ridwan's approach focuses on understanding business communication needs first, then designing 
-                  solutions that improve efficiency while reducing operational costs and complexity.
-                </p>
-              </div>
-              
-              <div className="mt-8 bg-green-50 rounded-lg p-6">
-                <h5 className="font-semibold text-green-900 mb-2">Recent Achievements:</h5>
-                <ul className="text-green-800 space-y-1">
-                  <li>• Reduced communication costs by 55% for healthcare client</li>
-                  <li>• Successfully deployed VoIP systems for 400+ companies</li>
-                  <li>• Improved team productivity by 35% through unified communications</li>
-                  <li>• Featured speaker at Cisco Live and Microsoft Ignite events</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+                  )}
     </div>
   );
 };

@@ -438,21 +438,16 @@ const ITAssessmentLanding: React.FC = () => {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="flex items-center justify-center space-x-3 mb-6">
-              <Monitor className="h-8 w-8" />
-              <span className="text-xl font-bold">R2 System Solutions</span>
-            </div>
-            <p className="text-gray-400 mb-4">
-              Your information is completely confidential and will never be shared with third parties.
-            </p>
-            <p className="text-sm text-gray-500">
-              © 2024 R2 System Solutions. All rights reserved. | Privacy Policy | Terms of Service
-            </p>
-          </div>
-        </div>
-      </footer>
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center">
+                  <div className="flex items-center justify-center space-x-3 mb-6">
+                    <Shield className="h-8 w-8" />
+                    <span className="text-xl font-bold">Your information is completely confidential and will never be shared with third parties.</span>
+                  </div>
+                  
+                </div>
+              </div>
+            </footer>
 
       {/* Bio Modal */}
       {showBio && (
@@ -460,7 +455,7 @@ const ITAssessmentLanding: React.FC = () => {
           <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-8">
               <div className="flex justify-between items-start mb-6">
-                <h3 className="text-2xl font-bold text-gray-900">About Ridwan Akorede, MCSE</h3>
+                <h3 className="text-2xl font-bold text-gray-900">About Ridwan Akorede, CEO</h3>
                 <button
                   onClick={() => setShowBio(false)}
                   className="text-gray-400 hover:text-gray-600"
@@ -476,42 +471,46 @@ const ITAssessmentLanding: React.FC = () => {
                   className="w-32 h-32 rounded-lg object-cover"
                 />
                 <div>
-                  <h4 className="text-xl font-semibold text-gray-900 mb-2">Senior IT Infrastructure Consultant</h4>
+                  <h4 className="text-xl font-semibold text-gray-900 mb-2">Ridwan Akorede – IT Infrastructure Consultant | Cloud & Virtualization Specialist
+</h4>
                   <p className="text-gray-600 mb-4">
-                    13+ years of enterprise IT infrastructure optimization experience
+                    12+ years of enterprise IT infrastructure optimization experience
                   </p>
-                  <div className="space-y-2">
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Award className="h-4 w-4 mr-2 text-indigo-600" />
-                      Microsoft Certified Systems Engineer (MCSE)
-                    </div>
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Server className="h-4 w-4 mr-2 text-indigo-600" />
-                      VMware Certified Professional (VCP)
-                    </div>
-                    <div className="flex items-center text-sm text-gray-600">
-                      <Cloud className="h-4 w-4 mr-2 text-indigo-600" />
-                      AWS Solutions Architect
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
               
               <div className="space-y-4 text-gray-700">
                 <p>
-                  Ridwan Akorede is a highly experienced IT infrastructure consultant with over 12 years of 
-                  expertise in optimizing enterprise technology environments. As a Microsoft Certified Systems 
-                  Engineer (MCSE) and VMware Certified Professional, she brings comprehensive knowledge of both 
-                  traditional and modern IT architectures.
+                  Ridwan Akorede is a seasoned IT infrastructure consultant with over 12 years of experience designing and optimizing enterprise technology environments. Holding industry-recognized certifications, including Microsoft Certified Systems Engineer (MCSE) and VMware Certified Professional, Ridwan combines deep technical knowledge with a strategic business mindset.
                 </p>
                 <p>
-                  Throughout his career, Ridwan has conducted infrastructure assessments for over 300 organizations, 
-                  helping them reduce costs, improve performance, and prepare for future growth. Her expertise 
-                  spans server virtualization, cloud migration, network optimization, and strategic IT planning.
+                  He has successfully led infrastructure assessments and transformation projects for more than 300 organizations, delivering measurable results such as cost reduction, enhanced system performance, and improved scalability. His core competencies include:
+
                 </p>
+                <div className="space-y-2">
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Award className="h-4 w-4 mr-2 text-indigo-600" />
+                      Server virtualization and consolidation
+
+                    </div>
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Server className="h-4 w-4 mr-2 text-indigo-600" />
+                      Cloud migration strategies (Azure, VMware, hybrid environments)
+                    </div>
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Cloud className="h-4 w-4 mr-2 text-indigo-600" />
+                      Network performance optimization
+                    </div>
+                    <div className="flex items-center text-sm text-gray-600">
+                      <Cloud className="h-4 w-4 mr-2 text-indigo-600" />
+                      Strategic IT planning aligned with business growth
+                    </div>
+                  </div>
                 <p>
-                  Ridwan's methodology focuses on understanding business objectives first, then aligning technology 
-                  solutions to support those goals while maximizing efficiency and minimizing operational overhead.
+                  
+                    Ridwan’s approach begins with understanding the unique goals of each client. He then builds tailored, future-proof solutions that streamline operations, reduce overhead, and support long-term success.<br></br><br></br>
+                    Whether advising C-level executives or guiding technical teams, Ridwan is known for bridging the gap between business and technology—ensuring IT investments drive real-world impact.
                 </p>
               </div>
               

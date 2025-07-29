@@ -47,7 +47,10 @@ const CalculateManagedITROICalculatorPage = lazy(() => import("./components/Calc
 const CalculateCybersecurityROICalculatorPage = lazy(() => import("./components/CalculateCybersecurityROICalculatorPage"));
 const CalculateVendorManagementROIPage = lazy(() => import("./components/CalculateVendorManagementROIPage"));
 const CalculateUnifiedCommunicationPage = lazy(() => import("./components/CalculateUnifiedCommunicationPage"));  
-const CalculateDataBackupRecoveryROIPage = lazy(() => import("./components/CalculateDataBackupRecoveryROIPage"));  
+const CalculateDataBackupRecoveryROIPage = lazy(() => import("./components/CalculateDataBackupRecoveryROIPage")); 
+
+
+const PrivacyPolicyPage = lazy(() => import("./components/PrivacyPolicyPage"));   
 
 
 
@@ -325,6 +328,14 @@ function App() {
           element={
             <Suspense fallback={<Loader />}>
               <CalculateDataBackupRecoveryROIPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/privacy"
+          element={
+            <Suspense fallback={<Loader />}>
+              <PrivacyPolicyPage />
             </Suspense>
           }
         />
