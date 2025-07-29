@@ -180,40 +180,8 @@ export default function Contact() {
         </button>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-blue-900 text-white py-10 px-6 mt-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          <div>
-            <h4 className="font-semibold mb-2">Quick Links</h4>
-            <ul className="space-y-1">
-              <li>Home</li>
-              <li>About</li>
-              <li>Services</li>
-              <li>Contact</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Contact Us</h4>
-            <p>01452 905204</p>
-            <p>support@r2systemsolution.co.uk</p>
-            <p>Harley House, 29 Cambray Place, Cheltenham</p>
-          </div>
-          <div>
-            <h4 className="flex font-semibold mb-2">Follow Us</h4>
-            <a className=" mr-4" href = "https://www.instagram.com/r2systemsolution/">Instagram</a>
-            <a className=" mr-4" href = "https://www.instagram.com/r2systemsolution/">Facebook</a>
-            <a className=" mr-4" href = "https://www.instagram.com/r2systemsolution/">Linkedin</a>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">About Us</h4>
-            <p>Supporting small businesses across Gloucestershire with smooth operations and peace of mind.</p>
-          </div>
-        </div>
-        <div className="text-center text-sm mt-8">
-          <p>Privacy Notice | Cookie Policy</p>
-          <p>© 2024 R2 System Solution Ltd. All rights reserved.</p>
-        </div>
-      </footer>
+      
     </div>
   );
 }
+
