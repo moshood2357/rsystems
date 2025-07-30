@@ -25,17 +25,17 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-gray-400">
-              <li><Link to="/services" className="hover:text-white transition-colors">Managed IT support</Link></li>
-              <li><Link to="/solutions" className="hover:text-white transition-colors">Cybersecurity services</Link></li>
-              <li><Link to="/support" className="hover:text-white transition-colors">Cloud & Infrastructure Management</Link></li>
-              <li><Link to="/recovery" className="hover:text-white transition-colors">IT consultancy</Link></li>
-              <li><Link to="/recovery" className="hover:text-white transition-colors">Compliance and governance</Link></li>
-              <li><Link to="/recovery" className="hover:text-white transition-colors">Device and endpoint management</Link></li>
-              <li><Link to="/recovery" className="hover:text-white transition-colors">Network Management</Link></li>
-              <li><Link to="/recovery" className="hover:text-white transition-colors">Vendor Management</Link></li>
-              <li><Link to="/recovery" className="hover:text-white transition-colors">Backup and Data recovery</Link></li>
-              <li><Link to="/recovery" className="hover:text-white transition-colors">Website design & Development</Link></li>
-              <li><Link to="/recovery" className="hover:text-white transition-colors">VoIP & unified communication</Link></li>
+              <li><Link to="/support" className="hover:text-white transition-colors">Managed IT support</Link></li>
+              <li><Link to="/cybersecurity" className="hover:text-white transition-colors">Cybersecurity services</Link></li>
+              <li><Link to="/cloud" className="hover:text-white transition-colors">Cloud & Infrastructure Management</Link></li>
+              <li><Link to="/consultancy" className="hover:text-white transition-colors">IT consultancy</Link></li>
+              <li><Link to="/compliance" className="hover:text-white transition-colors">Compliance and governance</Link></li>
+              <li><Link to="/protection" className="hover:text-white transition-colors">Device and endpoint management</Link></li>
+              <li><Link to="/network" className="hover:text-white transition-colors">Network Management</Link></li>
+              <li><Link to="/vendor" className="hover:text-white transition-colors">Vendor Management</Link></li>
+              <li><Link to="/backup" className="hover:text-white transition-colors">Backup and Data recovery</Link></li>
+              <li><Link to="/webdesign&developmement" className="hover:text-white transition-colors">Website design & Development</Link></li>
+              <li><Link to="/VoIP" className="hover:text-white transition-colors">VoIP & unified communication</Link></li>
             </ul>
           </div>
 

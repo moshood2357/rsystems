@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Loader from "./components/Loader";
 import Layout from "./components/Layout";
 import Footer from "./components/Footer";
+import CookieConsentBanner from './components/CookieConsentBanner';
 
 
 // Direct import for homepage
@@ -50,7 +51,8 @@ const CalculateUnifiedCommunicationPage = lazy(() => import("./components/Calcul
 const CalculateDataBackupRecoveryROIPage = lazy(() => import("./components/CalculateDataBackupRecoveryROIPage")); 
 
 
-const PrivacyPolicyPage = lazy(() => import("./components/PrivacyPolicyPage"));   
+const PrivacyPolicyPage = lazy(() => import("./components/PrivacyPolicyPage"));
+const CookiesPolicy = lazy(() => import("./components/CookiesPolicy"));   
 
 
 
@@ -59,8 +61,10 @@ function App() {
     
     <Router>
       <Layout>
+         <CookieConsentBanner />
         <Routes>
         {/* ✅ Directly loaded homepage without suspense, avoiding spinner flash */}
+       
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/assess" element={<ITAssessment />} />
@@ -336,6 +340,14 @@ function App() {
           element={
             <Suspense fallback={<Loader />}>
               <PrivacyPolicyPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/cookies"
+          element={
+            <Suspense fallback={<Loader />}>
+              <CookiesPolicy />
             </Suspense>
           }
         />
