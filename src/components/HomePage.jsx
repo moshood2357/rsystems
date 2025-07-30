@@ -95,7 +95,51 @@ export default function HomePage() {
 
     
      <div className="min-h-screen bg-white">
-      
+      <Helmet>
+  <title>R2 System Solution | IT Support in Cheltenham</title>
+  <meta name="description" content="Get 24/7 IT support, cybersecurity, and cloud services with 15-minute response time and fixed monthly pricing. Serving Cheltenham & beyond." />
+  <meta name="keywords" content="IT Support Cheltenham, Cybersecurity cheltenham, Cloud Management Cheltenham, IT Services UK, R2 System Solution, Managed IT Cheltenham, Data Recovery Cheltenham, Network Support Cheltenham" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="R2 System Solution" />
+  <link rel="canonical" href="https://www.r2systemsolution.co.uk/" />
+
+  {/* Open Graph / Facebook */}
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.r2systemsolution.co.uk/" />
+  <meta property="og:title" content="R2 System Solution | IT Support Experts in Cheltenham" />
+  <meta property="og:description" content="Providing fast, reliable IT support and cybersecurity for UK businesses. Trusted by 500+ companies since 2010." />
+  <meta property="og:image" content="/meta-banner.jpg" />
+
+  {/* Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="R2 System Solution | IT Support Experts in Cheltenham" />
+  <meta name="twitter:description" content="Providing fast, reliable IT support and cybersecurity for UK businesses. Trusted by 500+ companies since 2010." />
+  <meta name="twitter:image" content="/meta-banner.jpg" />
+
+
+    {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "R2 System Solution",
+              "url": "https://www.r2systemsolution.co.uk/",
+              "logo": "https://www.r2systemsolution.co.uk/CompanyLogo.jpeg",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+44-1452-905204",
+                "contactType": "Customer Support",
+                "areaServed": "GB",
+                "availableLanguage": ["English"]
+              },
+              "sameAs": [
+                "https://www.linkedin.com/company/r2systemsolution"
+              ]
+            }
+          `}
+        </script>
+</Helmet>
       
        {/* Header */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b">
