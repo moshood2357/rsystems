@@ -29,7 +29,7 @@ const CookieConsentBanner = () => {
     const script = document.createElement("script");
     script.id = "ga-script";
     script.async = true;
-    script.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"; // Replace with your GA ID
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-5CZ2MKY96X";
     document.head.appendChild(script);
 
     script.onload = () => {
@@ -40,7 +40,7 @@ const CookieConsentBanner = () => {
       window.gtag = gtag;
 
       gtag("js", new Date());
-      gtag("config", "G-XXXXXXX"); // Replace with your GA ID
+      gtag("config", "G-5CZ2MKY96X"); 
 
       if (trackEvent) {
         gtag("event", "cookie_consent", {
