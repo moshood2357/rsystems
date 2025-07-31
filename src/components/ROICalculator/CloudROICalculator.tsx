@@ -1,104 +1,10 @@
-// import { useState } from 'react';
-// import { Card, CardContent } from '../../ui/Card';
-// import { Button } from '../../ui/Button';
-// // import { Input } from '../ui/Input';
-// // import { Label } from '../ui/Label';
-// // import { Progress } from '../ui/Progress';
 
-// const CloudROICalculator = () => {
-//   const [formData, setFormData] = useState({
-//     currentSpend: '',
-//     servers: '',
-//     storage: '',
-//     utilization: '',
-//     timeline: '',
-//   });
-  
-//   const [results, setResults] = useState(null);
-//   const [loading, setLoading] = useState(false);
-
-//   const handleChange = (e) => {
-//     setFormData({ ...formData, [e.target.name]: e.target.value });
-//   };
-
-//   const calculateROI = (e) => {
-//     e.preventDefault();
-//     setLoading(true);
-
-//     const currentSpend = parseFloat(formData.currentSpend) || 0;
-//     const servers = parseInt(formData.servers) || 0;
-//     const storage = parseInt(formData.storage) || 0;
-//     const utilization = parseFloat(formData.utilization) || 0;
-//     const timeline = parseInt(formData.timeline) || 1;
-
-//     const estimatedCloudCost = (currentSpend * 0.65) + (servers * 15) + (storage * 0.02);
-//     const estimatedSavings = currentSpend - estimatedCloudCost;
-//     const roiPercentage = ((estimatedSavings * 12 * timeline) / (currentSpend * 12 * timeline)) * 100;
-
-//     setTimeout(() => {
-//       setResults({
-//         estimatedCloudCost: estimatedCloudCost.toFixed(2),
-//         estimatedSavings: estimatedSavings.toFixed(2),
-//         roiPercentage: roiPercentage.toFixed(1),
-//       });
-//       setLoading(false);
-//     }, 1000);
-//   };
-
-//   return (
-//     <Card className="max-w-xl mx-auto mt-10 p-6">
-//       <CardContent>
-//         <h2 className="text-2xl font-bold mb-4">Calculate Your Cloud ROI</h2>
-//         <form onSubmit={calculateROI} className="space-y-4">
-//           <div>
-//             <label>Current Monthly Infrastructure Spend (&pound;)</label>
-//             <input type="number" name="currentSpend" value={formData.currentSpend} onChange={handleChange} required />
-//           </div>
-//           <div>
-//             <label>Number of Servers/VMs</label>
-//             <input type="number" name="servers" value={formData.servers} onChange={handleChange} required />
-//           </div>
-//           <div>
-//             <label>Storage Needs (GB)</label>
-//             <input type="number" name="storage" value={formData.storage} onChange={handleChange} required />
-//           </div>
-//           <div>
-//             <label>Average Utilization (%)</label>
-//             <input type="number" name="utilization" value={formData.utilization} onChange={handleChange} required />
-//           </div>
-//           <div>
-//             <label>Expected Migration Timeline (Years)</label>
-//             <input type="number" name="timeline" value={formData.timeline} onChange={handleChange} required />
-//           </div>
-//           <Button type="submit" disabled={loading} className="w-full">
-//             {loading ? 'Calculating...' : 'Calculate ROI'}
-//           </Button>
-//         </form>
-
-//         {results && (
-//           <div className="mt-6 space-y-4">
-//             <h3 className="text-xl font-semibold">Your Results</h3>
-//             <p><strong>Estimated Monthly Cloud Cost:</strong> ${results.estimatedCloudCost}</p>
-//             <p><strong>Estimated Monthly Savings:</strong> ${results.estimatedSavings}</p>
-//             <p><strong>Estimated ROI:</strong> {results.roiPercentage}% over {formData.timeline} year(s)</p>
-
-//             <div className="mt-4">
-//               <label>Estimated ROI Progress</label>
-//               <progress value={parseFloat(results.roiPercentage)}></progress>
-//             </div>
-//           </div>
-//         )}
-//       </CardContent>
-//     </Card>
-//   );
-// };
-
-// export default CloudROICalculator;
 import { useState, useRef } from 'react';
 import { Card, CardContent } from '../../ui/Card';
 import { Button } from '../../ui/Button';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { Helmet } from 'react-helmet';
 
 const CloudROICalculator = () => {
   const [formData, setFormData] = useState({
@@ -192,7 +98,19 @@ const CloudROICalculator = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col items-center justify-center px-4 py-12">
+    <>
+    <Helmet>
+    <title>Cloud ROI Calculator | R2 System Solution</title>
+    <meta name="description" content="Use our Cloud ROI Calculator to estimate your cloud cost savings and generate a downloadable report. Provided by R2 System Solution Ltd." />
+    <meta name="keywords" content="Cloud ROI, ROI Calculator, Cloud Cost Savings, R2 System Solution, Cloud Migration, IT Optimization" />
+    <meta name="author" content="R2 System Solution Ltd." />
+    <meta property="og:title" content="Cloud ROI Calculator | R2 System Solution" />
+    <meta property="og:description" content="Estimate your cloud cost savings with our Cloud ROI Calculator and download a personalized PDF report." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.r2systemsolution.co.uk/cloud-roi-calculator" />
+    <meta property="og:image" content="https://www.r2systemsolution.co.uk/assets/cloud-roi-banner.jpg" />
+  </Helmet>
+      <section className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col items-center justify-center px-4 py-12">
       <Card className="w-full max-w-lg rounded-2xl shadow-2xl border border-gray-200 bg-white">
         <CardContent className="p-8">
           <h2 className="text-3xl font-bold text-center text-blue-900 mb-6">Cloud ROI Calculator</h2>
@@ -305,6 +223,8 @@ const CloudROICalculator = () => {
         </div>
       )}
     </section>
+    </>
+    
   );
 };
 

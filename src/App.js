@@ -5,8 +5,8 @@ import Loader from "./components/Loader";
 import Layout from "./components/Layout";
 import Footer from "./components/Footer";
 import CookieConsentBanner from './components/CookieConsentBanner';
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import GoogleAnalytics from './components/GoogleAnalytics';
+
 
 
 // Direct import for homepage
@@ -38,7 +38,7 @@ const VoIPUnifiedCommunications = lazy(() => import("./components/VoIPUnifiedCom
 const VoIPUnifiedCommunicationLanding = lazy(() => import("./components/VoIPUnifiedCommunicationLanding"));
 const CyberSecurityLanding = lazy(() => import("./components/CyberSecurityLanding"));
 const CloudInfrastructureLanding = lazy(() => import("./components/CloudInfrastructureLanding"));
-const WebsiteDesignDevelopmentLandingPage = lazy(() => import("./components/WebsiteDesignDevelopmentLandingPage"));
+const WebsiteDesignDevelopmentLandingPage = lazy(() => import("./components/WebsiteDesignAndDevelopment"));
 
 
 
@@ -59,41 +59,14 @@ const CookiesPolicy = lazy(() => import("./components/CookiesPolicy"));
 
 
 function App() {
-  const location = useLocation();
-
-  // Load the Google Analytics script
-  useEffect(() => {
-    // Add the external gtag.js script
-    const script1 = document.createElement('script');
-    script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-G-5CZ2MKY96X';
-    script1.async = true;
-    document.head.appendChild(script1);
-
-    // Add the inline gtag config
-    const script2 = document.createElement('script');
-    script2.innerHTML = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-5CZ2MKY96X');
-    `;
-    document.head.appendChild(script2);
-  }, []);
-
-  // Track page views on route change
-  useEffect(() => {
-    if (window.gtag) {
-      window.gtag('config', 'G-5CZ2MKY96X', {
-        page_path: location.pathname,
-      });
-    }
-  }, [location]);
+  
 
   return (
     
     <Router>
+      <CookieConsentBanner />
+      <GoogleAnalytics />
       <Layout>
-         <CookieConsentBanner />
         <Routes>
         {/* ✅ Directly loaded homepage without suspense, avoiding spinner flash */}
        

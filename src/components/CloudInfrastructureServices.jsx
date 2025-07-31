@@ -831,7 +831,8 @@ export default function CloudInfrastructureServices() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button
+            <a href="tel:01452905204">
+                <Button
                 size="lg"
                 variant="outline"
                 className="bg-white text-blue-600 hover:bg-gray-100"
@@ -839,6 +840,7 @@ export default function CloudInfrastructureServices() {
                 <Phone className="h-4 w-4 mr-2" />
                 01452905204
               </Button>
+              </a>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm opacity-90">

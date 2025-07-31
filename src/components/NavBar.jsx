@@ -4,7 +4,7 @@ import { Button } from "../ui/Button";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-  import AnchorLink from 'react-anchor-link-smooth-scroll';
+  
 
   export default function NavBar(){
      const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -179,12 +179,22 @@ import { useState } from 'react';
                      <Phone className="mr-2 h-6 w-6" />
                     01452905204
                   </a>
-                  <AnchorLink href = "/#contact">
+                  {/* <AnchorLink href = "/#contact">
                      <Button className="bg-blue-600 hover:bg-blue-700 text-white">
                        Get Quote
                        <ArrowRight className="ml-2 h-4 w-4" />
                      </Button>
-                  </AnchorLink>
+                  </AnchorLink> */}
+
+                    <button className="flex p-2 rounded items-center bg-blue-600 hover:bg-blue-700 text-white" onClick={() => {
+    const el = document.getElementById('contact');
+    el?.scrollIntoView({ behavior: 'smooth' });
+  }}>
+  
+  Get Quote
+  <ArrowRight className="ml-2 h-4 w-4" />
+</button>
+
                   
                 </nav>
     
@@ -289,12 +299,12 @@ import { useState } from 'react';
            01452905204
         </a>
     
-        <AnchorLink to="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
+        {/* <AnchorLink to="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
           <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full mt-4">
             Get Quote
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
-        </AnchorLink>
+        </AnchorLink> */}
       </div>
     )}
     </div>
