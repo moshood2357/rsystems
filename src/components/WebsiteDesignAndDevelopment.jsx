@@ -71,7 +71,7 @@ export default function WebsiteDesignAndDevelopment() {
               Beautiful, fast, and functional websites designed to drive results. Perfect for startups, brands, and businesses.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/contact">
+              <Link to="/development">
                 <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700">
                   <Calendar className="h-4 w-4 mr-2" />
                   Book Free Consultation

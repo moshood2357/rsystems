@@ -39,6 +39,8 @@ const VoIPUnifiedCommunicationLanding = lazy(() => import("./components/VoIPUnif
 const CyberSecurityLanding = lazy(() => import("./components/CyberSecurityLanding"));
 const CloudInfrastructureLanding = lazy(() => import("./components/CloudInfrastructureLanding"));
 const WebsiteDesignDevelopmentLandingPage = lazy(() => import("./components/WebsiteDesignAndDevelopment"));
+const WebsiteDesignLanding = lazy(() => import("./components/WebDesignLanding"));
+
 
 
 
@@ -132,6 +134,16 @@ function App() {
             </Suspense>
           }
         />
+
+        <Route
+          path="/development"
+          element={
+            <Suspense fallback={<Loader />}>
+              <WebsiteDesignLanding />
+            </Suspense>
+          }
+        />
+
         <Route
           path="/protection"
           element={
@@ -356,7 +368,7 @@ function App() {
             </Suspense>
           }
         />
-
+        
       </Routes>
       </Layout>
       <Footer />

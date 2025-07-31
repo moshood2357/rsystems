@@ -112,11 +112,11 @@ export default function HomePage() {
     }
    ];
 
-   const [isProductsOpen, setIsProductsOpen] = useState(false)
-  const products = [
-  { title: "CRM", href: "https://crm.r2systemsolution.co.uk/login" },
-  { title: "Loan App", href: "/products/product-b" },
-];
+//    const [isProductsOpen, setIsProductsOpen] = useState(false)
+//   const products = [
+//   { title: "CRM", href: "https://crm.r2systemsolution.co.uk/login" },
+//   { title: "Loan App", href: "/products/product-b" },
+// ];
   return (
     <>
                      
@@ -238,14 +238,14 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              {/* Products Dropdown */}
-                            <div className="relative group">
+              
+                            {/* <div className="relative group">
                               <button className="flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium">
                                 Products
                                 <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                               </button>
               
-                              {/* Products Dropdown Menu */}
+                              
                               <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
                                 <div className="p-2">
                                   <a
@@ -266,7 +266,7 @@ export default function HomePage() {
                                   </a>
                                 </div>
                                 </div>
-                                </div>
+                                </div> */}
                                 
 
               <Link to ="/about" className="text-gray-700 hover:text-blue-600 transition-colors">
@@ -345,8 +345,8 @@ export default function HomePage() {
         </div>
       )}
     </div>
-     {/* Products Dropdown */}
-    <div className="flex flex-col space-y-2">
+     
+    {/* <div className="flex flex-col space-y-2">
       <button
         onClick={() => setIsProductsOpen(!isProductsOpen)}
         className="flex justify-between items-center text-gray-700 hover:text-blue-600 text-lg font-medium"
@@ -368,7 +368,7 @@ export default function HomePage() {
           ))}
         </div>
       )}
-    </div>
+    </div> */}
 
     <Link
       to="/about"
