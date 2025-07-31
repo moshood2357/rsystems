@@ -237,7 +237,7 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-              </div>
+               </div>
               
                             {/* <div className="relative group">
                               <button className="flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium">

@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import {  useRef, useState } from "react";           
 import emailjs from '@emailjs/browser';
 import { Helmet } from 'react-helmet';
+import ReadytoGetStarted from "./ReadytoGetStarted";
 
 
 
@@ -191,7 +192,8 @@ export default function Contact() {
           Get Support Now
         </button>
       </section>
-
+      
+      <ReadytoGetStarted />
       
     </div>
   );

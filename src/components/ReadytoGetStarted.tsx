@@ -22,30 +22,30 @@
   
   export default function ReadytoGetStarted() {
 
-      const formRef = useRef(null);
-      const [isSending, setIsSending] = useState(false);
-      const [success, setSuccess] = useState(null); // null | true | false
-    
-      const sendEmail = (e) => {
-        e.preventDefault();
-        setIsSending(true);
-        setSuccess(null);
-    
-        emailjs
-          .sendForm('service_hx1g7mq', 'template_jdz15kk', formRef.current, 'usjHoNFTTChknODfx')
-          .then(
-            (result) => {
-              console.log(result.text);
-              setIsSending(false);
-              setSuccess(true);
-              formRef.current.reset();
-            },
-            (error) => {
-              console.error(error.text);
-              setIsSending(false);
-              setSuccess(false);
-            }
-          );
+      const formRef = useRef<HTMLFormElement>(null);
+  const [isSending, setIsSending] = useState(false);
+  const [success, setSuccess] = useState<boolean | null>(null);
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSending(true);
+
+    emailjs
+      .sendForm(
+        'service_hx1g7mq', 
+        'template_jdz15kk', 
+        formRef.current!,
+        'usjHoNFTTChknODfx'
+      )
+      .then(() => {
+        setSuccess(true);
+        setIsSending(false);
+        formRef.current?.reset(); 
+      })
+      .catch(() => {
+        setSuccess(false);
+        setIsSending(false);
+      });
       };
     return(
         <div>
