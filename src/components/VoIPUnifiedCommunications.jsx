@@ -234,13 +234,10 @@ export default function VoIPUnifiedCommunications() {
                     Free Communications Assessment
                   </Button>
                 </Link>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-teal-600 text-teal-600 hover:bg-teal-50 bg-transparent"
-                >
-                  VoIP Demo
-                </Button>
+                <a href="tel:01452905204" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
+                   <Phone className="mr-2 h-6 w-6" />
+                   01452905204
+                 </a>
               </div>
               <div className="grid grid-cols-3 gap-4 pt-4">
                 <div className="text-center">
@@ -306,7 +303,7 @@ export default function VoIPUnifiedCommunications() {
               <div className="text-sm text-gray-300">Of businesses overpay for traditional phone systems</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-teal-400 mb-2">$1,200</div>
+              <div className="text-3xl font-bold text-teal-400 mb-2">&pound;1,200</div>
               <div className="text-sm text-gray-300">Average annual savings per employee with VoIP</div>
             </div>
             <div>

@@ -239,13 +239,10 @@ export default function DeviceEndpointProtectionService() {
                     Free Security Assessment
                   </Button>
                 </Link>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-orange-600 text-orange-600 hover:bg-orange-50 bg-transparent"
-                >
-                  Device Protection Demo
-                </Button>
+                <a href="tel:01452905204" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
+                   <Phone className="mr-2 h-6 w-6" />
+                   01452905204
+                 </a>
               </div>
 
               <div className="grid grid-cols-3 gap-4 pt-4">

@@ -232,16 +232,13 @@ export default function ITConsultancyService() {
                 <Link to = "/ITConsultancy">
                   <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700">
                   <Calendar className="h-4 w-4 mr-2" />
-                  Schedule Strategy Session
+                  Free IT assessment
                 </Button>
                 </Link>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-purple-600 text-purple-600  hover:bg-purple-50 bg-transparent"
-                >
-                  Free IT Assessment
-                </Button>
+                <a href="tel:01452905204" className="text-2xl font-bold text-blue-600 hover:text-blue-800 flex items-center transition-colors duration-300">
+                   <Phone className="mr-2 h-6 w-6" />
+                   01452905204
+                 </a>
               </div>
 
               <div className="grid grid-cols-3 gap-4 pt-4">
