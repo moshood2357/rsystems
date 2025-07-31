@@ -12,17 +12,50 @@ import {
   MessageCircle,
   Clock,
   Globe,
+  Mail,
+  MapPin,
+  
 } from "lucide-react";
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+import emailjs from '@emailjs/browser';
+
 import { Button } from "../ui/Button";
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/Card";
+import { Card, CardContent, CardHeader, CardDescription, CardTitle } from "../ui/Card";
 import { Badge } from "../ui/Badge";
 
 import { Link } from 'react-router-dom';
+import {  useRef, useState } from "react";
 import { Helmet } from 'react-helmet';
 
 
 export default function About() {
-    
+   const formRef = useRef(null);
+     const [isSending, setIsSending] = useState(false);
+     const [success, setSuccess] = useState(null); // null | true | false
+   
+     const sendEmail = (e) => {
+       e.preventDefault();
+       setIsSending(true);
+       setSuccess(null);
+   
+       emailjs
+         .sendForm('service_hx1g7mq', 'template_jdz15kk', formRef.current, 'usjHoNFTTChknODfx')
+         .then(
+           (result) => {
+             console.log(result.text);
+             setIsSending(false);
+             setSuccess(true);
+             formRef.current.reset();
+           },
+           (error) => {
+             console.error(error.text);
+             setIsSending(false);
+             setSuccess(false);
+           }
+         );
+     };
+
+
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
@@ -101,16 +134,16 @@ export default function About() {
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-                <Link to = "/contact">
+                <AnchorLink href = "#contact">
                 <Button
                 size="lg"
                 variant="outline"
                 className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
                 >
                   <ArrowRight className="ml-2 h-5 w-5" />
-                  Contact Us
+                  Get Quote
                 </Button>
-                </Link>
+                </AnchorLink>
               </div>
 
               <div className="flex items-center space-x-6 text-sm text-blue-100">
@@ -402,6 +435,134 @@ export default function About() {
                 01452905204
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+         {/* Contact Section */}
+      <section id="contact" className="py-20 bg-blue-600">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
+              <p className="text-xl text-blue-100 mb-8">
+                Contact us today for a free consultation and see how we can help improve your IT infrastructure and
+                support.
+              </p>
+
+              <div className="space-y-4">
+                <div className="flex items-center text-white">
+                  <Phone className="h-6 w-6 mr-4 text-blue-200" />
+                  <span className="text-lg">01452905204</span>
+                </div>
+                <div className="flex items-center text-white">
+                  <Mail className="h-6 w-6 mr-4 text-blue-200" />
+                  <span className="text-lg">info@r2systemsolution.co.uk</span>
+                </div>
+                <div className="flex items-center text-white">
+                  <MapPin className="h-6 w-6 mr-4 text-blue-200" />
+                  <span className="text-lg">Harley House, 29 Cambray Place, Cheltenham, GL50 1JN</span>
+                </div>
+              </div>
+            </div>
+
+             <Card className="bg-white">
+      <CardHeader>
+        <CardTitle>Get Your Free Quote</CardTitle>
+        <CardDescription>
+          Fill out the form below and we'll get back to you within 24 hours.
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <form ref={formRef} onSubmit={sendEmail}>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                First Name<span className="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                name="first_name"
+                required
+                placeholder="John"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Last Name<span className="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                name="last_name"
+                required
+                placeholder="Doe"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+              />
+            </div>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Email<span className="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="john@example.com"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Service Needed<span className="text-red-500">*</span>
+            </label>
+            <select
+              name="service"
+              required
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+            >
+              <option value="">Select a service</option>
+              <option>Managed IT support</option>
+              <option>Cybersecurity services</option>
+              <option>Cloud & Infrastructure management</option>
+              <option>IT consultancy</option>
+              <option>Compliance & Governance</option>
+              <option>Network Management</option>
+              <option>Backup and Data Recovery</option>
+              <option>Vendor Management</option>
+              <option>VoIP and Unified Communication</option>
+              <option>Website design and development</option>
+              <option>Device & Endpoint Protection</option>
+            </select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Message<span className="text-red-500">*</span>
+            </label>
+            <textarea
+              name="message"
+              rows={4}
+              required
+              placeholder="Tell us about your IT needs..."
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+            ></textarea>
+          </div>
+
+          <Button type="submit" className="w-full bg-blue-600 text-white hover:bg-blue-700" disabled={isSending}>
+            {isSending ? 'Sending...' : 'Send Message'}
+            {!isSending && <ArrowRight className="ml-2 h-4 w-4" />}
+          </Button>
+
+          {success === true && (
+            <p className="text-green-600 text-sm mt-2">Message sent successfully!</p>
+          )}
+          {success === false && (
+            <p className="text-red-600 text-sm mt-2">Failed to send. Please try again.</p>
+          )}
+        </form>
+      </CardContent>
+    </Card>
           </div>
         </div>
       </section>
