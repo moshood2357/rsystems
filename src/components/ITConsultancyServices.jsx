@@ -23,6 +23,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui
 import { Badge } from "../ui/Badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/Accordion"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/Tabs"
+import ReadytoGetStarted from "../components/ReadytoGetStarted"
 
 export default function ITConsultancyService() {
   const [activeTestimonial, setActiveTestimonial] = useState(0)
@@ -853,6 +854,8 @@ export default function ITConsultancyService() {
           </div>
         </div>
       </section>
+
+      <ReadytoGetStarted />
     </div>
   )
 }

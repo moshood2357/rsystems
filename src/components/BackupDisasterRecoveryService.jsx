@@ -23,6 +23,8 @@ import { Badge } from "../ui/Badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/Accordion"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/Tabs"
 
+import ReadytoGetStarted from "../components/ReadytoGetStarted"
+
 export default function BackupDisasterRecovery() {
  
 
@@ -829,6 +831,8 @@ export default function BackupDisasterRecovery() {
           </div>
         </div>
       </section>
+
+      <ReadytoGetStarted />
     </div>
   )
 }

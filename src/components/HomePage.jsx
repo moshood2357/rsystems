@@ -682,7 +682,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center text-white">
                   <MapPin className="h-6 w-6 mr-4 text-blue-200" />
-                  <span className="text-lg">United Kingdom</span>
+                  <span className="text-lg">Harley House, 29 Cambray Place, Cheltenham, GL50 1JN</span>
                 </div>
               </div>
             </div>

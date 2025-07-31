@@ -4,6 +4,8 @@ import { Button } from "../ui/Button";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
+  import AnchorLink from 'react-anchor-link-smooth-scroll';
+
   export default function NavBar(){
      const [isServicesOpen, setIsServicesOpen] = useState(false);
      const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -177,12 +179,12 @@ import { useState } from 'react';
                      <Phone className="mr-2 h-6 w-6" />
                     01452905204
                   </a>
-                  <a href = "/contact">
+                  <AnchorLink href = "/#contact">
                      <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                    Get Quote
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                  </a>
+                       Get Quote
+                       <ArrowRight className="ml-2 h-4 w-4" />
+                     </Button>
+                  </AnchorLink>
                   
                 </nav>
     
@@ -287,12 +289,12 @@ import { useState } from 'react';
            01452905204
         </a>
     
-        <Link to="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
+        <AnchorLink to="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
           <Button className="bg-blue-600 hover:bg-blue-700 text-white w-full mt-4">
             Get Quote
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
-        </Link>
+        </AnchorLink>
       </div>
     )}
     </div>
