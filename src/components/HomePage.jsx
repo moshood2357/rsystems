@@ -181,7 +181,7 @@ export default function Index() {
               <div className="flex items-center space-x-2">
                 
                 <div>
-                  <img src = "/CompanyLogo.jpeg" alt = "logo" style={{height: "50px"}}/>
+                  <img src = {`${process.env.PUBLIC_URL}/CompanyLogo.jpeg`} alt = "logo" style={{height: "50px"}}/>
                  
                 </div>
               </div>
@@ -463,7 +463,7 @@ export default function Index() {
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-2xl p-8">
                 <img
-                  src="/support-min.png"
+                  src={`${process.env.PUBLIC_URL}/support-min.png`}
                   alt="IT support"
                   width={500}
                   height={400}
@@ -564,7 +564,7 @@ export default function Index() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <img
-                src="/tech-support.jpg"
+                src={`${process.env.PUBLIC_URL}/tech-support.jpg`}
                 alt="IT professional working on a computer"
                 width={600}
                 height={500}

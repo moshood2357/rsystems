@@ -1,6 +1,6 @@
 
 import { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Loader from "./components/Loader";
 import Layout from "./components/Layout";
 import Footer from "./components/Footer";
@@ -65,7 +65,7 @@ function App() {
 
   return (
     
-    <Router>
+    <>
       <CookieConsentBanner />
       <GoogleAnalytics />
       <Layout>
@@ -373,7 +373,7 @@ function App() {
       </Layout>
       <Footer />
       
-    </Router>
+    </>
   );
 }
 

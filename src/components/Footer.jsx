@@ -12,7 +12,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <img src="/CompanyLogo.jpeg" alt="logo" style={{ height: "30px" }} />
+                <img src={`${process.env.PUBLIC_URL}/CompanyLogo.jpeg`} alt="logo" style={{ height: "30px" }} />
               </div>
               <span className="font-bold text-lg">R2 System Solution Ltd</span>
             </div>

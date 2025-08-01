@@ -63,10 +63,10 @@ export default function Contact() {
       <section
          className="relative text-center py-40 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white to-blue-50 z--100"
          style={{
-         backgroundImage: "url('/harley-min.png')",
+         backgroundImage: `url(${process.env.PUBLIC_URL}/harley-min.png)`,
          backgroundSize: "cover",
          position: 'relative',
-        backgroundPosition: "center",
+         backgroundPosition: "center",
          backgroundRepeat: "no-repeat",
         }}
     >

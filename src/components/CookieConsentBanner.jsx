@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
 const CookieConsentBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -58,7 +59,7 @@ const CookieConsentBanner = () => {
     <div className="fixed bottom-0 w-full bg-gray-900 text-white p-4 z-50 shadow-md flex flex-col sm:flex-row items-center justify-between">
       <p className="text-sm mb-2 sm:mb-0">
         We use cookies to improve your experience. By continuing, you agree to our{" "}
-        <a href="/cookies" className="underline text-blue-400">Cookies Policy</a>.
+        <Link to="/cookies" className="underline text-blue-400">Cookies Policy</Link>.
       </p>
       <div className="flex gap-2">
         <button

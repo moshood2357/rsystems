@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom';
 
 import { Button } from "../ui/Button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/Card"
+import ReadytoGetStarted from "./ReadytoGetStarted";
 
 
 
@@ -286,6 +287,8 @@ export default function ServicesOverview() {
           </div>
         </div>
       </section>
+
+      <ReadytoGetStarted />
     </div>
   )
 }

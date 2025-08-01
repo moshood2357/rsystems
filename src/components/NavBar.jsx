@@ -73,7 +73,7 @@ import { useState } from 'react';
                        <span className="text-white font-bold text-lg">R2</span>
                     </div> */}
                     <div>
-                      <img src = "/CompanyLogo.jpeg" alt = "logo" style={{height: "50px"}}/>
+                      <img src = {`${process.env.PUBLIC_URL}/CompanyLogo.jpeg`} alt = "logo" style={{height: "50px"}}/>
                       {/* <h1 className="font-bold text-xl text-gray-900">R2 System Solution</h1>
                       <p className="text-sm text-gray-600">IT Solutions & Support</p> */}
                     </div>
@@ -104,9 +104,9 @@ import { useState } from 'react';
                       <div className="p-4">
                         <div className="grid grid-cols-2 gap-3">
                           {services.map((service, index) => (
-                            <a
+                            <Link
                               key={index}
-                              href={service.href}
+                              to= {service.href}
                               className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group/item"
                             >
                               <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 group-hover/item:bg-blue-600 group-hover/item:text-white transition-colors">
@@ -120,7 +120,7 @@ import { useState } from 'react';
                                   {service.description}
                                 </p>
                               </div>
-                            </a>
+                            </Link>
                           ))}
                         </div>
                         <div className="mt-4 pt-4 border-t border-gray-100">
