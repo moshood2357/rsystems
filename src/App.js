@@ -10,7 +10,7 @@ import GoogleAnalytics from './components/GoogleAnalytics';
 
 
 // Direct import for homepage
-import Index from "./components/Index";
+import Index from "./components/HomePage";
 import Contact from "./components/Contact";
 import ITAssessment from "./components/Assessment";
 
