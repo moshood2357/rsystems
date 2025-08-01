@@ -10,7 +10,7 @@ import GoogleAnalytics from './components/GoogleAnalytics';
 
 
 // Direct import for homepage
-import HomePage from "./components/HomePage";
+import Index from "./components/Index";
 import Contact from "./components/Contact";
 import ITAssessment from "./components/Assessment";
 
@@ -72,7 +72,7 @@ function App() {
         <Routes>
         {/* ✅ Directly loaded homepage without suspense, avoiding spinner flash */}
        
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Index />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/assess" element={<ITAssessment />} />
 

@@ -33,7 +33,7 @@ import emailjs from '@emailjs/browser';
 
 
 
-export default function HomePage() {
+export default function Index() {
    
   const formRef = useRef(null);
   const [isSending, setIsSending] = useState(false);
