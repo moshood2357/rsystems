@@ -143,6 +143,8 @@ export default function ManagedITSupport() {
       description: "Perfect for small businesses getting started",
       features: ["24/7 monitoring", "Help desk support", "Basic security", "Monthly reports", "Email support"],
       popular: false,
+      link: "/checkout1"
+      
     },
     {
       name: "Professional",
@@ -448,7 +450,7 @@ export default function ManagedITSupport() {
                         <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                         <div>
                           <div className="font-semibold text-gray-900">Compliance Management</div>
-                          <div className="text-sm text-gray-600">HIPAA, SOX, PCI-DSS compliance assistance</div>
+                          <div className="text-sm text-gray-600">GDPR, SOX, PCI-DSS compliance assistance</div>
                         </div>
                       </div>
                       <div className="flex items-start space-x-3">
@@ -664,13 +666,15 @@ export default function ManagedITSupport() {
                     ))}
                   </ul>
 
-                  <Button
+                  <Link to = {tier.link}>
+                    <Button
                     className={`w-full mt-6 ${
                       tier.popular ? "bg-blue-600 text-white hover:bg-blue-700" : "bg-gray-900 text-white hover:bg-gray-800"
                     }`}
                   >
                     {tier.name === "Enterprise" ? "Contact Sales" : "Get Started"}
                   </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}

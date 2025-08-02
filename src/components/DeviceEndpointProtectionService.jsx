@@ -398,8 +398,8 @@ export default function DeviceEndpointProtectionService() {
 
             <div className="text-center mt-8">
               <Link to = "/ProtectionROI">
-                <Button size="lg" className="bg-orange-600 text-white hover:bg-orange-700">
-                  Discover how security protection can save you from bigger financial losses
+                <Button size="lg" className="bg-orange-600 text-white w-fit hover:bg-orange-700">
+                  Calculate Security ROI
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
               </Link>

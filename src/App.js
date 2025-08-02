@@ -56,8 +56,10 @@ const CalculateDataBackupRecoveryROIPage = lazy(() => import("./components/Calcu
 
 
 const PrivacyPolicyPage = lazy(() => import("./components/PrivacyPolicyPage"));
-const CookiesPolicy = lazy(() => import("./components/CookiesPolicy"));   
+const CookiesPolicy = lazy(() => import("./components/CookiesPolicy")); 
 
+
+const CheckOut1 = lazy(() => import("./components/Checkout1"));
 
 
 function App() {
@@ -365,6 +367,15 @@ function App() {
           element={
             <Suspense fallback={<Loader />}>
               <CookiesPolicy />
+            </Suspense>
+          }
+        />
+
+        <Route
+          path="/checkout1"
+          element={
+            <Suspense fallback={<Loader />}>
+              <CheckOut1 />
             </Suspense>
           }
         />
