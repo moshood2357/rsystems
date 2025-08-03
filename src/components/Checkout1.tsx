@@ -9,6 +9,12 @@ import { Label } from "../ui/Label"
 import { RadioGroup, RadioGroupItem } from "../ui/RadioGroup"
 import { Separator } from "../ui/Separator"
 import { Progress } from "../ui/Progress"
+import {
+  isValidEmail,
+  isValidCardNumber,
+  isValidExpiryDate,
+  isValidCVV,
+} from "../lib/utils"
 
 type Step = "plan" | "account" | "billing" | "payment" | "review" | "success"
 
@@ -34,14 +40,7 @@ export default function CheckOut1() {
     nameOnCard: "",
   })
    
- const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
+          
   const steps = [
     { id: "plan", title: "Plan", completed: false },
     { id: "account", title: "Account", completed: false },
@@ -71,6 +70,69 @@ export default function CheckOut1() {
 
   const updateFormData = (field: string, value: string | number) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
+  }
+ 
+  
+    const validatePlanStep = () => {
+    return formData.users >= 1
+  }
+
+  const validateAccountStep = () => {
+    return (
+      formData.firstName.trim() !== "" &&
+      formData.lastName.trim() !== "" &&
+      formData.email.trim() !== "" &&
+      formData.company.trim() !== "" &&
+      formData.password.trim() !== "" &&
+      isValidEmail(formData.email) &&
+      formData.password.length >= 8
+    )
+  }
+
+   const validateBillingStep = () => {
+    const phoneValid = formData.phone.trim() !== "" && formData.phone.length >= 10
+    const postcodeValid = formData.postalCode.trim() !== "" && formData.postalCode.length >= 5
+
+    return (
+      formData.phone.trim() !== "" &&
+      formData.address.trim() !== "" &&
+      formData.city.trim() !== "" &&
+      formData.postalCode.trim() !== "" &&
+      phoneValid &&
+      postcodeValid
+    )
+  }
+
+  const validatePaymentStep = () => {
+    if (formData.paymentMethod === "card") {
+      return (
+        formData.nameOnCard.trim() !== "" &&
+        formData.cardNumber.trim() !== "" &&
+        formData.expiryDate.trim() !== "" &&
+        formData.cvv.trim() !== "" &&
+        isValidCardNumber(formData.cardNumber) &&
+        isValidExpiryDate(formData.expiryDate) &&
+        isValidCVV(formData.cvv)
+      )
+    }
+    return true
+  }
+
+  const canProceedToNextStep = () => {
+    switch (currentStep) {
+      case "plan":
+        return validatePlanStep()
+      case "account":
+        return validateAccountStep()
+      case "billing":
+        return validateBillingStep()
+      case "payment":
+        return validatePaymentStep()
+      case "review":
+        return true
+      default:
+        return false
+    }
   }
 
   const renderPlanStep = () => (
@@ -137,7 +199,8 @@ export default function CheckOut1() {
         </CardContent>
       </Card>
 
-      <Button onClick={nextStep} className="w-full" size="lg">
+      
+      <Button onClick={nextStep} className="w-full" size="lg" disabled={!canProceedToNextStep()}>
         Continue to Account Setup
       </Button>
     </div>
@@ -157,8 +220,7 @@ export default function CheckOut1() {
               <Label htmlFor="firstName">First Name</Label>
               <Input
                 id="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
+                onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                 placeholder="John"
                 required
               />
@@ -168,7 +230,7 @@ export default function CheckOut1() {
               <Input
                 id="lastName"
                 value={formData.lastName}
-                onChange={handleChange}
+                 onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                 placeholder="Doe"
                 required
               />
@@ -181,7 +243,7 @@ export default function CheckOut1() {
               id="email"
               type="email"
               value={formData.email}
-              onChange={handleChange}
+               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               placeholder="john@company.com"
               required
             />
@@ -192,7 +254,7 @@ export default function CheckOut1() {
             <Input
               id="company"
               value={formData.company}
-              onChange={handleChange}
+              onChange={(e) => setFormData({ ...formData, company: e.target.value })}
               placeholder="Your Company Ltd"
               required
             />
@@ -204,7 +266,7 @@ export default function CheckOut1() {
               id="password"
               type="password"
               value={formData.password}
-              onChange={handleChange}
+               onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               placeholder="Create a secure password"
               required
             />
@@ -223,9 +285,10 @@ export default function CheckOut1() {
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back
         </Button>
-        <Button onClick={nextStep} className="flex-1">
-          Continue to Billing
-        </Button>
+        
+      <Button onClick={nextStep} className="w-full" size="lg" disabled={!canProceedToNextStep()}>
+        Continue to Billing
+      </Button>
       </div>
     </div>
   )
@@ -245,8 +308,9 @@ export default function CheckOut1() {
               id="phone"
               type="tel"
               value={formData.phone}
-              onChange={handleChange}
+               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               placeholder="+44 20 1234 5678"
+              required
             />
           </div>
 
@@ -255,8 +319,9 @@ export default function CheckOut1() {
             <Input
               id="address"
               value={formData.address}
-              onChange={handleChange}
+               onChange={(e) => setFormData({ ...formData, address: e.target.value })}
               placeholder="123 Business Street"
+              required
             />
           </div>
 
@@ -268,6 +333,7 @@ export default function CheckOut1() {
                 value={formData.city}
                 onChange={(e) => updateFormData("city", e.target.value)}
                 placeholder="London"
+                required
               />
             </div>
             <div className="space-y-2">
@@ -277,6 +343,7 @@ export default function CheckOut1() {
                 value={formData.postalCode}
                 onChange={(e) => updateFormData("postalCode", e.target.value)}
                 placeholder="SW1A 1AA"
+                required
               />
             </div>
           </div>
@@ -298,9 +365,10 @@ export default function CheckOut1() {
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back
         </Button>
-        <Button onClick={nextStep} className="flex-1">
-          Continue to Payment
-        </Button>
+        
+      <Button onClick={nextStep} className="w-full" size="lg" disabled={!canProceedToNextStep()}>
+        Continue to Payment
+      </Button>
       </div>
     </div>
   )
@@ -341,6 +409,7 @@ export default function CheckOut1() {
                   value={formData.nameOnCard}
                   onChange={(e) => updateFormData("nameOnCard", e.target.value)}
                   placeholder="John Doe"
+                  required
                 />
               </div>
 
@@ -351,6 +420,7 @@ export default function CheckOut1() {
                   value={formData.cardNumber}
                   onChange={(e) => updateFormData("cardNumber", e.target.value)}
                   placeholder="1234 5678 9012 3456"
+                  required
                 />
               </div>
 
@@ -362,6 +432,7 @@ export default function CheckOut1() {
                     value={formData.expiryDate}
                     onChange={(e) => updateFormData("expiryDate", e.target.value)}
                     placeholder="MM/YY"
+                    required
                   />
                 </div>
                 <div className="space-y-2">
@@ -369,8 +440,9 @@ export default function CheckOut1() {
                   <Input
                     id="cvv"
                     value={formData.cvv}
-                    onChange={handleChange}
+                   onChange={(e) => setFormData({ ...formData, cvv: e.target.value })}
                     placeholder="123"
+                    required
                   />
                 </div>
               </div>
@@ -389,9 +461,10 @@ export default function CheckOut1() {
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back
         </Button>
-        <Button onClick={nextStep} className="flex-1">
-          Review Order
-        </Button>
+        
+      <Button onClick={nextStep} className="w-full" size="lg" disabled={!canProceedToNextStep()}>
+       Review Order
+      </Button>
       </div>
     </div>
   )
@@ -472,9 +545,10 @@ export default function CheckOut1() {
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back
         </Button>
-        <Button onClick={nextStep} className="flex-1" size="lg">
-          Complete Purchase
-        </Button>
+        
+      <Button onClick={nextStep} className="w-full" size="lg" disabled={!canProceedToNextStep()}>
+        Complete Purchase
+      </Button>
       </div>
     </div>
   )
