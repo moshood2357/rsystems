@@ -22,7 +22,7 @@ export default function ComplianceGovernanceService() {
       role: "Chief Compliance Officer",
       rating: 5,
       comment:
-        "Their HIPAA compliance framework helped us achieve 100% audit success rate for three consecutive years. The risk management program prevented potential $2M in fines.",
+        "Their GDPR compliance framework helped us achieve 100% audit success rate for three consecutive years. The risk management program prevented potential $2M in fines.",
       employees: "2000+",
       industry: "Healthcare",
       achievement: "100% Audit Success",

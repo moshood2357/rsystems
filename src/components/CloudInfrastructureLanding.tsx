@@ -3,6 +3,8 @@ import { Cloud, CheckCircle, AlertTriangle, Users, Award, Server, Zap, Shield, D
 import Back from './Back';
 
 import emailjs from '@emailjs/browser';
+import { Helmet } from 'react-helmet';
+
 
 interface FormData {
   fullName: string;
@@ -169,6 +171,29 @@ const CloudInfrastructureLanding: React.FC = () => {
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900">
+      <Helmet>
+  <title>Free Cloud Infrastructure Assessment | R2 System Solution Ltd</title>
+  <meta
+    name="description"
+    content="Claim your FREE Cloud Infrastructure Assessment (worth £4,000) exclusively for R2 System Solution Ltd clients. Discover cost savings and cloud migration opportunities today."
+  />
+  <meta name="keywords" content="Cloud Infrastructure Assessment, Free Cloud Assessment, R2 System Solution, Cloud Migration, IT Cost Savings, Azure, AWS, Google Cloud, Virtualization Consultant" />
+  <meta name="author" content="R2 System Solution Ltd" />
+  
+  {/* Open Graph / Facebook */}
+  <meta property="og:title" content="Free Cloud Infrastructure Assessment | R2 System Solution Ltd" />
+  <meta property="og:description" content="Unlock cost-saving opportunities with a free expert cloud infrastructure assessment. Limited time offer for R2 clients." />
+  <meta property="og:image" content="https://yoursite.com/your-thumbnail.jpg" />
+  <meta property="og:url" content="https://yoursite.com/cloud-assessment" />
+  <meta property="og:type" content="website" />
+
+  {/* Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Cloud Infrastructure Assessment | R2 System Solution Ltd" />
+  <meta name="twitter:description" content="Claim your free, expert-led cloud infrastructure assessment. Designed for R2 clients to uncover cost savings and cloud readiness." />
+  <meta name="twitter:image" content="https://yoursite.com/your-thumbnail.jpg" />
+</Helmet>
+
      
 
       {/* Hero Section */}
