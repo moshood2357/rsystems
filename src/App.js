@@ -55,7 +55,7 @@ const CalculateUnifiedCommunicationPage = lazy(() => import("./components/Calcul
 const CalculateDataBackupRecoveryROIPage = lazy(() => import("./components/CalculateDataBackupRecoveryROIPage")); 
 
 
-const PrivacyPolicyPage = lazy(() => import("./components/PrivacyPolicyPage"));
+const PrivacyNotice = lazy(() => import("./components/PrivacyPolicyPage"));
 const CookiesPolicy = lazy(() => import("./components/CookiesPolicy")); 
 
 
@@ -358,7 +358,7 @@ function App() {
           path="/privacy"
           element={
             <Suspense fallback={<Loader />}>
-              <PrivacyPolicyPage />
+              <PrivacyNotice />
             </Suspense>
           }
         />

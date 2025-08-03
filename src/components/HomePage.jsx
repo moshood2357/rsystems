@@ -198,7 +198,7 @@ export default function Index() {
                 <button className="flex items-center text-gray-700 hover:text-blue-600 transition-colors font-medium">
                   Services
                   <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
-                </button>
+                </button>                       
                 
                 {/* Dropdown Menu */}
                 <div className={`absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 ${
