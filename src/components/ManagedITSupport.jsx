@@ -143,7 +143,7 @@ export default function ManagedITSupport() {
       description: "Perfect for small businesses getting started",
       features: ["24/7 monitoring", "Help desk support", "Basic security", "Monthly reports", "Email support"],
       popular: false,
-      link: "/checkout1"
+      // link: "/checkout1"
       
     },
     {

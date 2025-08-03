@@ -81,10 +81,52 @@ const DataBackupRecoveryROICalculator = () => {
   return (
     <>
       <Helmet>
-        <title>Data & Backup Recovery ROI Calculator | R2 System Solution Ltd.</title>
-        <meta name="description" content="Quickly calculate your potential ROI when investing in data and backup recovery solutions for your business with our free, interactive tool." />
-        <meta name="keywords" content="Data Backup ROI, Backup Recovery ROI Calculator, Business Continuity ROI, R2 System Solution Ltd." />
-      </Helmet>
+  <title>Data Backup & Recovery ROI Calculator | Maximize Business Continuity | R2 System Solution Ltd.</title>
+  <meta 
+    name="description" 
+    content="Use our free Data Backup & Recovery ROI Calculator to evaluate cost savings and ROI from investing in robust backup and recovery solutions for your business." 
+  />
+  <meta 
+    name="keywords" 
+    content="Backup ROI Calculator, Data Recovery ROI, Business Continuity ROI Tool, IT Risk Calculator, Data Loss Prevention ROI, R2 System Solution Ltd." 
+  />
+  <meta property="og:title" content="Data Backup & Recovery ROI Calculator | R2 System Solution Ltd." />
+  <meta property="og:description" content="Evaluate the return on investment for your backup and recovery solutions. Protect your business and reduce risks with data continuity." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://r2systemsolution.co.uk/backupROI" />
+  <meta property="og:image" content="https://r2sytemsolution.co.uk/CompanyLogo.jpeg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Data Backup & Recovery ROI Calculator" />
+  <meta name="twitter:description" content="Quickly estimate your potential ROI with our backup and disaster recovery ROI tool." />
+  <meta name="twitter:image" content="https://r2systemsolution.co.uk/CompanyLogo.jpeg" />
+  <link rel="canonical" href="https://r2systemsolution.co.uk/backupROI" />
+</Helmet>
+
+<script type="application/ld+json">
+{`
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Data Backup & Recovery ROI Calculator",
+  "url": "https://r2systemsolution.co.uk/backupROI",
+  "description": "A free online tool to estimate ROI from backup and data recovery solutions.",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "GBP"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "R2 System Solution Ltd.",
+    "url": "https://r2systemsolution.co.uk"
+  }
+}
+`}
+</script>
+
+
 
       <section className="min-h-screen  bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center px-4 py-12">
         <Card className="w-full max-w-xl rounded-2xl shadow-lg border border-gray-200 bg-white">

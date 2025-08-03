@@ -107,8 +107,8 @@ const CloudROICalculator = () => {
     <meta property="og:title" content="Cloud ROI Calculator | R2 System Solution" />
     <meta property="og:description" content="Estimate your cloud cost savings with our Cloud ROI Calculator and download a personalized PDF report." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.r2systemsolution.co.uk/cloud-roi-calculator" />
-    <meta property="og:image" content="https://www.r2systemsolution.co.uk/assets/cloud-roi-banner.jpg" />
+    <meta property="og:url" content="https://www.r2systemsolution.co.uk/CloudROI" />
+    <meta property="og:image" content="https://www.r2systemsolution.co.uk/CompanyLogo.jpeg" />
   </Helmet>
       <section className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col items-center justify-center px-4 py-12">
       <Card className="w-full max-w-lg rounded-2xl shadow-2xl border border-gray-200 bg-white">

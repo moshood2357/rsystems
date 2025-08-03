@@ -3,6 +3,7 @@ import { Card, CardContent } from '../../ui/Card';
 import { Button } from '../../ui/Button';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { Helmet } from 'react-helmet';
 
 const ManagedITSupportROICalculator = () => {
   const [formData, setFormData] = useState({
@@ -77,6 +78,39 @@ const ManagedITSupportROICalculator = () => {
   };
 
   return (
+    <>
+    <Helmet>
+  <title>Managed IT Support ROI Calculator | R2 System Solution Ltd.</title>
+  <meta name="description" content="Estimate your potential cost savings and productivity boost with our Managed IT Support ROI Calculator by R2 System Solution Ltd." />
+  <meta name="keywords" content="Managed IT Support, ROI Calculator, IT Services UK, R2 System Solution, Cost Savings, IT Downtime" />
+  <meta property="og:title" content="Managed IT Support ROI Calculator | R2 System Solution Ltd." />
+  <meta property="og:description" content="Calculate your potential ROI and downtime savings with our simple tool." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://r2systemsolution.co.uk/ManagedITSupportROI" />
+  <meta property="og:image" content="https://r2systemsolution.co.uk/CompanyLogo.jpeg" />
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Managed IT Support ROI Calculator",
+      "url": "https://r2systemsolution.co.uk/ManagedITSupportROI",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "creator": {
+        "@type": "Organization",
+        "name": "R2 System Solution Ltd.",
+        "url": "https://r2systemsolution.co.uk"
+      },
+      "description": "A free tool to calculate the return on investment from managed IT support services, including downtime reduction and cost savings.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP"
+      }
+    })}
+  </script>
+</Helmet>
+
     <section className="min-h-screen bg-gradient-to-b from-green-50 to-white flex flex-col items-center justify-center px-4 py-12">
       <Card className="w-full max-w-xl rounded-2xl shadow-lg border border-gray-200 bg-white">
         <CardContent className="p-8 space-y-6">
@@ -183,6 +217,7 @@ const ManagedITSupportROICalculator = () => {
         </Button>
       </div>
     </section>
+    </>
   );
 };
 

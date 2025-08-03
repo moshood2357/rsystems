@@ -3,6 +3,8 @@ import { Card, CardContent } from '../../ui/Card';
 import { Button } from '../../ui/Button';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { Helmet } from 'react-helmet';
+
 
 const ITConsultancyROICalculator = () => {
   const [formData, setFormData] = useState({
@@ -84,6 +86,74 @@ const ITConsultancyROICalculator = () => {
   };
 
   return (
+   <>
+    <Helmet>
+  <title>IT Consultancy ROI Calculator | R2 System Solution Ltd.</title>
+  <meta
+    name="description"
+    content="Estimate the return on investment of your IT consultancy engagement. Use our interactive ROI calculator to make informed technology decisions."
+  />
+  <meta
+    name="keywords"
+    content="IT ROI Calculator, Consultancy ROI, IT Consulting, IT Cost Savings, ROI Tool, R2 System Solution Ltd."
+  />
+  <meta name="robots" content="index, follow" />
+  <link
+    rel="canonical"
+    href="https://www.r2systemsolution.co.uk/ITConsultancyROI"
+  />
+
+  {/* Open Graph */}
+  <meta property="og:title" content="IT Consultancy ROI Calculator" />
+  <meta
+    property="og:description"
+    content="Use our ROI calculator to estimate how much you can save and gain from IT consultancy services. Download personalized reports."
+  />
+  <meta
+    property="og:url"
+    content="https://www.r2systemsolution.co.uk/ITConsultancyROI"
+  />
+  <meta
+    property="og:image"
+    content="https://www.r2systemsolution.co.uk/CompanyLogo.jpeg"
+  />
+  <meta property="og:type" content="website" />
+
+  {/* Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IT Consultancy ROI Calculator" />
+  <meta
+    name="twitter:description"
+    content="Try our free ROI calculator for IT consultancy and make data-driven decisions."
+  />
+  <meta
+    name="twitter:image"
+    content="https://www.r2systemsolution.co.uk/images/CompanyLogo.jpeg"
+  />
+
+  {/* JSON-LD Structured Data */}
+  <script type="application/ld+json">
+    {`
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "IT Consultancy ROI Calculator",
+        "description": "Estimate the return on investment of IT consultancy for your organization. Provided by R2 System Solution Ltd.",
+        "url": "https://www.r2systemsolution.co.uk/ITConsultancyROI",
+        "publisher": {
+          "@type": "Organization",
+          "name": "R2 System Solution Ltd.",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.r2systemsolution.co.uk/CompanyLogo.jpeg"
+          }
+        }
+      }
+    `}
+  </script>
+</Helmet>
+
+
     <section className="min-h-screen bg-gradient-to-b from-green-50 to-white flex flex-col items-center justify-center px-4 py-12">
       <Card className="w-full max-w-xl rounded-2xl shadow-lg border border-gray-200 bg-white">
         <CardContent className="p-8 space-y-6">
@@ -193,14 +263,20 @@ const ITConsultancyROICalculator = () => {
         </CardContent>
       </Card>
       <div className="flex justify-center">
-        <Button
+      <Button
         onClick={downloadPDF}
-        className="mt-4 py-3 px-6 bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold rounded-lg transition-all shadow-md hover:shadow-lg"
-        >
-          Download Results as PDF
-        </Button>
+        disabled={loading || !results}
+        className={`mt-4 py-3 px-6 text-white text-lg font-semibold rounded-lg transition-all shadow-md hover:shadow-lg ${
+          loading || !results
+            ? 'bg-blue-300 cursor-not-allowed'
+            : 'bg-blue-600 hover:bg-blue-700'
+        }`}
+      >
+        {loading ? 'Preparing PDF...' : 'Download Results as PDF'}
+      </Button>
     </div>
     </section>
+   </>
   );
 };
 

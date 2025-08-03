@@ -3,6 +3,7 @@ import { Card, CardContent } from '../../ui/Card';
 import { Button } from '../../ui/Button';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { Helmet } from 'react-helmet';
 
 const CybersecurityROICalculator = () => {
   const [formData, setFormData] = useState({
@@ -81,6 +82,48 @@ const CybersecurityROICalculator = () => {
 
   return (
     <section className="min-h-screen bg-gradient-to-b from-purple-50 to-white flex flex-col items-center justify-center px-4 py-12">
+      <Helmet>
+  <title>Cybersecurity ROI Calculator | R2 System Solution Ltd.</title>
+  <meta name="description" content="Calculate your business's return on investment (ROI) for cybersecurity spending. Save costs and assess breach risks with R2 System Solution Ltd." />
+  <meta name="keywords" content="cybersecurity ROI calculator, data breach risk, security investment savings, business cybersecurity, ROI tool, R2 System Solution Ltd." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.r2systemsolution.co.uk/CybersecurityROI" />
+  
+  {/* Open Graph for social sharing */}
+  <meta property="og:title" content="Cybersecurity ROI Calculator | R2 System Solution Ltd." />
+  <meta property="og:description" content="Estimate potential savings and return on your cybersecurity investment with our simple calculator." />
+  <meta property="og:image" content="https://www.r2systemsolution.co.uk/CompanyLogo.jpeg" />
+  <meta property="og:url" content="https://www.r2systemsolution.co.uk/CybersecurityROI" />
+  <meta property="og:type" content="website" />
+
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cybersecurity ROI Calculator | R2 System Solution Ltd." />
+  <meta name="twitter:description" content="Estimate potential ROI from investing in cybersecurity solutions." />
+  <meta name="twitter:image" content="https://www.r2systemsolution.co.uk/CompanyLogo.jpeg" />
+
+  {/* JSON-LD Structured Data */}
+  <script type="application/ld+json">
+    {`
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Cybersecurity ROI Calculator",
+      "description": "Use this tool by R2 System Solution Ltd. to estimate the return on investment (ROI) for cybersecurity consultancy and prevent potential data breach losses.",
+      "url": "https://www.r2systemsolution.co.uk/CybersecurityROI",
+      "publisher": {
+        "@type": "Organization",
+        "name": "R2 System Solution Ltd.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.r2systemsolution.co.uk/CompanyLogo.jpeg"
+        }
+      }
+    }
+    `}
+  </script>
+</Helmet>
+
       <Card className="w-full max-w-xl rounded-2xl shadow-lg border border-gray-200 bg-white">
         <CardContent className="p-8 space-y-6">
           <div className="space-y-2 text-center">
@@ -193,3 +236,4 @@ const CybersecurityROICalculator = () => {
 };
 
 export default CybersecurityROICalculator;
+  

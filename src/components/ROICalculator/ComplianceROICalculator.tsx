@@ -100,6 +100,7 @@ const ComplianceROICalculator = () => {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Compliance ROI Calculator",
+    "url": "https://r2systemsolution.co.uk/ComplianceROI",
     "operatingSystem": "All",
     "applicationCategory": "BusinessApplication",
     "description": "Estimate the potential ROI of investing in compliance solutions to reduce legal risks and inefficiencies.",
@@ -136,11 +137,11 @@ const ComplianceROICalculator = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content="https://www.r2systemsolution.co.uk/compliance-roi-calculator"
+          content="https://www.r2systemsolution.co.uk/ComplianceROI"
         />
         <meta
           property="og:image"
-          content="https://www.r2systemsolution.co.uk/assets/compliance-roi-banner.jpg"
+          content="https://www.r2systemsolution.co.uk/CompanyLogo.jpeg"
         />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}

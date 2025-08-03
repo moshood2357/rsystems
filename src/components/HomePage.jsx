@@ -136,13 +136,13 @@ export default function Index() {
   <meta property="og:url" content="https://www.r2systemsolution.co.uk/" />
   <meta property="og:title" content="R2 System Solution | IT Support Experts in Cheltenham" />
   <meta property="og:description" content="Providing fast, reliable IT support and cybersecurity for UK businesses. Trusted by 500+ companies since 2010." />
-  <meta property="og:image" content="/meta-banner.jpg" />
+  <meta property="og:image" content="/CompanyLogo.jpeg" />
 
   {/* Twitter */}
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="R2 System Solution | IT Support Experts in Cheltenham" />
   <meta name="twitter:description" content="Providing fast, reliable IT support and cybersecurity for UK businesses. Trusted by 500+ companies since 2010." />
-  <meta name="twitter:image" content="/meta-banner.jpg" />
+  <meta name="twitter:image" content="/CompanyLogo.jpeg" />
 
 
     {/* JSON-LD Structured Data */}
