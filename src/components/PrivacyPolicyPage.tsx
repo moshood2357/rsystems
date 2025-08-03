@@ -1,8 +1,45 @@
-
+import { Helmet } from "react-helmet";
 
 const PrivacyNotice: React.FC = () => {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12 text-gray-800">
+   <>
+   
+
+<Helmet>
+  <title>Privacy Notice | R2 System Solution Ltd</title>
+  <meta
+    name="description"
+    content="Learn how R2 System Solution Ltd collects, uses, and protects your personal data in accordance with UK GDPR."
+  />
+  <link rel="canonical" href="https://r2systemsolution.co.uk/privacy-notice" />
+
+  <script type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "R2 System Solution Ltd",
+    "url": "https://r2systemsolution.co.uk",
+    "email": "support@r2systemsolution.co.uk",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Harley House, 29 Cambray Place",
+      "addressLocality": "Cheltenham",
+      "addressRegion": "Gloucestershire",
+      "postalCode": "GL50 1JN",
+      "addressCountry": "GB"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+44 01452 905204",
+      "contactType": "customer support"
+    },
+    "sameAs": []
+  })}
+</script>
+
+</Helmet>
+
+         <div className="max-w-4xl mx-auto px-4 py-12 text-gray-800">
       <h1 className="text-3xl font-bold mb-8">Privacy Notice</h1>
       <p className="text-sm text-gray-500 mb-6">Effective Date: 17/06/2025</p>
 
@@ -96,6 +133,7 @@ const PrivacyNotice: React.FC = () => {
         © R2 System Solution Ltd. All rights reserved.
       </footer>
     </div>
+   </>  
   );
 };
 
