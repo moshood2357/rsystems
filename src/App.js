@@ -355,7 +355,7 @@ function App() {
           }
         />
         <Route
-          path="/privacy"
+          path="/privacy-notice"
           element={
             <Suspense fallback={<Loader />}>
               <PrivacyNotice />
