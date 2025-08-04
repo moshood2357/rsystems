@@ -19,7 +19,7 @@ const PrivacyNotice: React.FC = () => {
     "@type": "Organization",
     "name": "R2 System Solution Ltd",
     "url": "https://r2systemsolution.co.uk",
-    "email": "support@r2systemsolution.co.uk",
+    "email": "privacy@r2systemsolution.co.uk",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Harley House, 29 Cambray Place",
@@ -47,7 +47,7 @@ const PrivacyNotice: React.FC = () => {
         <h2 className="text-xl font-semibold mb-2">1. Who We Are</h2>
         <p>R2 System Solution Ltd</p>
         <p>Harley House, 29 Cambray Place, Cheltenham, Gloucestershire, England, GL50 1JN</p>
-        <p>Email: <a href="mailto:support@r2systemsolution.co.uk" className="text-blue-600 underline">support@r2systemsolution.co.uk</a></p>
+        <p>Email: <a href="mailto:support@r2systemsolution.co.uk" className="text-blue-600 underline">privacy@r2systemsolution.co.uk</a></p>
         <p>Tel: +44 01452 905204</p>
         <p>Data Controller: Ridwan Akorede</p>
       </section>
