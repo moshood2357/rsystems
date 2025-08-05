@@ -62,6 +62,10 @@ const CookiesPolicy = lazy(() => import("./components/CookiesPolicy"));
 const CheckOut1 = lazy(() => import("./components/Checkout1"));
 
 
+const TermsAndConditions = lazy(() => import("./components/TermsAndConditions"));
+const PrivacyPolicy = lazy(() => import("./components/PrivacyNotice"));
+
+
 function App() {
   
 
@@ -379,7 +383,22 @@ function App() {
             </Suspense>
           }
         />
-        
+        <Route
+          path="/terms-and-conditions"
+          element={
+            <Suspense fallback={<Loader />}>
+              <TermsAndConditions />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/policy-of-use"
+          element={
+            <Suspense fallback={<Loader />}>
+              <PrivacyPolicy />
+            </Suspense>
+          }
+        />
       </Routes>
       </Layout>
       <Footer />
