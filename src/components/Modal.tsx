@@ -12,8 +12,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center  bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="bg-white p-6 rounded-lg max-w-2xl w-full relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+      <div className=" bg-gradient-to-br from-blue-50 to-indigo-100 p-6 rounded-lg max-w-2xl w-full relative">
         <h2 className="text-xl font-semibold mb-4">{title}</h2>
         <button
           onClick={onClose}
