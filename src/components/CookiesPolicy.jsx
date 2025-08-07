@@ -68,9 +68,7 @@ const CookiesPolicy = () => {
         </p>
       </section>
 
-      <footer className="text-sm text-gray-500 mt-10">
-        © R2 System Solution Ltd. All rights reserved.
-      </footer>
+      
     </div>
   );
 };

@@ -129,9 +129,7 @@ const PrivacyNotice: React.FC = () => {
         </p>
       </section>
 
-      <footer className="border-t pt-6 text-center text-sm text-gray-500">
-        © R2 System Solution Ltd. All rights reserved.
-      </footer>
+      
     </div>
    </>  
   );
