@@ -155,7 +155,7 @@ const VendorManagementLanding: React.FC = () => {
               </ul>
             </div>
             <p className="text-sm text-gray-500">
-              Questions? Call us directly at <span className="font-semibold">(555) 123-4567</span>
+              Questions? Call us directly at <span className="font-semibold">01452905204</span>
             </p>
           </div>
         </div>

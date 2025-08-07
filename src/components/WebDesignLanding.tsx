@@ -85,7 +85,7 @@ const WebsiteDesignLanding: React.FC = () => {
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Request Submitted!</h1>
           <p className="text-lg text-gray-600 mb-4">Thanks for contacting us about your website project. We'll reach out soon!</p>
-          <p className="text-sm text-gray-500">Have urgent needs? Call us at (555) 123-4567</p>
+          <p className="text-sm text-gray-500">Have urgent needs? Call us at 01452905204</p>
         </div>
       </div>
     );

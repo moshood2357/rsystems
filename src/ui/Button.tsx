@@ -1,4 +1,5 @@
 import React, { ButtonHTMLAttributes } from "react";
+import { Slot } from "@radix-ui/react-slot";
 
 // Simple class name combiner
 function cn(...classes: string[]) {
@@ -27,6 +28,7 @@ const baseClasses =
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: keyof typeof variantStyles;
   size?: keyof typeof sizeStyles;
+  asChild?: boolean;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -36,15 +38,18 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className = "",
       variant = "default",
       size = "default",
+      asChild = false,
       type = "button",
       ...props
     },
     ref
   ) => {
+    const Comp = asChild ? Slot : "button";
+
     return (
-      <button
+      <Comp
         ref={ref}
-        type={type}
+        type={asChild ? undefined : type}
         className={cn(
           baseClasses,
           variantStyles[variant] || variantStyles.default,
@@ -54,7 +59,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {children}
-      </button>
+      </Comp>
     );
   }
 );
