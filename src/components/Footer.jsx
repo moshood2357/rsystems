@@ -71,7 +71,7 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Contact Info</h3>
             <div className="space-y-2 text-gray-400">
               <p>01452905204</p>
-              <p>support@r2systemsolution.co.uk</p>
+              <p>info@r2systemsolution.co.uk</p>
               <p>Harley House, 29 Cambray Place, Cheltenham, GL50 1JN</p>
             </div>
           </div>

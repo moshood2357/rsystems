@@ -175,7 +175,7 @@ export default function CheckOut1() {
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Essential Plan</CardTitle>
           <div className="text-3xl font-bold">
-            £99 <span className="text-base font-normal text-muted-foreground">/user/month</span>
+            £35 <span className="text-base font-normal text-muted-foreground">/user/month</span>
           </div>
           <CardDescription>Perfect for small businesses getting started</CardDescription>
         </CardHeader>
@@ -221,7 +221,7 @@ export default function CheckOut1() {
           <div className="bg-muted p-4 rounded-lg">
             <div className="flex justify-between items-center">
               <span className="font-medium">Total monthly cost:</span>
-              <span className="text-2xl font-bold">£{formData.users * 99}</span>
+              <span className="text-2xl font-bold">£{formData.users * 35}</span>
             </div>
             <p className="text-sm text-muted-foreground mt-1">Billed monthly • Cancel anytime</p>
           </div>
@@ -409,12 +409,12 @@ export default function CheckOut1() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="postalCode">Postal Code</Label>
+              <Label htmlFor="postalCode">Post Code</Label>
               <Input
                 id="postalCode"
                 value={formData.postalCode}
                 onChange={(e) => updateFormData("postalCode", e.target.value)}
-                placeholder="SW1A 1AA"
+                placeholder="SW1 1AA"
                 required
               />
             </div>
