@@ -54,13 +54,13 @@ export default function Footer() {
           <div className="min-w-[200px] mb-6">
             <h3 className="font-semibold mb-4">Follow us</h3>
             <div className="flex space-x-4 text-gray-400">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white" aria-label='Visit our facebook page'>
                 <FaFacebook size={24} />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              <a href="https://X.com" target="_blank" rel="noopener noreferrer" className="hover:text-white" aria-label='Visit our X page'>
                 <FaTwitter size={24} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white" aria-label='Visit our linkedin page'>
                 <FaLinkedin size={24} />
               </a>
             </div>

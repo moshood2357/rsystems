@@ -200,7 +200,7 @@ import { useState } from 'react';
     
                  
                 {/* Mobile menu button */}
-                <Button variant="ghost" className="md:hidden"
+                <Button variant="ghost" className="md:hidden" aria-label="Open menu"
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                   <div className="w-6 h-6 flex flex-col justify-center space-y-1">
                      <div className="w-full h-0.5 bg-gray-600"></div>

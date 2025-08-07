@@ -293,7 +293,7 @@ export default function Index() {
 
              
             {/* Mobile menu button */}
-            <Button variant="ghost" className="md:hidden"
+            <Button variant="ghost" className="md:hidden" aria-label="Open menu"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               <div className="w-6 h-6 flex flex-col justify-center space-y-1">
                  <div className="w-full h-0.5 bg-gray-600"></div>
@@ -665,7 +665,7 @@ export default function Index() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-blue-600">
+      <section id="contact" className="py-20 bg-blue-900">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -739,7 +739,7 @@ export default function Index() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label for = "service" className="block text-sm font-medium text-gray-700 mb-2">
               Service Needed<span className="text-red-500">*</span>
             </label>
             <select
@@ -774,7 +774,7 @@ export default function Index() {
             ></textarea>
           </div>
 
-          <Button type="submit" className="w-full bg-blue-600 text-white hover:bg-blue-700" disabled={isSending}>
+          <Button type="submit" className="w-full bg-blue-900 text-white hover:bg-blue-900" disabled={isSending}>
             {isSending ? 'Sending...' : 'Send Message'}
             {!isSending && <ArrowRight className="ml-2 h-4 w-4" />}
           </Button>
