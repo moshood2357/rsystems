@@ -291,7 +291,7 @@ export default function DeviceEndpointProtectionService() {
                       <span className="text-sm text-green-600">Excellent</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div className="bg-green-500 h-2 rounded-full" style={{ width: "96%" }}></div>
+                    <div className="bg-green-500 h-2 rounded-full" style={{ width: "96%" }}></div>
                     </div>
                   </div>
                 </div>
