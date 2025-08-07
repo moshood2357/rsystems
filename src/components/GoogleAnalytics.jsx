@@ -8,7 +8,7 @@ export default function GoogleAnalytics(){
   useEffect(() => {
     // Add the external gtag.js script
     const script1 = document.createElement('script');
-    script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-G-5CZ2MKY96X';
+    script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-5CZ2MKY96X';
     script1.async = true;
     document.head.appendChild(script1);
 
