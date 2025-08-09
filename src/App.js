@@ -7,6 +7,10 @@ import Footer from "./components/Footer";
 import CookieConsentBanner from './components/CookieConsentBanner';
 import GoogleAnalytics from './components/GoogleAnalytics';
 
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+
 
 
 // Direct import for homepage
@@ -65,6 +69,9 @@ const CheckOut1 = lazy(() => import("./components/Checkout1"));
 const TermsAndConditions = lazy(() => import("./components/TermsAndConditions"));
 const PrivacyPolicy = lazy(() => import("./components/PrivacyNotice"));
 
+
+
+const stripePromise = loadStripe('pk_live_51RiHD7JJmkIkymUOi5eBN1TJQ28TLUwsS4OEGJAQqmtJ1XfJXWOVY12EgP2L2uFPOYrPJd9ttWxYmZIVdEVus3br007tsiCtuw'); 
 
 function App() {
   
@@ -250,7 +257,7 @@ function App() {
           path="/vendormanagement"
           element={
             <Suspense fallback={<Loader />}>
-              <VendorManagementLanding        Landing />
+              <VendorManagementLanding />
             </Suspense>
           }
         />
@@ -375,14 +382,16 @@ function App() {
           }
         />
 
-        <Route
-          path="/checkout1"
-          element={
-            <Suspense fallback={<Loader />}>
-              <CheckOut1 />
-            </Suspense>
-          }
-        />
+       <Route
+            path="/checkout1"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Elements stripe={stripePromise}>
+                  <CheckOut1 />
+                </Elements>
+              </Suspense>
+            }
+          />
         <Route
           path="/terms-and-conditions"
           element={

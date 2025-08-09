@@ -180,8 +180,9 @@ export default function Index() {
             <Link to = "/">
               <div className="flex items-center space-x-2">
                 
-                <div>
+                <div className="flex items-center space-x-2">
                   <img src = {`${process.env.PUBLIC_URL}/CompanyLogo.jpeg`} alt = "logo" style={{height: "50px"}}/>
+                  <span>R2 system solution Ltd</span>
                  
                 </div>
               </div>
